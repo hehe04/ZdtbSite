@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ZdtbSite.Model
 {
+    /// <summary>
+    /// jiangchun 
+    /// </summary>
     public class Product
     {
         [Key]
