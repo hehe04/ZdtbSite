@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ZdtbSite.Model
 {
+    /// <summary>
+    /// 产品类型 负责产品类类型的详细数据
+    /// </summary>
     public class ProductType
     {
         [Key]
