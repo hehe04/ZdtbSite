@@ -45,8 +45,9 @@ namespace ZdtbSite.Web.Controllers
 
         public ActionResult Detail()
         {
-            var list = repository.ProductTypes.ToList();
+            var list = repository.Products.ToList();
             return Json(list, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

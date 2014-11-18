@@ -14,6 +14,5 @@ namespace ZdtbSite.Core.Infrastructure
 
         IDbSet<ProductType> ProductTypes { get; set; }
 
-
     }
 }
