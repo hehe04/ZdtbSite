@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ZdtbSite.Model
 {
+    /// <summary>
+    /// 产品，产品模块的详细数据模型
+    /// </summary>
     public class Product
     {
         [Key]
