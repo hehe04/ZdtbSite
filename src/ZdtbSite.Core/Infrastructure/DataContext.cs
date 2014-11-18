@@ -12,7 +12,11 @@ namespace ZdtbSite.Core.Infrastructure
     public class DataContext : DbContext, IRepository
     {
         public DataContext()
-            : base("DataContext") { }
+            : base("DataContext")
+        {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
+        }
 
         public IDbSet<Product> Products { get; set; }
 
