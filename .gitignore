@@ -6,3 +6,5 @@
 *.Cache
 /src/packages/*
 !/src/packages/repositories.config
+*.log
+/gitignore/*
