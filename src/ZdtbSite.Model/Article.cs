@@ -10,7 +10,7 @@ namespace ZdtbSite.Model
         public int Id { get; set; }
 
         [StringLength(512)]
-        public int Title { get; set; }
+        public string Title { get; set; }
 
         [StringLength(128)]
         public string Publisher { get; set; }
@@ -29,7 +29,7 @@ namespace ZdtbSite.Model
         /// <summary>
         /// 内容
         /// </summary>
-        [Column(TypeName = "text")]
+        [Column(TypeName = "longText")]
         [MaxLength]
         public string Content { get; set; }
 
