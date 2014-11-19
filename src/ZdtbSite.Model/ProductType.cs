@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ZdtbSite.Model
 {
+    /// <summary>
+    /// 产品类型 负责产品类类型的详细数据
+    /// </summary>
     public class ProductType
     {
         [Key]
