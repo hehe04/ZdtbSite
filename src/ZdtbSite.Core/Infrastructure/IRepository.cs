@@ -14,7 +14,6 @@ namespace ZdtbSite.Core.Infrastructure
         IDbSet<Product> Products { get; set; }
 
         IDbSet<ProductType> ProductTypes { get; set; }
-
         IDbSet<Article> Articles { get; set; }
 
         IDbSet<BasicInfo> BasicInfos { get; set; }
