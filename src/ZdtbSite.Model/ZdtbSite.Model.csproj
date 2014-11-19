@@ -40,15 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Account.cs" />
-=======
     <Compile Include="UserInfo.cs" />
     <Compile Include="VisitLog.cs" />
     <Compile Include="BasicInfo.cs" />
     <Compile Include="ContentType.cs" />
     <Compile Include="Article.cs" />
->>>>>>> 5a14c33c19ee9fa44d5b20f7ee579198af28e6be
     <Compile Include="Product.cs" />
     <Compile Include="ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
