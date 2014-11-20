@@ -109,6 +109,8 @@
 	var $chrt_fourth = "#87BA17";		/* green     */
 	var $chrt_fifth = "#BD362F";		/* dark red  */
 	var $chrt_mono = "#000";
+
+	var baseUrl = "/Areas/ZdtbAdmin/Content/";
 	
 	//turn this on if your browser supports audio
 	
@@ -217,7 +219,7 @@
 		/* custom form elements */
 		setup_custom_form_elements();
 
-	}); 
+	});
 
 	/* end on page load */
 	
@@ -1523,7 +1525,7 @@
 		
 		$('#theme-switcher ul#theme-links-js li a').bind('click',
 			function(e) {
-				$("#switch-theme-js").attr("href", "css/themes/"+$(this).data('rel')+".css");
+			    $("#switch-theme-js").attr("href",baseUrl + "css/themes/"+$(this).data('rel')+".css");
 				return false;
 			}
 		);

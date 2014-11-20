@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/cus-icons.css?v=1">
     <!-- jarvis widget css -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jarvis-widgets.css?v=1">
+    <link href="~/Areas/ZdtbAdmin/Content/css/DT_bootstrap.css" rel="stylesheet" />
     <!-- main theme files -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme-responsive.css?v=1">
@@ -87,7 +88,7 @@
                 <div class="contained">
 
                     <!-- theme name -->
-                    <h1> {JARVIS} <span class="hidden-xs">- Smart Admin Template</span> </h1>
+                    <h1>Minnan<span class="hidden-xs">- 网站管理</span> </h1>
                     <!-- end theme name -->
                     <!-- col-md-4 -->
                     <div class="pull-right">
@@ -106,19 +107,19 @@
                                 <a href="javascript:void(0)" class="btn btn-sm btn-inverse dropdown-toggle" data-toggle="dropdown">主题 <span class="caret"></span></a>
                                 <ul id="theme-links-js" class="dropdown-menu toolbar pull-right">
                                     <li>
-                                        <a href="javascript:void(0)" data-rel="purple"><i class="icon-sign-blank purple-icon"></i>Royal Purple</a>
+                                        <a href="javascript:void(0)" data-rel="purple"><i class="icon-sign-blank purple-icon"></i>紫色</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" data-rel="blue"><i class="icon-sign-blank navyblue-icon"></i>Navy Blue</a>
+                                        <a href="javascript:void(0)" data-rel="blue"><i class="icon-sign-blank navyblue-icon"></i>蓝色</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" data-rel="green"><i class="icon-sign-blank green-icon "></i>Emerald</a>
+                                        <a href="javascript:void(0)" data-rel="green"><i class="icon-sign-blank green-icon "></i>绿色</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" data-rel="darkred"><i class="icon-sign-blank red-icon "></i>Dark Rose</a>
+                                        <a href="javascript:void(0)" data-rel="darkred"><i class="icon-sign-blank red-icon "></i>酒红</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" data-rel="default"><i class="icon-sign-blank grey-icon"></i>Default</a>
+                                        <a href="javascript:void(0)" data-rel="default"><i class="icon-sign-blank grey-icon"></i>黑色</a>
                                     </li>
                                 </ul>
                             </div>
@@ -139,7 +140,7 @@
         <div id="main" role="main" class="container-fluid">
             <div class="contained">
                 <!-- aside -->
-                <aside>                
+                <aside>
                     <div class="divider"></div>
                     <!-- end search box -->
                     <!-- aside item: Mini profile -->
@@ -147,8 +148,8 @@
                         <a href="javascript:void(0)" class="my-profile-pic">
                             <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt="" />
                         </a>
-                        <span class="first-child">Welcome <strong>Victoria!</strong></span>
-                        <span><a href="javascript:void(0);">Edit Profile </a></span>
+                        <span class="first-child">欢迎 <strong>@RenderSection("UserName", false)!</strong></span>
+                        <span><a href="javascript:void(0);">编辑信息 </a></span>
                     </div>
                     <div class="divider"></div>
                     <!-- end aside item: Mini profile -->
@@ -157,83 +158,47 @@
 
                         <ul class="menu" id="accordion-menu-js">
                             <li class="">
-                                <a href="javascript:void(0)"><i class="icon-off"></i>Dashboard <span class="badge">2</span></a>
+                                <a href="javascript:void(0)"><i class="icon-user"></i>用户模块 <span class="badge">2</span></a>
                                 <ul>
                                     <li>
-                                        <a href="index.html">Dashboard</a>
+                                        <a href="#">用户管理</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);" class="logout-js" data-rel="login.html">Logout</a>
+                                        <a href="#">权限分配</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="#"><i class="icon-envelope"></i>文章发布</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">3</span></a>
+                                <ul>
+                                    <li>
+                                        <a href="#">类型维护</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">产品发布</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">浏览信息</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="">
-                                <a href="inbox.html"><i class="icon-envelope"></i>Inbox</a>
+                                <a href="#"><i class="icon-home"></i>企业简介</a>
                             </li>
                             <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>Forms<span class="badge">3</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="forms.html">Form Elements</a>
-                                    </li>
-                                    <li>
-                                        <a href="validation.html">Validation</a>
-                                    </li>
-                                    <li>
-                                        <a href="wizard.html">Wizards</a>
-                                    </li>
-                                </ul>
+                                <a href="#"><i class="icon-briefcase"></i>招聘信息</a>
                             </li>
                             <li class="">
-                                <a href="javascript:void(0)"><i class="icon-user"></i>Interface<span class="badge">3</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="interface.html">Interface Elements</a>
-                                    </li>
-                                    <li>
-                                        <a href="buttons.html">Buttons &amp; Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="tables.html">Tables</a>
-                                    </li>
-                                </ul>
+                                <a href="#"><i class="icon-hdd"></i>留言预览</a>
                             </li>
                             <li class="">
-                                <a href="javascript:void(0)"><i class="icon-signal"></i>Charts &amp; Graphs<span class="badge">3</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="basic_charts.html">Basic Charts</a>
-                                    </li>
-                                    <li>
-                                        <a href="adv_charts.html">Advanced Charts</a>
-                                    </li>
-                                    <li>
-                                        <a href="raphael.html">Raphael Engine</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="current">
-                                <a href="widgets.html" class="expanded"><i class="icon-refresh"></i>Smart Widgets</a>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-plus"></i>Bonus<span class="badge">4</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="invoice.html">Invoice</a>
-                                    </li>
-                                    <li>
-                                        <a href="typography.html">Typography</a>
-                                    </li>
-                                    <li>
-                                        <a href="chat.html">Chat</a>
-                                    </li>
-                                    <li>
-                                        <a href="error-page.html">Error Page</a>
-                                    </li>
-                                </ul>
+                                <a href="#"><i class="icon-shopping-cart"></i>订购信息</a>
                             </li>
                         </ul>
-
                     </div>
                     <div class="divider"></div>
                     <!-- end aside item: Menu -->
@@ -247,9 +212,9 @@
 
                             <a href="javascript:void(0)">
                                 <img src="/Areas/ZdtbAdmin/Content/img/email-important.png" width="22" height="18" alt="important mail" />
-                                From:David S...
+                                IP:121.265.33.99
                             </a>
-                            Dear Victoria, Congratulations! You work has been uploade...
+                            The physical and digital worlds continue to converge...
                         </div>
                         <!-- inbox message 2-->
                         <div class="alert inbox">
@@ -258,9 +223,9 @@
                             </button>
                             <a href="javascript:void(0)">
                                 <img src="/Areas/ZdtbAdmin/Content/img/email-unread.png" width="22" height="18" alt="important mail" />
-                                Re:Last Year...
+                                IP:121.265.25.65
                             </a>
-                            Hey Vicky, find attached! Thx :-)
+                            Vietnam’s vision is to become an industrialized nation by 2020...
                         </div>
                         <!-- inbox message 3-->
                         <div class="alert inbox last-child">
@@ -269,9 +234,9 @@
                             </button>
                             <a href="javascript:void(0)">
                                 <img src="/Areas/ZdtbAdmin/Content/img/email-unread.png" width="22" height="18" alt="important mail" />
-                                Company Party
+                                IP:121.265.36.35
                             </a>
-                            Hi, You have been cordially invited to join new year...
+                            The Gartner Symposium/ITxpo in Barcelona takes place from November 9-13...
                         </div>
 
                     </div>
@@ -281,7 +246,7 @@
                 <!-- main content -->
                 <div id="page-content">
                     <!-- page header -->
-                    <h1 id="page-header">@RenderSection("PageHeader",false)</h1>
+                    <h1 id="page-header">@RenderSection("PageHeader", false)</h1>
                     @RenderBody()
                 </div>
             </div>
@@ -442,6 +407,7 @@
 
     <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
+    @RenderSection("script", false);
 
     <!-- d3 library placed at the bottom for better performance -->
     <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/d3.v3.min.js"></script> -->

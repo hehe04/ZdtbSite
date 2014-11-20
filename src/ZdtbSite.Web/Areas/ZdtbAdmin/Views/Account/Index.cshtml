@@ -2,199 +2,39 @@
     ViewBag.Title = "Index";
 }
 
+@section UserName{
+    Jason
+}
 
 @section PageHeader{
-    Account Manager
+    用户管理
 }
 <div class="fluid-container">
-
+    <div style="padding-bottom:10px">
+        <a class="btn btn-primary" href="javascript:void(0);">
+            <i class="icon-ok-sign icon-white"></i> 添加
+        </a>
+        <a class="btn btn-warning" href="javascript:void(0);">
+            <i class="icon-edit icon-white"></i> 修改
+        </a>
+        <a class="btn btn-danger" href="javascript:void(0);">
+            <i class="icon-remove icon-white"></i> 删除
+        </a>
+        <a class="btn btn-inverse" href="javascript:void(0);">
+            <i class="icon-share-alt icon-white"></i> 权限分配
+        </a>
+    </div>
     <!-- widget grid -->
     <section id="widget-grid" class="">
-
-        <div class="row">
-
-            <!-- article -->
-            <article class="col-md-6">
-                <!-- new widget -->
-                <div class="jarviswidget" id="widget-id-4">
-                    <header>
-                        <h2>Default Table with hover</h2>
-                    </header>
-                    <!-- wrap div -->
-                    <div>
-
-                        <div class="jarviswidget-editbox">
-                            <div>
-                                <label>Title:</label>
-                                <input type="text" />
-                            </div>
-                            <div>
-                                <label>Styles:</label>
-                                <span data-widget-setstyle="purple" class="purple-btn"></span>
-                                <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
-                                <span data-widget-setstyle="green" class="green-btn"></span>
-                                <span data-widget-setstyle="yellow" class="yellow-btn"></span>
-                                <span data-widget-setstyle="orange" class="orange-btn"></span>
-                                <span data-widget-setstyle="pink" class="pink-btn"></span>
-                                <span data-widget-setstyle="red" class="red-btn"></span>
-                                <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
-                                <span data-widget-setstyle="black" class="black-btn"></span>
-                            </div>
-                        </div>
-
-                        <div class="inner-spacer">
-                            <!-- content goes here -->
-                            <table class="table text-left table-hover" id="just-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Wise</td>
-                                        <td>Man</td>
-                                        <td>@@myorange</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- end content-->
-                    </div>
-                    <!-- end wrap div -->
-                </div>
-                <!-- end widget -->
-            </article>
-            <!-- end article -->
-            <!-- article -->
-            <article class="col-md-6">
-                <!-- new widget -->
-                <div class="jarviswidget" id="widget-id-5">
-                    <header>
-                        <h2>Optional row classes</h2>
-                    </header>
-                    <!-- wrap div -->
-                    <div>
-
-                        <div class="jarviswidget-editbox">
-                            <div>
-                                <label>Title:</label>
-                                <input type="text" />
-                            </div>
-                            <div>
-                                <label>Styles:</label>
-                                <span data-widget-setstyle="purple" class="purple-btn"></span>
-                                <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
-                                <span data-widget-setstyle="green" class="green-btn"></span>
-                                <span data-widget-setstyle="yellow" class="yellow-btn"></span>
-                                <span data-widget-setstyle="orange" class="orange-btn"></span>
-                                <span data-widget-setstyle="pink" class="pink-btn"></span>
-                                <span data-widget-setstyle="red" class="red-btn"></span>
-                                <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
-                                <span data-widget-setstyle="black" class="black-btn"></span>
-                            </div>
-                        </div>
-
-                        <div class="inner-spacer">
-                            <!-- content goes here -->
-                            <table class="table text-left">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Product</th>
-                                        <th>Payment Taken</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="success">
-                                        <td>1</td>
-                                        <td>TB - Monthly</td>
-                                        <td>01/04/2012</td>
-                                        <td>Approved</td>
-                                    </tr>
-                                    <tr class="error">
-                                        <td>2</td>
-                                        <td>TB - Monthly</td>
-                                        <td>02/04/2012</td>
-                                        <td>Declined</td>
-                                    </tr>
-                                    <tr class="warning">
-                                        <td>3</td>
-                                        <td>TB - Monthly</td>
-                                        <td>03/04/2012</td>
-                                        <td>Pending</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td>4</td>
-                                        <td>TB - Monthly</td>
-                                        <td>04/04/2012</td>
-                                        <td>Call in to confirm</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- end content-->
-                    </div>
-                    <!-- end wrap div -->
-                </div>
-                <!-- end widget -->
-            </article>
-            <!-- end article -->
-
-        </div>
-
         <div class="row">
             <article class="col-md-12">
                 <!-- new widget -->
-                <div class="jarviswidget" id="widget-id-6">
-                    <header>
-                        <h2>Static table with checkboxes</h2>
+                <div class="jarviswidget jarviswidget-sortable" role="widget">
+                    <header role="heading">
+                        <h2>用户</h2>
                     </header>
                     <!-- wrap div -->
                     <div>
-
-                        <div class="jarviswidget-editbox">
-                            <div>
-                                <label>Title:</label>
-                                <input type="text" />
-                            </div>
-                            <div>
-                                <label>Styles:</label>
-                                <span data-widget-setstyle="purple" class="purple-btn"></span>
-                                <span data-widget-setstyle="navyblue" class="navyblue-btn"></span>
-                                <span data-widget-setstyle="green" class="green-btn"></span>
-                                <span data-widget-setstyle="yellow" class="yellow-btn"></span>
-                                <span data-widget-setstyle="orange" class="orange-btn"></span>
-                                <span data-widget-setstyle="pink" class="pink-btn"></span>
-                                <span data-widget-setstyle="red" class="red-btn"></span>
-                                <span data-widget-setstyle="darkgrey" class="darkgrey-btn"></span>
-                                <span data-widget-setstyle="black" class="black-btn"></span>
-                            </div>
-                        </div>
-
                         <div class="inner-spacer">
                             <!-- content goes here -->
                             <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
@@ -264,7 +104,26 @@
                                     </tr>
                                 </tbody>
                             </table>
-
+                            <div class="dt-footer">
+                                <div class="row">
+                                    <div class="col-md-6 visible-md visible-lg">
+                                        <div class="dataTables_info" id="dtable_info">当前页/总页数 : 1/20</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="dataTables_paginate paging_bootstrap pagination">
+                                            <ul class="pagination">
+                                                <li class="prev disabled"><a href="#">← Previous</a></li>
+                                                <li class="active"><a href="#">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                                <li class="next"><a href="#">Next → </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- end content-->
                     </div>
