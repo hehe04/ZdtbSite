@@ -14,6 +14,7 @@ namespace ZdtbSite.Web
     {
         protected void Application_Start()
         {
+            AutofacConfig.SetAutofacContainer();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());//设置dbConfiguration实例，必须在使用任何实体框架之前设置

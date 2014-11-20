@@ -7,7 +7,8 @@ namespace ZdtbSite.Core.Repository
     public class VisitLogRepository : RepositoryBase<VisitLog>, IRepository<VisitLog>
 
     {
-        public VisitLogRepository(DataContext context) : base(context)
+        public VisitLogRepository(IDbContextFactory dbContextFactory)
+            : base(dbContextFactory)
         {
         }
 

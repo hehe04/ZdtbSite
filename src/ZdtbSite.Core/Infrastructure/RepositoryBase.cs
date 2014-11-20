@@ -7,16 +7,21 @@ using PagedList;
 
 namespace ZdtbSite.Core.Infrastructure
 {
-    public abstract class RepositoryBase<T> : Disposable where T : class
+    public abstract class RepositoryBase<T> where T : class
     {
 
         private DataContext dataContext;
         private IDbSet<T> dbSet;
 
-        public RepositoryBase(DataContext context)
+        public RepositoryBase(IDbContextFactory dbContextFactory)
         {
-            this.dataContext = context;
-            dbSet = dataContext.Set<T>();
+            this.dataContext = dbContextFactory.DataContext;
+            dbSet = DataContext.Set<T>();
+        }
+
+        protected DataContext DataContext
+        {
+            get { return dataContext; }
         }
 
         public virtual void Add(T entity)
@@ -27,7 +32,7 @@ namespace ZdtbSite.Core.Infrastructure
         public void Update(T entity)
         {
             dbSet.Attach(entity);
-            dataContext.Entry(entity).State = EntityState.Modified;
+            DataContext.Entry(entity).State = EntityState.Modified;
         }
 
         public void Delete(T entity)
@@ -88,14 +93,6 @@ namespace ZdtbSite.Core.Infrastructure
             var result = dbSet.AsNoTracking().Where(where).OrderBy(order).GetPage(page);
             var count = dbSet.AsNoTracking().Count(where);
             return new StaticPagedList<T>(result, page.PageIndex, page.PageSize, count);
-        }
-
-        public override void DisposeCore()
-        {
-            if (dataContext != null)
-            {
-                dataContext.Dispose();
-            }
         }
     }
 }

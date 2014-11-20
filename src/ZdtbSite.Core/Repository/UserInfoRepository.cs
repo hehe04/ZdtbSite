@@ -6,8 +6,8 @@ namespace ZdtbSite.Core.Repository
 {
     public class UserInfoRepository : RepositoryBase<UserInfo>, IRepository<UserInfo>
     {
-        public UserInfoRepository(DataContext context)
-            : base(context)
+        public UserInfoRepository(IDbContextFactory dbContextFactory)
+            : base(dbContextFactory)
         {
         }
 

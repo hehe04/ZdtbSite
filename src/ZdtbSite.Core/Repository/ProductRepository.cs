@@ -6,8 +6,8 @@ namespace ZdtbSite.Core.Repository
 {
     public class ProductRepository : RepositoryBase<Product>, IRepository<Product>
     {
-        public ProductRepository(DataContext context)
-            : base(context)
+        public ProductRepository(IDbContextFactory dbContextFactory)
+            : base(dbContextFactory)
         {
         }
 

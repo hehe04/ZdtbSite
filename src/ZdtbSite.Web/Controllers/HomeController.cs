@@ -10,11 +10,13 @@ namespace ZdtbSite.Web.Controllers
 {
     public class HomeController : Controller
     {
-        DataContext repository;
+        private readonly IRepository<ProductType> productTypeRepository;
+        private IUnitOfWork unitOfWork;
 
-        public HomeController()
+        public HomeController(IRepository<ProductType> productTypeRepository, IUnitOfWork unitOfWork)
         {
-            repository = new DataContext();
+            this.productTypeRepository = productTypeRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         // GET: Home
@@ -38,14 +40,14 @@ namespace ZdtbSite.Web.Controllers
 
                 }
             };
-            repository.ProductTypes.Add(productType);
-            repository.SaveChanges();
+            productTypeRepository.Add(productType);
+            unitOfWork.Commit();
             return View();
         }
 
         public ActionResult Detail()
         {
-            var list = repository.Products.ToList();
+            var list = productTypeRepository.GetAllAsNoTracking().ToList();
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 

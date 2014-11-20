@@ -6,31 +6,24 @@ using System.Threading.Tasks;
 
 namespace ZdtbSite.Core.Infrastructure
 {
-    public class UnitOfWork : Disposable, IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private DataContext dataContext;
+        private IDbContextFactory dbContextFactory;
 
-        public UnitOfWork(DataContext dataContext)
+        public UnitOfWork(IDbContextFactory dbContextFactory)
         {
-            this.dataContext = dataContext;
+            this.dbContextFactory = dbContextFactory;
         }
 
         public DataContext DataContext
         {
-            get { return dataContext ?? (dataContext = new DataContext()); }
+            get { return dataContext ?? (dataContext = dbContextFactory.DataContext); }
         }
 
         public void Commit()
         {
             dataContext.SaveChanges();
-        }
-
-        public override void DisposeCore()
-        {
-            if (dataContext != null)
-            {
-                dataContext.Dispose();
-            }
         }
     }
 }
