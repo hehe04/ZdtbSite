@@ -873,7 +873,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\CompanyNewsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\DeviceWorkshopController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndustryNewsController.cs" />
+    <Compile Include="Controllers\OurOfferingController.cs" />
+    <Compile Include="Controllers\OurTeamController.cs" />
+    <Compile Include="Controllers\ProcessController.cs" />
+    <Compile Include="Controllers\QualityCertificatesController.cs" />
+    <Compile Include="Controllers\RecruitController.cs" />
+    <Compile Include="Controllers\ServicesSupportController.cs" />
+    <Compile Include="Controllers\TalentStrategyController.cs" />
+    <Compile Include="Controllers\TechnologySupportController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -908,6 +922,23 @@
     <Content Include="Areas\ZdtbAdmin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Test\View1.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\OurOffering\Index.cshtml" />
+    <Content Include="Views\DeviceWorkshop\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\QualityCertificates\Index.cshtml" />
+    <Content Include="Views\CompanyNews\Index.cshtml" />
+    <Content Include="Views\IndustryNews\Index.cshtml" />
+    <Content Include="Views\ServicesSupport\Index.cshtml" />
+    <Content Include="Views\Process\Index.cshtml" />
+    <Content Include="Views\TechnologySupport\Index.cshtml" />
+    <Content Include="Views\FAQ\Index.cshtml" />
+    <Content Include="Views\TalentStrategy\Index.cshtml" />
+    <Content Include="Views\Recruit\Index.cshtml" />
+    <Content Include="Views\OurTeam\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -919,7 +950,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Models\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">
