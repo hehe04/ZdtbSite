@@ -14,6 +14,7 @@ namespace ZdtbSite.Web
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
+            builder.RegisterType<DbContextFactory>().As<IDbContextFactory>().InstancePerRequest();
             builder.RegisterAssemblyTypes(typeof(UserInfoRepository).Assembly)
                 .Where(x => x.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces()

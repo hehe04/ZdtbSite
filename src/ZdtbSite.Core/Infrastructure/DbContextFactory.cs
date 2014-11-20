@@ -5,7 +5,7 @@
         DataContext DataContext { get; }
     }
 
-    public class DbContextFactory : Disposable
+    public class DbContextFactory : Disposable, IDbContextFactory
     {
         private DataContext dataContext;
 
