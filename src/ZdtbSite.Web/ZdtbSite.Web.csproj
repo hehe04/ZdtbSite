@@ -119,6 +119,13 @@
     <Content Include="Areas\ZdtbAdmin\Content\css\fullcalendar.css" />
     <Content Include="Areas\ZdtbAdmin\Content\css\jarvis-widgets.css" />
     <Content Include="Areas\ZdtbAdmin\Content\css\jquery.jgrowl.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger-spinner.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger-theme-air.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger-theme-block.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger-theme-flat.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger-theme-future.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger-theme-ice.css" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\messenger\messenger.css" />
     <Content Include="Areas\ZdtbAdmin\Content\css\print-invoice.css" />
     <Content Include="Areas\ZdtbAdmin\Content\css\responsive-tables.css" />
     <Content Include="Areas\ZdtbAdmin\Content\css\select2.css" />
@@ -136,6 +143,7 @@
     <Content Include="Areas\ZdtbAdmin\Content\css\wysiwyg-color.css" />
     <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.svg" />
+    <Content Include="Areas\ZdtbAdmin\Content\img\ajax-loader2.gif" />
     <Content Include="Areas\ZdtbAdmin\Content\img\amchart\dragIcon.gif" />
     <Content Include="Areas\ZdtbAdmin\Content\img\amchart\dragIconH.gif" />
     <Content Include="Areas\ZdtbAdmin\Content\img\amchart\lens.png" />
@@ -298,6 +306,7 @@
     <Content Include="Areas\ZdtbAdmin\Content\img\uislider\slider_handles_5.png" />
     <Content Include="Areas\ZdtbAdmin\Content\img\uniform-skin\sprite-aristo.png" />
     <Content Include="Areas\ZdtbAdmin\Content\img\widget\widget-icon.png" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\common.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\config.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\adv_charts\d3-chart-1.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\adv_charts\d3-chart-2.js" />
@@ -408,12 +417,21 @@
     <Content Include="Areas\ZdtbAdmin\Content\js\include\wysihtml5-0.3.0.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\ZeroClipboard.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\ZeroClipboard.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.form.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.migrate-1.0.0.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.ui.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.ui.touch-punch.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.ui.touch-punch.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.validate.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\libs\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\libs\less.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\messenger\bootbox.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\messenger\messenger-theme-flat.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\messenger\messenger-theme-future.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\messenger\messenger.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\messenger\messenger.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\bigbox.mp3" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\messagebox.mp3" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\smallbox.mp3" />
@@ -865,6 +883,7 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.ttf" />
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
+    <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -872,6 +891,7 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CompanyNewsController.cs" />
@@ -948,7 +968,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\ZdtbAdmin\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
