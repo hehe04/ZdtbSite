@@ -1,29 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using ZdtbSite.Model;
+using System.Linq.Expressions;
+using PagedList;
 
 namespace ZdtbSite.Core.Infrastructure
 {
-    public interface IRepository
+    public interface IRepository<T> where T : class
     {
-        IDbSet<Product> Products { get; set; }
-
-        IDbSet<ProductType> ProductTypes { get; set; }
-        IDbSet<Article> Articles { get; set; }
-
-        IDbSet<BasicInfo> BasicInfos { get; set; }
-
-        IDbSet<ContentType> ContentTypes { get; set; }
-
-        IDbSet<UserInfo> UserInfos { get; set; }
-
-        IDbSet<VisitLog> VisitLogs { get; set; }
-
-        int SaveChanges();
+        IDbSet<T> DbSet { get; set; }
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
+        T GetById(int id);
+        T GetById(string id);
+        T Get(Expression<Func<T, bool>> where);
+        IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
+        IEnumerable<T> GetAll();
+        IPagedList<T> GetPage<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order);
+        T GetAsNoTracking(Expression<Func<T, bool>> where);
+        IEnumerable<T> GetManyAsNoTracking(Expression<Func<T, bool>> where);
+        IEnumerable<T> GetAllAsNoTracking();
+        IPagedList<T> GetPageAsNoTracking<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order);
     }
 }

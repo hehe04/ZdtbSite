@@ -10,44 +10,19 @@ namespace ZdtbSite.Web.Controllers
 {
     public class HomeController : Controller
     {
-        DataContext repository;
+        private readonly IRepository<ProductType> productTypeRepository;
+        private IUnitOfWork unitOfWork;
 
-        public HomeController()
+        public HomeController(IRepository<ProductType> productTypeRepository, IUnitOfWork unitOfWork)
         {
-            repository = new DataContext();
+            this.productTypeRepository = productTypeRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         // GET: Home
         public ActionResult Index()
         {
-            ProductType productType = new ProductType()
-            {
-                TypeName = "变压器",
-                Products = new List<Product>() 
-                { 
-                    new Product()
-                    {
-                        Name = "高压开关柜1",
-                        Description = "宇宙第一开关柜"
-                    },
-                    new Product()
-                    {
-                        Name = "高压开关柜2",
-                        Description = "宇宙第一开关柜"
-                    }
-
-                }
-            };
-            repository.ProductTypes.Add(productType);
-            repository.SaveChanges();
             return View();
         }
-
-        public ActionResult Detail()
-        {
-            var list = repository.Products.ToList();
-            return Json(list, JsonRequestBehavior.AllowGet);
-        }
-
     }
 }
