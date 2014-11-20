@@ -9,7 +9,7 @@ using ZdtbSite.Model;
 
 namespace ZdtbSite.Core.Infrastructure
 {
-    public class DataContext : DbContext, IRepository
+    public class DataContext : DbContext
     {
         public DataContext()
             : base("DataContext")
