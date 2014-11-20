@@ -39,8 +39,15 @@ namespace ZdtbSite.Web.Controllers
                 }
             };
             repository.ProductTypes.Add(productType);
-            repository.SaveChanges();            
+            repository.SaveChanges();
             return View();
         }
+
+        public ActionResult Detail()
+        {
+            var list = repository.Products.ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

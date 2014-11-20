@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ZdtbSite.Model
 {
     /// <summary>
-    /// jiangchun 
+    /// 产品，产品模块的详细数据模型
     /// </summary>
     public class Product
     {
@@ -18,17 +15,20 @@ namespace ZdtbSite.Model
         [StringLength(128)]
         public string Name { get; set; }
 
-        [StringLength(512)]
+        [StringLength(1024)]
         public string ImageUrl { get; set; }
 
-        [StringLength(512)]
+        [StringLength(1024)]
         public string ThumbnailUrl { get; set; }
 
+        [MaxLength]
         public string Description { get; set; }
 
         public virtual ProductType ProductType { get; set; }
 
         public DateTime CreateTime { get; set; }
+
+        public virtual ICollection<VisitLog> VisitLogs { get; set; }
 
         public Product()
         {
