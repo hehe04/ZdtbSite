@@ -8,7 +8,7 @@ using ZdtbSite.Model;
 
 namespace ZdtbSite.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IRepository<ProductType> productTypeRepository;
         private IUnitOfWork unitOfWork;
