@@ -8,23 +8,37 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
 {
     public class UserViewModel
     {
+        public int Id { get; set; }
 
-        [MaxLength(32)]
+        [Display(Name = "用户名")]
+        [MaxLength(32, ErrorMessage = "最长不能超过32个字符.")]
+        [Required(ErrorMessage = "必须输入用户名.")]
         public string UserName { get; set; }
 
-        [MaxLength(64)]
+        [Display(Name = "邮箱")]
+        [EmailAddress(ErrorMessage = "邮件格式不正确.")]
+        [Required(ErrorMessage = "必须输入邮箱地址.")]
         public string Email { get; set; }
 
-        [MaxLength(64)]
+        [Display(Name = "密码")]
+        [MaxLength(64, ErrorMessage = "密码长度不能超过64个字符")]
+        [Required(ErrorMessage = "必须输入密码.")]
         public string Password { get; set; }
 
         public DateTime CreateDateTime { get; set; }
 
-        public DateTime LastLoginDateTime { get; set; }
-
-        [MaxLength(64)]
+        [Display(Name = "手机号")]
+        [RegularExpression("\\d{11}", ErrorMessage = "手机号码格式不正确")]
+        [Required(ErrorMessage = "手机号码必须输入")]
         public string Mobile { get; set; }
 
+        [Display(Name = "是否锁定")]
         public bool IsActive { get; set; }
+
+        public int LoginErrorCount { get; set; }
+
+        public string AuthorityUrl { get; set; }
+
+        public DateTime LastLoginDateTime { get; set; }
     }
 }

@@ -1,9 +1,7 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
+﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.UserViewModel>
 
-@section UserName{
-    Jason
+@{
+    ViewBag.Title = "用户管理";
 }
 
 @section PageHeader{
@@ -41,67 +39,30 @@
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
-                                        <th>Column name</th>
-                                        <th>Column name</th>
-                                        <th>Column name</th>
-                                        <th>Column name</th>
+                                        <th>用户名</th>
+                                        <th>邮箱</th>
+                                        <th>联系方式</th>
+                                        <th>是否锁定</th>
+                                        <th>创建时间</th>
+                                        <th>最近登录</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="@item.Id">
+                                            </td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Mobile</td>
+                                            <td>@(item.IsActive ? "是" : "否")</td>
+                                            <td>@item.CreateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@item.LastLoginDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                             <div class="dt-footer">

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Title</title>
+    <title>@ViewBag.Title</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -13,33 +13,20 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!--// OPTIONAL & CONDITIONAL CSS FILES //-->
-    <!-- date picker css -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/datepicker.css?v=1">
-    <!-- custom/responsive growl messages -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr.custom.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr-responsive.css?v=1">
-
-    <!-- // DO NOT REMOVE OR CHANGE ORDER OF THE FOLLOWING // -->
-    <!-- bootstrap default css (DO NOT REMOVE) -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap.min.css?v=1">
-    <!--<link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap-responsive.min.css?v=1">-->
-    <!-- font awsome and custom icons -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/font-awesome.min.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/cus-icons.css?v=1">
-    <!-- jarvis widget css -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jarvis-widgets.css?v=1">
     <link href="~/Areas/ZdtbAdmin/Content/css/DT_bootstrap.css" rel="stylesheet" />
-    <!-- main theme files -->
+    <link href="~/Areas/ZdtbAdmin/Content/css/uniform.default.css" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/select2.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme-responsive.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jquery.jgrowl.css?v=1">
-
-    <!-- // THEME CSS changed by javascript: the CSS link below will override the rules above // -->
-    <!-- For more information, please see the documentation for "THEMES" -->
     <script>
-        console.log();
         var path = localStorage.getItem("themes");
         if (path == null || path == "") {
             document.write('<link rel="stylesheet" id="switch-theme-js" href="/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">');
@@ -143,7 +130,7 @@
                         <a href="javascript:void(0)" class="my-profile-pic">
                             <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt="" />
                         </a>
-                        <span class="first-child">欢迎 <strong>@RenderSection("UserName", false)!</strong></span>
+                        <span class="first-child">欢迎 <strong>Jason !</strong></span>
                         <span><a href="javascript:void(0);">编辑信息 </a></span>
                     </div>
                     <div class="divider"></div>
@@ -329,24 +316,24 @@
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.placeholder.min.js"><\/script>');
 
             /** DEMO SCRIPTS **/
-            $(function () {
-                /* jarvis tooltips */
-                $.jGrowl("These <strong>Smart Widgets</strong> will remember any <strong>name, color or position</strong> you give them. Try to customize one and <strong>refresh the page</strong> to see if it hasn't changed'.", {
-                    header: 'Smart Widgets',
-                    sticky: false,
-                    life: 7000,
-                    speed: 500,
-                    theme: 'with-icon',
-                    position: 'top-right', //this is default position
-                    easing: 'easeOutBack',
-                    animateOpen: {
-                        height: "show"
-                    },
-                    animateClose: {
-                        opacity: 'hide'
-                    }
-                });
-            });
+            //$(function () {
+            //    /* jarvis tooltips */
+            //    $.jGrowl("These <strong>Smart Widgets</strong> will remember any <strong>name, color or position</strong> you give them. Try to customize one and <strong>refresh the page</strong> to see if it hasn't changed'.", {
+            //        header: 'Smart Widgets',
+            //        sticky: false,
+            //        life: 7000,
+            //        speed: 500,
+            //        theme: 'with-icon',
+            //        position: 'top-right', //this is default position
+            //        easing: 'easeOutBack',
+            //        animateOpen: {
+            //            height: "show"
+            //        },
+            //        animateClose: {
+            //            opacity: 'hide'
+            //        }
+            //    });
+            //});
             /** end DEMO SCRIPTS **/
 
         } else {
