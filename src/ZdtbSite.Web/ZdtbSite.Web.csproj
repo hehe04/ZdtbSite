@@ -893,6 +893,9 @@
     <Content Include="Areas\ZdtbAdmin\Views\Shared\ImportFormPageJs.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\ProductType\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\SingIn.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\User\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\User\Assign.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\User\Add.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -906,6 +909,7 @@
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\UserViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CompanyNewsController.cs" />

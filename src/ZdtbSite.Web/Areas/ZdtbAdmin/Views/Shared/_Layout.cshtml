@@ -47,21 +47,7 @@
             document.write('<link rel="stylesheet" id="switch-theme-js" href="' + path + '">');
         }
     </script>
-    @*<link rel="stylesheet" id="switch-theme-js" href="~/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">*@
-
-    <!-- To switch to full width -->
     <link rel="stylesheet" id="switch-width" href="~/Areas/ZdtbAdmin/Content/css/full-width.css?v=1">
-
-    <!-- Webfonts -->
-    @*<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:300,400,700' type='text/css'>*@
-
-    <!-- All javascripts are located at the bottom except for HTML5 Shim -->
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="~/Areas/ZdtbAdmin/Content/js/include/respond.min.js"></script>
-    <![endif]-->
-    <!-- For Modern Browsers -->
     <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.png">
     <!-- For everything else -->
     <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.ico">
@@ -179,10 +165,21 @@
                                 </ul>
                             </li>
                             <li class="">
-                                <a href="#"><i class="icon-envelope"></i>文章发布</a>
+                                <a href="javascript:void(0)"><i class="icon-envelope"></i>文章发布<span class="badge">2</span></a>
+                                <ul>
+                                    <li>
+                                        <a href="#">技术文章</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">新闻发布</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">文章采集</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">3</span></a>
+                                <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
                                 <ul>
                                     <li>
                                         <a href="#">类型维护</a>
@@ -190,22 +187,35 @@
                                     <li>
                                         <a href="#">产品发布</a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="#"><i class="icon-home"></i>企业信息</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:void(0)"><i class="icon-check"></i>客户追踪<span class="badge">4</span></a>
+                                <ul>
                                     <li>
-                                        <a href="#">浏览信息</a>
+                                        <a href="#">合同管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">客户信息</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">产品浏览信息</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">留言预览</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="">
-                                <a href="#"><i class="icon-home"></i>企业简介</a>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-briefcase"></i>招聘信息</a>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-hdd"></i>留言预览</a>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-shopping-cart"></i>订购信息</a>
+                                <a href="javascript:void(0)"><i class="icon-briefcase"></i>人才管理<span class="badge">1</span></a>
+                                <ul>
+                                    <li>
+                                        <a href="#">职位发布</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>

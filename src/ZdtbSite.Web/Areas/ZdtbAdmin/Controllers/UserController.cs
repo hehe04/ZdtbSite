@@ -26,6 +26,49 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(Admin.UserViewModel viewmodel)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Modify(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Modify(Admin.UserViewModel viewmodel)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Assign(int id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Assign(Admin.UserViewModel viewmodel)
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult SingIn()
         {
@@ -50,6 +93,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 Response.Cookies.Add(cookie);
                 model.Success = true;
                 model.Msg = "登录成功，页面即将跳转";
+
                 return Json(model, JsonRequestBehavior.AllowGet);
             });
 
