@@ -1,0 +1,206 @@
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.SignInViewModel
+    @{
+    Layout = null;
+    ViewBag.Title = "登录";
+    }
+
+
+    <!DOCTYPE html>
+    <html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <title>{JARVIS}Admin</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/datepicker.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/fullcalendar.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/TableTools.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap-wysihtml5.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/wysiwyg-color.css">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr.custom.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr-responsive.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jquery.jgrowl.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/font-awesome.min.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/cus-icons.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jarvis-widgets.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/DT_bootstrap.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/responsive-tables.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/uniform.default.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/select2.css?v=1">
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme.css?v=1">
+        <script>
+            var path = localStorage.getItem("themes");
+            if (path == null || path == "") {
+                document.write('<link rel="stylesheet" id="switch-theme-js" href="/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">');
+            } else {
+                document.write('<link rel="stylesheet" id="switch-theme-js" href="' + path + '">');
+            }
+        </script>
+        <link rel="stylesheet" id="switch-width" href="~/Areas/ZdtbAdmin/Content/css/full-width.css?v=1">
+        @*<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:300,400,700' type='text/css'>*@
+        <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/print-invoice.css">
+        <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.png">
+        <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon-retina.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon-ipad.png">
+        <link rel="apple-touch-icon-precomposed" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Jarvis">
+        <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+        <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+        <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+    </head>
+
+    <body>
+        <!-- .height-wrapper -->
+        <div class="height-wrapper">
+
+            <!-- header -->
+            <header>
+                <!-- tool bar -->
+                <div id="header-toolbar" class="container-fluid">
+                    <div class="contained">
+                        <h1>Minnan<span class="hidden-xs">- 网站后台</span> </h1>
+                        <div class="pull-right">
+                            <div id="theme-switcher" class="btn-toolbar">
+                                <div class="btn-group pull-right visible-xs">
+                                    <a href="javascript:void(0)" class="btn btn-inverse btn-sm"><i class="icon-search"></i></a>
+                                    <a href="login.html" class="btn btn-inverse btn-sm"><i class="icon-off"></i></a>
+                                </div>
+                                <div class="btn-group hidden-xs">
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-inverse" id="reset-widget"><i class="icon-refresh"></i></a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-inverse dropdown-toggle" data-toggle="dropdown">主题 <span class="caret"></span></a>
+                                    <ul id="theme-links-js" class="dropdown-menu toolbar pull-right">
+                                        <li>
+                                            <a href="javascript:void(0)" data-rel="purple"><i class="icon-sign-blank purple-icon"></i>紫色</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" data-rel="blue"><i class="icon-sign-blank navyblue-icon"></i>蓝色</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" data-rel="green"><i class="icon-sign-blank green-icon "></i>绿色</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" data-rel="darkred"><i class="icon-sign-blank red-icon "></i>酒红</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" data-rel="default"><i class="icon-sign-blank grey-icon"></i>黑色</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div id="login-logo">
+
+            </div>
+            <div class="jarviswidget login">
+                <header>
+                    <h2>用户登录</h2>
+                </header>
+
+                <div class="widget alert alert-info adjusted">
+                    <i class="cus-exclamation"></i>
+                    <strong>请输入你的登录邮箱和密码.</strong>
+                </div>
+                <div id="main-content">
+
+                    @using (Html.BeginForm("SingIn", "User", FormMethod.Post, new { @class = "form-signin", id = "target" }))
+                {
+                        <div class="form-group">
+                            @*<input type="text" class="input-block-level" autofocus placeholder="邮箱" value="" name="Email">*@
+                            @Html.TextBoxFor(e => e.Email, new { @class = "input-block-level", autofocus = "", placeholder="邮箱" })
+                        </div>
+                        <div class="form-group">
+                            @*<input type="password" class="input-block-level" placeholder="密码" value="" name="Password">*@
+                            @Html.PasswordFor(e => e.Password, new { @class = "input-block-level", placeholder = "密码" })
+                        </div>
+                        <div class="form-group no-border">
+                            <div style="text-align: right;">
+                                <input class="btn btn-primary" type="submit" value="登 录" id="login-btn">
+                            </div>
+                        </div>
+                }
+
+                    @*<form class="form-signin" id="target" action="@Html.Action("","")">
+                            <div class="form-group">
+                                <input type="text" class="input-block-level" autofocus placeholder="邮箱" value="" name="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="input-block-level" placeholder="密码" value="" name="Password">
+                            </div>
+                            <div class="form-group no-border">
+                                <div style="text-align: right;">
+                                    <input class="btn btn-primary" type="submit" value="登 录" id="login-btn">
+                                </div>
+                            </div>
+                        </form>*@
+
+                </div>
+            </div>
+
+        </div>
+        <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.ui.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.ui.touch-punch.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/selectnav.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.accordion.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/toastr.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.jgrowl.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/slimScroll.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.dataTables.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.uniform.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/amchart/amcharts.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/amchart/amchart-draw1.js"></script>
+
+        @*<script type="text/javascript">
+                var ismobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+                if (!ismobile) {
+                    document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/ZeroClipboard.min.js"><\/script>');
+                    document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/TableTools.min.js"><\/script>');
+                    document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/select2.min.js"><\/script>');
+                    document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.excanvas.min.js"><\/script>');
+                    document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.placeholder.min.js"><\/script>');
+                } else {
+                    document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/responsive-tables.min.js"><\/script>');
+                }
+            </script>*@
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.ibutton.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/raphael.2.1.0.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/justgage.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/morris.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/morris-chart-settings.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.easy-pie-chart.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jarvis.widget.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/mobiledevices.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.fullcalendar.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.cust.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.resize.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.tooltip.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.orderBar.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.fillbetween.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.pie.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.sparkline.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.inbox.slashc.sliding-menu.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.validate.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-progressbar.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/wysihtml5-0.3.0.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-wysihtml5.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.maskedinput.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.wizard.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-colorpicker.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
+        @Html.Partial("ImportFormPageJs")
+    </body>
+</html>

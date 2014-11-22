@@ -44,6 +44,12 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -884,6 +890,9 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Shared\ImportFormPageJs.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\ProductType\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\User\SingIn.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -891,7 +900,12 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\UserController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\CompanyNewsController.cs" />
@@ -1005,6 +1019,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

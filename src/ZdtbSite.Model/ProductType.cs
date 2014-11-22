@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ZdtbSite.Model
@@ -15,6 +16,11 @@ namespace ZdtbSite.Model
         public string TypeName { get; set; }
 
         public int ParentId { get; set; }
+
+        [StringLength(32)]
+        public string CreateUser { get; set; }
+
+        public DateTime CreateDateTime { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }
