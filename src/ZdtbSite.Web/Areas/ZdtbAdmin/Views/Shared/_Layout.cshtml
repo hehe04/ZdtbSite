@@ -38,7 +38,16 @@
 
     <!-- // THEME CSS changed by javascript: the CSS link below will override the rules above // -->
     <!-- For more information, please see the documentation for "THEMES" -->
-    <link rel="stylesheet" id="switch-theme-js" href="~/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">
+    <script>
+        console.log();
+        var path = localStorage.getItem("themes");
+        if (path == null || path == "") {
+            document.write('<link rel="stylesheet" id="switch-theme-js" href="/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">');
+        } else {
+            document.write('<link rel="stylesheet" id="switch-theme-js" href="' + path + '">');
+        }
+    </script>
+    @*<link rel="stylesheet" id="switch-theme-js" href="~/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">*@
 
     <!-- To switch to full width -->
     <link rel="stylesheet" id="switch-width" href="~/Areas/ZdtbAdmin/Content/css/full-width.css?v=1">
@@ -400,14 +409,14 @@
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-timepicker.min.js"></script>
 
     <!-- REQUIRED: Bootstrap Prompt -->
-    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootbox.min.js"></script>
+    @*<script src="~/Areas/ZdtbAdmin/Content/js/include/bootbox.min.js"></script>*@
 
     <!-- REQUIRED: Bootstrap engine -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.min.js"></script>
 
     <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
-    @RenderSection("script", false);
+    @RenderSection("script", false)
 
     <!-- d3 library placed at the bottom for better performance -->
     <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/d3.v3.min.js"></script> -->

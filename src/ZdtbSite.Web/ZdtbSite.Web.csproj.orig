@@ -903,6 +903,7 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
+<<<<<<< HEAD
     <Content Include="Images\about_us\Thumbs.db" />
     <Content Include="Images\bxslider\Thumbs.db" />
     <Content Include="Images\contact_us\Thumbs.db" />
@@ -922,6 +923,11 @@
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
     <Content Include="Images\unleash\Thumbs.db" />
+=======
+    <Content Include="Areas\ZdtbAdmin\Views\Shared\ImportFormPageJs.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\ProductType\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\User\SingIn.cshtml" />
+>>>>>>> devjiang
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1347,10 +1353,6 @@
     <Content Include="Stylesheets\responsive.css" />
     <Content Include="Stylesheets\style.css" />
     <Content Include="Stylesheets\unleash.css" />
-    <Content Include="Areas\ZdtbAdmin\Views\Shared\ImportFormPageJs.cshtml" />
-    <Content Include="Areas\ZdtbAdmin\Views\ProductType\Index.cshtml" />
-    <Content Include="Areas\ZdtbAdmin\Views\User\SingIn.cshtml" />
-    <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

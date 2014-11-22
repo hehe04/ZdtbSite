@@ -2148,7 +2148,7 @@ aside.right #datepicker .datepicker thead tr:first-child th:hover, aside.right #
 /*	Model overrides (adjustments)
  /* ---------------------------------------------------------------------- */
 .modal, .modal-header {
-	background: #333;
+	/*background: #333;*/
 }
 .modal {
 	overflow: visible;
@@ -2176,6 +2176,7 @@ aside.right #datepicker .datepicker thead tr:first-child th:hover, aside.right #
 .modal-body {
 	background-color: #fff;
 	padding: 15px;
+    border-radius: 6px;
 }
 .modal-footer {
 	padding: 14px 15px 15px;
