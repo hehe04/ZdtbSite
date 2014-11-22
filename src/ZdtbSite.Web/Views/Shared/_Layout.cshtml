@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -8,65 +9,57 @@
     <link rel="apple-touch-icon" href="/HtmlTemplate/images/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/HtmlTemplate/images/apple-touch-icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="/HtmlTemplate/images/apple-touch-icon-114x114.png" />
-    <link href="stylesheets/googleFonts.css" rel="stylesheet" type='text/css' />
-    <link rel="stylesheet" href="/HtmlTemplate/stylesheets/style.css" />
-    <link rel="stylesheet" href="/HtmlTemplate/stylesheets/responsive.css" />
-    <link rel="stylesheet" href="/HtmlTemplate/stylesheets/jquery.onebyone.css" />
-    <script src="/HtmlTemplate/scripts/jquery.min.js"></script>
-    <script src="/HtmlTemplate/scripts/jquery.bxSlider.min.js"></script>
-    <script src="/HtmlTemplate/scripts/jquery.onebyone.min.js"></script>
-    <script src="/HtmlTemplate/scripts/jquery.touchwipe.min.js"></script>
-    <script src="/HtmlTemplate/scripts/jquery.blackandwhite.min.js"></script>
-    <script src="/HtmlTemplate/scripts/js_func.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    @Styles.Render("~/Style/HomeLayout")
+    @Scripts.Render("~/Scripts/HomeLayout")
+    
 </head>
 <body>
     <div class="wraper">
         <header class="header">
-            <a class="logo" href="/Home/Index">construct</a>
+            <a class="logo" href="@Url.Action("Index", "Home")">construct</a>
             <nav>
                 <!-- top menu -->
                 <ul>
                     <li>
-                        <a href="/Home/Index">Home</a>
+                        <a href="@Url.Action("Index", "Home")">Home</a>
                     </li>
 
                     <li>
-                        <a href="/AboutUs/Index">About Us</a>
+                        <a href="@Url.Action("Index", "About")">About Us</a>
                         <ul>
-                            <li><a href="/AboutUs/Index">About Us</a></li>
-                            <li><a href="/DeviceWorkshop/Index">Device&Workshop</a></li>
-                            <li><a href="/ContactUs/Index">Contact Us</a></li>
+                            <li><a href="@Url.Action("Index", "About")">About Us</a></li>
+                            <li><a href="@Url.Action("Device", "About")">Device&Workshop</a></li>
+                            <li><a href="@Url.Action("ContactUs", "About")">Contact Us</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/OurOffering/Index">Products</a>
+                        <a href="@Url.Action("Index", "Product")">Products</a>
                         <ul>
-                            <li><a href="/OurOffering/Index">Our offering</a></li>
-                            <li><a href="/QualityCertificates/Index">Quality Certificates</a></li>
+                            <li><a href="@Url.Action("Index", "Product")">Our offering</a></li>
+                            <li><a href="@Url.Action("QualityCertificates", "Product")">Quality Certificates</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/IndustryNews/Index">News</a>
+                        <a href="@Url.Action("Index", "Article", new { type = "CompanyNews" })">News</a>
                         <ul>
-                            <li><a href="/IndustryNews/Index">Industry News</a></li>
-                            <li><a href="/CompanyNews/Index">Company News</a></li>
+                            <li><a href="@Url.Action("Index", "Article", new { type = "IndustryNews" })">Industry News</a></li>
+                            <li><a href="@Url.Action("Index", "Article", new { type = "CompanyNews" })">Company News</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/ServicesSupport/Index">Services&Support</a>
+                        <a href="@Url.Action("TechnologySupport", "Support")">Services&Support</a>
                         <ul>
-                            <li><a href="/Process/Index">Process</a></li>
-                            <li><a href="/TechnologySupport/Index">Technology Support</a></li>
-                            <li><a href="/FAQ/Index">FAQ</a></li>
+                            <li><a href="@Url.Action("Process", "Support")">Process</a></li>
+                            <li><a href="@Url.Action("TechnologySupport", "Support")">Technology Support</a></li>
+                            <li><a href="@Url.Action("FAQ", "Support")">FAQ</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/TalentStrategy/Index">Careers</a>
+                        <a href="@Url.Action("TalentStrategy", "Careers")">Careers</a>
                         <ul>
-                            <li><a href="/TalentStrategy/Index">Talent Strategy</a></li>
-                            <li><a href="/Recruit/Index">Recruit</a></li>
-                            <li><a href="/OurTeam/Index">Our Team</a></li>
+                            <li><a href="@Url.Action("TalentStrategy", "Careers")">Talent Strategy</a></li>
+                            <li><a href="@Url.Action("Index", "Careers")">Recruit</a></li>
+                            <li><a href="@Url.Action("OurTeam", "Careers")">Our Team</a></li>
 
                         </ul>
                     </li>
@@ -75,7 +68,7 @@
             </nav>
         </header>
     </div>
-    @RenderBody()
+        @RenderBody()
     <div class="footer">
         <footer>
             <!-- bottom about -->
@@ -130,4 +123,6 @@
         <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
     </div>
 </body>
+@Scripts.Render("~/Script/HomeIndex")
 </html>
+

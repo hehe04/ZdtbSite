@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using ZdtbSite.Core.Migrations;
 using ZdtbSite.Core.Infrastructure;
+using System.Web.Optimization;
 
 namespace ZdtbSite.Web
 {
@@ -19,6 +20,7 @@ namespace ZdtbSite.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());//设置dbConfiguration实例，必须在使用任何实体框架之前设置
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Configuration>());
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
