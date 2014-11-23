@@ -4,6 +4,7 @@
 /// <reference path="messenger/messenger.min.js" />
 $(function () {
     initAajxform();
+    initLogout();
 });
 
 function modalLoading(msg) {
@@ -69,6 +70,13 @@ function finAlert(message, issuccess, config) {
         Messenger().post(msgConfig);
     }
 }
+
+function initLogout() {
+    $(".logout-js").click(function () {
+        document.cookie = "";
+    });
+}
+
 function initAajxform() {
     $("form").each(function (index, ele) {
         $(ele).ajaxForm({
@@ -99,5 +107,34 @@ function initAajxform() {
                 }
             }
         });
+    });
+}
+
+function ajaxSubmit(url, data, beforAjaxMsg) {
+    $.ajax({
+        url: url,
+        data: data,
+        beforeSend: function myfunction() {
+            modalLoading(beforAjaxMsg);
+        },
+        error: function () {
+            bootbox.hideAll();
+            finAlert("提交数据过程中出现错误，请检查数据后重试提交", false);
+        },
+        dataType: "json",
+        success: function (data) {
+            bootbox.hideAll();
+            if (data.Success) {
+                finAlert(data.Msg, true);
+                if (data.RedirectUrl != null) {
+                    setTimeout(function () {
+                        location = data.RedirectUrl;
+                    }, 2000);
+                }
+            }
+            else {
+                finAlert(data.Msg, false);
+            }
+        }
     });
 }
