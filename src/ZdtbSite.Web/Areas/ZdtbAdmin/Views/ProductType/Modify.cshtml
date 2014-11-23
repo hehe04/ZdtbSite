@@ -1,6 +1,6 @@
 ﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductTypeViewModel
 @section PageHeader{
-    产品模块 > 添加产品类型
+    产品模块 > 更新产品类型
 }
 @{
     Html.EnableClientValidation();
@@ -50,9 +50,12 @@
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-md-3">@Html.LabelFor(m => m.ParentId)</div>
+                                            <div class="col-md-3">
+                                                类型父节点
+                                            </div>
                                             <div class="col-md-9">
                                                 @Html.DropDownListFor(m => m.ParentId, list, new { @class = "with-search" })
+                                                @Html.ValidationMessageFor(m => m.ParentId)
                                             </div>
                                         </div>
                                     </div>
@@ -82,5 +85,7 @@
 @section script{
     @Html.Partial("ImportFormPageJs")
 }
+
+
 
 

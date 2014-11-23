@@ -28,6 +28,11 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Admin.ProductTypeViewModel, ProductType>();
             AutoMapper.Mapper.CreateMap<ProductType, Admin.ProductTypeViewModel>();
+
+
+
+            AutoMapper.Mapper.CreateMap<Admin.ProductViewModel, Product>();
+            AutoMapper.Mapper.CreateMap<Product, Admin.ProductViewModel>();
         }
     }
 }

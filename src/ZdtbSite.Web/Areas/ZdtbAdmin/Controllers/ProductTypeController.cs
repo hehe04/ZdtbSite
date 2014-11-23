@@ -15,6 +15,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
     {
         private readonly IRepository<ProductType> productTypeRepository;
         private IUnitOfWork unitOfWork;
+        private string CurrentUrl { get { return Url.Action("Index", "ProductType"); } }
         public ProductTypeController(IRepository<ProductType> productTypeRepository, IUnitOfWork unitOfWork)
         {
             this.productTypeRepository = productTypeRepository;
@@ -45,7 +46,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return View(model);
         }
 
-        private Dictionary<string, string> BindDropDownList(int id, List<Model.ProductType> list)
+        public Dictionary<string, string> BindDropDownList(int id, List<Model.ProductType> list)
         {
             Dictionary<string, string> results = new Dictionary<string, string>();
             var serachList = list.Where(e => e.ParentId.Equals(id));
@@ -99,11 +100,55 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             return Json(responseModel);
         }
-
-        public ActionResult Remove(int id)
+        [HttpGet]
+        public ActionResult Modify(int id)
         {
+            ProductType ProductTypeInfo = productTypeRepository.GetById(id);
+            Admin.ProductTypeViewModel viewModel = AutoMapper.Mapper.Map<Model.ProductType, Admin.ProductTypeViewModel>(ProductTypeInfo);
+            var list = productTypeRepository.GetAll().ToList();
+            ViewBag.DropDownListResult = BindDropDownList(0, list);
+            return View(viewModel);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult Modify(Admin.ProductTypeViewModel viewmodel)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                var ProductTypeInfo = AutoMapper.Mapper.Map<Admin.ProductTypeViewModel, Model.ProductType>(viewmodel);
+                ProductTypeInfo.CreateDateTime = DateTime.Now;
+                productTypeRepository.Update(ProductTypeInfo);
+                unitOfWork.Commit();
+                model.Success = true;
+                model.Msg = "成功更新产品类型信息，页面即将跳转到用产品类型表页";
+                model.RedirectUrl = CurrentUrl;
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "更新产品类型信息失败，请重试" + ex.Message;
+            }
+            return Json(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                productTypeRepository.Delete(productTypeRepository.GetById(id));
+                unitOfWork.Commit();
+                model.Success = true;
+                model.Msg = "删除产品类型成功！";
+                model.RedirectUrl = CurrentUrl;
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "删除产品类型失败，请重试" + ex.Message;
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
     }
 }
