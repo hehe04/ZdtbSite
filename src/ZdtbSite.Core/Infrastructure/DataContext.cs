@@ -26,5 +26,7 @@ namespace ZdtbSite.Core.Infrastructure
         public IDbSet<UserInfo> UserInfos { get; set; }
 
         public IDbSet<VisitLog> VisitLogs { get; set; }
+
+        public IDbSet<AdminMenu> AdminMenus { get; set; }
     }
 }

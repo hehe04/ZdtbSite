@@ -4,7 +4,6 @@
 /// <reference path="messenger/messenger.min.js" />
 $(function () {
     initAajxform();
-    initLogout();
 });
 
 function modalLoading(msg) {
@@ -69,12 +68,6 @@ function finAlert(message, issuccess, config) {
         msgConfig.type = "success";
         Messenger().post(msgConfig);
     }
-}
-
-function initLogout() {
-    $(".logout-js").click(function () {
-        document.cookie = "";
-    });
 }
 
 function initAajxform() {

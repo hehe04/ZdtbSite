@@ -9,19 +9,24 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
 using PagedList;
+using System.ComponentModel.DataAnnotations;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
     public class UserController : BaseController
     {
+        private string CurrentUrl { get { return Url.Action("Index", "User"); } }
         private readonly IRepository<UserInfo> userInfoRepository = null;
 
-        private string CurrentUrl { get { return Url.Action("Index", "User"); } }
+        private readonly IRepository<AdminMenu> adminMenuRepository = null;
 
         private IUnitOfWork unitOfWork = null;
-        public UserController(IRepository<UserInfo> userInfoRepository, IUnitOfWork unitOfWork)
+        public UserController(IRepository<UserInfo> userInfoRepository,
+            IRepository<AdminMenu> adminMenuRepository,
+            IUnitOfWork unitOfWork)
         {
             this.userInfoRepository = userInfoRepository;
+            this.adminMenuRepository = adminMenuRepository;
             this.unitOfWork = unitOfWork;
         }
         // GET: ZdtbAdmin/User
@@ -29,7 +34,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Page page = new Page(pageIndex, pageSize);
             IPagedList<UserInfo> pageList = userInfoRepository.GetPage(page, e => true, e => e.Id);
-            //var viewmodelList = AutoMapper.Mapper.Map<IPagedList<Model.UserInfo>, StaticPagedList<Admin.UserViewModel>>(pageList);
             return View(pageList);
         }
 
@@ -65,7 +69,10 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult ValidateEmail(string Email)
         {
             var user = userInfoRepository.Get(e => e.Email == Email);
-            return Json(user == null ? true : false);
+            if (user != null && user.Email == Email)
+                return Json(true);
+            else
+                return Json(user == null ? true : false);
         }
 
         [HttpGet]
@@ -151,7 +158,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         [HttpGet]
         public ActionResult Assign(int id)
         {
-            return View();
+           
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -174,18 +182,46 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 Admin.ResponseModel model = new Admin.ResponseModel();
                 var loginPwd = signIn.Password.ToMd5String();
                 var user = userInfoRepository.Get(u => u.Email.Equals(signIn.Email) && u.Password.Equals(loginPwd));
+                model.Success = false;
                 if (user == null)
                 {
-                    model.Success = false;
                     model.Msg = "用户名密码错误";
-                    return Json(model, JsonRequestBehavior.AllowGet);
+                    user = userInfoRepository.Get(e => e.Email.Equals(signIn.Email));
+                    if (user != null)
+                    {
+                        if (user.LoginErrorCount > 5)
+                        {
+                            model.Msg = "该用户登录错误次数过多，已被锁定，请联系管理员解除锁定";
+                        }
+                        else
+                        {
+                            user.LoginErrorCount += 1;
+                            if (user.LoginErrorCount >= 5)
+                            {
+                                user.IsActive = true;
+                            }
+                            unitOfWork.Commit();
+                        }
+                    }
+
                 }
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, user.Id.ToString() + "|" + user.UserName + "|" + user.Email, DateTime.Now, DateTime.Now.AddHours(12), false, user.Id.ToString());
-                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));//加密身份信息，保存至Cookie 
-                Response.Cookies.Add(cookie);
-                model.Success = true;
-                model.Msg = "登录成功，页面即将跳转";
-                model.RedirectUrl = CurrentUrl;
+                else if (user.IsActive)
+                {
+                    model.Msg = "该用户已被锁定，请联系管理员解除锁定";
+                }
+                else
+                {
+                    var userData = user.Id.ToString() + "|" + user.UserName + "|" + user.Email;
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, userData, DateTime.Now, DateTime.Now.AddHours(12), false, userData);
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
+                    Response.Cookies.Add(cookie);
+                    model.Success = true;
+                    model.Msg = "登录成功，页面即将跳转";
+                    model.RedirectUrl = CurrentUrl;
+                    user.LastLoginDateTime = DateTime.Now;
+                    user.LoginErrorCount = 0;
+                    unitOfWork.Commit();
+                }
 
                 return Json(model, JsonRequestBehavior.AllowGet);
             });
@@ -195,11 +231,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult SingOut()
         {
             FormsAuthentication.SignOut();
-            Admin.ResponseModel model = new Admin.ResponseModel();
-            model.Success = true;
-            model.Msg = "您已经成功退出登录";
-            model.RedirectUrl = Url.Action("SingIn");
-            return Json(model, JsonRequestBehavior.AllowGet);
+            return Redirect(Url.Action("SingIn"));
 
         }
     }

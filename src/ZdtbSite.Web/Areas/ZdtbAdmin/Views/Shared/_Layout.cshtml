@@ -12,6 +12,11 @@
     <!-- http://davidbcalhoun.com/2010/viewport-metatag -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/datepicker.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr.custom.css?v=1">
@@ -207,7 +212,7 @@
                                 </ul>
                             </li>
                             <li class="">
-                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingIn")">退出登录</a>
+                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut")">退出登录</a>
                             </li>
                         </ul>
                     </div>
@@ -418,19 +423,13 @@
 
     <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
-    @RenderSection("script", false)
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.form.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/bootbox.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
-    <!-- d3 library placed at the bottom for better performance -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/d3.v3.min.js"></script> -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-1.js"></script> -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-2.js"></script> -->
-    <!-- Google Geo Chart -->
-    <!-- DISABLED <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script> -->
-    <!-- DISABLED <script type='text/javascript' src='https://www.google.com/jsapi'></script>-->
-    <!-- DISABLED <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/geochart.js"></script> -->
-    <!-- end scripts -->
+    @RenderSection("script", false)
 </body>
 </html>
