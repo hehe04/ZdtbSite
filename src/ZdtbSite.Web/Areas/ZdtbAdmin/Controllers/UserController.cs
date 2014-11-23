@@ -12,9 +12,11 @@ using PagedList;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private readonly IRepository<UserInfo> userInfoRepository = null;
+
+        private string CurrentUrl { get { return Url.Action("Index", "User"); } }
 
         private IUnitOfWork unitOfWork = null;
         public UserController(IRepository<UserInfo> userInfoRepository, IUnitOfWork unitOfWork)
@@ -27,11 +29,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Page page = new Page(pageIndex, pageSize);
             IPagedList<UserInfo> pageList = userInfoRepository.GetPage(page, e => true, e => e.Id);
-
-            //pageList
-            var list = userInfoRepository.GetAll().ToList();
-            var viewmodelList = AutoMapper.Mapper.Map<List<Model.UserInfo>, List<Admin.UserViewModel>>(list);
-            return View(viewmodelList);
+            //var viewmodelList = AutoMapper.Mapper.Map<IPagedList<Model.UserInfo>, StaticPagedList<Admin.UserViewModel>>(pageList);
+            return View(pageList);
         }
 
         [HttpGet]
@@ -53,7 +52,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 unitOfWork.Commit();
                 responseModel.Success = true;
                 responseModel.Msg = "添加用户成功，页面即将跳转到用户列表页";
-                responseModel.RedirectUrl = Url.Action("Index");
+                responseModel.RedirectUrl = CurrentUrl;
             }
             catch (Exception ex)
             {
@@ -63,22 +62,90 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return Json(responseModel);
         }
 
+        public ActionResult ValidateEmail(string Email)
+        {
+            var user = userInfoRepository.Get(e => e.Email == Email);
+            return Json(user == null ? true : false);
+        }
+
         [HttpGet]
         public ActionResult Modify(int id)
         {
-            return View();
+            UserInfo userInfo = userInfoRepository.GetById(id);
+            Admin.UserViewModel viewModel = AutoMapper.Mapper.Map<Model.UserInfo, Admin.UserViewModel>(userInfo);
+            return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Modify(Admin.UserViewModel viewmodel)
         {
-            return View();
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                var userModel = AutoMapper.Mapper.Map<Admin.UserViewModel, Model.UserInfo>(viewmodel);
+                userModel.CreateDateTime = DateTime.Now;
+                userInfoRepository.Update(userModel);
+                unitOfWork.Commit();
+                model.Success = true;
+                model.Msg = "成功更新用户信息，页面即将跳转到用户列表页";
+                model.RedirectUrl = CurrentUrl;
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "修改用户失败，请重试" + ex.Message;
+            }
+            return Json(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                userInfoRepository.Delete(userInfoRepository.GetById(id));
+                unitOfWork.Commit();
+                model.Success = true;
+                model.Msg = "成功删除用户";
+                model.RedirectUrl = CurrentUrl;
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "删除用户失败，请重试" + ex.Message;
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
-        public ActionResult Delete(int id)
+        public ActionResult RestPwd(int id = 1)
         {
-            return View();
+            UserInfo user = userInfoRepository.GetById(id);
+            Admin.UserViewModel model = AutoMapper.Mapper.Map<UserInfo, Admin.UserViewModel>(user);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult RestPwd(Admin.UserViewModel viewModel)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                var user = userInfoRepository.GetById(viewModel.Id);
+                user.Password = viewModel.Password.ToMd5String();
+                userInfoRepository.Update(user);
+                unitOfWork.Commit();
+                model.Success = true;
+                model.RedirectUrl = CurrentUrl;
+                model.Msg = "重置密码成功，页面即将跳转";
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "重置密码失败，请重试";
+            }
+
+            return Json(model);
         }
 
         [HttpGet]
@@ -105,21 +172,34 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return Task.Factory.StartNew<ActionResult>(() =>
             {
                 Admin.ResponseModel model = new Admin.ResponseModel();
-                var user = userInfoRepository.Get(u => u.Email.Equals(signIn.Email) && u.Password.Equals(signIn.Password));
+                var loginPwd = signIn.Password.ToMd5String();
+                var user = userInfoRepository.Get(u => u.Email.Equals(signIn.Email) && u.Password.Equals(loginPwd));
                 if (user == null)
                 {
                     model.Success = false;
                     model.Msg = "用户名密码错误";
                     return Json(model, JsonRequestBehavior.AllowGet);
                 }
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, user.Id.ToString(), DateTime.Now, DateTime.Now.AddHours(12), false, user.Id.ToString());
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, user.Id.ToString() + "|" + user.UserName + "|" + user.Email, DateTime.Now, DateTime.Now.AddHours(12), false, user.Id.ToString());
                 HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));//加密身份信息，保存至Cookie 
                 Response.Cookies.Add(cookie);
                 model.Success = true;
                 model.Msg = "登录成功，页面即将跳转";
+                model.RedirectUrl = CurrentUrl;
 
                 return Json(model, JsonRequestBehavior.AllowGet);
             });
+
+        }
+
+        public ActionResult SingOut()
+        {
+            FormsAuthentication.SignOut();
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            model.Success = true;
+            model.Msg = "您已经成功退出登录";
+            model.RedirectUrl = Url.Action("SingIn");
+            return Json(model, JsonRequestBehavior.AllowGet);
 
         }
     }

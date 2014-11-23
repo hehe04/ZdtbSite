@@ -18,12 +18,19 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Display(Name = "邮箱")]
         [EmailAddress(ErrorMessage = "邮件格式不正确.")]
         [Required(ErrorMessage = "必须输入邮箱地址.")]
+        [System.Web.Mvc.Remote("ValidateEmail", "User", HttpMethod = "post", ErrorMessage = "该邮箱已被注册")]
         public string Email { get; set; }
 
         [Display(Name = "密码")]
         [MaxLength(64, ErrorMessage = "密码长度不能超过64个字符")]
         [Required(ErrorMessage = "必须输入密码.")]
         public string Password { get; set; }
+
+        [Display(Name = "确认密码")]
+        [MaxLength(64, ErrorMessage = "密码长度不能超过64个字符")]
+        [Required(ErrorMessage = "必须输入确认密码.")]
+        [Compare("Password", ErrorMessage = "两次密码不一致，请从新输入")]
+        public string ConfirmPassword { get; set; }
 
         public DateTime CreateDateTime { get; set; }
 

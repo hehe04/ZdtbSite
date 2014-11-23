@@ -48,6 +48,8 @@
     </script>
     <link rel="stylesheet" id="switch-width" href="~/Areas/ZdtbAdmin/Content/css/full-width.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/print-invoice.css">
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger.css?v=1" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger-theme-future.css?v=1" rel="stylesheet" />
     <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.png">
     <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon-retina.png">
@@ -55,7 +57,7 @@
     <link rel="apple-touch-icon-precomposed" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black
-    <meta name="apple-mobile-web-app-title" content="Jarvis">
+    <meta name=" apple-mobile-web-app-title" content="Jarvis">
     <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
     <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
     <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
@@ -115,10 +117,12 @@
             <div id="main-content">
                 <form class="form-signin" id="target" method="post" action="@Url.Action("SingIn","User")">
                     <div class="form-group">
-                        <input type="text" class="input-block-level" autofocus placeholder="邮箱" value="">
+                        @*<input type="text" class="input-block-level" autofocus placeholder="邮箱" value="">*@
+                        @Html.TextBoxFor(m => m.Email, new { autofocus = "", placeholder = "邮箱", @class = "input-block-level" })
                     </div>
                     <div class="form-group">
-                        <input type="password" class="input-block-level" placeholder="密码" value="">
+                        @*<input type="password" class="input-block-level" placeholder="密码" value="">*@
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "密码", @class = "input-block-level" })
                     </div>
                     <div class="form-group no-border">
                         <div style="text-align: right;">
@@ -186,5 +190,9 @@
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
     @Html.Partial("ImportFormPageJs")
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/bootbox.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
 </body>
 </html>

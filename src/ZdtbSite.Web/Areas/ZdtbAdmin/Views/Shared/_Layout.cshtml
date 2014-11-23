@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme-responsive.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jquery.jgrowl.css?v=1">
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger.css?v=1" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger-theme-future.css?v=1" rel="stylesheet" />
     <script>
         var path = localStorage.getItem("themes");
         if (path == null || path == "") {
@@ -203,6 +205,9 @@
                                         <a href="#">职位发布</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="">
+                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingIn")">退出登录</a>
                             </li>
                         </ul>
                     </div>
@@ -414,7 +419,10 @@
     <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
     @RenderSection("script", false)
-
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/bootbox.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
     <!-- d3 library placed at the bottom for better performance -->
     <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/d3.v3.min.js"></script> -->
     <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-1.js"></script> -->

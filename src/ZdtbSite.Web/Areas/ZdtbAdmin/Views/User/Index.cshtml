@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.UserViewModel>
+﻿@model PagedList.IPagedList<ZdtbSite.Model.UserInfo>
 
 @{
     ViewBag.Title = "用户管理";
@@ -12,13 +12,16 @@
         <a class="btn btn-primary" href="@Url.Action("Add")">
             <i class="icon-ok-sign icon-white"></i> 添加
         </a>
-        <a class="btn btn-warning" href="@Url.Action("Modify")">
+        <a class="btn btn-warning addClick" id="btnModify" data-rel="@Url.Action("Modify")" href="@Url.Action("Modify")">
             <i class="icon-edit icon-white"></i> 编辑
         </a>
-        <a class="btn btn-danger" href="@Url.Action("Delete")">
+        <a class="btn btn-success addClick" id="btnRestPwd" data-rel="@Url.Action("RestPwd")" href="@Url.Action("RestPwd")">
+            <i class="icon-repeat icon-white"></i> 重置密码
+        </a>
+        <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="@Url.Action("Delete")">
             <i class="icon-remove icon-white"></i> 删除
         </a>
-        <a class="btn btn-inverse" href="@Url.Action("Assign")">
+        <a class="btn btn-inverse addClick" id="btnAssign" data-rel="@Url.Action("Assign")" href="@Url.Action("Assign")">
             <i class="icon-share-alt icon-white"></i> 权限分配
         </a>
     </div>
@@ -53,7 +56,7 @@
                                     {
                                         <tr>
                                             <td>
-                                                <input type="checkbox" value="@item.Id">
+                                                <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
                                             </td>
                                             <td>@item.UserName</td>
                                             <td>@item.Email</td>
@@ -65,26 +68,7 @@
                                     }
                                 </tbody>
                             </table>
-                            <div class="dt-footer">
-                                <div class="row">
-                                    <div class="col-md-6 visible-md visible-lg">
-                                        <div class="dataTables_info" id="dtable_info">当前页/总页数 : 1/20</div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="dataTables_paginate paging_bootstrap pagination">
-                                            <ul class="pagination">
-                                                <li class="prev disabled"><a href="#">← Previous</a></li>
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li class="next"><a href="#">Next → </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @Html.Partial("PartialPage", Model)
                         </div>
                         <!-- end content-->
                     </div>
@@ -93,8 +77,43 @@
                 <!-- end widget -->
             </article>
         </div>
-
-
     </section>
-
 </div>
+@section script{
+    @*<script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"></script>
+        <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>*@
+    <script>
+        $(function () {
+            $("input[type='checkbox']").click(function () {
+                var $btnModify = $("#btnModify");
+                var href = $btnModify.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                $btnModify.attr("href", href);
+
+                var $btnRestPwd = $("#btnRestPwd");
+                href = $btnRestPwd.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                $btnRestPwd.attr("href", href);
+            });
+            $(".addClick").click(function (e) {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    finAlert("请选择需要操作的用户，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+
+                if ($("input[type='checkbox']:checked").length > 1) {
+                    finAlert("选择需要操作的用户过多，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            $("#btnDelete").click(function () {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    return false;
+                }
+                var id = $("input[type='checkbox']:checked").first().val();
+                ajaxSubmit("@Url.Action("Delete", "User")", { id: id }, "正在删除数据，请稍后");
+                return false;
+            });
+        });
+    </script>
+}
