@@ -926,6 +926,7 @@
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
     <Content Include="Images\unleash\Thumbs.db" />
+    <Content Include="Areas\ZdtbAdmin\Views\ProductType\Add.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />

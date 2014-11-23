@@ -1,23 +1,27 @@
-﻿@{
+﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductTypeViewModel>
+@{
     ViewBag.Title = "产品模块 > 类型维护";
 }
-
-@section UserName{
-    Jason
-}
-
 @section PageHeader{
     产品模块 > 类型维护
 }
+<script type="text/javascript">
+    $(function () {
+
+    });
+    function Remove() {
+        debugger;
+    }
+</script>
 <div class="fluid-container">
     <div style="padding-bottom:10px">
-        <a class="btn btn-primary" href="javascript:void(0);">
+        <a class="btn btn-primary" href="@Url.Action("Add")">
             <i class="icon-ok-sign icon-white"></i> 添加
         </a>
         <a class="btn btn-warning" href="javascript:void(0);">
             <i class="icon-edit icon-white"></i> 修改
         </a>
-        <a class="btn btn-danger" href="javascript:void(0);">
+        <a class="btn btn-danger" href="javascript:void(0);" onclick="Remove" id="Remove">
             <i class="icon-remove icon-white"></i> 删除
         </a>
         <a class="btn btn-inverse" href="javascript:void(0);">
@@ -41,67 +45,37 @@
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
-                                        <th>Column name</th>
-                                        <th>Column name</th>
-                                        <th>Column name</th>
-                                        <th>Column name</th>
+                                        <th>类型名称</th>
+                                        <th>父节点</th>
+                                        <th>创建人</th>
+                                        <th>创建时间</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox">
-                                        </td>
-                                        <td>Row 1</td>
-                                        <td>Row 2</td>
-                                        <td>Row 3</td>
-                                        <td>Row 4</td>
-                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="@item.Id">
+                                            </td>
+                                            <td>
+                                                @item.TypeName
+                                            </td>
+                                            <td>
+                                                @{
+                                        var prentModel = Model.Where(e => e.Id.Equals(item.ParentId)).FirstOrDefault();
+                                                }
+                                                @(prentModel == null ? "根节点" : prentModel.TypeName)
+                                            </td>
+                                            <td>
+                                                @item.CreateUser
+                                            </td>
+                                            <td>
+                                                @item.CreateDateTime
+                                            </td>
+                                        </tr>
+                                    }
+
                                 </tbody>
                             </table>
                             <div class="dt-footer">

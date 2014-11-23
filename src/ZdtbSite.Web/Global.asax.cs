@@ -25,6 +25,9 @@ namespace ZdtbSite.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapper.Mapper.CreateMap<Admin.UserViewModel, UserInfo>();
             AutoMapper.Mapper.CreateMap<UserInfo, Admin.UserViewModel>();
+
+            AutoMapper.Mapper.CreateMap<Admin.ProductTypeViewModel, ProductType>();
+            AutoMapper.Mapper.CreateMap<ProductType, Admin.ProductTypeViewModel>();
         }
     }
 }
