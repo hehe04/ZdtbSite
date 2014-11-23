@@ -1,5 +1,35 @@
-﻿@{
+﻿@using System.Web.Optimization;
+@{
     ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Header{
+    @Styles.Render("~/Style/AboutIndex")
+    @Scripts.Render("~/Script/AboutIndex")
+    <script>
+        $(function () {
+            $('.features_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 5,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('.intro_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        });
+    </script>
 }
 <div class="content_block">
     <!-- top_title -->

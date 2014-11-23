@@ -1,5 +1,21 @@
-﻿@{
+﻿@using System.Web.Optimization
+@{
     ViewBag.Title = "OurOffering";
+}
+@section Header{
+    @Scripts.Render("~/Script/AboutDevice")
+    @Styles.Render("~/Style/AboutDevice")
+    <script>
+        $(function () {
+            $(".gallery a[rel^='prettyPhoto']").prettyPhoto({ theme: 'dark_rounded' });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
 }
 <div class="content_block">
     <!-- top_title -->

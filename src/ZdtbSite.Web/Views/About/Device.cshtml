@@ -1,7 +1,26 @@
-﻿@{
-    ViewBag.Title = "DeviceWorkshop";
-}
+﻿@using System.Web.Optimization
 
+@{
+    ViewBag.Title = "DeviceWorkshop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    @Styles.Render("~/Style/AboutDevice")
+}
+@section Footer{
+    @Scripts.Render("~/Script/AboutDevice")
+<script>
+$(function(){
+	$(".gallery a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
+    $('.bwWrapper').BlackAndWhite({
+        hoverEffect : true,
+        webworkerPath : false,
+        responsive:true,
+        invertHoverEffect:false
+    });
+})
+</script>
+}
 
 <div class="content_block">
     <!-- top_title -->

@@ -1423,6 +1423,7 @@
     <Content Include="Views\Support\Process.cshtml" />
     <Content Include="Scripts\piecemaker\index.URL" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_BlogList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

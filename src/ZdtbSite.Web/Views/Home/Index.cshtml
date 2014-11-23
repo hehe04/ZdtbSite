@@ -1,8 +1,12 @@
-﻿@{
+﻿@using System.Web.Optimization;
+@{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <title>Home Version 7</title>
+
+@section Header{
+    @Styles.Render("~/Style/HomeIndex")
+    @Scripts.Render("~/Script/HomeIndex")
     <script>
         $(function () {
             $('#obo_slider').oneByOne({
@@ -24,39 +28,39 @@
             });
         })
     </script>
-</head>
+}
 <!-- one bt one slider -->
 <div class="wrape">
     <div class="fallback"><img src="/HtmlTemplate/images/sliders/home_page_7/home_page_7_fallback.jpg" alt="" /></div>
     <div id="obo_slider">
         <div class="oneByOne_item">
             <img src="/HtmlTemplate/images/sliders/home_page_7/home7_slide_1.jpg" class="wp1_3 wp1_left" alt="" />
-            <span class="txt1 txt_right">Construct Looks Good On</span>
-            <span class="txt2 txt_right">ALL Screen Sizes</span>
-            <span class="txt3 txt_right">Lid est laborum dolo rumes fugats untras. Et harums ser quidem sit rerum facilis dolores nemis uns voluptas sadips ipsums vitae tolu ptas nemis omnis fugiats vitaes nemo minima rerums uns.</span>
+            <span class="txt1 txt_right">Highest Quality Product</span>
+            <span class="txt2 txt_right">On-Time Delivery</span>
+            <span class="txt3 txt_right">Minnan's total quality commitment to our customers is demonstrated by providing the highest quality product, competitively designed and fairly priced, with on-time delivery. </span>
             <span class="txt4 txt_right"><a href="#" class="btn_l">Learn More</a></span>
         </div>
         <div class="oneByOne_item">
             <img src="/HtmlTemplate/images/sliders/home_page_7/home7_slide_2.jpg" class="wp1_3 wp1_left" alt="" />
-            <span class="txt1 blue txt_right2">This Slider Has Tons of Great Features</span>
-            <span class="txt2 blue txt_right2">Friendly</span>
-            <span class="txt2 blue txt_right2">and Hyperlinks</span>
+            <span class="txt1 blue txt_right2">Flexible Manufacturing System</span>
+            <span class="txt2 blue txt_right2">Fit Design</span>
+            <span class="txt2 blue txt_right2">Safety</span>
             <span class="txt4 txt_right2"><a href="#" class="btn_l">Learn More</a></span>
         </div>
 
         <div class="oneByOne_item">
             <img src="/HtmlTemplate/images/sliders/home_page_7/home7_slide_3.jpg" class="wp1_3" alt="" />
-            <span class="txt1">Manufacture professionally, Integrity business</span>
-            <span class="txt2">Our Mission</span>
-            <span class="txt3">Lid est laborum dolo rumes fugats untras. Et harums ser quidem sit rerum facilis dolores nemis uns volu taes nemo minima rerums uns.</span>
+            <span class="txt1">Minnan Power Transformer</span>
+            <span class="txt2">quality leading</span>
+            <span class="txt3">Minnan has a long and successful history of supplying power transformers for use in China, and globally</span>
             <span class="txt4"><a href="#" class="btn_l">Learn More</a></span>
         </div>
 
         <div class="oneByOne_item">
             <img src="/HtmlTemplate/images/sliders/home_page_7/home7_slide_4.jpg" class="wp1_3" alt="" />
-            <span class="txt1 blue">Use Individual Elements or </span>
-            <span class="txt2 blue">BIG IMAGES</span>
-            <span class="txt3 short">Lid est laborum dolo rumes fugats untras. Et harums ser quidem sit rerum facilis dolores nemis uns volu taes nemo minima rerums uns.</span>
+            <span class="txt1 blue">Minnan Switchgear</span>
+            <span class="txt2 blue">Reliable Powerful</span>
+            <span class="txt3 short">All Minnan's products have ISO 9001, ISO 14001, and OHSAS 18001 certifications</span>
             <span class="txt4"><a href="#" class="btn_l">Learn More</a></span>
         </div>
 
@@ -77,22 +81,22 @@
         <!-- features5 block -->
         <div class="features5_block">
             <h4>Hi There, Welcome to Minnan, a Responsive Business!</h4>
-            <p>Minnan Technology Company is a global leader in power transmission, distribution equipment and power transformers series products. Our company was founded in 1990, basing in two production venues in Zhejiang and Hunan province with more than 1,000 staff.  Main products include oil-immersed power distribution transformer, dry-type power distribution transformer, prefabricated substation, high & low voltage switchgear and high-voltage electrical components like capacitor, fuse, lightning arrester, vacuum circuit breaker, high-voltage isolation switch, vacuum load switch. </p>
+            <p>Minnan manufactures single phase, three phase and separated phase transformers in a variety of voltage classes and MVA ratings for transmission & distribution substations, generation applications as well as industrial applications such as arc furnace.Our transformers can handle voltages up to 765 kV, with ratings up to 2,400 MVA per bank. We provide both outdoor and indoor (including underground) installations. Our transformers meet a wide variety of domestic and international standards, including ANSI, IEEE, NEMA, JIS, JEC, KS, ESB, BS, and IEC.</p>
             <ul>
                 <li class="wordpress">
                     <a class="circle_link" href="#">&nbsp;</a>
                     <h4>Power transformers provide 20 years of reliable operation</h4>
-                    <p>Nemo enim ipsam voluptatem uns quia voluptas sit aspernatur aut od sadips ipsums  it aut fugit, sed quia consequunturs sadips ipsums amet untras dolores voluptas.</p>
+                    <p>Minnan's total quality commitment to our customers is demonstrated by providing the highest quality product, competitively designed and fairly priced, with on-time delivery. We achieve these high quality levels through our integrated quality assurance program. This level of experience allows Minnan's quality assurance and reliability to exceed those of our competitors.</p>
                 </li>
                 <li class="flexibility">
                     <a class="circle_link" href="#">&nbsp;</a>
                     <h4>Customers worldwide can securely rely on the quality and reliability of our products.</h4>
-                    <p>Our entire range is the result of our own research, development and manufacturing, which makes us unique in the industry. This has given us extensive experience in every relevant part of power transformer technology. Customers worldwide can securely rely on the quality and reliability of our products.</p>
+                    <p>Minnan supports our customers' goals with high quality products. From design to assembly, testing and installation, the customers' requirements are set as the standard, and goal for Minnan to achieve and exceed. Minnan operates an around-the-clock temperature, moisture, and dust-controlled clean room in its manufacturing process to contribute to the manufacture of a high quality power transformer.</p>
                 </li>
                 <li class="support">
                     <a class="circle_link" href="#">&nbsp;</a>
                     <h4>Support.  You buy it, we provide it.  Excellence all the way!</h4>
-                    <p>Nemo enim ipsam voluptatem uns quia voluptas sit aspernatur aut od sadips ipsums  it aut fugit, sed quia consequunturs sadips ipsums amet untras dolores voluptas.</p>
+                    <p>Minnan maintains a team of expert technical service professionals available to meet all of your Transformer, Circuit Breaker and GIS installation and service needs. Our Service Professionals are available to address your needs, day or night.</p>
                 </li>
             </ul>
         </div>

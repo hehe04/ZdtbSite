@@ -5,20 +5,6 @@ namespace ZdtbSite.Web
 {
     public class BundleConfig
     {
-        //<link rel="icon" type="image/png" href="/HtmlTemplate/images/favicon.ico" />
-        //<link rel="apple-touch-icon" href="/HtmlTemplate/images/apple-touch-icon.png" />
-        //<link rel="apple-touch-icon" sizes="72x72" href="/HtmlTemplate/images/apple-touch-icon-72x72.png" />
-        //<link rel="apple-touch-icon" sizes="114x114" href="/HtmlTemplate/images/apple-touch-icon-114x114.png" />
-        //<link href="stylesheets/googleFonts.css" rel="stylesheet" type='text/css' />
-        //<link rel="stylesheet" href="/HtmlTemplate/stylesheets/style.css" />
-        //<link rel="stylesheet" href="/HtmlTemplate/stylesheets/responsive.css" />
-        //<link rel="stylesheet" href="/HtmlTemplate/stylesheets/jquery.onebyone.css" />
-        //<script src="/HtmlTemplate/scripts/jquery.min.js"></script>
-        //<script src="/HtmlTemplate/scripts/jquery.bxSlider.min.js"></script>
-        //<script src="/HtmlTemplate/scripts/jquery.onebyone.min.js"></script>
-        //<script src="/HtmlTemplate/scripts/jquery.touchwipe.min.js"></script>
-        //<script src="/HtmlTemplate/scripts/jquery.blackandwhite.min.js"></script>
-        //<script src="/HtmlTemplate/scripts/js_func.js"></script>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/Scripts/HomeLayout").Include(
@@ -31,13 +17,42 @@ namespace ZdtbSite.Web
                 "~/scripts/jquery.touchwipe.min.js",
                 "~/scripts/jquery.blackandwhite.min.js"
                 ));
-            bundles.Add(new StyleBundle("~/Style/HomeLayout").Include(
-                "~/Stylesheets/style.css",
+            bundles.Add(new StyleBundle("~/Style/HomeIndex").Include(
                 "~/Stylesheets/googleFonts.css",
+                "~/Stylesheets/style.css",
                 "~/Stylesheets/responsive.css",
                 "~/Stylesheets/jquery.onebyone.css"
-                
                 ));
+            bundles.Add(new ScriptBundle("~/Script/AboutIndex").Include(
+                "~/scripts/jquery.bxSlider.min.js",
+                "~/scripts/jquery.blackandwhite.min.js"
+                ));
+            bundles.Add(new StyleBundle("~/Style/AboutIndex").Include(
+                "~/Stylesheets/googleFonts.css",
+                "~/Stylesheets/style.css"
+                ,"~/Stylesheets/responsive.css"
+                ));
+            bundles.Add(new ScriptBundle("~/Script/AboutDevice").Include(
+                "~/scripts/jquery.prettyPhoto.js",
+                "~/scripts/jquery.blackandwhite.min.js"
+                ));
+            bundles.Add(new StyleBundle("~/Style/AboutDevice").Include(
+                "~/Stylesheets/googleFonts.css",
+                "~/Stylesheets/style.css",
+                "~/Stylesheets/responsive.css",
+                "~/Stylesheets/prettyPhoto.css"
+                ));
+            bundles.Add(new ScriptBundle("~/Script/ArticleIndex").Include(
+                "~/scripts/jquery.bxSlider.min.js",
+                "~/scripts/jquery.faq.js",
+                "~/scripts/jquery.blackandwhite.min.js"
+                ));
+            bundles.Add(new ScriptBundle("~/Script/Process").Include(
+                "~/scripts/jquery.blackandwhite.min.js"
+                ));
+            bundles.Add(new ScriptBundle("~/Script/SupportFAQ").Include(
+               "~/Scripts/jquery.simpleFAQ-0.7.min.js"
+               ));
         }
     }
 }

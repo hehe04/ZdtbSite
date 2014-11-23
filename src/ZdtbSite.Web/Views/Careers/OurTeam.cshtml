@@ -1,7 +1,21 @@
 ﻿@{
     ViewBag.Title = "OurTeam";
 }
-
+@using System.Web.Optimization
+@section Header{
+    @Scripts.Render("~/Script/Process")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        });
+    </script>
+}
 
 <div class="content_block">
     <!-- top_title -->

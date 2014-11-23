@@ -1,5 +1,15 @@
-﻿@{
+﻿@using System.Web.Optimization
+@{
     ViewBag.Title = "FAQ";
+}
+@section Header{
+    @Scripts.Render("~/Script/SupportFAQ")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('#faq').simpleFAQ();
+        });
+    </script>
 }
 
 <div class="content_block">
