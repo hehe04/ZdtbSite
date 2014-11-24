@@ -1,9 +1,9 @@
-﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductTypeViewModel>
+﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductViewModel>
 @{
-    ViewBag.Title = "产品模块 > 类型维护";
+    ViewBag.Title = "产品模块 > 产品维护";
 }
 @section PageHeader{
-    产品模块 > 类型维护
+    产品模块 > 产品维护
 }
 <div class="fluid-container">
     <div style="padding-bottom:10px">
@@ -37,10 +37,10 @@
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
-                                        <th>类型名称</th>
-                                        <th>父节点</th>
-                                        <th>创建人</th>
-                                        <th>创建时间</th>
+                                        <th>产品名称</th>
+                                        <th>产品类型</th>
+                                        <th>添加时间</th>
+                                        <th>产品描述</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,19 +51,16 @@
                                                 <input type="checkbox" value="@item.Id">
                                             </td>
                                             <td>
-                                                @item.TypeName
+                                                @item.Name
                                             </td>
                                             <td>
-                                                @{
-                                        var prentModel = Model.Where(e => e.Id.Equals(item.ParentId)).FirstOrDefault();
-                                                }
-                                                @(prentModel == null ? "根节点" : prentModel.TypeName)
+                                                @item.ProductType_Id
                                             </td>
                                             <td>
-                                                @item.CreateUser
+                                                @item.CreateTime
                                             </td>
                                             <td>
-                                                @item.CreateDateTime
+                                                @item.Description
                                             </td>
                                         </tr>
                                     }
@@ -134,9 +131,10 @@
                     return false;
                 }
                 var id = $("input[type='checkbox']:checked").first().val();
-                ajaxSubmit("@Url.Action("Delete", "ProductType")", { id: id }, "正在删除数据，请稍后");
+                ajaxSubmit("@Url.Action("Delete", "Product")", { id: id }, "正在删除数据，请稍后");
                 return false;
             });
         });
     </script>
 }
+

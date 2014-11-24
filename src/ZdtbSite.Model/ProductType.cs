@@ -22,6 +22,9 @@ namespace ZdtbSite.Model
 
         public DateTime CreateDateTime { get; set; }
 
+        public IEnumerable<ProductType> ProductTypes { get; set; }
         public virtual ICollection<Product> Products { get; set; }
+
+        public int Level { get; set; }
     }
 }

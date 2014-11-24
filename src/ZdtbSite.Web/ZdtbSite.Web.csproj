@@ -926,9 +926,13 @@
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
     <Content Include="Images\unleash\Thumbs.db" />
+    <Content Include="Areas\ZdtbAdmin\Views\ProductType\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Shared\PartialPage.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\RestPwd.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\ProductType\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Product\Add.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1371,10 +1375,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\UserController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\AdminMenuViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\ProductViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\UserViewModel.cs" />
