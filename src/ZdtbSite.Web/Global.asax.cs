@@ -24,7 +24,7 @@ namespace ZdtbSite.Web
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Configuration>());
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.CreateAllMap();
-            new AdminMenuCacheConfig().SetAdminMenuCache();
+            AdminMenuCacheConfig.SetAdminMenuCache();
         }
     }
 }

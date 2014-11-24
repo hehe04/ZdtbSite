@@ -158,14 +158,24 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         [HttpGet]
         public ActionResult Assign(int id)
         {
-           
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var user = userInfoRepository.Get(e => e.Id == id);
+            return View(AutoMapper.Mapper.Map<UserInfo, Admin.UserViewModel>(user));
         }
 
         [HttpPost]
-        public ActionResult Assign(Admin.UserViewModel viewmodel)
+        public ActionResult Assign(string assign, int Id)
         {
-            return View();
+            assign = Request.Form["Assign"];
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            var user = userInfoRepository.Get(e => e.Id == Id);
+            user.AuthorityUrl = assign;
+            userInfoRepository.Update(user);
+            unitOfWork.Commit();
+            model.Success = true;
+            model.RedirectUrl = CurrentUrl;
+            model.Msg = "成功分配权限，页面即将跳转";
+            Session["UserAssign"] = assign;
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -212,6 +222,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 else
                 {
                     var userData = user.Id.ToString() + "|" + user.UserName + "|" + user.Email;
+
+                    Session["UserAssign"] = user.AuthorityUrl;
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, userData, DateTime.Now, DateTime.Now.AddHours(12), false, userData);
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
                     Response.Cookies.Add(cookie);

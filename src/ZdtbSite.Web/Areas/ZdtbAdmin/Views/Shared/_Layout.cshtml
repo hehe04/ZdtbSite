@@ -146,73 +146,124 @@
                     <div class="sidebar-nav-fixed">
 
                         <ul class="menu" id="accordion-menu-js">
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-user"></i>用户模块 <span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">用户管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">权限分配</a>
-                                    </li>
+                            @{
+                                List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel> menus = HttpContext.Current.Application.Get("MenuList") as List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel>;
+                                string assign = Session["UserAssign"] as string;
+                                if (menus != null && !string.IsNullOrEmpty(assign))
+                                {
 
-                                </ul>
-                            </li>
+
+                                    var roots = menus.Where(e => e.ParentId == 0);
+                                    foreach (var item in roots)
+                                    {
+                                        //子节点
+                                        var childrens = menus.Where(e => e.ParentId == item.Id);
+                                        bool flg = false;
+                                        int existscount = 0;
+                                        foreach (var children in childrens)
+                                        {
+                                            if (assign.IndexOf(children.Id + ",") >= 0)
+                                            {
+                                                flg = true;
+                                                existscount++;
+                                            }
+                                        }
+                                        if (flg)
+                                        {
+                                            <li class="">
+                                                <a href="javascript:void(0)">
+                                                    @{
+                                            if (!string.IsNullOrEmpty(item.Icon))
+                                            {
+                                                <i class="@item.Icon"></i>
+                                            }
+                                                    }
+                                                    @item.Name <span class="badge">@existscount</span>
+
+                                                </a>
+                                                <ul>
+                                                    @*<li>
+                                                            <a href="#">用户管理</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">权限分配</a>
+                                                        </li>*@
+                                                    @foreach (var children in childrens)
+                                                    {
+                                                        if (assign.IndexOf(children.Id + ",") >= 0)
+                                                        {
+                                                            <li>
+                                                                @if (!string.IsNullOrEmpty(children.Icon))
+                                                                {
+                                                                    <i class="@children.Icon"></i>
+                                                                }
+                                                                <a href="@Url.Action(children.Action, children.Controller)"> @children.Name</a>
+                                                            </li>
+                                                        }
+                                                    }
+
+                                                </ul>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            }
+
+                            @*<li class="">
+                                    <a href="javascript:void(0)"><i class="icon-envelope"></i>文章发布<span class="badge">2</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">技术文章</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">新闻发布</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">文章采集</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">类型维护</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">产品发布</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="#"><i class="icon-home"></i>企业信息</a>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-check"></i>客户追踪<span class="badge">4</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">合同管理</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">客户信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">产品浏览信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">留言预览</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-briefcase"></i>人才管理<span class="badge">1</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">职位发布</a>
+                                        </li>
+                                    </ul>
+                                </li>*@
                             <li class="">
-                                <a href="javascript:void(0)"><i class="icon-envelope"></i>文章发布<span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">技术文章</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">新闻发布</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">文章采集</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">类型维护</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">产品发布</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-home"></i>企业信息</a>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>客户追踪<span class="badge">4</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">合同管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">客户信息</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">产品浏览信息</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">留言预览</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-briefcase"></i>人才管理<span class="badge">1</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">职位发布</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut")">退出登录</a>
+                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut")"><i class="icon-off"></i> 退出登录</a>
                             </li>
                         </ul>
                     </div>

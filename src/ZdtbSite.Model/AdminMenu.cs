@@ -20,7 +20,18 @@ namespace ZdtbSite.Model
         [StringLength(64)]
         public string Url { get; set; }
 
+        [StringLength(64)]
+        /// <summary>
+        /// Controller 的Action Index..
+        /// </summary>
+        public string Action { get; set; }
+
+        [StringLength(64)]
+        public string Controller { get; set; }
         [StringLength(512)]
         public string Discretion { get; set; }
+
+        [StringLength(32)]
+        public string Icon { get; set; }
     }
 }

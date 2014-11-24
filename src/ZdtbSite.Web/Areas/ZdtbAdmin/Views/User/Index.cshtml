@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "用户管理";
+    //ViewBag.Assign =;
 }
 
 @section PageHeader{
@@ -81,15 +82,28 @@
 </div>
 @section script{
     <script>
+        function setUrl($ele) {
+            var $ele = $("#btnAssign");
+            var href = $ele.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+            $ele.attr("href", href);
+        }
         $(function () {
             $("input[type='checkbox']").click(function () {
-                var $btnModify = $("#btnModify");
-                var href = $btnModify.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
-                $btnModify.attr("href", href);
+                //var $btnModify = $("#btnModify");
+                //var href = $btnModify.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnModify.attr("href", href);
 
-                var $btnRestPwd = $("#btnRestPwd");
-                href = $btnRestPwd.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
-                $btnRestPwd.attr("href", href);
+                //var $btnRestPwd = $("#btnRestPwd");
+                //href = $btnRestPwd.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnRestPwd.attr("href", href);
+
+
+                //var $btnAssign = $("#btnAssign");
+                //href = $btnAssign.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnAssign.attr("href", href);
+                setUrl($("#btnModify"));
+                setUrl($("#btnRestPwd"));
+                setUrl($("#btnAssign"));
             });
             $(".addClick").click(function (e) {
                 if ($("input[type='checkbox']:checked").length <= 0) {

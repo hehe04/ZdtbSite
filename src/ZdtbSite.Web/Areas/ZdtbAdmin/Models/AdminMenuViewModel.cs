@@ -13,8 +13,14 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
 
         public string Name { get; set; }
 
+        public string Action { get; set; }
+
+        public string Controller { get; set; }
+
         public string Url { get; set; }
 
         public string Discretion { get; set; }
+
+        public string Icon { get; set; }
     }
 }
