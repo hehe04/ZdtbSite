@@ -1,0 +1,111 @@
+﻿@model PagedList.IPagedList
+
+@{
+    if (Model.PageCount > 1)
+    {
+
+        int start = Model.PageNumber - 5;
+        if (Model.PageCount - (10 - 1) < start)
+        {
+            start = Model.PageCount - 9;
+        }
+        if (start < 1)
+        {
+            start = 1;
+        }
+
+
+        int end = Model.PageNumber + 4;
+
+        if (end < 10 && Model.PageCount >= 10)
+        {
+            if (Model.PageCount >= 10)
+            {
+
+                end = 10;
+            }
+            else
+            {
+                end = Model.PageCount;
+            }
+        }
+        if (end > Model.PageCount)
+        {
+            end = Model.PageCount;
+        }
+
+        <div class="dt-footer">
+            <div class="row">
+                <div class="col-md-6 visible-md visible-lg">
+                    <div class="dataTables_info" id="dtable_info">当前页/总页数 : @Model.PageNumber/@Model.PageCount</div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                        <ul class="pagination">
+                            @if (Model.IsFirstPage)
+                            {
+                                <li class="prev disabled"><a href="#">← 上一页</a></li>
+                            }
+                            else
+                            {
+                                <li class="prev"><a href="?pageIndex=@(Model.PageNumber - 1)">← 上一页</a></li>
+                            }
+
+
+
+                            @for (int i = start; i <= end; i++)
+                            {
+                                if (i == Model.PageNumber)
+                                {
+                                    <li class="active"><a href="?pageIndex=@i">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="?pageIndex=@i">@i</a></li>
+                                }
+                            }
+                            @*<li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>*@
+
+                            @if (Model.IsLastPage)
+                            {
+                                <li class="next disabled"><a href="#">下一页 → </a></li>
+
+                            }
+                            else
+                            {
+                                <li class="next"><a href="?pageIndex=@(Model.PageNumber + 1)">下一页 → </a></li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+}
+
+@*<div class="dt-footer">
+        <div class="row">
+            <div class="col-md-6 visible-md visible-lg">
+                <div class="dataTables_info" id="dtable_info">当前页/总页数 : 1/20</div>
+            </div>
+            <div class="col-md-6">
+                <div class="dataTables_paginate paging_bootstrap pagination">
+                    <ul class="pagination">
+                        <li class="prev disabled"><a href="#">← Previous</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li class="next"><a href="#">Next → </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@

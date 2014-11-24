@@ -5,41 +5,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Title</title>
+    <title>@ViewBag.Title</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- http://davidbcalhoun.com/2010/viewport-metatag -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!--// OPTIONAL & CONDITIONAL CSS FILES //-->
-    <!-- date picker css -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/datepicker.css?v=1">
-    <!-- custom/responsive growl messages -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr.custom.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr-responsive.css?v=1">
-
-    <!-- // DO NOT REMOVE OR CHANGE ORDER OF THE FOLLOWING // -->
-    <!-- bootstrap default css (DO NOT REMOVE) -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap.min.css?v=1">
-    <!--<link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap-responsive.min.css?v=1">-->
-    <!-- font awsome and custom icons -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/font-awesome.min.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/cus-icons.css?v=1">
-    <!-- jarvis widget css -->
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jarvis-widgets.css?v=1">
     <link href="~/Areas/ZdtbAdmin/Content/css/DT_bootstrap.css" rel="stylesheet" />
-    <!-- main theme files -->
+    <link href="~/Areas/ZdtbAdmin/Content/css/uniform.default.css" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/select2.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme-responsive.css?v=1">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jquery.jgrowl.css?v=1">
-
-    <!-- // THEME CSS changed by javascript: the CSS link below will override the rules above // -->
-    <!-- For more information, please see the documentation for "THEMES" -->
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger.css?v=1" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger-theme-future.css?v=1" rel="stylesheet" />
     <script>
-        console.log();
         var path = localStorage.getItem("themes");
         if (path == null || path == "") {
             document.write('<link rel="stylesheet" id="switch-theme-js" href="/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">');
@@ -47,21 +41,7 @@
             document.write('<link rel="stylesheet" id="switch-theme-js" href="' + path + '">');
         }
     </script>
-    @*<link rel="stylesheet" id="switch-theme-js" href="~/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">*@
-
-    <!-- To switch to full width -->
     <link rel="stylesheet" id="switch-width" href="~/Areas/ZdtbAdmin/Content/css/full-width.css?v=1">
-
-    <!-- Webfonts -->
-    @*<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:300,400,700' type='text/css'>*@
-
-    <!-- All javascripts are located at the bottom except for HTML5 Shim -->
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="~/Areas/ZdtbAdmin/Content/js/include/respond.min.js"></script>
-    <![endif]-->
-    <!-- For Modern Browsers -->
     <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.png">
     <!-- For everything else -->
     <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.ico">
@@ -157,7 +137,7 @@
                         <a href="javascript:void(0)" class="my-profile-pic">
                             <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt="" />
                         </a>
-                        <span class="first-child">欢迎 <strong>@RenderSection("UserName", false)!</strong></span>
+                        <span class="first-child">欢迎 <strong>Jason !</strong></span>
                         <span><a href="javascript:void(0);">编辑信息 </a></span>
                     </div>
                     <div class="divider"></div>
@@ -166,46 +146,124 @@
                     <div class="sidebar-nav-fixed">
 
                         <ul class="menu" id="accordion-menu-js">
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-user"></i>用户模块 <span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">用户管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">权限分配</a>
-                                    </li>
+                            @{
+                                List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel> menus = HttpContext.Current.Application.Get("MenuList") as List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel>;
+                                string assign = Session["UserAssign"] as string;
+                                if (menus != null && !string.IsNullOrEmpty(assign))
+                                {
 
-                                </ul>
-                            </li>
+
+                                    var roots = menus.Where(e => e.ParentId == 0);
+                                    foreach (var item in roots)
+                                    {
+                                        //子节点
+                                        var childrens = menus.Where(e => e.ParentId == item.Id);
+                                        bool flg = false;
+                                        int existscount = 0;
+                                        foreach (var children in childrens)
+                                        {
+                                            if (assign.IndexOf(children.Id + ",") >= 0)
+                                            {
+                                                flg = true;
+                                                existscount++;
+                                            }
+                                        }
+                                        if (flg)
+                                        {
+                                            <li class="">
+                                                <a href="javascript:void(0)">
+                                                    @{
+                                            if (!string.IsNullOrEmpty(item.Icon))
+                                            {
+                                                <i class="@item.Icon"></i>
+                                            }
+                                                    }
+                                                    @item.Name <span class="badge">@existscount</span>
+
+                                                </a>
+                                                <ul>
+                                                    @*<li>
+                                                            <a href="#">用户管理</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">权限分配</a>
+                                                        </li>*@
+                                                    @foreach (var children in childrens)
+                                                    {
+                                                        if (assign.IndexOf(children.Id + ",") >= 0)
+                                                        {
+                                                            <li>
+                                                                @if (!string.IsNullOrEmpty(children.Icon))
+                                                                {
+                                                                    <i class="@children.Icon"></i>
+                                                                }
+                                                                <a href="@Url.Action(children.Action, children.Controller)"> @children.Name</a>
+                                                            </li>
+                                                        }
+                                                    }
+
+                                                </ul>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            }
+
+                            @*<li class="">
+                                    <a href="javascript:void(0)"><i class="icon-envelope"></i>文章发布<span class="badge">2</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">技术文章</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">新闻发布</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">文章采集</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">类型维护</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">产品发布</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="#"><i class="icon-home"></i>企业信息</a>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-check"></i>客户追踪<span class="badge">4</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">合同管理</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">客户信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">产品浏览信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">留言预览</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-briefcase"></i>人才管理<span class="badge">1</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">职位发布</a>
+                                        </li>
+                                    </ul>
+                                </li>*@
                             <li class="">
-                                <a href="#"><i class="icon-envelope"></i>文章发布</a>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">3</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">类型维护</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">产品发布</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">浏览信息</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-home"></i>企业简介</a>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-briefcase"></i>招聘信息</a>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-hdd"></i>留言预览</a>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-shopping-cart"></i>订购信息</a>
+                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut")"><i class="icon-off"></i> 退出登录</a>
                             </li>
                         </ul>
                     </div>
@@ -319,24 +377,24 @@
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.placeholder.min.js"><\/script>');
 
             /** DEMO SCRIPTS **/
-            $(function () {
-                /* jarvis tooltips */
-                $.jGrowl("These <strong>Smart Widgets</strong> will remember any <strong>name, color or position</strong> you give them. Try to customize one and <strong>refresh the page</strong> to see if it hasn't changed'.", {
-                    header: 'Smart Widgets',
-                    sticky: false,
-                    life: 7000,
-                    speed: 500,
-                    theme: 'with-icon',
-                    position: 'top-right', //this is default position
-                    easing: 'easeOutBack',
-                    animateOpen: {
-                        height: "show"
-                    },
-                    animateClose: {
-                        opacity: 'hide'
-                    }
-                });
-            });
+            //$(function () {
+            //    /* jarvis tooltips */
+            //    $.jGrowl("These <strong>Smart Widgets</strong> will remember any <strong>name, color or position</strong> you give them. Try to customize one and <strong>refresh the page</strong> to see if it hasn't changed'.", {
+            //        header: 'Smart Widgets',
+            //        sticky: false,
+            //        life: 7000,
+            //        speed: 500,
+            //        theme: 'with-icon',
+            //        position: 'top-right', //this is default position
+            //        easing: 'easeOutBack',
+            //        animateOpen: {
+            //            height: "show"
+            //        },
+            //        animateClose: {
+            //            opacity: 'hide'
+            //        }
+            //    });
+            //});
             /** end DEMO SCRIPTS **/
 
         } else {
@@ -416,16 +474,13 @@
 
     <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.form.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/bootbox.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
     @RenderSection("script", false)
-
-    <!-- d3 library placed at the bottom for better performance -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/d3.v3.min.js"></script> -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-1.js"></script> -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-2.js"></script> -->
-    <!-- Google Geo Chart -->
-    <!-- DISABLED <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script> -->
-    <!-- DISABLED <script type='text/javascript' src='https://www.google.com/jsapi'></script>-->
-    <!-- DISABLED <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/geochart.js"></script> -->
-    <!-- end scripts -->
 </body>
 </html>

@@ -1,0 +1,111 @@
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.UserViewModel
+
+@section PageHeader{
+    用户管理 > 权限分配
+}
+
+@{
+    ViewBag.Title = "添加用户";
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+}
+
+<div class="fluid-container">
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget" id="widget-id-0" role="widget">
+                    <header>
+                        <h2>用户信息</h2>
+                    </header>
+                    <div>
+
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <form class="form-horizontal themed" method="post" action="@Url.Action("Assign")">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.UserName)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control disabled", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(m => m.UserName)
+                                                @*<input type="text" class="form-control" id="input01" />*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3"><label>权限</label></div>
+
+                                            <div class="col-md-9">
+                                                @*<label>
+                                                        <input type="checkbox" id="optionsCheckbox-1" value="option1">
+                                                        Unchecked
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" id="optionsCheckbox-2" value="option2" checked="checked">
+                                                        Checked
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" id="optionsCheckbox-3" value="option3" disabled="disabled">
+                                                        Disabled
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" id="optionsCheckbox-4" value="option4" checked="checked" disabled="disabled">
+                                                        Disabled Checked
+                                                    </label>*@
+                                                @{
+                                                    List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel> menus = HttpContext.Current.Application.Get("MenuList") as List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel>;
+                                                    if (menus != null)
+                                                    {
+                                                        int index = 0;
+                                                        foreach (var item in menus)
+                                                        {
+                                                            if (item.ParentId == 0)
+                                                            {
+                                                                continue;
+                                                            }
+                                                            <label class="checkbox">
+                                                                @if (!string.IsNullOrEmpty(Model.AuthorityUrl) && Model.AuthorityUrl.Contains(item.Id.ToString()))
+                                                                {
+                                                                    <input type="checkbox" name="Assign" id="optionsCheckbox-@index" value="@item.Id" checked="checked">@item.Name
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input type="checkbox" name="Assign" id="optionsCheckbox-@index" value="@item.Id">@item.Name
+                                                                }
+                                                            </label>
+                                                                index++;
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row" style="text-align:right">
+                                            <div class="col-md-12">
+                                                @Html.HiddenFor(e => e.Id)
+                                                <button type="reset" name="name" class="btn btn-danger">
+                                                    <i class="icon-repeat icon-white"></i> 重置
+                                                </button>
+
+                                                <button type="submit" name="name" class="btn btn-primary">
+                                                    <i class="icon-ok-sign icon-white"></i> 保存
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
