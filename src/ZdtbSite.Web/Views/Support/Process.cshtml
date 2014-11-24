@@ -1,5 +1,21 @@
-﻿@{
+﻿@using System.Web.Optimization
+@{
     ViewBag.Title = "Process";
+}
+@section Header{
+    @Scripts.Render("~/Script/Process")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        });
+    </script>
+
 }
 
 <div class="content_block">

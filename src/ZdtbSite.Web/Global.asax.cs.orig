@@ -23,8 +23,12 @@ namespace ZdtbSite.Web
             DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());//设置dbConfiguration实例，必须在使用任何实体框架之前设置
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Configuration>());
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+<<<<<<< HEAD
             AutoMapperConfig.CreateAllMap();
             AdminMenuCacheConfig.SetAdminMenuCache();
+=======
+            AutoMapper.Mapper.CreateMap<Admin.UserViewModel, UserInfo>();
+            AutoMapper.Mapper.CreateMap<UserInfo, Admin.UserViewModel>();
 
             AutoMapper.Mapper.CreateMap<Admin.ProductTypeViewModel, ProductType>();
             AutoMapper.Mapper.CreateMap<ProductType, Admin.ProductTypeViewModel>();
@@ -33,6 +37,7 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Admin.ProductViewModel, Product>();
             AutoMapper.Mapper.CreateMap<Product, Admin.ProductViewModel>();
+>>>>>>> devlei
         }
     }
 }

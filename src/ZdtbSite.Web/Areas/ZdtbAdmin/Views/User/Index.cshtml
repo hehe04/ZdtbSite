@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "用户管理";
+    //ViewBag.Assign =;
 }
 
 @section PageHeader{
@@ -18,7 +19,7 @@
         <a class="btn btn-success addClick" id="btnRestPwd" data-rel="@Url.Action("RestPwd")" href="@Url.Action("RestPwd")">
             <i class="icon-repeat icon-white"></i> 重置密码
         </a>
-        <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="@Url.Action("Delete")">
+        <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="javascript:void(0)">
             <i class="icon-remove icon-white"></i> 删除
         </a>
         <a class="btn btn-inverse addClick" id="btnAssign" data-rel="@Url.Action("Assign")" href="@Url.Action("Assign")">
@@ -80,18 +81,29 @@
     </section>
 </div>
 @section script{
-    @*<script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"></script>
-        <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>*@
     <script>
+        function setUrl($ele) {
+            var $ele = $("#btnAssign");
+            var href = $ele.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+            $ele.attr("href", href);
+        }
         $(function () {
             $("input[type='checkbox']").click(function () {
-                var $btnModify = $("#btnModify");
-                var href = $btnModify.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
-                $btnModify.attr("href", href);
+                //var $btnModify = $("#btnModify");
+                //var href = $btnModify.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnModify.attr("href", href);
 
-                var $btnRestPwd = $("#btnRestPwd");
-                href = $btnRestPwd.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
-                $btnRestPwd.attr("href", href);
+                //var $btnRestPwd = $("#btnRestPwd");
+                //href = $btnRestPwd.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnRestPwd.attr("href", href);
+
+
+                //var $btnAssign = $("#btnAssign");
+                //href = $btnAssign.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnAssign.attr("href", href);
+                setUrl($("#btnModify"));
+                setUrl($("#btnRestPwd"));
+                setUrl($("#btnAssign"));
             });
             $(".addClick").click(function (e) {
                 if ($("input[type='checkbox']:checked").length <= 0) {

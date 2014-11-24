@@ -1,6 +1,48 @@
-﻿@{
+﻿@using System.Web.Optimization
+
+@{
     ViewBag.Title = "TechnologySupport";
 }
+@section Header{
+    @Scripts.Render("~/Script/ArticleIndex")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.clients_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.post_slider').bxSlider({
+                auto: false,
+                speed: 1000
+            });
+            $('.recent_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 1,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('#faq').dltoggle();
+            $("#open").click(function (event) {
+                $('#faq').dltoggle_show();
+                return false;
+            });
+            $("#close").click(function (event) {
+                $('#faq').dltoggle_hide();
+                return false;
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
 
 <div class="content_block">
     <!-- top_title -->

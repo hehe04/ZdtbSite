@@ -1,6 +1,12 @@
-﻿@{
+﻿@using System.Web.Optimization
+
+@{
     ViewBag.Title = "Quality Certificates";
 }
+@section Header{
+    @Styles.Render("~/Style/AboutIndex")
+}
+
 <div class="content_block">
     <!-- top_title -->
     <div class="top_title">
