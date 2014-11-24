@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,19 +24,11 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             this.unitOfWork = unitOfWork;
         }
         // GET: ZdtbAdmin/Product
-        public ActionResult Index()
+        public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
-            List<Admin.ProductViewModel> ProdutList = new List<Admin.ProductViewModel>();
-            try
-            {
-                //pageList
-                var list = productRepository.GetAll().ToList();
-                ProdutList = AutoMapper.Mapper.Map<List<Model.Product>, List<Admin.ProductViewModel>>(list);
-            }
-            catch (Exception)
-            {
-            }
-            return View(ProdutList);
+            Page page = new Page(pageIndex, pageSize);
+            IPagedList<Product> pageList = productRepository.GetPage(page, e => true, e => e.Id);
+            return View(pageList);
         }
 
         public ActionResult Add()
@@ -67,6 +60,60 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 responseModel.Msg = "添加产品失败，请重试" + ex.Message;
             }
             return Json(responseModel);
+        }
+
+
+        [HttpGet]
+        public ActionResult Modify(int id)
+        {
+            Product ProductInfo = productRepository.GetById(id);
+            Admin.ProductViewModel model = AutoMapper.Mapper.Map<Model.Product, Admin.ProductViewModel>(ProductInfo);
+            var list = productTypeRepository.GetAll().ToList();
+            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).BindDropDownList(0, list);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Modify(Admin.ProductViewModel viewmodel)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                var ProductInfo = AutoMapper.Mapper.Map<Admin.ProductViewModel, Model.Product>(viewmodel);
+                ProductInfo.CreateTime = DateTime.Now;
+                ProductInfo.ProductType = productTypeRepository.GetById(viewmodel.ProductType_Id);
+                bool flg = TryUpdateModel<Model.Product>(ProductInfo);
+                productRepository.Update(ProductInfo);
+                unitOfWork.Commit();
+                model.Success = true;
+                model.Msg = "成功更新产品信息，页面即将跳转到用产品表页";
+                model.RedirectUrl = CurrentUrl;
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "更新产品信息失败，请重试" + ex.Message;
+            }
+            return Json(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                productRepository.Delete(productRepository.GetById(id));
+                unitOfWork.Commit();
+                model.Success = true;
+                model.Msg = "删除产品成功！";
+                model.RedirectUrl = CurrentUrl;
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "删除产品失败，请重试" + ex.Message;
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
     }
 }

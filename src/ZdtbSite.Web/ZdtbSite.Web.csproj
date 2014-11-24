@@ -933,6 +933,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\ProductType\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Product\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Product\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Product\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />

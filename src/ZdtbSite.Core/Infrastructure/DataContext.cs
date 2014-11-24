@@ -9,8 +9,8 @@ namespace ZdtbSite.Core.Infrastructure
         public DataContext()
             : base("DataContext")
         {
-            base.Configuration.ProxyCreationEnabled = false;
-            base.Configuration.LazyLoadingEnabled = false;
+            //base.Configuration.ProxyCreationEnabled = false;
+            //base.Configuration.LazyLoadingEnabled = false;
         }
 
         public IDbSet<Product> Products { get; set; }
