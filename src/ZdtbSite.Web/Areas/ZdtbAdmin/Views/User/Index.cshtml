@@ -83,7 +83,6 @@
 @section script{
     <script>
         function setUrl($ele) {
-            var $ele = $("#btnAssign");
             var href = $ele.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
             $ele.attr("href", href);
         }

@@ -9,7 +9,7 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly IRepository<Product> productRepository;
         private readonly IRepository<ProductType> productTypeRepository;

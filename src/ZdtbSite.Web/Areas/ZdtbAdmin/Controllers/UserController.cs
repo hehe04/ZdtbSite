@@ -221,9 +221,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 }
                 else
                 {
-                    var userData = user.Id.ToString() + "|" + user.UserName + "|" + user.Email;
+                    var userData = user.Id.ToString() + "|" + user.UserName + "|" + user.Email + "|" + user.AuthorityUrl;
 
-                    Session["UserAssign"] = user.AuthorityUrl;
+                    //Session["UserAssign"] = user.AuthorityUrl;
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, userData, DateTime.Now, DateTime.Now.AddHours(12), false, userData);
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
                     Response.Cookies.Add(cookie);

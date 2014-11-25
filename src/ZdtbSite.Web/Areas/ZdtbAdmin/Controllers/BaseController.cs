@@ -15,6 +15,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 
         public string LoginUserEmail { get; private set; }
 
+        public string LoginUserAuthorityUrl { get; private set; }
+
         protected override void OnException(ExceptionContext filterContext)
         {
             base.OnException(filterContext);
@@ -33,7 +35,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                     HttpCookie authCookie = HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];//获取cookie 
                     FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);//解密 
                     string[] userData = Ticket.UserData.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                    if (userData.Length < 3)
+                    if (userData.Length < 4)
                     {
                         Response.Redirect(Url.Action("SingIn", "User"));
                     }
@@ -43,6 +45,10 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                     }
                     LoginUserName = userData[1];
                     LoginUserEmail = userData[2];
+                    LoginUserAuthorityUrl = userData[3];
+                    HttpContext.Items.Add("LoginUserName", LoginUserName);
+                    HttpContext.Items.Add("LoginUserId", LoginUserId);
+                    HttpContext.Items.Add("AuthorityUrl", LoginUserAuthorityUrl);
                 }
                 catch (Exception ex)
                 {
