@@ -49,6 +49,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                     HttpContext.Items.Add("LoginUserName", LoginUserName);
                     HttpContext.Items.Add("LoginUserId", LoginUserId);
                     HttpContext.Items.Add("AuthorityUrl", LoginUserAuthorityUrl);
+                    ///TODO加载留言板的数据
                 }
                 catch (Exception ex)
                 {
