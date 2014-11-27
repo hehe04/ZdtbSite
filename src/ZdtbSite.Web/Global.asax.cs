@@ -33,6 +33,10 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Admin.ProductViewModel, Product>();
             AutoMapper.Mapper.CreateMap<Product, Admin.ProductViewModel>();
+
+
+            AutoMapper.Mapper.CreateMap<Admin.BasicInfoViewModel, BasicInfo>();
+            AutoMapper.Mapper.CreateMap<BasicInfo, Admin.BasicInfoViewModel>();
         }
     }
 }

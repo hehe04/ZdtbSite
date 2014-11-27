@@ -24,6 +24,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Display(Name = "产品图片缩略图URL")]
         public string ThumbnailUrl { get; set; }
 
+        public string showImageUrl { get; set; }
+
         [MaxLength]
         [Display(Name = "产品描述")]
         public string Description { get; set; }
