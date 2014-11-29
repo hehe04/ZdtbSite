@@ -32,9 +32,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         public string Description { get; set; }
 
         [Display(Name = "产品类型")]
-        public int ProductType_Id { get; set; }
+      
+        public int ProductTypeId { get; set; }
 
-        [ForeignKey("Id")]
         public virtual ProductType ProductType { get; set; }
 
         [Display(Name = "产品添加时间")]

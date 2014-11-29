@@ -91,7 +91,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 ProductModel.CreateTime = DateTime.Now;
                 ProductModel.ImageUrl = maxUrl;
                 ProductModel.ThumbnailUrl = minUrl;
-                ProductModel.ProductType = productTypeRepository.GetById(viewmodel.ProductType_Id);
+                //ProductModel.ProductType = productTypeRepository.GetById(viewmodel.ProductTypeId);
                 productRepository.Add(ProductModel);
                 unitOfWork.Commit();
                 responseModel.Success = true;
@@ -140,7 +140,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                     viewmodel.ThumbnailUrl = miniUrl;
                 }
                 viewmodel.CreateTime = DateTime.Now;
-                viewmodel.ProductType = productTypeRepository.GetById(viewmodel.ProductType_Id);
+                //viewmodel.ProductType = productTypeRepository.GetById(viewmodel.ProductTypeId);
                 var ProductInfo = AutoMapper.Mapper.Map<Admin.ProductViewModel, Model.Product>(viewmodel);
                 productRepository.Update(ProductInfo);
                 unitOfWork.Commit();

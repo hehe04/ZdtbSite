@@ -25,8 +25,9 @@ namespace ZdtbSite.Model
         [MaxLength]
         public string Description { get; set; }
 
-        [ForeignKey("Id")]
+        [ForeignKey("ProductTypeId")]
         public virtual ProductType ProductType { get; set; }
+        public int ProductTypeId { get; set; }
 
         public DateTime CreateTime { get; set; }
 
