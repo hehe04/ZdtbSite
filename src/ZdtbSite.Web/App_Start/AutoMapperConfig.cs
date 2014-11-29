@@ -15,6 +15,12 @@ namespace ZdtbSite.Web
             AutoMapper.Mapper.CreateMap<UserInfo, Admin.UserViewModel>();
 
             AutoMapper.Mapper.CreateMap<AdminMenu, Admin.AdminMenuViewModel>();
+
+            AutoMapper.Mapper.CreateMap<ContentType, Admin.ContentTypeViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.ContentTypeViewModel, ContentType>();
+
+            AutoMapper.Mapper.CreateMap<Article, Admin.ArticleViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.ArticleViewModel, Article>();
         }
     }
 }

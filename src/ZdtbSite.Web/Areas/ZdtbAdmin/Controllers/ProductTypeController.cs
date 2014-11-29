@@ -11,7 +11,7 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class ProductTypeController : Controller
+    public class ProductTypeController : BaseController
     {
         private readonly IRepository<ProductType> productTypeRepository;
         private IUnitOfWork unitOfWork;

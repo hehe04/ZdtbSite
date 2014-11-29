@@ -105,22 +105,15 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return Json(model);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id,string url)
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
-            try
-            {
-                userInfoRepository.Delete(userInfoRepository.GetById(id));
-                unitOfWork.Commit();
-                model.Success = true;
-                model.Msg = "成功删除用户";
-                model.RedirectUrl = CurrentUrl;
-            }
-            catch (Exception ex)
-            {
-                model.Success = false;
-                model.Msg = "删除用户失败，请重试" + ex.Message;
-            }
+
+            userInfoRepository.Delete(userInfoRepository.GetById(id));
+            unitOfWork.Commit();
+            model.Success = true;
+            model.Msg = "成功删除用户";
+            model.RedirectUrl = url;
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
@@ -136,21 +129,14 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult RestPwd(Admin.UserViewModel viewModel)
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
-            try
-            {
-                var user = userInfoRepository.GetById(viewModel.Id);
-                user.Password = viewModel.Password.ToMd5String();
-                userInfoRepository.Update(user);
-                unitOfWork.Commit();
-                model.Success = true;
-                model.RedirectUrl = CurrentUrl;
-                model.Msg = "重置密码成功，页面即将跳转";
-            }
-            catch (Exception ex)
-            {
-                model.Success = false;
-                model.Msg = "重置密码失败，请重试";
-            }
+            var user = userInfoRepository.GetById(viewModel.Id);
+            user.Password = viewModel.Password.ToMd5String();
+            userInfoRepository.Update(user);
+            unitOfWork.Commit();
+            model.Success = true;
+            model.RedirectUrl = CurrentUrl;
+            model.Msg = "重置密码成功，页面即将跳转";
+
 
             return Json(model);
         }
@@ -221,9 +207,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 }
                 else
                 {
-                    var userData = user.Id.ToString() + "|" + user.UserName + "|" + user.Email;
+                    var userData = user.Id.ToString() + "|" + user.UserName + "|" + user.Email + "|" + user.AuthorityUrl;
 
-                    Session["UserAssign"] = user.AuthorityUrl;
+                    //Session["UserAssign"] = user.AuthorityUrl;
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, userData, DateTime.Now, DateTime.Now.AddHours(12), false, userData);
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
                     Response.Cookies.Add(cookie);

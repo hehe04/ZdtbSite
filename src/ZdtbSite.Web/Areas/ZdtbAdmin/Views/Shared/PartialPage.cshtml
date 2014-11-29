@@ -17,7 +17,8 @@
 
         int end = Model.PageNumber + 4;
 
-        if (end < 10 && Model.PageCount >= 10)
+
+        if ((end < 10 && Model.PageCount >= 10) || Model.PageCount < 10)
         {
             if (Model.PageCount >= 10)
             {
@@ -33,6 +34,8 @@
         {
             end = Model.PageCount;
         }
+
+
 
         <div class="dt-footer">
             <div class="row">

@@ -63,10 +63,12 @@
                                                         int index = 0;
                                                         foreach (var item in menus)
                                                         {
-                                                            if (item.ParentId == 0)
-                                                            {
-                                                                continue;
-                                                            }
+                                                            //string name = item.Name;
+
+                                                            //if (item.ParentId == 0)
+                                                            //{
+                                                            //    name+= " 根节点";
+                                                            //}
                                                             <label class="checkbox">
                                                                 @if (!string.IsNullOrEmpty(Model.AuthorityUrl) && Model.AuthorityUrl.Contains(item.Id.ToString()))
                                                                 {
