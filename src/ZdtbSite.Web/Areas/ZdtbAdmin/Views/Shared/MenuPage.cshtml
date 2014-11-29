@@ -2,7 +2,7 @@
     @{
         List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel> menus = HttpContext.Current.Application.Get("MenuList") as List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel>;
         string assign = HttpContext.Current.Items["AuthorityUrl"] as string;
-        
+
         if (menus != null && !string.IsNullOrEmpty(assign))
         {
 
@@ -15,7 +15,7 @@
                 int existscount = 0;
                 foreach (var children in childrens)
                 {
-                    if (assign.IndexOf(children.Id + ",") >= 0)
+                    if (assign.IndexOf("," + children.Id) >= 0)
                     {
                         flg = true;
                         existscount++;
@@ -23,7 +23,7 @@
                 }
 
 
-                if (flg || assign.IndexOf(item.Id + ",") >= 0) //所有父节点 子节点都有均加载菜单
+                if (flg || assign.IndexOf("," + item.Id) >= 0) //所有父节点 子节点都有均加载菜单
                 {
                     <li class="">
                         <a href="javascript:void(0)">
@@ -45,7 +45,7 @@
                             <ul>
                                 @foreach (var children in childrens)
                                 {
-                                    if (assign.IndexOf(children.Id + ",") >= 0)
+                                    if (assign.IndexOf("," + children.Id) >= 0)
                                     {
                                         <li>
                                             @if (!string.IsNullOrEmpty(children.Icon))

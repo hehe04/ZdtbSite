@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
+using System.Linq.Expressions;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
@@ -13,7 +14,13 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
     [ValidateInput(false)]
     public class ArticleController : BaseController
     {
-        private string CurrentUrl { get { return Url.Action("Index", "Article"); } }
+        private string CurrentUrl
+        {
+            get
+            {
+                return Url.Action("Index", "Article");
+            }
+        }
 
         private IRepository<ContentType> contentTypeRepository = null;
         private IRepository<Article> articleRepository = null;
@@ -29,12 +36,42 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             this.unitofWork = unitofWork;
         }
 
+        [HttpGet]
         // GET: ZdtbAdmin/Article
         public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
             Page page = new Page(pageIndex, pageSize);
-            var list = articleRepository.GetPage(page, e => true, e => e.Id);
-            var types = AutoMapper.Mapper.Map<List<ContentType>,List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
+            Expression<Func<Article, bool>> where = e => true;
+            string search = Request.Cookies["searchContentTypeId"] == null ? "-1" : Request.Cookies["searchContentTypeId"].Value;
+            int ContentTypeId;
+            if (!int.TryParse(search, out ContentTypeId))
+            {
+                ContentTypeId = -1;
+            }
+            if (ContentTypeId != -1)
+            {
+                where = e => e.ContentTyepId == ContentTypeId;
+            }
+            var list = articleRepository.GetPage(page, where, e => e.Id);
+            var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
+            ViewBag.ContentTypes = types;
+            return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult Index(int ContentTypeId = -1)
+        {
+            Page page = new Page(1, 10);
+            Expression<Func<Article, bool>> where = e => true;
+            HttpCookie cookie = new HttpCookie("searchContentTypeId");
+            cookie.Value = ContentTypeId.ToString();
+            Response.SetCookie(cookie);
+            if (ContentTypeId != -1)
+            {
+                where = e => e.ContentTyepId == ContentTypeId;
+            }
+            var list = articleRepository.GetPage(page, where, e => e.Id);
+            var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
             ViewBag.ContentTypes = types;
             return View(list);
         }
@@ -64,7 +101,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
-            model.ContentTyep = contentTypeRepository.GetById(ContentTyep.Value);
+            model.ContentType = contentTypeRepository.GetById(ContentTyep.Value);
             articleRepository.Add(model);
             unitofWork.Commit();
             responseModel.Success = true;
@@ -85,24 +122,48 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Modify(Admin.ArticleDataViewModel viewModel, [Bind(Prefix = "Article")]int? ContentTyep)
+        public ActionResult Modify(Admin.ArticleDataViewModel viewModel)
         {
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
-            if (ContentTyep == null)
-            {
-                ContentTyep = int.Parse(Request.Form["Article.ContentTyep"]);
-            }
+
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
-            model.ContentTyep = contentTypeRepository.GetById(ContentTyep.Value);
-            //model.ContentTyep = ContentTyep.Value;
             articleRepository.Update(model);
             unitofWork.Commit();
             responseModel.Success = true;
             responseModel.Msg = "成功修改文章，页面即将跳转";
             responseModel.RedirectUrl = CurrentUrl;
             return Json(responseModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Publish(int id, string url)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+
+            var article = articleRepository.GetById(id);
+            article.IsPublish = true;
+            article.Publisher = LoginUserName;
+            article.PublisherDateTime = DateTime.Now;
+            articleRepository.Update(article);
+            unitofWork.Commit();
+            model.Success = true;
+            model.Msg = "成功发布文章";
+            model.RedirectUrl = url;
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult Delete(int id, string url)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+
+            articleRepository.Delete(articleRepository.GetById(id));
+            unitofWork.Commit();
+            model.Success = true;
+            model.Msg = "成功删除文章";
+            model.RedirectUrl = url;
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
     }
 }

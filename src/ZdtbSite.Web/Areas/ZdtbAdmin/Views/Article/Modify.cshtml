@@ -10,16 +10,12 @@
     Html.EnableUnobtrusiveJavaScript();
 
     List<SelectListItem> items = new List<SelectListItem>();
-    bool flg = false;
+    
     foreach (var item in Model.ContentTypes)
     {
-        if (item.Id == Model.Article.ContentTyepId)
-        {
-            flg = true;
-        }
+      
         items.Add(new SelectListItem()
         {
-            Selected = flg,
             Text = item.Name,
             Value = item.Id.ToString()
         });
@@ -64,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-md-3">@Html.LabelFor(m => m.Article.ContentTyep)</div>
                                             <div class="col-md-9">
-                                                @Html.DropDownListFor(m => m.Article.ContentTyep, items, new { @class = "with-search" })
+                                                @Html.DropDownListFor(m => m.Article.ContentTyepId, items, new { @class = "with-search" })
                                             </div>
                                         </div>
                                     </div>

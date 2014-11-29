@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class FileManagerController : Controller
+    public class FileManagerController : BaseController
     {
         // GET: ZdtbAdmin/FileManager
         public void Index()

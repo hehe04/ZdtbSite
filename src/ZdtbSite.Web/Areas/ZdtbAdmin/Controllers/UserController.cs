@@ -105,22 +105,15 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return Json(model);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id,string url)
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
-            try
-            {
-                userInfoRepository.Delete(userInfoRepository.GetById(id));
-                unitOfWork.Commit();
-                model.Success = true;
-                model.Msg = "成功删除用户";
-                model.RedirectUrl = CurrentUrl;
-            }
-            catch (Exception ex)
-            {
-                model.Success = false;
-                model.Msg = "删除用户失败，请重试" + ex.Message;
-            }
+
+            userInfoRepository.Delete(userInfoRepository.GetById(id));
+            unitOfWork.Commit();
+            model.Success = true;
+            model.Msg = "成功删除用户";
+            model.RedirectUrl = url;
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 

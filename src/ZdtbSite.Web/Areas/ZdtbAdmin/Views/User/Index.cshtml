@@ -122,7 +122,7 @@
                     return false;
                 }
                 var id = $("input[type='checkbox']:checked").first().val();
-                ajaxSubmit("@Url.Action("Delete", "User")", { id: id }, "正在删除数据，请稍后");
+                ajaxSubmit("@Url.Action("Delete", "User")", { id: id, url: location.href }, "正在删除数据，请稍后");
                 return false;
             });
         });

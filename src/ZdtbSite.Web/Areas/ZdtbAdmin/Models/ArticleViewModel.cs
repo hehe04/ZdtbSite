@@ -41,7 +41,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         /// </summary>
         public string Content { get; set; }
         [Display(Name="文章类型")]
-        public ContentTypeViewModel ContentTyep { get; set; }
+        public ContentTypeViewModel ContentType { get; set; }
 
         public int ContentTyepId { get; set; }
 
