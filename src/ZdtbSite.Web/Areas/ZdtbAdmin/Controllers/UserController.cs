@@ -136,21 +136,14 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult RestPwd(Admin.UserViewModel viewModel)
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
-            try
-            {
-                var user = userInfoRepository.GetById(viewModel.Id);
-                user.Password = viewModel.Password.ToMd5String();
-                userInfoRepository.Update(user);
-                unitOfWork.Commit();
-                model.Success = true;
-                model.RedirectUrl = CurrentUrl;
-                model.Msg = "重置密码成功，页面即将跳转";
-            }
-            catch (Exception ex)
-            {
-                model.Success = false;
-                model.Msg = "重置密码失败，请重试";
-            }
+            var user = userInfoRepository.GetById(viewModel.Id);
+            user.Password = viewModel.Password.ToMd5String();
+            userInfoRepository.Update(user);
+            unitOfWork.Commit();
+            model.Success = true;
+            model.RedirectUrl = CurrentUrl;
+            model.Msg = "重置密码成功，页面即将跳转";
+
 
             return Json(model);
         }

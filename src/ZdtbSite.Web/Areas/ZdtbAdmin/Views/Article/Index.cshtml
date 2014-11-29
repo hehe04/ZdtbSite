@@ -1,7 +1,9 @@
 ﻿@model PagedList.IPagedList<ZdtbSite.Model.Article>
 
+@using ZdtbSite.Web.Areas.ZdtbAdmin.Models;
+
 @{
-    ViewBag.Title = "用户管理";
+    ViewBag.Title = "文章管理";
     //ViewBag.Assign =;
 }
 
@@ -37,28 +39,34 @@
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
-                                        <th>用户名</th>
-                                        <th>邮箱</th>
-                                        <th>联系方式</th>
-                                        <th>是否锁定</th>
-                                        <th>创建时间</th>
-                                        <th>最近登录</th>
+                                        <th>标题</th>
+                                        <th>标签</th>
+                                        <th>文章类型</th>
+                                        <th>更新时间</th>
+                                        <th>发布人</th>
+                                        <th>发布时间</th>
+                                        <th>是否发布</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     @foreach (var item in Model)
                                     {
+                                        var contenttypes = ViewData["ContentTypes"] as List<ContentTypeViewModel>;
+                                        var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();
+                                        string coontentTypeName = content == null ? "" : content.Name;
+
                                         <tr>
                                             <td>
                                                 <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
                                             </td>
                                             <td>@item.Title</td>
                                             <td>@item.Tag</td>
-                                            <td>@item.Title</td>
-                                            <td>@(item.Title)</td>
+                                            <td>@coontentTypeName</td>
                                             <td>@item.UpdateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@item.Publisher</td>
                                             <td>@item.PublisherDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@(item.IsPublish ? "是" : "否")</td>
                                         </tr>
                                     }
                                 </tbody>
@@ -88,13 +96,13 @@
             });
             $(".addClick").click(function (e) {
                 if ($("input[type='checkbox']:checked").length <= 0) {
-                    finAlert("请选择需要操作的用户，请重新选择", false);
+                    finAlert("请选择需要操作的文章，请重新选择", false);
                     e.preventDefault();
                     return false;
                 }
 
                 if ($("input[type='checkbox']:checked").length > 1) {
-                    finAlert("选择需要操作的用户过多，请重新选择", false);
+                    finAlert("选择需要操作的文章过多，请重新选择", false);
                     e.preventDefault();
                     return false;
                 }

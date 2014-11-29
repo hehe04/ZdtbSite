@@ -1186,6 +1186,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\Article\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\plugins\image\images\Thumbs.db" />
+    <Content Include="Areas\ZdtbAdmin\Views\Article\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />

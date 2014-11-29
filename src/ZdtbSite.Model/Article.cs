@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZdtbSite.Model
 {
+    [Table("articles")]
     public class Article
     {
         [Key]
@@ -23,7 +24,7 @@ namespace ZdtbSite.Model
 
         /// <summary>
         /// 文章来源类型
-        /// </summary>
+        /// </summary>  
         public OriginArticlesType OriginArticlesType { get; set; }
 
         /// <summary>
@@ -33,7 +34,10 @@ namespace ZdtbSite.Model
         [MaxLength]
         public string Content { get; set; }
 
+        [ForeignKey("ContentTyepId")]
         public ContentType ContentTyep { get; set; }
+
+        public int ContentTyepId { get; set; }
 
         [StringLength(256)]
         public string Tag { get; set; }
