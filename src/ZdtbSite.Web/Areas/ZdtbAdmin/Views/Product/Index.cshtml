@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductViewModel>
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Product>
 @{
     ViewBag.Title = "产品模块 > 产品维护";
 }
@@ -15,9 +15,6 @@
         </a>
         <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="@Url.Action("Delete")">
             <i class="icon-remove icon-white"></i> 删除
-        </a>
-        <a class="btn btn-inverse addClick" id="btnAssign" data-rel="@Url.Action("Assign")" href="@Url.Action("Assign")">
-            <i class="icon-share-alt icon-white"></i> 权限分配
         </a>
     </div>
     <!-- widget grid -->
@@ -54,7 +51,10 @@
                                                 @item.Name
                                             </td>
                                             <td>
-                                                @item.ProductType_Id
+                                                @{
+                                        var prentModel = item.ProductType;
+                                                }
+                                                @(prentModel == null ? "" : prentModel.TypeName)
                                             </td>
                                             <td>
                                                 @item.CreateTime
@@ -67,26 +67,7 @@
 
                                 </tbody>
                             </table>
-                            <div class="dt-footer">
-                                <div class="row">
-                                    <div class="col-md-6 visible-md visible-lg">
-                                        <div class="dataTables_info" id="dtable_info">当前页/总页数 : 1/20</div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="dataTables_paginate paging_bootstrap pagination">
-                                            <ul class="pagination">
-                                                <li class="prev disabled"><a href="#">← Previous</a></li>
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li class="next"><a href="#">Next → </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @Html.Partial("PartialPage", Model)
                         </div>
                         <!-- end content-->
                     </div>

@@ -1,6 +1,6 @@
 ﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductViewModel
 @section PageHeader{
-    产品模块 > 添加产品
+    产品模块 > 更新产品
 }
 @{
     Html.EnableClientValidation();
@@ -34,10 +34,9 @@
                         <h2>产品信息</h2>
                     </header>
                     <div>
-
                         <div class="inner-spacer">
                             <!-- content goes here -->
-                            <form class="form-horizontal themed" method="post" name="form1" action="@Url.Action("Add")" enctype="multipart/form-data">
+                            <form class="form-horizontal themed" method="post" action="@Url.Action("Modify")" enctype="multipart/form-data">
                                 <fieldset>
                                     <div class="form-group">
                                         <div class="row">
@@ -68,20 +67,19 @@
                                         </div>
                                     </div>
 
-
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <input type="file" id="fileElem" name="fileElem"  onchange="handleFiles(this)" />
+                                                <input type="file" id="fileElem" name="fileElem" onchange="handleFiles(this)" />
+                                                @Html.HiddenFor(m => m.ImageUrl)
+                                                @Html.HiddenFor(m => m.ThumbnailUrl)
                                             </div>
                                             <div class="col-md-9">
                                                 <div id="fileList" style="height:250px;">
-                                                    <div></div>
+                                                    <img style=" height:250px;" id="ImageUrl" src="@Model.showImageUrl" />
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <div class="form-group">
                                         <div class="row" style="text-align:right">
@@ -107,6 +105,7 @@
 </div>
 
 @section script{
+    @Html.Partial("ImportFormPageJs")
     <script type="text/javascript">
         window.URL = window.URL || window.webkitURL;
         var fileElem = document.getElementById("fileElem"),

@@ -1,9 +1,9 @@
-﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductTypeViewModel>
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Recruitment>
 @{
-    ViewBag.Title = "产品模块 > 类型维护";
+    ViewBag.Title = "人才管理 > 人才招聘";
 }
 @section PageHeader{
-    产品模块 > 类型维护
+    人才管理 > 人才招聘
 }
 <div class="fluid-container">
     <div style="padding-bottom:10px">
@@ -24,7 +24,7 @@
                 <!-- new widget -->
                 <div class="jarviswidget jarviswidget-sortable" role="widget">
                     <header role="heading">
-                        <h2>用户</h2>
+                        <h2>人才招聘</h2>
                     </header>
                     <!-- wrap div -->
                     <div>
@@ -34,10 +34,9 @@
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
-                                        <th>类型名称</th>
-                                        <th>父节点</th>
-                                        <th>创建人</th>
-                                        <th>创建时间</th>
+                                        <th>职位名称</th>
+                                        <th>职位描述</th>
+                                        <th>招聘要求</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,45 +47,20 @@
                                                 <input type="checkbox" value="@item.Id">
                                             </td>
                                             <td>
-                                                @item.TypeName
+                                                @item.Name
                                             </td>
                                             <td>
-                                                @{
-                                        var prentModel = Model.Where(e => e.Id.Equals(item.ParentId)).FirstOrDefault();
-                                                }
-                                                @(prentModel == null ? "根节点" : prentModel.TypeName)
+                                                @item.Description
                                             </td>
                                             <td>
-                                                @item.CreateUser
-                                            </td>
-                                            <td>
-                                                @item.CreateDateTime
+                                                @item.Requirement
                                             </td>
                                         </tr>
                                     }
 
                                 </tbody>
                             </table>
-                            <div class="dt-footer">
-                                <div class="row">
-                                    <div class="col-md-6 visible-md visible-lg">
-                                        <div class="dataTables_info" id="dtable_info">当前页/总页数 : 1/20</div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="dataTables_paginate paging_bootstrap pagination">
-                                            <ul class="pagination">
-                                                <li class="prev disabled"><a href="#">← Previous</a></li>
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li class="next"><a href="#">Next → </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @Html.Partial("PartialPage", Model)
                         </div>
                         <!-- end content-->
                     </div>
@@ -131,9 +105,10 @@
                     return false;
                 }
                 var id = $("input[type='checkbox']:checked").first().val();
-                ajaxSubmit("@Url.Action("Delete", "ProductType")", { id: id }, "正在删除数据，请稍后");
+                ajaxSubmit("@Url.Action("Delete", "Recruitment")", { id: id }, "正在删除数据，请稍后");
                 return false;
             });
         });
     </script>
 }
+

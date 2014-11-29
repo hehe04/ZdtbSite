@@ -59,9 +59,8 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="LitJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\LitJSON.dll</HintPath>
+    <Reference Include="LitJson">
+      <HintPath>..\packages\LitJson.0.7.0\lib\LitJson.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -1186,6 +1185,11 @@
     <Content Include="Areas\ZdtbAdmin\Views\Article\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\plugins\image\images\Thumbs.db" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Product\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
     <Content Include="Images\3.png" />
@@ -1626,15 +1630,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
-    <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\RecruitmentController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\UserController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\AdminMenuViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ArticleViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\BasicInfoViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\RecruitmentViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\UserViewModel.cs" />
@@ -1708,6 +1716,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

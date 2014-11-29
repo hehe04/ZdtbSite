@@ -1,28 +1,12 @@
-﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductTypeViewModel
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.BasicInfoViewModel
 @section PageHeader{
-    产品模块 > 更新产品类型
+    企业信息 > 添加企业信息
 }
 @{
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
-
-    List<SelectListItem> list = new List<SelectListItem>();
-    list.Add(new SelectListItem()
-    {
-        Selected = true,
-        Text = "请选择父节点",
-        Value = "0"
-    });
-    foreach (var item in ViewBag.DropDownListResult as Dictionary<string, string>)
-    {
-        list.Add(new SelectListItem()
-        {
-            Selected = false,
-            Text = item.Value,
-            Value = item.Key
-        });
-    }
 }
+
 <div class="fluid-container">
     <section id="widget-grid" class="">
         <div class="row">
@@ -30,20 +14,20 @@
                 <!-- new widget -->
                 <div class="jarviswidget" id="widget-id-0" role="widget">
                     <header>
-                        <h2>产品类型信息</h2>
+                        <h2>企业信息</h2>
                     </header>
                     <div>
 
                         <div class="inner-spacer">
                             <!-- content goes here -->
-                            <form class="form-horizontal themed" method="post" action="@Url.Action("Modify")">
+                            <form class="form-horizontal themed" method="post" action="@Url.Action("Add")">
                                 <fieldset>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-md-3">@Html.LabelFor(m => m.TypeName)</div>
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Key)</div>
                                             <div class="col-md-9">
-                                                @Html.TextBoxFor(m => m.TypeName, new { @class = "form-control", autofocus = "" })
-                                                @Html.ValidationMessageFor(m => m.TypeName)
+                                                @Html.TextBoxFor(m => m.Key, new { @class = "form-control", autofocus = "" })
+                                                @Html.ValidationMessageFor(m => m.Key)
                                             </div>
                                         </div>
                                     </div>
@@ -51,11 +35,11 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                类型父节点
+                                                @Html.LabelFor(m => m.Value)
                                             </div>
                                             <div class="col-md-9">
-                                                @Html.DropDownListFor(m => m.ParentId, list, new { @class = "with-search" })
-                                                @Html.ValidationMessageFor(m => m.ParentId)
+                                                @Html.TextBoxFor(m => m.Value, new { @class = "form-control", autofocus = "" })
+                                                @Html.ValidationMessageFor(m => m.Value)
                                             </div>
                                         </div>
                                     </div>
@@ -84,8 +68,9 @@
 
 @section script{
     @Html.Partial("ImportFormPageJs")
+    <script type="text/javascript">
+        $(function () {
+
+        });
+    </script>
 }
-
-
-
-
