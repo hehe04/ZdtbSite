@@ -37,6 +37,10 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Admin.BasicInfoViewModel, BasicInfo>();
             AutoMapper.Mapper.CreateMap<BasicInfo, Admin.BasicInfoViewModel>();
+
+
+            AutoMapper.Mapper.CreateMap<Admin.RecruitmentViewModel, Recruitment>();
+            AutoMapper.Mapper.CreateMap<Recruitment, Admin.RecruitmentViewModel>();
         }
     }
 }
