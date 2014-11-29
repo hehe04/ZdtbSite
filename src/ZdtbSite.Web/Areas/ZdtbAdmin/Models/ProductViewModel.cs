@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using ZdtbSite.Model;
@@ -32,6 +33,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
 
         [Display(Name = "产品类型")]
         public int ProductType_Id { get; set; }
+
+        [ForeignKey("Id")]
         public virtual ProductType ProductType { get; set; }
 
         [Display(Name = "产品添加时间")]

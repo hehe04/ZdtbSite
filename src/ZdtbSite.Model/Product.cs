@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZdtbSite.Model
 {
@@ -24,6 +25,7 @@ namespace ZdtbSite.Model
         [MaxLength]
         public string Description { get; set; }
 
+        [ForeignKey("Id")]
         public virtual ProductType ProductType { get; set; }
 
         public DateTime CreateTime { get; set; }
