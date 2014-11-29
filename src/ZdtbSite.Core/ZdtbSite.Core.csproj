@@ -70,6 +70,7 @@
     <Compile Include="Repository\ContentTypeRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\ProductTypeRepository.cs" />
+    <Compile Include="Repository\RecruitmentRepository.cs" />
     <Compile Include="Repository\UserInfoRepository.cs" />
     <Compile Include="Repository\VisitLogRepository.cs" />
   </ItemGroup>

@@ -137,13 +137,19 @@
                         <a href="javascript:void(0)" class="my-profile-pic">
                             <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt="" />
                         </a>
-                        <span class="first-child">欢迎 <strong>Jason !</strong></span>
-                        <span><a href="javascript:void(0);">编辑信息 </a></span>
+                        @{
+                            var id = HttpContext.Current.Items["LoginUserId"];
+                            var route =new RouteValueDictionary();
+                            route.Add("id",id);
+                        }
+                        <span class="first-child">欢迎 <strong>@HttpContext.Current.Items["LoginUserName"] !</strong></span>
+                        <span><a href="@Url.Action("Modify", "User", route)">编辑信息 </a></span>
                     </div>
                     <div class="divider"></div>
-                    <!-- end aside item: Mini profile -->
-                    <!-- aside item: Menu -->
                     <div class="sidebar-nav-fixed">
+<<<<<<< HEAD
+                        @Html.Partial("MenuPage")
+=======
 
                         <ul class="menu" id="accordion-menu-js">
                             @{
@@ -227,10 +233,10 @@
                                     <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
                                     <ul>
                                         <li>
-                                            <a href="#">类型维护</a>
+                                        <a href="/ZdtbAdmin/ProductType/Index">类型维护</a>
                                         </li>
                                         <li>
-                                            <a href="#">产品发布</a>
+                                        <a href="/ZdtbAdmin/Product/Index">产品发布</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -263,83 +269,12 @@
                                     </ul>
                                 </li>*@
                             <li class="">
-<<<<<<< HEAD
-                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut")"><i class="icon-off"></i> 退出登录</a>
-=======
-                                <a href="javascript:void(0)"><i class="icon-user"></i>用户模块 <span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">用户管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">权限分配</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-envelope"></i>文章发布<span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">技术文章</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">新闻发布</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">文章采集</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="/ZdtbAdmin/ProductType/Index">类型维护</a>
-                                    </li>
-                                    <li>
-                                        <a href="/ZdtbAdmin/Product/Index">产品发布</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="#"><i class="icon-home"></i>企业信息</a>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-check"></i>客户追踪<span class="badge">4</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">合同管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">客户信息</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">产品浏览信息</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">留言预览</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0)"><i class="icon-briefcase"></i>人才管理<span class="badge">1</span></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">职位发布</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingIn")">退出登录</a>
->>>>>>> devlei
+                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut","User")"><i class="icon-off"></i> 退出登录</a>
                             </li>
                         </ul>
+>>>>>>> devlei
                     </div>
                     <div class="divider"></div>
-                    <!-- end aside item: Menu -->
-                    <!-- aside item: Inbox -->
-                    <!-- inbox message 1-->
                     <div class="mini-inbox">
                         <div class="alert inbox">
                             <button type="button" class="close" data-dismiss="alert">
@@ -543,28 +478,14 @@
 
     <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
-<<<<<<< HEAD
     <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.form.js"></script>
-=======
->>>>>>> devlei
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/bootbox.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
+
     @RenderSection("script", false)
-<<<<<<< HEAD
-=======
-    <!-- d3 library placed at the bottom for better performance -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/d3.v3.min.js"></script> -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-1.js"></script> -->
-    <!-- DISABLED  <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/d3-chart-2.js"></script> -->
-    <!-- Google Geo Chart -->
-    <!-- DISABLED <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script> -->
-    <!-- DISABLED <script type='text/javascript' src='https://www.google.com/jsapi'></script>-->
-    <!-- DISABLED <script src="~/Areas/ZdtbAdmin/Content/js/include/adv_charts/geochart.js"></script> -->
-    <!-- end scripts -->
->>>>>>> devlei
 </body>
 </html>

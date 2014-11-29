@@ -9,6 +9,11 @@ namespace ZdtbSite.Core.Infrastructure
         public DataContext()
             : base("DataContext")
         {
+<<<<<<< HEAD
+=======
+            //base.Configuration.ProxyCreationEnabled = false;
+            //base.Configuration.LazyLoadingEnabled = false;
+>>>>>>> devlei
         }
 
         public IDbSet<Product> Products { get; set; }

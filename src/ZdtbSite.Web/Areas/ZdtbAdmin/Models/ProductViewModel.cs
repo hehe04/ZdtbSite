@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using ZdtbSite.Model;
@@ -24,12 +25,16 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Display(Name = "产品图片缩略图URL")]
         public string ThumbnailUrl { get; set; }
 
+        public string showImageUrl { get; set; }
+
         [MaxLength]
         [Display(Name = "产品描述")]
         public string Description { get; set; }
 
         [Display(Name = "产品类型")]
-        public int ProductType_Id { get; set; }
+      
+        public int ProductTypeId { get; set; }
+
         public virtual ProductType ProductType { get; set; }
 
         [Display(Name = "产品添加时间")]
