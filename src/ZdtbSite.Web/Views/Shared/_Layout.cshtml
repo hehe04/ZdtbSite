@@ -27,9 +27,9 @@
                         <a href="#">About Us</a>
                         <ul>
                             <li><a href="@Url.Action("Index", "About")">Company Profile</a></li>
-                            <li><a href="@Url.Action("Device", "About")">Device&Workshop</a></li>
+                            @*<li><a href="@Url.Action("Device", "About")">Device&Workshop</a></li>*@
                             <li><a href="@Url.Action("Process", "Support")">Process</a></li>
-                            <li><a href="@Url.Action("TechnologySupport", "Support")">Technology Support</a></li>
+                            <li><a href="@Url.Action("TechnologySupportIndex", "Support")">Technology Support</a></li>
                             <li><a href="@Url.Action("FAQ", "Support")">FAQ</a></li>
                             <li><a href="@Url.Action("ContactUs", "About")">Contact Us</a></li>
                         </ul>
@@ -71,6 +71,22 @@
         </header>
     </div>
     @RenderBody()
+    <!-- footer -->
+    <!-- social block -->
+    <div class="social_block">
+        <div class="wraper">
+            <p>Stay connected with us in your favorite flavor!</p>
+            <ul>
+                <li class="facebook"><a href="#">Facebook</a></li>
+                <li class="twitter"><a href="#">Twitter</a></li>
+                <li class="linkedin"><a href="#">LinkedIn</a></li>
+                <li class="rss"><a href="#">RSS</a></li>
+                <li class="dribbble"><a href="#">Dribbble</a></li>
+                <li class="google"><a href="#">Google+</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /social block -->
     <div class="footer">
         <footer>
             <!-- bottom about -->
@@ -121,8 +137,9 @@
             <a class="top" href="#">Back to the top</a>
         </div>
     </div>
-    <!-- /copyright -->
+    <!-- /copyright -->>
     <!-- /footer -->
+
     <div style="display:block">
     </div>
 </body>

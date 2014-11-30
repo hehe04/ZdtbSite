@@ -13,5 +13,15 @@ namespace ZdtbSite.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult TechnologySupportIndex ()
+        {
+            return View();
+        }
+
+        public ActionResult TechnologySupportDetail()
+        {
+            return View();
+        }
     }
 }

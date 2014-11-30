@@ -13,5 +13,15 @@ namespace ZdtbSite.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult ProductList(string catelog, string keywords, int pageIndex = 1)
+        {
+            return View();
+        }
+
+        public ActionResult ProductDetail(int id)
+        {
+            return View();
+        }
     }
 }
