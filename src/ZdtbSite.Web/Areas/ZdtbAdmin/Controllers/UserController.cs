@@ -105,7 +105,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return Json(model);
         }
 
-        public ActionResult Delete(int id,string url)
+        public ActionResult Delete(int id, string url)
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
 
@@ -215,7 +215,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                     Response.Cookies.Add(cookie);
                     model.Success = true;
                     model.Msg = "登录成功，页面即将跳转";
-                    model.RedirectUrl = CurrentUrl;
+                    model.RedirectUrl = Url.Action("Index", "Welcome");
                     user.LastLoginDateTime = DateTime.Now;
                     user.LoginErrorCount = 0;
                     unitOfWork.Commit();

@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="Recruitment.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="VisitLog.cs" />

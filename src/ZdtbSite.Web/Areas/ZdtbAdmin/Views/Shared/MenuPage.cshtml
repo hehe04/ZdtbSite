@@ -13,6 +13,7 @@
                 var childrens = menus.Where(e => e.ParentId == item.Id);
                 bool flg = false;
                 int existscount = 0;
+                string menuclass = string.Empty;
                 foreach (var children in childrens)
                 {
                     if (assign.IndexOf("," + children.Id) >= 0)
@@ -20,12 +21,18 @@
                         flg = true;
                         existscount++;
                     }
+                    if (!string.IsNullOrEmpty(children.Controller) && Request.RawUrl.ToLower().LastIndexOf(children.Controller.ToLower()) > -1)
+                    {
+                        menuclass = "current";
+                    }
+
+
                 }
 
 
                 if (flg || assign.IndexOf("," + item.Id) >= 0) //所有父节点 子节点都有均加载菜单
                 {
-                    <li class="">
+                    <li class="@menuclass">
                         <a href="javascript:void(0)">
                             @{
                     if (!string.IsNullOrEmpty(item.Icon))
@@ -122,4 +129,3 @@
         <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut","User")"><i class="icon-off"></i> 退出登录</a>
     </li>
 </ul>
-

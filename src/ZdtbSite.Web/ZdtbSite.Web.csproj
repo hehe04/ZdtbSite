@@ -1189,6 +1189,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Welcome\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1633,6 +1634,7 @@
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\RecruitmentController.cs" />
