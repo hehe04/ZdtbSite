@@ -1192,6 +1192,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Welcome\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1633,6 +1634,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
