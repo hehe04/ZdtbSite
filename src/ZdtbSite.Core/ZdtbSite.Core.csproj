@@ -68,6 +68,9 @@
     <Compile Include="Repository\ArticleRepository.cs" />
     <Compile Include="Repository\BasicInfoRepository.cs" />
     <Compile Include="Repository\ContentTypeRepository.cs" />
+    <Compile Include="Repository\ContractRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\FeedbackRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\ProductTypeRepository.cs" />
     <Compile Include="Repository\RecruitmentRepository.cs" />
