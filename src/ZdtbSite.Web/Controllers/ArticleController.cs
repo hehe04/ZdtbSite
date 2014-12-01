@@ -9,7 +9,12 @@ namespace ZdtbSite.Web.Controllers
     public class ArticleController : BaseController
     {
         // GET: Article
-        public ActionResult Index()
+        public ActionResult Index(string catelog, string keywords, int pageIndex = 1)
+        {
+            return View();
+        }
+
+        public ActionResult Detail(int id)
         {
             return View();
         }
