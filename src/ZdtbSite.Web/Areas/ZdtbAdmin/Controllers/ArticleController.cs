@@ -60,7 +60,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult Index(int ContentTypeId = -1)
         {
             Page page = new Page(1, 10);

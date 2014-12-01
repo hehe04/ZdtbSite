@@ -9,21 +9,21 @@ using ZdtbSite.Model;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class CustomerController : BaseController
+    public class VisitController : BaseController
     {
-        private readonly IRepository<Customer> customerRepository;
+        private readonly IRepository<VisitLog> visitLogRepository;
         private IUnitOfWork unitOfWork;
-        public CustomerController(IRepository<Customer> customerRepository, IUnitOfWork unitOfWork)
+        public VisitController(IRepository<VisitLog> visitLogRepository, IUnitOfWork unitOfWork)
         {
-            this.customerRepository = customerRepository;
+            this.visitLogRepository = visitLogRepository;
             this.unitOfWork = unitOfWork;
         }
 
-        // GET: ZdtbAdmin/Customer
+        // GET: ZdtbAdmin/Visit
         public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
             Page page = new Page(pageIndex, pageSize);
-            IPagedList<Customer> pageList = customerRepository.GetPage(page, e => true, e => e.Id);
+            IPagedList<VisitLog> pageList = visitLogRepository.GetPage(page, e => true, e => e.Id);
             return View(pageList);
         }
     }

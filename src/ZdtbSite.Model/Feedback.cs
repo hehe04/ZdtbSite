@@ -31,7 +31,7 @@ namespace ZdtbSite.Model
 
     public enum FeedbackType
     {
-        Question,
-        Message
+        Question = 1,
+        Message = 2
     }
 }
