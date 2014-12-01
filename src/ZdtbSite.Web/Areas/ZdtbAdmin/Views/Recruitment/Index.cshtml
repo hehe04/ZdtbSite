@@ -30,7 +30,8 @@
                     <div>
                         <div class="inner-spacer">
                             <!-- content goes here -->
-                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
+                            <table class="table table-bordered table-striped checked-in responsive has-checkbox"
+                                   id="sc-table" style=" table-layout:fixed;">
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
@@ -43,16 +44,16 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>
+                                            <td style="width:3%;">
                                                 <input type="checkbox" value="@item.Id">
                                             </td>
-                                            <td>
+                                            <td style="width:17%;">
                                                 @item.Name
                                             </td>
-                                            <td>
+                                            <td style="width:40%;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                                 @item.Description
                                             </td>
-                                            <td>
+                                            <td style="width:40%;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                                 @item.Requirement
                                             </td>
                                         </tr>

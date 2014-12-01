@@ -1190,6 +1190,8 @@
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
