@@ -12,6 +12,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
     //取消html标签提交验证
     [ValidateInput(false)]
+    [Authorize(Users="")]
     public class ArticleController : BaseController
     {
         private string CurrentUrl
@@ -59,6 +60,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Index(int ContentTypeId = -1)
         {
             Page page = new Page(1, 10);

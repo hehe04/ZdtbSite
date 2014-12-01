@@ -1155,7 +1155,6 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
-    <Content Include="Images\about_us\Thumbs.db" />
     <Content Include="Images\bxslider\Thumbs.db" />
     <Content Include="Images\contact_us\Thumbs.db" />
     <Content Include="Images\featured_list\Thumbs.db" />
@@ -1192,6 +1191,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Welcome\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1623,7 +1623,6 @@
     <Content Include="Areas\ZdtbAdmin\Views\User\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Assign.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Add.cshtml" />
-    <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1637,6 +1636,7 @@
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\RecruitmentController.cs" />
@@ -1710,6 +1710,7 @@
     <Content Include="Scripts\piecemaker\index.URL" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_BlogList.cshtml" />
+    <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
