@@ -1631,6 +1631,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
@@ -1719,6 +1720,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
+    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

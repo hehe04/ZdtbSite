@@ -28,5 +28,11 @@ namespace ZdtbSite.Core.Infrastructure
         public IDbSet<AdminMenu> AdminMenus { get; set; }
 
         public IDbSet<Recruitment> Recruitments { get; set; }
+
+        public IDbSet<Customer> Customers { get; set; }
+
+        public IDbSet<Feedback> Feedbacks { get; set; }
+
+        public IDbSet<Contract> Contracts { get; set; }
     }
 }
