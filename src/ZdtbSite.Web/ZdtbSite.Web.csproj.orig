@@ -711,6 +711,7 @@
     <Content Include="HtmlTemplate\about.html" />
     <Content Include="HtmlTemplate\blog_large.html" />
     <Content Include="HtmlTemplate\blog_large_sidebar.html" />
+    <Content Include="HtmlTemplate\blog_post.html" />
     <Content Include="HtmlTemplate\contact_us.html" />
     <Content Include="HtmlTemplate\faq.html" />
     <Content Include="HtmlTemplate\images\1.png" />
@@ -732,6 +733,7 @@
     <Content Include="HtmlTemplate\images\arrow.gif" />
     <Content Include="HtmlTemplate\images\avatar.png" />
     <Content Include="HtmlTemplate\images\blank.gif" />
+    <Content Include="HtmlTemplate\images\blog\blog_01.jpg" />
     <Content Include="HtmlTemplate\images\blog\blog_01.png" />
     <Content Include="HtmlTemplate\images\blog\blog_02.png" />
     <Content Include="HtmlTemplate\images\blog\blog_03.png" />
@@ -1072,6 +1074,7 @@
     <Content Include="HtmlTemplate\images\social\social_shadow.png" />
     <Content Include="HtmlTemplate\images\social\white_dot.png" />
     <Content Include="HtmlTemplate\images\sprite.png" />
+    <Content Include="HtmlTemplate\images\substation-350x255.jpg" />
     <Content Include="HtmlTemplate\images\testimonials\index.html" />
     <Content Include="HtmlTemplate\images\testimonials\testimonials1.png" />
     <Content Include="HtmlTemplate\images\testimonials\testimonials2.png" />
@@ -1155,9 +1158,28 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Images\about_us\process-media-banner.jpg" />
+    <Content Include="Images\about_us\Sales_Network.jpg" />
     <Content Include="Images\about_us\Thumbs.db" />
+=======
+>>>>>>> ddd67eac22e301b03de3e48f3eb264ea1bfad387
     <Content Include="Images\bxslider\Thumbs.db" />
+    <Content Include="Images\Careers\ourteam.jpg" />
+    <Content Include="Images\Cert\DSTUISO170952005_nEO_IMG.jpg" />
+    <Content Include="Images\Cert\GOSTRISO90012008_nEO_IMG.jpg" />
+    <Content Include="Images\Cert\ISO140012004.jpg" />
+    <Content Include="Images\Cert\ISO140012004_nEO_IMG.jpg" />
+    <Content Include="Images\Cert\ISO383422005_nEO_IMG.jpg" />
+    <Content Include="Images\Cert\ISO90012008_nEO_IMG.jpg" />
+    <Content Include="Images\Cert\OHSAS180012007.jpg" />
+    <Content Include="Images\Cert\GOSTRISO90012008.jpg" />
+    <Content Include="Images\Cert\DSTUISO170952005.jpg" />
+    <Content Include="Images\Cert\ISO383422005.jpg" />
+    <Content Include="Images\Cert\ISO90012008.jpg" />
+    <Content Include="Images\Cert\OHSAS180012007_nEO_IMG.jpg" />
     <Content Include="Images\contact_us\Thumbs.db" />
+    <Content Include="Images\DSC_01230129.jpg" />
     <Content Include="Images\featured_list\Thumbs.db" />
     <Content Include="Images\features\Thumbs.db" />
     <Content Include="Images\flex\Thumbs.db" />
@@ -1170,6 +1192,7 @@
     <Content Include="Images\nivo\Thumbs.db" />
     <Content Include="Images\obo\Thumbs.db" />
     <Content Include="Images\portfolio\Thumbs.db" />
+    <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
@@ -1181,18 +1204,16 @@
     <Content Include="Areas\ZdtbAdmin\Views\ProductType\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Product\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Product\Add.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\ZdtbAdmin\Views\Shared\MenuPage.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\plugins\image\images\Thumbs.db" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Modify.cshtml" />
-=======
     <Content Include="Areas\ZdtbAdmin\Views\Product\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Index.cshtml" />
->>>>>>> devlei
+    <Content Include="Areas\ZdtbAdmin\Views\Welcome\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1624,7 +1645,6 @@
     <Content Include="Areas\ZdtbAdmin\Views\User\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Assign.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Add.cshtml" />
-    <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1635,22 +1655,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
-    <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
-<<<<<<< HEAD
+    <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
-=======
+    <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
->>>>>>> devlei
+    <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\RecruitmentController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\UserController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\AdminMenuViewModel.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\ZdtbAdmin\Models\ArticleViewModel.cs" />
-=======
     <Compile Include="Areas\ZdtbAdmin\Models\BasicInfoViewModel.cs" />
->>>>>>> devlei
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\RecruitmentViewModel.cs" />
@@ -1706,7 +1722,7 @@
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\About\ContactUs.cshtml" />
     <Content Include="Views\Support\FAQ.cshtml" />
-    <Content Include="Views\Support\TechnologySupport.cshtml" />
+    <Content Include="Views\Support\TechnologySupportIndex.cshtml" />
     <Content Include="Views\About\Device.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\QualityCertificates.cshtml" />
@@ -1717,6 +1733,16 @@
     <Content Include="Scripts\piecemaker\index.URL" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_BlogList.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Support\TechnologySupportDetail.cshtml" />
+    <Content Include="Views\Shared\_DetailSidebar.cshtml" />
+    <Content Include="Views\Product\ProductList.cshtml" />
+    <Content Include="Views\Shared\_Detail.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Article\Detail.cshtml" />
+=======
+    <None Include="Properties\PublishProfiles\web.pubxml" />
+>>>>>>> ddd67eac22e301b03de3e48f3eb264ea1bfad387
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1727,6 +1753,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
+    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
