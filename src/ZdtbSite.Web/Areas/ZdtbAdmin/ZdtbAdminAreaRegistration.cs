@@ -2,22 +2,22 @@
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin
 {
-    public class ZdtbAdminAreaRegistration : AreaRegistration 
+    public class ZdtbAdminAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "ZdtbAdmin";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "ZdtbAdmin_default",
                 "ZdtbAdmin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Welcome", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

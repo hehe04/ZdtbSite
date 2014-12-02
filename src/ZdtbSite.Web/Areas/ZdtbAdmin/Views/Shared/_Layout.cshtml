@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -8,14 +7,16 @@
     <title>@ViewBag.Title</title>
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- http://davidbcalhoun.com/2010/viewport-metatag -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <style>
         .field-validation-error {
             color: red;
         }
+        .fluid-container {
+            min-height:450px;
+        }
+
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/datepicker.css?v=1">
@@ -200,158 +201,58 @@
         </div><!--/.fluid-container-->
         <div class="push"></div>
     </div>
-    <!-- end .height-wrapper -->
-    <!-- footer -->
-    <!-- if you like you can insert your footer here -->
-    <!-- end footer -->
-    <!--================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
     <script src="/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"></script>
-    @*<script>window.jQuery || document.write('<script src="/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"><\/script>')</script>*@
-    <!-- OPTIONAL: Use this migrate scrpit for plugins that are not supported by jquery 1.9+ -->
-    <!-- DISABLED <script src="js/libs/jquery.migrate-1.0.0.min.js"></script> -->
     <script src="/areas/zdtbadmin/content/js/libs/jquery.ui.min.js"></script>
-    @*<script>window.jQuery.ui || document.write('<script src="/Areas/ZdtbAdmin/Content/js/libs/jquery.ui.min.js"><\/script>')</script>*@
-    <!-- IMPORTANT: Jquery Touch Punch is always placed under Jquery UI -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.ui.touch-punch.min.js"></script>
-
-    <!-- REQUIRED: Mobile responsive menu generator -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/selectnav.min.js"></script>
-
-    <!-- REQUIRED: Datatable components -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.accordion.min.js"></script>
-
-    <!-- REQUIRED: Toastr & Jgrowl notifications  -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/toastr.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.jgrowl.min.js"></script>
-
-    <!-- REQUIRED: Sleek scroll UI  -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/slimScroll.min.js"></script>
-
-    <!-- REQUIRED: Datatable components -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.dataTables.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/DT_bootstrap.min.js"></script>
-
-    <!-- REQUIRED: Form element skin  -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.uniform.min.js"></script>
-
-    <!-- REQUIRED: AmCharts  -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/amchart/amcharts.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/amchart/amchart-draw1.js"></script>
-
     <script type="text/javascript">
         var ismobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
         if (!ismobile) {
-
-            /** ONLY EXECUTE THESE CODES IF MOBILE DETECTION IS FALSE **/
-
-            /* REQUIRED: Datatable PDF/Excel output componant */
-
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/ZeroClipboard.min.js"><\/script>');
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/TableTools.min.js"><\/script>');
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/select2.min.js"><\/script>');
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.excanvas.min.js"><\/script>');
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.placeholder.min.js"><\/script>');
-
-            /** DEMO SCRIPTS **/
-            //$(function () {
-            //    /* jarvis tooltips */
-            //    $.jGrowl("These <strong>Smart Widgets</strong> will remember any <strong>name, color or position</strong> you give them. Try to customize one and <strong>refresh the page</strong> to see if it hasn't changed'.", {
-            //        header: 'Smart Widgets',
-            //        sticky: false,
-            //        life: 7000,
-            //        speed: 500,
-            //        theme: 'with-icon',
-            //        position: 'top-right', //this is default position
-            //        easing: 'easeOutBack',
-            //        animateOpen: {
-            //            height: "show"
-            //        },
-            //        animateClose: {
-            //            opacity: 'hide'
-            //        }
-            //    });
-            //});
-            /** end DEMO SCRIPTS **/
-
         } else {
-
-            /** ONLY EXECUTE THESE CODES IF MOBILE DETECTION IS TRUE **/
-
             document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/responsive-tables.min.js"><\/script>');
         }
     </script>
-
-    <!-- REQUIRED: iButton -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.ibutton.min.js"></script>
-
-    <!-- REQUIRED: Justgage animated charts -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/raphael.2.1.0.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/justgage.min.js"></script>
-
-    <!-- REQUIRED: Morris Charts -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/morris.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/morris-chart-settings.js"></script>
-
-    <!-- REQUIRED: Animated pie chart -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.easy-pie-chart.min.js"></script>
-
-    <!-- REQUIRED: Functional Widgets -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jarvis.widget.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/mobiledevices.min.js"></script>
-    <!-- DISABLED (only needed for IE7 <script src="~/Areas/ZdtbAdmin/Content/js/include/json2.js"></script> -->
-    <!-- REQUIRED: Full Calendar -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.fullcalendar.min.js"></script>
-
-    <!-- REQUIRED: Flot Chart Engine -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.cust.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.resize.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.tooltip.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.orderBar.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.fillbetween.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.pie.min.js"></script>
-
-    <!-- REQUIRED: Sparkline Charts -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.sparkline.min.js"></script>
-
-    <!-- REQUIRED: Infinite Sliding Menu (used with inbox page) -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.inbox.slashc.sliding-menu.js"></script>
-
-    <!-- REQUIRED: Form validation plugin -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.validate.min.js"></script>
-
-    <!-- REQUIRED: Progress bar animation -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-progressbar.min.js"></script>
-
-    <!-- REQUIRED: wysihtml5 editor -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/wysihtml5-0.3.0.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-wysihtml5.min.js"></script>
-
-    <!-- REQUIRED: Masked Input -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.maskedinput.min.js"></script>
-
-    <!-- REQUIRED: Bootstrap Date Picker -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-datepicker.min.js"></script>
-
-    <!-- REQUIRED: Bootstrap Wizard -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.wizard.min.js"></script>
-
-    <!-- REQUIRED: Bootstrap Color Picker -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-colorpicker.min.js"></script>
-
-
-    <!-- REQUIRED: Bootstrap Time Picker -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-timepicker.min.js"></script>
-
-    <!-- REQUIRED: Bootstrap Prompt -->
-    @*<script src="~/Areas/ZdtbAdmin/Content/js/include/bootbox.min.js"></script>*@
-
-    <!-- REQUIRED: Bootstrap engine -->
     <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.min.js"></script>
-
-    <!-- DO NOT REMOVE: Theme Config file -->
     <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.unobtrusive-ajax.min.js"></script>
@@ -360,7 +261,11 @@
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
-
+    <script>
+        $(function () {
+            $(".current a").click();
+        });
+    </script>
     @RenderSection("script", false)
 </body>
 </html>
