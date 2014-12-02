@@ -1074,6 +1074,7 @@
     <Content Include="HtmlTemplate\images\social\social_shadow.png" />
     <Content Include="HtmlTemplate\images\social\white_dot.png" />
     <Content Include="HtmlTemplate\images\sprite.png" />
+    <Content Include="HtmlTemplate\images\substation-350x255.jpg" />
     <Content Include="HtmlTemplate\images\testimonials\index.html" />
     <Content Include="HtmlTemplate\images\testimonials\testimonials1.png" />
     <Content Include="HtmlTemplate\images\testimonials\testimonials2.png" />
@@ -1161,6 +1162,7 @@
     <Content Include="Images\about_us\Sales_Network.jpg" />
     <Content Include="Images\about_us\Thumbs.db" />
     <Content Include="Images\bxslider\Thumbs.db" />
+    <Content Include="Images\Careers\ourteam.jpg" />
     <Content Include="Images\Cert\DSTUISO170952005_nEO_IMG.jpg" />
     <Content Include="Images\Cert\GOSTRISO90012008_nEO_IMG.jpg" />
     <Content Include="Images\Cert\ISO140012004.jpg" />
@@ -1731,6 +1733,7 @@
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Shared\_Detail.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Article\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -38,4 +38,41 @@
     </script>
 }
 
-@Html.Partial("_BlogList")
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>News <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li>Large Image No Sidebar</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- blog entries full -->
+        <div class="blog_entries blog_entries_full">
+
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="post post_left">
+                    <div class="desc">
+                        <h4><a href="@Url.Action("Detail", "Article")">Design Engineer</a></h4>
+                        <p>The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : rk@krkpower.com</p>
+                    </div>
+                </div>
+            }
+
+            <!-- pager_nav -->
+            <div class="pager_nav">
+                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+            </div>
+            <!-- /pager_nav -->
+        </div>
+        <!-- /blog entries full -->
+
+    </div>
+</div>
