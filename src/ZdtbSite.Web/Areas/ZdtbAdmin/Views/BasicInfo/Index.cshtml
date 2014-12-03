@@ -1,0 +1,79 @@
+﻿@model List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.BasicInfoViewModel>
+@{
+    ViewBag.Title = "关于我们 > 企业信息";
+}
+@section PageHeader{
+    关于我们 > 企业信息
+}
+<div class="fluid-container">
+    <div style="padding-bottom:10px">
+        <a class="btn btn-primary" href="@Url.Action("Add")">
+            <i class="icon-ok-sign icon-white"></i> 添加
+        </a>
+
+    </div>
+
+
+    <div class="fluid-container">
+        <section id="widget-grid" class="">
+            <div class="row">
+                <article class="col-md-12">
+                    <!-- new widget -->
+                    <div class="jarviswidget" id="widget-id-0" role="widget" />
+                    <header>
+                        <h2>企业信息</h2>
+                    </header>
+                    <div>
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            @foreach (var item in Model)
+                            {
+                                <form class="form-horizontal themed" method="post" action="@Url.Action("Save")">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    @Html.HiddenFor(m => item.Id)
+                                                    @Html.HiddenFor(m => item.Key)
+                                                    @item.Key
+                                                </div>
+                                                <div class="col-md-7">
+                                                    @Html.TextBoxFor(m => item.Value, new { @class = "form-control", autofocus = "" })
+                                                    @Html.ValidationMessageFor(m => item.Value)
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <button type="submit" name="name" class="btn btn-primary">
+                                                        <i class="icon-ok-sign icon-white"></i> 更新
+                                                    </button>
+                                                    <a class="btn btn-danger addClick" name="btnDelete" value="@item.Id">
+                                                        <i class=" icon-remove-sign icon-white"></i> 删除
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <hr style=" width:100%;" />
+                            }
+                        </div>
+
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+@section script{
+    <script type="text/javascript">
+        $(function () {
+            $("a[name='btnDelete']").click(function (e) {
+                var val = $(this.outerHTML).attr("value");
+                ajaxSubmit("@Url.Action("Delete", "BasicInfo")", { id: val }, "正在删除数据，请稍后");
+            });
+        });
+    </script>
+}
+

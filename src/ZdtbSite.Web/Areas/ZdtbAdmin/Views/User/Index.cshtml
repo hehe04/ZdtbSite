@@ -1,0 +1,130 @@
+﻿@model PagedList.IPagedList<ZdtbSite.Model.UserInfo>
+
+@{
+    ViewBag.Title = "用户管理";
+    //ViewBag.Assign =;
+}
+
+@section PageHeader{
+    用户管理
+}
+<div class="fluid-container">
+    <div style="padding-bottom:10px">
+        <a class="btn btn-primary" href="@Url.Action("Add")">
+            <i class="icon-ok-sign icon-white"></i> 添加
+        </a>
+        <a class="btn btn-warning addClick" id="btnModify" data-rel="@Url.Action("Modify")" href="@Url.Action("Modify")">
+            <i class="icon-edit icon-white"></i> 编辑
+        </a>
+        <a class="btn btn-success addClick" id="btnRestPwd" data-rel="@Url.Action("RestPwd")" href="@Url.Action("RestPwd")">
+            <i class="icon-repeat icon-white"></i> 重置密码
+        </a>
+        <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="javascript:void(0)">
+            <i class="icon-remove icon-white"></i> 删除
+        </a>
+        <a class="btn btn-inverse addClick" id="btnAssign" data-rel="@Url.Action("Assign")" href="@Url.Action("Assign")">
+            <i class="icon-share-alt icon-white"></i> 权限分配
+        </a>
+    </div>
+    <!-- widget grid -->
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget jarviswidget-sortable" role="widget">
+                    <header role="heading">
+                        <h2>用户</h2>
+                    </header>
+                    <!-- wrap div -->
+                    <div>
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
+                                <thead>
+                                    <tr>
+                                        <th class="first"><i class="icon-resize-vertical"></i></th>
+                                        <th>用户名</th>
+                                        <th>邮箱</th>
+                                        <th>联系方式</th>
+                                        <th>是否锁定</th>
+                                        <th>创建时间</th>
+                                        <th>最近登录</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
+                                            </td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Mobile</td>
+                                            <td>@(item.IsActive ? "是" : "否")</td>
+                                            <td>@item.CreateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@item.LastLoginDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @Html.Partial("PartialPage", Model)
+                        </div>
+                        <!-- end content-->
+                    </div>
+                    <!-- end wrap div -->
+                </div>
+                <!-- end widget -->
+            </article>
+        </div>
+    </section>
+</div>
+@section script{
+    <script>
+        function setUrl($ele) {
+            var href = $ele.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+            $ele.attr("href", href);
+        }
+        $(function () {
+            $("input[type='checkbox']").click(function () {
+                //var $btnModify = $("#btnModify");
+                //var href = $btnModify.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnModify.attr("href", href);
+
+                //var $btnRestPwd = $("#btnRestPwd");
+                //href = $btnRestPwd.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnRestPwd.attr("href", href);
+
+
+                //var $btnAssign = $("#btnAssign");
+                //href = $btnAssign.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+                //$btnAssign.attr("href", href);
+                setUrl($("#btnModify"));
+                setUrl($("#btnRestPwd"));
+                setUrl($("#btnAssign"));
+            });
+            $(".addClick").click(function (e) {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    finAlert("请选择需要操作的用户，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+
+                if ($("input[type='checkbox']:checked").length > 1) {
+                    finAlert("选择需要操作的用户过多，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            $("#btnDelete").click(function () {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    return false;
+                }
+                var id = $("input[type='checkbox']:checked").first().val();
+                ajaxSubmit("@Url.Action("Delete", "User")", { id: id, url: location.href }, "正在删除数据，请稍后");
+                return false;
+            });
+        });
+    </script>
+}

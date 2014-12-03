@@ -1,0 +1,491 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- http://davidbcalhoun.com/2010/viewport-metatag -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/datepicker.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr.custom.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/toastr-responsive.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/bootstrap.min.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/font-awesome.min.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/cus-icons.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jarvis-widgets.css?v=1">
+    <link href="~/Areas/ZdtbAdmin/Content/css/DT_bootstrap.css" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/uniform.default.css" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/select2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/theme-responsive.css?v=1">
+    <link rel="stylesheet" href="~/Areas/ZdtbAdmin/Content/css/jquery.jgrowl.css?v=1">
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger.css?v=1" rel="stylesheet" />
+    <link href="~/Areas/ZdtbAdmin/Content/css/messenger/messenger-theme-future.css?v=1" rel="stylesheet" />
+    <script>
+        var path = localStorage.getItem("themes");
+        if (path == null || path == "") {
+            document.write('<link rel="stylesheet" id="switch-theme-js" href="/Areas/ZdtbAdmin/Content/css/themes/default.css?v=1">');
+        } else {
+            document.write('<link rel="stylesheet" id="switch-theme-js" href="' + path + '">');
+        }
+    </script>
+    <link rel="stylesheet" id="switch-width" href="~/Areas/ZdtbAdmin/Content/css/full-width.css?v=1">
+    <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.png">
+    <!-- For everything else -->
+    <link rel="shortcut icon" href="~/Areas/ZdtbAdmin/Content/img/favicons/favicon.ico">
+    <!-- For retina screens -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon-retina.png">
+    <!-- For iPad 1-->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon-ipad.png">
+    <!-- For iPhone 3G, iPod Touch and Android -->
+    <link rel="apple-touch-icon-precomposed" href="~/Areas/ZdtbAdmin/Content/img/favicons/apple-touch-icon.png">
+
+    <!-- iOS web-app metas -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Add your custom home screen title: -->
+    <meta name="apple-mobile-web-app-title" content="Jarvis">
+
+    <!-- Startup image for web apps -->
+    <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+</head>
+
+<body>
+    <!-- .height-wrapper -->
+    <div class="height-wrapper">
+
+        <!-- header -->
+        <header>
+            <!-- tool bar -->
+            <div id="header-toolbar" class="container-fluid">
+                <!-- .contained -->
+                <div class="contained">
+
+                    <!-- theme name -->
+                    <h1>Minnan<span class="hidden-xs">- 网站管理</span> </h1>
+                    <!-- end theme name -->
+                    <!-- col-md-4 -->
+                    <div class="pull-right">
+                        <!-- demo theme switcher-->
+                        <div id="theme-switcher" class="btn-toolbar">
+
+                            <!-- search and log off button for phone devices -->
+                            <div class="btn-group pull-right visible-xs">
+                                <a href="javascript:void(0)" class="btn btn-inverse btn-sm"><i class="icon-search"></i></a>
+                                <a href="login.html" class="btn btn-inverse btn-sm"><i class="icon-off"></i></a>
+                            </div>
+                            <!-- end Tasks -->
+                            <!-- theme dropdown -->
+                            <div class="btn-group hidden-xs">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-inverse" id="reset-widget"><i class="icon-refresh"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-sm btn-inverse dropdown-toggle" data-toggle="dropdown">主题 <span class="caret"></span></a>
+                                <ul id="theme-links-js" class="dropdown-menu toolbar pull-right">
+                                    <li>
+                                        <a href="javascript:void(0)" data-rel="purple"><i class="icon-sign-blank purple-icon"></i>紫色</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-rel="blue"><i class="icon-sign-blank navyblue-icon"></i>蓝色</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-rel="green"><i class="icon-sign-blank green-icon "></i>绿色</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-rel="darkred"><i class="icon-sign-blank red-icon "></i>酒红</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-rel="default"><i class="icon-sign-blank grey-icon"></i>黑色</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end theme dropdown-->
+
+                        </div>
+                        <!-- end demo theme switcher-->
+                    </div>
+                    <!-- end col-md-4 -->
+                </div>
+                <!-- end .contained -->
+            </div>
+            <!-- end tool bar -->
+
+        </header>
+        <!-- end header -->
+
+        <div id="main" role="main" class="container-fluid">
+            <div class="contained">
+                <!-- aside -->
+                <aside>
+                    <div class="divider"></div>
+                    <!-- end search box -->
+                    <!-- aside item: Mini profile -->
+                    <div class="my-profile">
+                        <a href="javascript:void(0)" class="my-profile-pic">
+                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt="" />
+                        </a>
+                        @{
+                            var id = HttpContext.Current.Items["LoginUserId"];
+                            var route =new RouteValueDictionary();
+                            route.Add("id",id);
+                        }
+                        <span class="first-child">欢迎 <strong>@HttpContext.Current.Items["LoginUserName"] !</strong></span>
+                        <span><a href="@Url.Action("Modify", "User", route)">编辑信息 </a></span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="sidebar-nav-fixed">
+<<<<<<< HEAD
+                        @Html.Partial("MenuPage")
+=======
+
+                        <ul class="menu" id="accordion-menu-js">
+                            @{
+                                List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel> menus = HttpContext.Current.Application.Get("MenuList") as List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel>;
+                                string assign = Session["UserAssign"] as string;
+                                if (menus != null && !string.IsNullOrEmpty(assign))
+                                {
+
+
+                                    var roots = menus.Where(e => e.ParentId == 0);
+                                    foreach (var item in roots)
+                                    {
+                                        //子节点
+                                        var childrens = menus.Where(e => e.ParentId == item.Id);
+                                        bool flg = false;
+                                        int existscount = 0;
+                                        foreach (var children in childrens)
+                                        {
+                                            if (assign.IndexOf(children.Id + ",") >= 0)
+                                            {
+                                                flg = true;
+                                                existscount++;
+                                            }
+                                        }
+                                        if (flg)
+                                        {
+                                            <li class="">
+                                                <a href="javascript:void(0)">
+                                                    @{
+                                            if (!string.IsNullOrEmpty(item.Icon))
+                                            {
+                                                <i class="@item.Icon"></i>
+                                            }
+                                                    }
+                                                    @item.Name <span class="badge">@existscount</span>
+
+                                                </a>
+                                                <ul>
+                                                    @*<li>
+                                                            <a href="#">用户管理</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">权限分配</a>
+                                                        </li>*@
+                                                    @foreach (var children in childrens)
+                                                    {
+                                                        if (assign.IndexOf(children.Id + ",") >= 0)
+                                                        {
+                                                            <li>
+                                                                @if (!string.IsNullOrEmpty(children.Icon))
+                                                                {
+                                                                    <i class="@children.Icon"></i>
+                                                                }
+                                                                <a href="@Url.Action(children.Action, children.Controller)"> @children.Name</a>
+                                                            </li>
+                                                        }
+                                                    }
+
+                                                </ul>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            }
+
+                            @*<li class="">
+                                    <a href="javascript:void(0)"><i class="icon-envelope"></i>文章发布<span class="badge">2</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">技术文章</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">新闻发布</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">文章采集</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-check"></i>产品模块<span class="badge">2</span></a>
+                                    <ul>
+                                        <li>
+                                        <a href="/ZdtbAdmin/ProductType/Index">类型维护</a>
+                                        </li>
+                                        <li>
+                                        <a href="/ZdtbAdmin/Product/Index">产品发布</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="#"><i class="icon-home"></i>企业信息</a>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-check"></i>客户追踪<span class="badge">4</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">合同管理</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">客户信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">产品浏览信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">留言预览</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0)"><i class="icon-briefcase"></i>人才管理<span class="badge">1</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">职位发布</a>
+                                        </li>
+                                    </ul>
+                                </li>*@
+                            <li class="">
+                                <a href="javascript:void(0);" class="logout-js" data-rel="@Url.Action("SingOut","User")"><i class="icon-off"></i> 退出登录</a>
+                            </li>
+                        </ul>
+>>>>>>> devlei
+                    </div>
+                    <div class="divider"></div>
+                    <div class="mini-inbox">
+                        <div class="alert inbox">
+                            <button type="button" class="close" data-dismiss="alert">
+                                ×
+                            </button>
+
+                            <a href="javascript:void(0)">
+                                <img src="/Areas/ZdtbAdmin/Content/img/email-important.png" width="22" height="18" alt="important mail" />
+                                IP:121.265.33.99
+                            </a>
+                            The physical and digital worlds continue to converge...
+                        </div>
+                        <!-- inbox message 2-->
+                        <div class="alert inbox">
+                            <button type="button" class="close" data-dismiss="alert">
+                                ×
+                            </button>
+                            <a href="javascript:void(0)">
+                                <img src="/Areas/ZdtbAdmin/Content/img/email-unread.png" width="22" height="18" alt="important mail" />
+                                IP:121.265.25.65
+                            </a>
+                            Vietnam’s vision is to become an industrialized nation by 2020...
+                        </div>
+                        <!-- inbox message 3-->
+                        <div class="alert inbox last-child">
+                            <button type="button" class="close" data-dismiss="alert">
+                                ×
+                            </button>
+                            <a href="javascript:void(0)">
+                                <img src="/Areas/ZdtbAdmin/Content/img/email-unread.png" width="22" height="18" alt="important mail" />
+                                IP:121.265.36.35
+                            </a>
+                            The Gartner Symposium/ITxpo in Barcelona takes place from November 9-13...
+                        </div>
+
+                    </div>
+                    <div class="divider"></div>
+                </aside>
+                <!-- aside end -->
+                <!-- main content -->
+                <div id="page-content">
+                    <!-- page header -->
+                    <h1 id="page-header">@RenderSection("PageHeader", false)</h1>
+                    @RenderBody()
+                </div>
+            </div>
+
+        </div><!--/.fluid-container-->
+        <div class="push"></div>
+    </div>
+    <!-- end .height-wrapper -->
+    <!-- footer -->
+    <!-- if you like you can insert your footer here -->
+    <!-- end footer -->
+    <!--================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+    <script src="/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"></script>
+    @*<script>window.jQuery || document.write('<script src="/Areas/ZdtbAdmin/Content/js/libs/jquery.min.js"><\/script>')</script>*@
+    <!-- OPTIONAL: Use this migrate scrpit for plugins that are not supported by jquery 1.9+ -->
+    <!-- DISABLED <script src="js/libs/jquery.migrate-1.0.0.min.js"></script> -->
+    <script src="/areas/zdtbadmin/content/js/libs/jquery.ui.min.js"></script>
+    @*<script>window.jQuery.ui || document.write('<script src="/Areas/ZdtbAdmin/Content/js/libs/jquery.ui.min.js"><\/script>')</script>*@
+    <!-- IMPORTANT: Jquery Touch Punch is always placed under Jquery UI -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- REQUIRED: Mobile responsive menu generator -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/selectnav.min.js"></script>
+
+    <!-- REQUIRED: Datatable components -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.accordion.min.js"></script>
+
+    <!-- REQUIRED: Toastr & Jgrowl notifications  -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/toastr.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.jgrowl.min.js"></script>
+
+    <!-- REQUIRED: Sleek scroll UI  -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/slimScroll.min.js"></script>
+
+    <!-- REQUIRED: Datatable components -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/DT_bootstrap.min.js"></script>
+
+    <!-- REQUIRED: Form element skin  -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.uniform.min.js"></script>
+
+    <!-- REQUIRED: AmCharts  -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/amchart/amcharts.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/amchart/amchart-draw1.js"></script>
+
+    <script type="text/javascript">
+        var ismobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+        if (!ismobile) {
+
+            /** ONLY EXECUTE THESE CODES IF MOBILE DETECTION IS FALSE **/
+
+            /* REQUIRED: Datatable PDF/Excel output componant */
+
+            document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/ZeroClipboard.min.js"><\/script>');
+            document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/TableTools.min.js"><\/script>');
+            document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/select2.min.js"><\/script>');
+            document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.excanvas.min.js"><\/script>');
+            document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/jquery.placeholder.min.js"><\/script>');
+
+            /** DEMO SCRIPTS **/
+            //$(function () {
+            //    /* jarvis tooltips */
+            //    $.jGrowl("These <strong>Smart Widgets</strong> will remember any <strong>name, color or position</strong> you give them. Try to customize one and <strong>refresh the page</strong> to see if it hasn't changed'.", {
+            //        header: 'Smart Widgets',
+            //        sticky: false,
+            //        life: 7000,
+            //        speed: 500,
+            //        theme: 'with-icon',
+            //        position: 'top-right', //this is default position
+            //        easing: 'easeOutBack',
+            //        animateOpen: {
+            //            height: "show"
+            //        },
+            //        animateClose: {
+            //            opacity: 'hide'
+            //        }
+            //    });
+            //});
+            /** end DEMO SCRIPTS **/
+
+        } else {
+
+            /** ONLY EXECUTE THESE CODES IF MOBILE DETECTION IS TRUE **/
+
+            document.write('<script src="/Areas/ZdtbAdmin/Content/js/include/responsive-tables.min.js"><\/script>');
+        }
+    </script>
+
+    <!-- REQUIRED: iButton -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.ibutton.min.js"></script>
+
+    <!-- REQUIRED: Justgage animated charts -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/raphael.2.1.0.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/justgage.min.js"></script>
+
+    <!-- REQUIRED: Morris Charts -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/morris.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/morris-chart-settings.js"></script>
+
+    <!-- REQUIRED: Animated pie chart -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.easy-pie-chart.min.js"></script>
+
+    <!-- REQUIRED: Functional Widgets -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jarvis.widget.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/mobiledevices.min.js"></script>
+    <!-- DISABLED (only needed for IE7 <script src="~/Areas/ZdtbAdmin/Content/js/include/json2.js"></script> -->
+    <!-- REQUIRED: Full Calendar -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.fullcalendar.min.js"></script>
+
+    <!-- REQUIRED: Flot Chart Engine -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.cust.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.resize.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.tooltip.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.orderBar.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.fillbetween.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.flot.pie.min.js"></script>
+
+    <!-- REQUIRED: Sparkline Charts -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.sparkline.min.js"></script>
+
+    <!-- REQUIRED: Infinite Sliding Menu (used with inbox page) -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.inbox.slashc.sliding-menu.js"></script>
+
+    <!-- REQUIRED: Form validation plugin -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.validate.min.js"></script>
+
+    <!-- REQUIRED: Progress bar animation -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-progressbar.min.js"></script>
+
+    <!-- REQUIRED: wysihtml5 editor -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/wysihtml5-0.3.0.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-wysihtml5.min.js"></script>
+
+    <!-- REQUIRED: Masked Input -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/jquery.maskedinput.min.js"></script>
+
+    <!-- REQUIRED: Bootstrap Date Picker -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-datepicker.min.js"></script>
+
+    <!-- REQUIRED: Bootstrap Wizard -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.wizard.min.js"></script>
+
+    <!-- REQUIRED: Bootstrap Color Picker -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-colorpicker.min.js"></script>
+
+
+    <!-- REQUIRED: Bootstrap Time Picker -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap-timepicker.min.js"></script>
+
+    <!-- REQUIRED: Bootstrap Prompt -->
+    @*<script src="~/Areas/ZdtbAdmin/Content/js/include/bootbox.min.js"></script>*@
+
+    <!-- REQUIRED: Bootstrap engine -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/include/bootstrap.min.js"></script>
+
+    <!-- DO NOT REMOVE: Theme Config file -->
+    <script src="~/Areas/ZdtbAdmin/Content/js/config.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/libs/jquery.form.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/bootbox.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger.min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/messenger/messenger-theme-flat.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/common.js"></script>
+
+    @RenderSection("script", false)
+</body>
+</html>

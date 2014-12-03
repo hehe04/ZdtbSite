@@ -9,8 +9,6 @@ namespace ZdtbSite.Core.Infrastructure
         public DataContext()
             : base("DataContext")
         {
-            base.Configuration.ProxyCreationEnabled = false;
-            base.Configuration.LazyLoadingEnabled = false;
         }
 
         public IDbSet<Product> Products { get; set; }
@@ -26,5 +24,15 @@ namespace ZdtbSite.Core.Infrastructure
         public IDbSet<UserInfo> UserInfos { get; set; }
 
         public IDbSet<VisitLog> VisitLogs { get; set; }
+
+        public IDbSet<AdminMenu> AdminMenus { get; set; }
+
+        public IDbSet<Recruitment> Recruitments { get; set; }
+
+        public IDbSet<Customer> Customers { get; set; }
+
+        public IDbSet<Feedback> Feedbacks { get; set; }
+
+        public IDbSet<Contract> Contracts { get; set; }
     }
 }

@@ -1,0 +1,47 @@
+﻿<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>News <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li>Large Image No Sidebar</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- blog entries full -->
+        <div class="blog_entries blog_entries_full">
+
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="post post_medium">
+                    <div class="img_wrap bwWrapper">
+                        <div class="date">April 2, 2012</div>
+                        <a href="@Url.Action("Detail", "Article")"><img src="~/HtmlTemplate/images/substation-350x255.jpg" width="493" height="249" alt="" /></a>
+                    </div>
+                    <div class="desc">
+                        <h4><a href="@Url.Action("Detail", "Article")">PG&E hire new security over attacks on California substation</a></h4>
+                        <p>Following attacks on a substation costing millions of dollars for repairs, the Pacific Gas and Electric Company (PG&E) has hired a new security firm for its protection....</p>
+                        <div class="metadata">
+                            <strong class="dots">....</strong>
+                            By <a href="#">Ken Wallingford</a>
+                            <a href="@Url.Action("Detail", "Article")" class="read_more btn_col">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+            <!-- pager_nav -->
+            <div class="pager_nav">
+                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+            </div>
+            <!-- /pager_nav -->
+        </div>
+        <!-- /blog entries full -->
+
+    </div>
+</div>

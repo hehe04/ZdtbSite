@@ -1,0 +1,139 @@
+﻿@using System.Web.Optimization;
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Header{
+    @Styles.Render("~/Style/AboutIndex")
+    @Scripts.Render("~/Script/AboutIndex")
+    <script>
+        $(function () {
+            $('.features_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 5,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('.intro_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        });
+    </script>
+}
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>About Us<span>We think you'll love to work with us</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li>About</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- intro text -->
+        <div class="intro_text">
+            <ul class="intro_slider">
+                <li>
+                    <div class="bwWrapper"><img src="/HtmlTemplate/images/about_us/about_us_slide_1.png" width="426" height="238" alt="" /></div>
+                    <div class="desc">
+                        <h4>Welcome to Minnan, a largest company dedicated to industrial power transformer. Let us tell you about it!</h4>
+                        <p>Minnan is well positioned for growth and has several long term and short term plans to continue on this path of success. As Asia’s leader in the dry-type transformer industry, we have every intention of staying there and getting stronger.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="bwWrapper"><img src="/HtmlTemplate/images/about_us/about_us_slide_2.png" width="426" height="238" alt="" /></div>
+                    <div class="desc">
+                        <h4>Welcome to Minnan, a largest company dedicated to industrial power transformer. Let us tell you about it!</h4>
+                        <p>Minnan is well positioned for growth and has several long term and short term plans to continue on this path of success. As Asia’s leader in the dry-type transformer industry, we have every intention of staying there and getting stronger.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="bwWrapper"><img src="/HtmlTemplate/images/about_us/about_us_slide_3.png" width="426" height="238" alt="" /></div>
+                    <div class="desc">
+                        <h4>Welcome to Minnan, a largest company dedicated to industrial power transformer. Let us tell you about it!</h4>
+                        <p>Minnan is well positioned for growth and has several long term and short term plans to continue on this path of success. As Asia’s leader in the dry-type transformer industry, we have every intention of staying there and getting stronger.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="bwWrapper"><img src="/HtmlTemplate/images/about_us/about_us_slide_4.png" width="426" height="238" alt="" /></div>
+                    <div class="desc">
+                        <h4>Welcome to Minnan, a largest company dedicated to industrial power transformer. Let us tell you about it!</h4>
+                        <p>Minnan is well positioned for growth and has several long term and short term plans to continue on this path of success. As Asia’s leader in the dry-type transformer industry, we have every intention of staying there and getting stronger.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="bwWrapper"><img src="/HtmlTemplate/images/about_us/about_us_slide_5.png" width="426" height="238" alt="" /></div>
+                    <div class="desc">
+                        <h4>Welcome to Minnan, a largest company dedicated to industrial power transformer. Let us tell you about it!</h4>
+                        <p>Minnan is well positioned for growth and has several long term and short term plans to continue on this path of success. As Asia’s leader in the dry-type transformer industry, we have every intention of staying there and getting stronger.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="why_choose_explore">
+            <h4>Why Choose Minnan?  We’ll Tell You!</h4>
+            <!-- why choose -->
+            <div class="why_choose">
+                <ul>
+                    <li>Our products are readily trusted and accepted in China, USA, Europe, Singapore, South Africa, Malaysia, Japan, Korea, Indonesia, Philippines, Thailand, Vietnam and Bangladesh. Our products have also earned certification from some of the world's leading companies.</li>
+                    <li>We regularly streamline, redefine, and recreate our company processes. Our design and testing parameters adhere to quality measures.</li>
+                    <li>The key to our success is our never ending willingness to take up any challenging customization project and successfully implementing it.</li>
+                    <li>Minnan has been pioneer in the export of Electrical and Electronic goods for the last four decades. </li>
+                    <li>Minnan Company is a status holder and has been awarded THE EXPORT HOUSE CERTIFICATE recognized by Ministry of Commerce & Industry, Government of China.</li>
+                </ul>
+            </div>
+            <!-- /why choose -->
+            <!-- features_explore -->
+            <div class="features_explore">
+                <ul>
+                    <li>
+                        <div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/about_us/why_choose_us_1.png" width="94" height="65" alt="" /></a></div>
+                        <p>We offer products and services that have strong roots in a traditional value base, and come with inherent brand qualities of trustworthiness and complete customer satisfaction.</p>
+                    </li>
+                    <li>
+                        <div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/about_us/why_choose_us_2.png" width="94" height="65" alt="" /></a></div>
+                        <p>Today, as a lean, innovative and aggressive power in value engineering, Minnan has already secured its place in world markets.</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- /features_explore -->
+        </div>
+        <!-- client list -->
+        <div class="featured_list client_list">
+            <div class="features_slider_wrap">
+                <h3>Our Most Successful Clients</h3>
+                <ul class="features_slider">
+                    <li><div><div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/client_logos/client_logo_1.png" alt="" /></a></div></div></li>
+                    <li><div><div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/client_logos/client_logo_2.png" alt="" /></a></div></div></li>
+                    <li><div><div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/client_logos/client_logo_3.png" alt="" /></a></div></div></li>
+                    <li><div><div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/client_logos/client_logo_4.png" alt="" /></a></div></div></li>
+                    <li><div><div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/client_logos/client_logo_5.png" alt="" /></a></div></div></li>
+                    <li><div><div class="bwWrapper"><a href="#"><img src="/HtmlTemplate/images/client_logos/client_logo_6.png" alt="" /></a></div></div></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /client list -->
+        <!-- /send_quote -->
+        <div class="send_quote">
+            <h4>Would you like us to send you a quote?</h4>
+            <p>Click the button, fill out the form and we'll be right with you!<a class="btn_col" href="@Url.Action("ContactUs","About")">Get A Quote</a></p>
+        </div>
+        <!-- /send_quote -->
+
+    </div>
+</div>

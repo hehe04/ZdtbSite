@@ -1,0 +1,70 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "TalentStrategy";
+}
+@section Header{
+    @Scripts.Render("~/Script/Process")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Project Title Goes Here <span>Small subhead description goes here</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Portfolio Single Post</a></li>
+                <li>Full Width</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- Portfolio Single Post Full Width -->
+        <div class="single_full">
+            <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+            <ul>
+                <li>
+                    <div><img src="~/Images/Careers/ourteam.jpg" width="950" height="342" alt="" /></div>
+                    <div class="desc">
+                        <div class="things_list">
+                            <h4>Why Minnan?</h4>
+                            <i>Realize your potential with a world leader</i>
+                            <ul>
+                                <li>Work with a purpose</li>
+                                <li>Challenge yourself</li>
+                                <li>Be a technology pioneer</li>
+                                <li>Take the lead, work together</li>
+                            </ul>
+                            <p><a class="btn_m" href="#">POSITIONS</a></p>
+                        </div>
+                        <h4>Working at Minnan</h4>
+                        <i>It is even better on the inside</i>
+                        <p>We recognise that the quality of our people is our key strength. To be the industry leader in Lean Manufacturing and continuous improvement, we rely on the collective skills, knowledge and dedication of our people. In return for this dedication, we provide industry-best, on-going training, multi-skilling and career development.</p>
+                        <p>
+                            Tyree Industries currently employs over 150 people from a diverse range of cultures and backgrounds, including 50 professional engineers. When applying for a job with Tyree Industries, please submit your resume to <a href="mailto:recruitment@Minnan.com">recruitment@Minnan.com</a>
+                        </p>
+                        <p>
+                            We will try to match your skills to vacancies as they arise and invite you to apply or contact our Human Resources Manager.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /Portfolio Single Post Full Width -->
+    </div>
+</div>

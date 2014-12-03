@@ -1,0 +1,87 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Header{
+    @Scripts.Render("~/Script/ArticleIndex")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.clients_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.recent_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 1,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('#faq').dltoggle({ "open-image": "images/open.png", "closed-image": "images/closed.png" });
+            $("#open").click(function (event) {
+                $('#faq').dltoggle_show();
+                return false;
+            });
+            $("#close").click(function (event) {
+                $('#faq').dltoggle_hide();
+                return false;
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Product<span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li>Large Image No Sidebar</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- blog entries full -->
+        <div class="blog_entries blog_entries_full">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="post post_medium">
+                    <div class="img_wrap bwWrapper">
+                        <div class="date">April 2, 2012</div>
+                        <a href="@Url.Action("ProductDetail", "Product", new { id = 1 })"><img src="~/HtmlTemplate/images/blog/blog_01.jpg" width="493" height="249" alt="" /></a>
+                    </div>
+                    <div class="desc">
+                        <h4><a href="@Url.Action("ProductDetail", "Product", new { id = 1 })">11kv Oil immersed power distribution transformer</a></h4>
+                        <p>S9 and S11 series three-phase oil-immersed power distributing transformers apply new type insulating structure and make short-circuit resistance strong. The iron core is made of high-quality cold-rolled silicon-steel plate. High –voltage winding group is made up of high-quality oxygen-free copper lines and it adopts multilayered drum type structure. All fasteners have been processed with special treatment to prevent them from loosening. As country promoted high-tech product</p>
+                        <div class="metadata">
+                            <strong class="dots">....</strong>
+                            <a href="@Url.Action("ProductDetail", "Product", new { id = 1 })" class="read_more btn_col">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- pager_nav -->
+            <div class="pager_nav">
+                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+            </div>
+            <!-- /pager_nav -->
+        </div>
+        <!-- /blog entries full -->
+
+    </div>
+</div>

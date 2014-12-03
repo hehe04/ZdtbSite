@@ -1,0 +1,41 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "CompanyNews";
+}
+@section Header{
+    @Scripts.Render("~/Script/ArticleIndex")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.clients_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.recent_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 1,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('#faq').dltoggle({ "open-image": "images/open.png", "closed-image": "images/closed.png" });
+            $("#open").click(function (event) {
+                $('#faq').dltoggle_show();
+                return false;
+            });
+            $("#close").click(function (event) {
+                $('#faq').dltoggle_hide();
+                return false;
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+@Html.Partial("_BlogList")

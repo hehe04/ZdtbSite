@@ -1,0 +1,129 @@
+﻿@using System.Web.Optimization;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Triple Win Technology Co.Ltd</title>
+    <link rel="icon" type="image/png" href="/HtmlTemplate/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/HtmlTemplate/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/HtmlTemplate/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/HtmlTemplate/images/apple-touch-icon-114x114.png" />
+    @Styles.Render("~/Style/HomeLayout")
+    @Scripts.Render("~/Scripts/HomeLayout")
+    @Scripts.Render("~/Script/HomeIndex")
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <div class="wraper">
+        <header class="header">
+            <a class="logo" href="@Url.Action("Index", "Home")">construct</a>
+            <nav>
+                <!-- top menu -->
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "About")">About Us</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "About")">About Us</a></li>
+                            <li><a href="@Url.Action("Device", "About")">Device&Workshop</a></li>
+                            <li><a href="@Url.Action("ContactUs", "About")">Contact Us</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Product")">Products</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Product")">Our offering</a></li>
+                            <li><a href="@Url.Action("QualityCertificates", "Product")">Quality Certificates</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Article", new { type = "CompanyNews" })">News</a>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Article", new { type = "IndustryNews" })">Industry News</a></li>
+                            <li><a href="@Url.Action("Index", "Article", new { type = "CompanyNews" })">Company News</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("TechnologySupport", "Support")">Services&Support</a>
+                        <ul>
+                            <li><a href="@Url.Action("Process", "Support")">Process</a></li>
+                            <li><a href="@Url.Action("TechnologySupport", "Support")">Technology Support</a></li>
+                            <li><a href="@Url.Action("FAQ", "Support")">FAQ</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("TalentStrategy", "Careers")">Careers</a>
+                        <ul>
+                            <li><a href="@Url.Action("TalentStrategy", "Careers")">Talent Strategy</a></li>
+                            <li><a href="@Url.Action("Index", "Careers")">Recruit</a></li>
+                            <li><a href="@Url.Action("OurTeam", "Careers")">Our Team</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /top menu -->
+            </nav>
+        </header>
+    </div>
+    @RenderBody()
+    <div class="footer">
+        <footer>
+            <!-- bottom about -->
+            <div class="bottom_about">
+                <p><img src="/HtmlTemplate/images/logo.png" alt="" /></p>
+                <p>At vero eos et accusaus et iusto unir un dignissimos ducimus quirds siter ters pi blranditiis praesentium amets voluptatum un deleniti atque corrupti quosdirs dolores etra quasir moltias unstw excepturi sinte amets occaecatires.</p>
+            </div>
+            <!-- /bottom about -->
+            <!-- recent tweets -->
+            <div class="recent_tweets">
+                <h3><span>Recent Tweets</span></h3>
+                <ul>
+                    <li><a href="#">@*@laurakalbag*@</a> I will be very soon. Ase result reco endation <a href="#">31 minutes ago</a></li>
+                    <li><a href="#">@*@laurakalbag*@</a> you got chocolates!? That's i I'm signing up. <a href="#">37 minutes ago</a></li>
+                </ul>
+            </div>
+            <!-- /recent tweets -->
+            <!-- recent posts -->
+            <div class="recent_posts">
+                <h3><span>Recent Posts</span></h3>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolo amet consecect</a></li>
+                    <li><a href="#">Sed laoreet neque nonte mauris </a></li>
+                    <li><a href="#">Metus lacus, porta vestibulum</a></li>
+                    <li><a href="#">Morbi ac magna est ornare eliticits</a></li>
+                    <li><a href="#">Voluptas sadips nemis un etras</a></li>
+                </ul>
+            </div>
+            <!-- /recent posts -->
+            <!-- subscribe block -->
+            <div class="subscribe_block">
+                <h3><span>Stay Connected</span></h3>
+                <form method="post" action="#">
+                    <p><input type="text" id="name" value="NAME ..." /></p>
+                    <p><input type="text" id="email" value="EMAIL ..." /></p>
+                    <p><input type="submit" value="Subscribe" /></p>
+                </form>
+            </div>
+            <!-- /subscribe block -->
+        </footer>
+    </div>
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="wraper">
+            <p>&copy; Copyright &copy; 2014.Triple Win Technology Co.Ltd Company All rights reserved.</p>
+            <a class="top" href="#">Back to the top</a>
+        </div>
+    </div>
+    <!-- /copyright -->
+    <!-- /footer -->
+    <div style="display:block">
+        <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
+    </div>
+    
+</body>
+</html>

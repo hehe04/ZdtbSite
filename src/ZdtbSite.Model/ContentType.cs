@@ -8,6 +8,9 @@ namespace ZdtbSite.Model
         [Key]
         public int Id { get; set; }
 
+        [StringLength(64)]
+        public string Name { get; set; }
+
         [StringLength(128)]
         public string Description { get; set; }
 
