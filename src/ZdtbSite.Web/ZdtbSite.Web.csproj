@@ -1676,7 +1676,6 @@
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1717,19 +1716,19 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\About\ContactUs.cshtml" />
-    <Content Include="Views\Support\FAQ.cshtml" />
-    <Content Include="Views\Support\TechnologySupportIndex.cshtml" />
+    <Content Include="Views\About\FAQ.cshtml" />
+    <Content Include="Views\About\TechnologySupportIndex.cshtml" />
     <Content Include="Views\About\Device.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\QualityCertificates.cshtml" />
     <Content Include="Views\Careers\Index.cshtml" />
     <Content Include="Views\Careers\TalentStrategy.cshtml" />
     <Content Include="Views\Careers\OurTeam.cshtml" />
-    <Content Include="Views\Support\Process.cshtml" />
+    <Content Include="Views\About\Process.cshtml" />
     <Content Include="Scripts\piecemaker\index.URL" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_BlogList.cshtml" />
-    <Content Include="Views\Support\TechnologySupportDetail.cshtml" />
+    <Content Include="Views\About\TechnologySupportDetail.cshtml" />
     <Content Include="Views\Shared\_DetailSidebar.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Shared\_Detail.cshtml" />
