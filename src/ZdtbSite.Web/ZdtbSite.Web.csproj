@@ -1155,7 +1155,6 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
-    <Content Include="Images\bxslider\Thumbs.db" />
     <Content Include="Images\contact_us\Thumbs.db" />
     <Content Include="Images\featured_list\Thumbs.db" />
     <Content Include="Images\features\Thumbs.db" />
@@ -1714,6 +1713,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_BlogList.cshtml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
+    <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
