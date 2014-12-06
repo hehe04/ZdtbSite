@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\CommonExtensions.cs" />
+    <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Infrastructure\DataContext.cs" />
     <Compile Include="Infrastructure\DbContextFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
