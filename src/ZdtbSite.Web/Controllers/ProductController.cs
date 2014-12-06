@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Infrastructure;
+using ZdtbSite.Model;
+using ZdtbSite.Web.ActionFilters;
 
 namespace ZdtbSite.Web.Controllers
 {
     public class ProductController : BaseController
     {
+        private IRepository<Product> _productRepository;
+        public ProductController(IRepository<Product> productRepository)
+        {
+
+        }
+
         // GET: Product
         public ActionResult Index()
         {
@@ -19,6 +28,7 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
+        [ClientVisit]
         public ActionResult ProductDetail(int id)
         {
             return View();

@@ -37,7 +37,9 @@ namespace ZdtbSite.Model
 
         public string Message { get; set; }
 
-        public virtual ICollection<Product> ExploreProducts { get; set; }
+        public int ProductId { get; set; }
+
+        public virtual Product ExploreProducts { get; set; }
 
         public DateTime VisitDateTime { get; set; }
 
