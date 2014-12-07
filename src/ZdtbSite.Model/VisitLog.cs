@@ -43,6 +43,16 @@ namespace ZdtbSite.Model
 
         public DateTime VisitDateTime { get; set; }
 
+        public string Country { get; set; }
+
+        public string Area { get; set; }
+
+        public string Province { get; set; }
+
+        public string City { get; set; }
+
+        public string District { get; set; }
+
         public VisitLog()
         {
             VisitDateTime = DateTime.Now;

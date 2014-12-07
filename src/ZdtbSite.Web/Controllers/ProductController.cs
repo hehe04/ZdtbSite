@@ -14,7 +14,7 @@ namespace ZdtbSite.Web.Controllers
         private IRepository<Product> _productRepository;
         public ProductController(IRepository<Product> productRepository)
         {
-
+            _productRepository = productRepository;
         }
 
         // GET: Product
@@ -31,7 +31,8 @@ namespace ZdtbSite.Web.Controllers
         [ClientVisit]
         public ActionResult ProductDetail(int id)
         {
-            return View();
+            var model = _productRepository.GetById(id);
+            return View(model);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace ZdtbSite.Core.Infrastructure
 
         public virtual void Add(T entity)
         {
-            dbSet.Add(entity);
+             dbSet.Add(entity);
         }
 
         public void Update(T entity)
