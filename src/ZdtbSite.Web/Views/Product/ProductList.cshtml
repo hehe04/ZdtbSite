@@ -1,7 +1,9 @@
 ﻿@using System.Web.Optimization
 @{
-    ViewBag.Title = "Recruit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 @section Header{
     @Scripts.Render("~/Script/ArticleIndex")
     @Styles.Render("~/Style/AboutIndex")
@@ -42,7 +44,7 @@
     <!-- top_title -->
     <div class="top_title">
         <div class="wraper">
-            <h2>News <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <h2>Product<span>Keep up with the latest news, tips and features right here!</span></h2>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Blog</a></li>
@@ -54,13 +56,20 @@
     <div class="wraper">
         <!-- blog entries full -->
         <div class="blog_entries blog_entries_full">
-
             @for (int i = 0; i < 4; i++)
             {
-                <div class="post post_left">
+                <div class="post post_medium">
+                    <div class="img_wrap bwWrapper">
+                        <div class="date">April 2, 2012</div>
+                        <a href="@Url.Action("ProductDetail", "Product", new { id = 1 })"><img src="~/HtmlTemplate/images/blog/blog_01.jpg" width="493" height="249" alt="" /></a>
+                    </div>
                     <div class="desc">
-                        <h4><a href="@Url.Action("Detail", "Article")">Design Engineer</a></h4>
-                        <p>The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : rk@krkpower.com</p>
+                        <h4><a href="@Url.Action("ProductDetail", "Product", new { id = 1 })">11kv Oil immersed power distribution transformer</a></h4>
+                        <p>S9 and S11 series three-phase oil-immersed power distributing transformers apply new type insulating structure and make short-circuit resistance strong. The iron core is made of high-quality cold-rolled silicon-steel plate. High –voltage winding group is made up of high-quality oxygen-free copper lines and it adopts multilayered drum type structure. All fasteners have been processed with special treatment to prevent them from loosening. As country promoted high-tech product</p>
+                        <div class="metadata">
+                            <strong class="dots">....</strong>
+                            <a href="@Url.Action("ProductDetail", "Product", new { id = 1 })" class="read_more btn_col">Read More</a>
+                        </div>
                     </div>
                 </div>
             }
