@@ -87,12 +87,12 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Admin.ArticleDataViewModel viewModel, [Bind(Prefix = "Article")]int? ContentTyep)
+        public ActionResult Add(Admin.ArticleDataViewModel viewModel, [Bind(Prefix = "Article")]int? ContentType)
         {
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
-            if (ContentTyep == null)
+            if (ContentType == null)
             {
-                ContentTyep = int.Parse(Request.Form["Article.ContentTyep"]);
+                ContentType = int.Parse(Request.Form["Article.ContentType"]);
             }
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
             if (model.IsPublish)
@@ -102,7 +102,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
-            model.ContentType = contentTypeRepository.GetById(ContentTyep.Value);
+            model.ContentType = contentTypeRepository.GetById(ContentType.Value);
             articleRepository.Add(model);
             unitofWork.Commit();
             responseModel.Success = true;
