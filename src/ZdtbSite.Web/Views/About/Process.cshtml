@@ -1,0 +1,104 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Process";
+}
+@section Header{
+    @Scripts.Render("~/Script/Process")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        });
+    </script>
+
+}
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Our Work Process<span>We like to do things the right way. Check out our proven process below!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li>Process</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- process -->
+        <div class="bwWrapper">
+            <img src="~/Images/about_us/process-media-banner.jpg" />
+        </div>
+        <!-- /process -->
+        <!-- process option2 -->
+        <div class="process2">
+            <h4>Our Process</h4>
+            <div id="tabs" class="c_after">
+                <ul class="tab_select">
+                    <li><span>Step 1</span><a href="#tab-1">Contact Us</a></li>
+                    <li><span>Step 2</span><a href="#tab-2">RFQ</a></li>
+                    <li><span>Step 3</span><a href="#tab-3">PROTOTYPE</a></li>
+                    <li><span>Step 4</span><a href="#tab-4">PRODUCTION</a></li>
+                    <li><span>Step 5</span><a href="#tab-5">MANUFACTURING</a></li>
+                </ul>
+                <div id="tab-1">
+                    <h3>Contact Us</h3>
+                    <p class="bwWrapper"><img src="/HtmlTemplate/images/services_process/services_1.png" width="298" height="193" alt="" /></p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>The first and most important step is that you contact us. Email contact is common, but sometimes more efficient telephone communication.</li>
+                    </ul>
+                    <p></p>
+                </div>
+                <div id="tab-2">
+                    <h3>RFQ</h3>
+                    <p class="bwWrapper"><img src="/HtmlTemplate/images/services_process/services_2.png" width="298" height="193" alt="" /></p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>Whether you request a quote for a new power transformer design or an existing par, You will get the price in the next 2-3 work days.</li>
+                    </ul>
+                    <p></p>
+                </div>
+                <div id="tab-3">
+                    <h3>Design</h3>
+                    <p class="bwWrapper"><img src="/HtmlTemplate/images/services_process/services_3.png" width="298" height="193" alt="" /></p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>Once the order is confirmed, we will immediately begin designing and confirmed before production.</li>
+                    </ul>
+                    <p></p>
+                </div>
+                <div id="tab-4">
+                    <h3>Production</h3>
+                    <p class="bwWrapper"><img src="/HtmlTemplate/images/services_process/services_4.png" width="298" height="193" alt="" /></p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>After the design was recognized, the production turnaround time should be two weeks or more(according to the quantity)</li>
+                    </ul>
+                    <p></p>
+                </div>
+                <div id="tab-5">
+                    <h3>Manufacturing</h3>
+                    <p class="bwWrapper"><img src="/HtmlTemplate/images/services_process/services_5.png" width="298" height="193" alt="" /></p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>Our ISO 9001 certified process is central to all manufacturing operations</li>
+                    </ul>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <!-- /process option2 -->
+        <!-- process option3 -->
+    
+        <!-- /process option3 -->
+
+    </div>
+</div>

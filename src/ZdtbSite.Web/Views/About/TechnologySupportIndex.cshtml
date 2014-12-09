@@ -1,6 +1,7 @@
 ﻿@using System.Web.Optimization
+
 @{
-    ViewBag.Title = "Recruit";
+    ViewBag.Title = "TechnologySupport";
 }
 @section Header{
     @Scripts.Render("~/Script/ArticleIndex")
@@ -13,13 +14,17 @@
                 mode: 'fade',
                 pager: true
             });
+            $('.post_slider').bxSlider({
+                auto: false,
+                speed: 1000
+            });
             $('.recent_slider').bxSlider({
                 auto: false,
                 displaySlideQty: 1,
                 moveSlideQty: 1,
                 speed: 1000
             });
-            $('#faq').dltoggle({ "open-image": "images/open.png", "closed-image": "images/closed.png" });
+            $('#faq').dltoggle();
             $("#open").click(function (event) {
                 $('#faq').dltoggle_show();
                 return false;
@@ -38,33 +43,42 @@
     </script>
 }
 
+
 <div class="content_block">
     <!-- top_title -->
     <div class="top_title">
         <div class="wraper">
-            <h2>News <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <h2>Technology Articles<span>Keep up with the latest news, tips and features right here!</span></h2>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Blog</a></li>
-                <li>Large Image No Sidebar</li>
+                <li>Large Image With Sidebar</li>
             </ul>
         </div>
     </div>
     <!-- /top_title -->
     <div class="wraper">
-        <!-- blog entries full -->
-        <div class="blog_entries blog_entries_full">
+        <!-- blog entries -->
+        <div class="blog_entries">
 
-            @for (int i = 0; i < 4; i++)
+            @for (int i = 0; i < 3; i++)
             {
-                <div class="post post_left">
+                <div class="post">
+                    <div class="img_wrap bwWrapper">
+                        <div class="date">April 2, 2012</div>
+                        <a href="@Url.Action("TechnologySupportDetail", "Support")"><img src="~/HtmlTemplate/images/blog/blog_01.jpg" width="640" height="265" alt="" /></a>
+                    </div>
                     <div class="desc">
-                        <h4><a href="@Url.Action("Detail", "Article")">Design Engineer</a></h4>
-                        <p>The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : rk@krkpower.com</p>
+                        <h4><a href="blog_post.html">Transformer Material Knowledge</a></h4>
+                        <p>Transformer core material mainly including iron, low silicon, high silicon. Steel sheet with silicon can reduce conductivity, increase resistivity, which can reduce the eddy current to decrease losses. Steel sheet with silicon are used to be called as silicon steel. Silicon steel’s quality highly affect transformer’s quality, which is...</p>
+                        <div class="metadata">
+                            <strong class="dots">....</strong>
+                            By <a href="#">Minnan</a>  |  <a href="#">Transformer, iron, low silicon, high silicon</a>@*文章关键词*@
+                            <a href="@Url.Action("TechnologySupportDetail", "Support")" class="read_more btn_col">Read More</a>
+                        </div>
                     </div>
                 </div>
             }
-
             <!-- pager_nav -->
             <div class="pager_nav">
                 <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
@@ -72,7 +86,7 @@
             </div>
             <!-- /pager_nav -->
         </div>
-        <!-- /blog entries full -->
-
+        <!-- /blog entries -->
+        @Html.Partial("_DetailSidebar")
     </div>
 </div>
