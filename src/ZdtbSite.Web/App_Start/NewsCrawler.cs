@@ -53,34 +53,41 @@ namespace ZdtbSite.Web
                 }
                 while (true)
                 {
-                    string content = client.DownloadString("http://ayerstransformers.com/?cat=1");
-                    MatchCollection collection = regexurl.Matches(content);
-                    List<string> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(CurrentFile));
-                    if (list == null)
+                    try
                     {
-                        list = new List<string>();
-                    }
-                    foreach (Match item in collection)
-                    {
-                        if (!list.Contains(item.Groups[1].Value))
+                        string content = client.DownloadString("http://ayerstransformers.com/?cat=1");
+                        MatchCollection collection = regexurl.Matches(content);
+                        List<string> list = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(CurrentFile));
+                        if (list == null)
                         {
-                            Article model = new Article();
-                            model.IsPublish = false;
-                            model.OriginArticlesType = OriginArticlesType.Web;
-                            model.UpdateDateTime = DateTime.Now;
-                            model.PublisherDateTime = DateTime.Now;
-                            model.Title = item.Groups[2].Value;
-                            model.Tag = item.Groups[2].Value;
-                            model.ContentTyepId = 2;
-                            content = client.DownloadString(item.Groups[1].Value);
-                            model.Content = regexcontent.Match(content).Groups[0].Value;
-                            repository.Add(model);
-                            unitOfWork.Commit();
-                            list.Add(item.Groups[1].Value);
+                            list = new List<string>();
                         }
+                        foreach (Match item in collection)
+                        {
+                            if (!list.Contains(item.Groups[1].Value))
+                            {
+                                Article model = new Article();
+                                model.IsPublish = false;
+                                model.OriginArticlesType = OriginArticlesType.Web;
+                                model.UpdateDateTime = DateTime.Now;
+                                model.PublisherDateTime = DateTime.Now;
+                                model.Title = item.Groups[2].Value;
+                                model.Tag = item.Groups[2].Value;
+                                model.ContentTyepId = 2;
+                                content = client.DownloadString(item.Groups[1].Value);
+                                model.Content = regexcontent.Match(content).Groups[0].Value;
+                                repository.Add(model);
+                                unitOfWork.Commit();
+                                list.Add(item.Groups[1].Value);
+                            }
+                        }
+                        File.WriteAllText(CurrentFile, Newtonsoft.Json.JsonConvert.SerializeObject(list));
+                        Thread.Sleep(3600000 * 24);
                     }
-                    File.WriteAllText(CurrentFile, Newtonsoft.Json.JsonConvert.SerializeObject(list));
-                    Thread.Sleep(2000);
+                    catch (Exception)
+                    {
+
+                    }
                 }
             });
         }
