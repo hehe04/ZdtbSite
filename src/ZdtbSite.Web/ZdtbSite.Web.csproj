@@ -1656,7 +1656,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionFilters\ClinetVisitAttribute.cs" />
+    <Compile Include="ActionFilters\ClientVisitAttribute.cs" />
     <Compile Include="App_Start\AdminMenuCacheConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
@@ -1697,6 +1697,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IplookupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1762,7 +1763,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
+<<<<<<< HEAD
     <Folder Include="Models\" />
+=======
+    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
+>>>>>>> 55c7180757c07b118449920864dc24fd7e29df62
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">

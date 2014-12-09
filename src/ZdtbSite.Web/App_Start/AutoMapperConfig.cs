@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ZdtbSite.Model;
+using ZdtbSite.Web.Models;
 using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web

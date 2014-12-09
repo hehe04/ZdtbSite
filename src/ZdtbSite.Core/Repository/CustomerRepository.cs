@@ -15,7 +15,5 @@ namespace ZdtbSite.Core.Repository
             : base(dbContextFactory)
         {
         }
-
-        public IDbSet<Customer> DbSet { get; set; }
     }
 }

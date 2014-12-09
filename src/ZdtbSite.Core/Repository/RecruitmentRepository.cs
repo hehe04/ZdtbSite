@@ -17,6 +17,5 @@ namespace ZdtbSite.Core.Repository
         {
         }
 
-        public IDbSet<Recruitment> DbSet { get; set; }
     }
 }

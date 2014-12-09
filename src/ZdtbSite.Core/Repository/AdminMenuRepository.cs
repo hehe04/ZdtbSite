@@ -16,6 +16,5 @@ namespace ZdtbSite.Core.Repository
         {
         }
 
-        public IDbSet<AdminMenu> DbSet { get; set; }
     }
 }
