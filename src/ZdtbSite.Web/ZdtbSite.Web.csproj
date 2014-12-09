@@ -1166,7 +1166,6 @@
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
     <Content Include="Images\about_us\process-media-banner.jpg" />
     <Content Include="Images\about_us\Sales_Network.jpg" />
-    <Content Include="Images\bxslider\Thumbs.db" />
     <Content Include="Images\Careers\ourteam.jpg" />
     <Content Include="Images\Cert\DSTUISO170952005_nEO_IMG.jpg" />
     <Content Include="Images\Cert\GOSTRISO90012008_nEO_IMG.jpg" />
@@ -1180,9 +1179,7 @@
     <Content Include="Images\Cert\ISO383422005.jpg" />
     <Content Include="Images\Cert\ISO90012008.jpg" />
     <Content Include="Images\Cert\OHSAS180012007_nEO_IMG.jpg" />
-    <Content Include="Images\contact_us\Thumbs.db" />
     <Content Include="Images\DSC_01230129.jpg" />
-    <Content Include="Images\featured_list\Thumbs.db" />
     <Content Include="Images\features\Thumbs.db" />
     <Content Include="Images\flex\Thumbs.db" />
     <Content Include="Images\full_width\Thumbs.db" />
@@ -1753,6 +1750,7 @@
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Article\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
+    <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

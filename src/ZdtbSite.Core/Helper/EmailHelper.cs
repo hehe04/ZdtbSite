@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using ZdtbSite.Core.Infrastructure;
+using ZdtbSite.Model;
 
 namespace ZdtbSite.Core.Helper
 {
@@ -20,8 +22,26 @@ namespace ZdtbSite.Core.Helper
         /// <param name="Port">端口</param>
         /// <param name="subject">邮件主题</param>
         /// <param name="content">邮件内容</param>
-        public static void SendEmail(List<string> emailList, string sendName, string id, string pwd, string Server, int Port, string subject, string content)
+        public static void SendEmail(List<string> emailList, string sendName, string subject, string content)
         {
+            ZdtbSite.Core.Repository.BasicInfoRepository repository = new Core.Repository.BasicInfoRepository(new DbContextFactory());
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            var list = repository.GetAll().ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                dic.Add(list[i].Key, list[i].Value);
+            }
+            string id, pwd, Server;
+            int Port = 25;
+            try
+            {
+                id = dic["mailUser"]; pwd = dic["mailPwd"]; Server = dic["mailServer"];
+                if (dic.ContainsKey("mailPort")) Port = Convert.ToInt32(dic["mailPort"]);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("邮件配置有误！" + ex.Message);
+            }
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(id, sendName);//发送人地址、发送人名称
             for (int i = 0; i < emailList.Count; i++)
