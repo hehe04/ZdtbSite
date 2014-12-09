@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<ZdtbSite.Model.VisitLog>
+
+@{
+    ViewBag.Title = "产品浏览";
+}
+
+@section PageHeader{
+    产品浏览
+}
+<div class="fluid-container">
+    <!-- widget grid -->
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget" role="widget">
+                    <header role="heading">
+                        <h2>产品浏览</h2>
+                    </header>
+                    <!-- wrap div -->
+                    <div>
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
+                                <thead>
+                                    <tr>
+                                        <th class="first"><i class="icon-resize-vertical"></i></th>
+                                        <th>网络地址</th>
+                                        <th>访客姓名</th>
+                                        <th>访客邮件</th>
+                                        <th>手机号</th>
+                                        <th>是否发送</th>
+                                        <th>浏览时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
+                                            </td>
+                                            <td>@item.IpAddress</td>
+                                            <td>@item.VisitorName</td>
+                                            <td>@item.VisitorMail</td>
+                                            <td>@item.VisitorPhone</td>
+                                            <td>@(item.IsSendToMail ? "已发送" : "未发送")</td>
+                                            <td>@item.VisitDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @Html.Partial("PartialPage", Model)
+                        </div>
+                        <!-- end content-->
+                    </div>
+                    <!-- end wrap div -->
+                </div>
+                <!-- end widget -->
+            </article>
+        </div>
+    </section>
+</div>

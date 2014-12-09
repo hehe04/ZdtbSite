@@ -26,8 +26,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             string action = filterContext.RouteData.Values["Action"].ToString();
             if (string.Equals(action, "SingIn", StringComparison.OrdinalIgnoreCase)) { return; }
-            if (string.Equals(action, "logout", StringComparison.OrdinalIgnoreCase)) { return; }
-            if (string.Equals(action, "TestConnection", StringComparison.OrdinalIgnoreCase)) { return; }
+            if (string.Equals(action, "SingOut", StringComparison.OrdinalIgnoreCase)) { return; }
             if (HttpContext.Request.IsAuthenticated)
             {
                 HttpCookie authCookie = HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];//获取cookie 

@@ -11,6 +11,5 @@ namespace ZdtbSite.Core.Repository
         {
         }
 
-        public IDbSet<ContentType> DbSet { get; set; }
     }
 }

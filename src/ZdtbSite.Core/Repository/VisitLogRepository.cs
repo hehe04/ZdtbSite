@@ -11,7 +11,5 @@ namespace ZdtbSite.Core.Repository
             : base(dbContextFactory)
         {
         }
-
-        public IDbSet<VisitLog> DbSet { get; set; }
     }
 }

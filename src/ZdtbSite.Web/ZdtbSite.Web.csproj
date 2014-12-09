@@ -1215,6 +1215,9 @@
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Welcome\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Visit\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
@@ -1650,19 +1653,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionFilters\ClinetVisitAttribute.cs" />
+    <Compile Include="ActionFilters\ClientVisitAttribute.cs" />
     <Compile Include="App_Start\AdminMenuCacheConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\NewsCrawler.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\VisitController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
@@ -1688,6 +1694,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IplookupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1754,8 +1761,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
-    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
     <Folder Include="Models\" />
+    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">
