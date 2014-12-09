@@ -117,12 +117,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel model = new Admin.ResponseModel();
             try
             {
-                Dictionary<string, string> dic = new Dictionary<string, string>();
-                var list = BasicInfoRepository.GetAll().ToList();
-                for (int i = 0; i < list.Count; i++)
-                {
-                    dic.Add(list[i].Key, list[i].Value);
-                }
+                
                 List<string> mailList = new List<string>();
                 mailList.Add("shenxiuyun@qq.com");
                 mailList.Add("289117857@qq.com");
@@ -130,7 +125,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 mailList.Add("jiangchun1320@163.com");
                 string title = "测试邮件";
                 string text = DateTime.Now + ":测试内容";
-                Mail.SendEmail(mailList, "ZdtbSite", dic["mailUser"], dic["mailPwd"], dic["mailServer"], 25, title, text);
+                Mail.SendEmail(mailList, "ZdtbSite", title, text);
                 model.Success = true;
                 model.Msg = "发送成功！";
             }
