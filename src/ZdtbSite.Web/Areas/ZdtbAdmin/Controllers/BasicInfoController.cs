@@ -116,8 +116,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
             try
-            {
-                
+            {                
                 List<string> mailList = new List<string>();
                 mailList.Add("shenxiuyun@qq.com");
                 mailList.Add("289117857@qq.com");
