@@ -55,7 +55,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             var list = articleRepository.GetPage(page, where, e => e.Id);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
-            ViewBag.ContentTypes = types;
+            ViewData["ContentTypes"] = types;
             return View(list);
         }
 
@@ -73,7 +73,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             var list = articleRepository.GetPage(page, where, e => e.Id);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
-            ViewBag.ContentTypes = types;
+            ViewData["ContentTypes"] = types;
             return View(list);
         }
 

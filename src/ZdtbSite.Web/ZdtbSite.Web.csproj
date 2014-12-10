@@ -1222,6 +1222,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\Visit\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1671,6 +1672,7 @@
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\NewsCrawlerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\VisitController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
@@ -1763,8 +1765,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
-    <Folder Include="Models\" />
-    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">

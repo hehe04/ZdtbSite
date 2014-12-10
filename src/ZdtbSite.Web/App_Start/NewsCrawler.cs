@@ -21,6 +21,7 @@ namespace ZdtbSite.Web
             repository = new Core.Repository.ArticleRepository(factory);
             unitOfWork = new UnitOfWork(factory);
         }
+
         public static string CurrentPath
         {
             get
