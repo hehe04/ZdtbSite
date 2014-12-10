@@ -176,6 +176,13 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return Task.Factory.StartNew<ActionResult>(() =>
             {
                 Admin.ResponseModel model = new Admin.ResponseModel();
+                if (string.IsNullOrEmpty(signIn.Email) || string.IsNullOrEmpty(signIn.Password))
+                {
+                    model.Msg = "请输入登录邮箱或密码";
+                    model.Success = false;
+                    return Json(model, JsonRequestBehavior.AllowGet);
+                }
+
                 var loginPwd = signIn.Password.ToMd5String();
                 var user = userInfoRepository.Get(u => u.Email.Equals(signIn.Email) && u.Password.Equals(loginPwd));
                 model.Success = false;

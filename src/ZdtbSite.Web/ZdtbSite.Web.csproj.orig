@@ -53,6 +53,12 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -1158,13 +1164,8 @@
     <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
     <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
-<<<<<<< HEAD
     <Content Include="Images\about_us\process-media-banner.jpg" />
     <Content Include="Images\about_us\Sales_Network.jpg" />
-    <Content Include="Images\about_us\Thumbs.db" />
-=======
->>>>>>> ddd67eac22e301b03de3e48f3eb264ea1bfad387
-    <Content Include="Images\bxslider\Thumbs.db" />
     <Content Include="Images\Careers\ourteam.jpg" />
     <Content Include="Images\Cert\DSTUISO170952005_nEO_IMG.jpg" />
     <Content Include="Images\Cert\GOSTRISO90012008_nEO_IMG.jpg" />
@@ -1178,9 +1179,7 @@
     <Content Include="Images\Cert\ISO383422005.jpg" />
     <Content Include="Images\Cert\ISO90012008.jpg" />
     <Content Include="Images\Cert\OHSAS180012007_nEO_IMG.jpg" />
-    <Content Include="Images\contact_us\Thumbs.db" />
     <Content Include="Images\DSC_01230129.jpg" />
-    <Content Include="Images\featured_list\Thumbs.db" />
     <Content Include="Images\features\Thumbs.db" />
     <Content Include="Images\flex\Thumbs.db" />
     <Content Include="Images\full_width\Thumbs.db" />
@@ -1213,7 +1212,14 @@
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Recruitment\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Welcome\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Customer\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Visit\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Feedback\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1648,17 +1654,23 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\ClientVisitAttribute.cs" />
     <Compile Include="App_Start\AdminMenuCacheConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\NewsCrawler.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\NewsCrawlerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\VisitController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ProductTypeController.cs" />
@@ -1680,11 +1692,11 @@
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IplookupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1721,28 +1733,26 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\About\ContactUs.cshtml" />
-    <Content Include="Views\Support\FAQ.cshtml" />
-    <Content Include="Views\Support\TechnologySupportIndex.cshtml" />
+    <Content Include="Views\About\FAQ.cshtml" />
+    <Content Include="Views\About\TechnologySupportIndex.cshtml" />
     <Content Include="Views\About\Device.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\QualityCertificates.cshtml" />
     <Content Include="Views\Careers\Index.cshtml" />
     <Content Include="Views\Careers\TalentStrategy.cshtml" />
     <Content Include="Views\Careers\OurTeam.cshtml" />
-    <Content Include="Views\Support\Process.cshtml" />
+    <Content Include="Views\About\Process.cshtml" />
     <Content Include="Scripts\piecemaker\index.URL" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_BlogList.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Support\TechnologySupportDetail.cshtml" />
+    <Content Include="Views\About\TechnologySupportDetail.cshtml" />
     <Content Include="Views\Shared\_DetailSidebar.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Shared\_Detail.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Article\Detail.cshtml" />
-=======
     <None Include="Properties\PublishProfiles\web.pubxml" />
->>>>>>> ddd67eac22e301b03de3e48f3eb264ea1bfad387
+    <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1753,8 +1763,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
-    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
+<<<<<<< HEAD
     <Folder Include="Models\" />
+    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
+=======
+>>>>>>> zs/devjiang
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">
