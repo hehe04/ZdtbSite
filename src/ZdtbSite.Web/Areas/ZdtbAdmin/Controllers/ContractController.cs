@@ -10,7 +10,7 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class ContractController : Controller
+    public class ContractController : BaseController
     {
         private readonly IRepository<Contract> ContractRepository;
         private IUnitOfWork unitOfWork;
