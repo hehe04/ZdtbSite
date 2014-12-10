@@ -13,7 +13,11 @@ namespace ZdtbSite.Core.Helper
     public static class EmailHelper
     {
         /// <summary>
-        /// 发送邮件   需在BasicInfo中配置 发送账户id、发送账户密码、服务、端口
+        /// 发送邮件  需在BasicInfo中配置 
+        /// 发送账户id：mailUser
+        /// 发送账户密码：mailPwd
+        /// 服务：mailServer
+        /// 端口：mailPort
         /// </summary>
         /// <param name="emailList">接收邮件地址集合</param>
         /// <param name="sendName">发件人名称</param>
@@ -58,8 +62,12 @@ namespace ZdtbSite.Core.Helper
         }
 
         /// <summary>
-        /// 发送邮件   需在BasicInfo中配置 接收人、发送账户id、发送账户密码、服务、端口
-        /// </summary>
+        /// 发送邮件  需在BasicInfo中配置 
+        /// 接受邮件emial集合：receiveEmailList  用分号分割
+        /// 发送账户id：mailUser
+        /// 发送账户密码：mailPwd
+        /// 服务：mailServer
+        /// 端口：mailPort
         /// <param name="sendName">发送人名称</param>
         /// <param name="subject">邮件主题</param>
         /// <param name="content">邮件内容</param>

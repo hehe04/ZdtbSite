@@ -11,7 +11,7 @@ namespace ZdtbSite.Web.Controllers
 {
     public class ProductController : BaseController
     {
-        //private IRepository<Product> _productRepository;
+        private IRepository<Product> _productRepository;
         public ProductController(IRepository<Product> productRepository)
         {
             _productRepository = productRepository;
