@@ -10,7 +10,7 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class RecruitmentController : Controller
+    public class RecruitmentController : BaseController
     {
         private readonly IRepository<Recruitment> RecruitmentRepository;
         private IUnitOfWork unitOfWork;
