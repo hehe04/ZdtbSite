@@ -17,7 +17,7 @@ namespace ZdtbSite.Model
         public string Title { get; set; }
 
         [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
         public int CustomerId { get; set; }
 

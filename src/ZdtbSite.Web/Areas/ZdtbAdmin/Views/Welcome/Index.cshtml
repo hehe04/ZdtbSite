@@ -1,7 +1,119 @@
 ﻿<div class="fluid-container" style="min-height:400px">
+    <div id="start">
+        <ul>
+            <li>
+                <label>+548 </label>
+                <a href="javascript:void(0)" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/add-user.png" alt="">
+                    <span>新客户</span>
+                </a>
+            </li>
+            <li>
+                <label>246 </label>
+                <a href="javascript:void(0)" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/orders.png" alt="">
+                    <span>合同数量</span>
+                </a>
+            </li>
+            <li>
+                <label>657</label>
+                <a href="javascript:void(0)" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/mass.png" alt="">
+                    <span>职位</span>
+                </a>
+            </li>
+            <li>
+                <label>new</label>
+                <a href="javascript:void(0)" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/stats.png" alt="">
+                    <span>文章抓取</span>
+                </a>
+            </li>
+            <li>
+                <label>657</label>
+                <a href="javascript:void(0)" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/pending-message.png" alt="">
+                    <span>留言</span>
+                </a>
+            </li>
+            <li>
+                <label>657</label>
+                <a href="javascript:void(0)" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/upgrade.png" alt="">
+                    <span>产品浏览</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
     <section id="widget-grid" class="">
         <div class="row">
-            <h1>@HttpContext.Current.Items["LoginUserName"]！您好，欢迎使用本系统！</h1>
+            @*<h1>@HttpContext.Current.Items["LoginUserName"]！您好，欢迎使用本系统！</h1>*@
+            <article class="col-md-12">
+                <div class="jarviswidget" id="widget-id-2" role="widget">
+                    <header>
+                        <h2>留言信息</h2>
+                    </header>
+                    <div>
+                        <div class="inner-spacer chat-widget widget-content-padding">
+                            <ul id="myChat" class="nav nav-tabs chat-tabs">
+                                <li class="active">
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
+                                </li>
+                                <li>
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user2" data-toggle="tab"><i class="away"></i>留言问题</a>
+                                </li>
+                            </ul>
+                            <div id="myChatTab" class="tab-content chat-content">
+                                <div class="tab-pane fade in active" id="user1">
+                                    <div class="chat-messages">
+                                        <p id="message-id-1" class="message-box">
+                                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_1.jpg" alt="">
+                                            <span class="message">
+                                                <strong>留言板</strong>
+                                                <span class="message-time">14:23pm, 4th Jan 2013</span>
+                                                <span class="message-text">Hehehe....sem quam semper libero, sit amet adipiscing sem neque sed ipsum. <i class="cus-emoticon-tongue"></i></span>
+                                            </span>
+                                        </p>
+                                        <p id="message-id-3" class="message-box">
+                                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_1.jpg" alt="">
+                                            <span class="message">
+                                                <strong>Nicolas Cage</strong>
+                                                <span class="message-time">14:23pm, 4th Jan 2013</span>
+                                                <span class="message-text">Hey Vicky! Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. LOLOL!  Maecenas tempus, tellus eget condimentum rhoncus. </span>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="user2">
+                                    <div class="chat-messages">
+                                        <p id="message-id-4" class="message-box">
+                                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_2.jpg" alt="">
+                                            <span class="message">
+                                                <strong>留言问题</strong>
+                                                <span class="message-time">14:23pm, 4th Jan 2013</span>
+                                                <span class="message-text">Hi Victoria, Yes you have uploaded it and its currently in que. I will have a look at it and send you an email shortly.</span>
+                                            </span>
+                                        </p>
+                                        <p id="message-id-5" class="message-box you">
+                                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt="">
+                                            <span class="message">
+                                                <strong>Me</strong>
+                                                <span class="message-time">14:25pm, 4th Jan 2013</span>
+                                                <span class="message-text">Hi David, I just submitted a theme on wrapbootstrap, not sure if it went through. Did I do it right? :S</span>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 </div>
+
+

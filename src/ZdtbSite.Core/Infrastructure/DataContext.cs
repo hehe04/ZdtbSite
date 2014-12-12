@@ -34,5 +34,39 @@ namespace ZdtbSite.Core.Infrastructure
         public IDbSet<Feedback> Feedbacks { get; set; }
 
         public IDbSet<Contract> Contracts { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //映射Feedback Customer 主外键关系
+            modelBuilder.Entity<Feedback>()
+                .HasRequired(t => t.Customer)
+                .WithMany(c => c.Feedbacks)
+                .HasForeignKey(f => f.CustomerId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Article>()
+                .HasRequired(a => a.ContentType)
+                .WithMany(c => c.Articles)
+                .HasForeignKey(a => a.ContentTyepId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Contract>()
+                .HasRequired(c => c.Customer)
+                .WithMany(c => c.Contracts)
+                .HasForeignKey(c => c.CustomerId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<VisitLog>()
+                .HasRequired(v => v.ExploreProducts)
+                .WithMany(p => p.VisitLogs)
+                .HasForeignKey(v => v.ProductId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasRequired(p => p.ProductType)
+                .WithMany(t => t.Products)
+                .HasForeignKey(p => p.ProductTypeId)
+                .WillCascadeOnDelete(false);
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace ZdtbSite.Model
 
         [ForeignKey("ProductTypeId")]
         public virtual ProductType ProductType { get; set; }
+
         public int ProductTypeId { get; set; }
 
         public DateTime CreateTime { get; set; }

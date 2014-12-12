@@ -22,5 +22,9 @@ namespace ZdtbSite.Model
         public DateTime CreateTime { get; set; }
 
         public int Count { get; set; }
+
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
+
+        public virtual ICollection<Contract> Contracts { get; set; }
     }
 }
