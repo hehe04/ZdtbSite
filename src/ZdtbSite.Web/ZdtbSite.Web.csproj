@@ -1182,6 +1182,7 @@
     <Content Include="Images\DSC_01230129.jpg" />
     <Content Include="Images\features\Thumbs.db" />
     <Content Include="Images\flex\Thumbs.db" />
+    <Content Include="Images\fr.Skype.png" />
     <Content Include="Images\full_width\Thumbs.db" />
     <Content Include="Images\home_page_3_feature_circles\Thumbs.db" />
     <Content Include="Images\home_page_5_features\Thumbs.db" />
@@ -1193,6 +1194,7 @@
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />
+    <Content Include="Images\skype_Icon.jpg" />
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
     <Content Include="Images\unleash\Thumbs.db" />
@@ -1697,6 +1699,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IplookupViewModel.cs" />
+    <Compile Include="Models\ProductViewModell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1753,6 +1756,9 @@
     <Content Include="Views\Article\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
+    <Content Include="Views\Shared\_OnlineService.cshtml" />
+    <Content Include="Views\Shared\_ProductRecommend.cshtml" />
+    <Content Include="Views\Shared\_Feedback.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1763,8 +1769,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
-    <Folder Include="Models\" />
-    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">
