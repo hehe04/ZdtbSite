@@ -43,7 +43,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Display(Name="文章类型")]
         public ContentTypeViewModel ContentType { get; set; }
 
-        public int ContentTyepId { get; set; }
+        public int ContentTypeId { get; set; }
 
         [Display(Name = "标签，以,或者|分割")]
         [Required(ErrorMessage = "文章内容必须输入.")]

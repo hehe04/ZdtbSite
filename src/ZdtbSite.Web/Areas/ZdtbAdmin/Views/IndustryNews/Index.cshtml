@@ -1,0 +1,163 @@
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Article>
+
+@using ZdtbSite.Web.Areas.ZdtbAdmin.Models;
+
+@{
+    ViewBag.Title = "行业新闻";
+    //所有的额产品类型
+    //var contenttypes = ViewData["ContentTypes"] as List<ContentTypeViewModel>;
+
+    //List<SelectListItem> items = new List<SelectListItem>();
+
+    //items.Add(new SelectListItem() { Text = "请选择文章类型", Value = "-1" });
+
+    //foreach (var item in contenttypes)
+    //{
+    //    items.Add(new SelectListItem()
+    //    {
+    //        Text = item.Name,
+    //        Value = item.Id.ToString()
+    //    });
+    //}
+}
+
+@section PageHeader{
+    文章发布 > 行业新闻
+}
+<div class="fluid-container">
+    <div class="row" style="padding-bottom:10px">
+        <div class="col-md-4">
+            <a class="btn btn-primary" href="@Url.Action("Add")">
+                <i class="icon-ok-sign icon-white"></i> 添加
+            </a>
+            <a class="btn btn-warning addClick" id="btnModify" data-rel="@Url.Action("Modify")" href="@Url.Action("Modify")">
+                <i class="icon-edit icon-white"></i> 编辑
+            </a>
+            <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="javascript:void(0)">
+                <i class="icon-remove icon-white"></i> 删除
+            </a>
+            <a class="btn btn-success addClick" id="btnPublish" data-rel="@Url.Action("Publish")" href="javascript:void(0)">
+                <i class="icon-share icon-white"></i> 发布
+            </a>
+        </div>
+        @*<div class="col-md-8">
+            <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
+                <div>
+                    <div class="row">
+                        <div class="col-md-2">筛选文章类型</div>
+                        <div class="col-md-8">
+                            @Html.DropDownList("ContentTypeId", items, new { @class = "with-search" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn"><i class="icon-search"></i>筛选</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>*@
+    </div>
+    <!-- widget grid -->
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget" role="widget">
+                    <header role="heading">
+                        <h2>行业新闻</h2>
+                    </header>
+                    <!-- wrap div -->
+                    <div>
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
+                                <thead>
+                                    <tr>
+                                        <th class="first"><i class="icon-resize-vertical"></i></th>
+                                        <th>标题</th>
+                                        <th>标签</th>
+                                        <th>文章类型</th>
+                                        <th>更新时间</th>
+                                        <th>发布人</th>
+                                        <th>发布时间</th>
+                                        <th>是否发布</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        //var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();
+                                        //string coontentTypeName = content == null ? "" : content.Name;
+
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
+                                            </td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Tag</td>
+                                            <td>@item.ContentType.Name</td>
+                                            <td>@item.UpdateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@item.Publisher</td>
+                                            <td>@item.PublisherDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@(item.IsPublish ? "是" : "否")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            @Html.Partial("PartialPage", Model)
+                        </div>
+                        <!-- end content-->
+                    </div>
+                    <!-- end wrap div -->
+                </div>
+                <!-- end widget -->
+            </article>
+        </div>
+    </section>
+</div>
+@section script{
+    <script>
+        function setUrl($ele) {
+            var href = $ele.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+            $ele.attr("href", href);
+        }
+        $(function () {
+            $("input[type='checkbox']").click(function () {
+                setUrl($("#btnModify"));
+                setUrl($("#btnRestPwd"));
+                setUrl($("#btnAssign"));
+            });
+            $(".addClick").click(function (e) {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    finAlert("请选择需要操作的行业新闻，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+
+                if ($("input[type='checkbox']:checked").length > 1) {
+                    finAlert("选择需要操作的行业新闻过多，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            $("#btnDelete").click(function () {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    return false;
+                }
+                var id = $("input[type='checkbox']:checked").first().val();
+                ajaxSubmit("@Url.Action("Delete")", { id: id, url: location.href }, "正在删除数据，请稍后");
+                return false;
+            });
+            $("#btnPublish").click(function () {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    return false;
+                }
+                var id = $("input[type='checkbox']:checked").first().val();
+                ajaxSubmit("@Url.Action("Publish")", { id: id, url: location.href }, "正在发布，请稍后");
+                return false;
+            });
+
+        });
+    </script>
+}

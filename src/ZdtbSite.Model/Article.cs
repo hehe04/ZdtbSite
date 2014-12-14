@@ -35,7 +35,7 @@ namespace ZdtbSite.Model
         public string Content { get; set; }
 
         [ForeignKey("ContentTyepId")]
-        public ContentType ContentType { get; set; }
+        public virtual ContentType ContentType { get; set; }
 
         public int ContentTyepId { get; set; }
 

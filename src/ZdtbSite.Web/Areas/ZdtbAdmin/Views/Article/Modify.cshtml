@@ -5,7 +5,7 @@
     文章发布 > 技术文章
 }
 @{
-    ViewBag.Title = "编辑文章";
+    ViewBag.Title = "技术文章";
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
 
@@ -60,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-md-3">@Html.LabelFor(m => m.Article.ContentType)</div>
                                             <div class="col-md-9">
-                                                @Html.DropDownListFor(m => m.Article.ContentTyepId, items, new { @class = "with-search" })
+                                                @Html.DropDownListFor(m => m.Article.ContentTypeId, items, new { @class = "with-search" })
                                             </div>
                                         </div>
                                     </div>

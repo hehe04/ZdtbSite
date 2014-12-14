@@ -1,0 +1,119 @@
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.ArticleDataViewModel
+
+
+@section PageHeader{
+    文章发布 > 公司新闻
+}
+@{
+    ViewBag.Title = "发布公司新闻";
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+}
+
+<div class="fluid-container">
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget" id="widget-id-0" role="widget">
+                    <header>
+                        <h2>文章信息</h2>
+                    </header>
+                    <div>
+
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <form class="form-horizontal themed" method="post" action="@Url.Action("Add")">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Article.Title)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.Article.Title, new { @class = "form-control", autofocus = "" })
+                                                @Html.ValidationMessageFor(m => m.Article.Title)
+                                                @*<input type="text" class="form-control" id="input01" />*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Article.Tag)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.Article.Tag, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Article.Tag)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Article.ContentType)</div>
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(m => m.Article.ContentTypeId, items, new { @class = "with-search" })
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Article.IsPublish)</div>
+                                            <div class="col-md-9">
+                                                <label class="checkbox">
+
+                                                    @Html.CheckBoxFor(m => m.Article.IsPublish, new { @class = "form-control", @checked = "" }) 是否发布
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Article.Content)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.Article.Content, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Article.Content)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row" style="text-align:right">
+                                            <div class="col-md-12">
+                                                <button type="reset" name="name" class="btn btn-danger">
+                                                    <i class="icon-repeat icon-white"></i> 重置
+                                                </button>
+
+                                                <button type="submit" name="name" class="btn btn-primary">
+                                                    <i class="icon-ok-sign icon-white"></i> 保存
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+@section script{
+
+    <link href="~/Areas/ZdtbAdmin/Content/js/kindeditor/themes/default/default.css" rel="stylesheet" />
+    <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/kindeditor-min.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        var editor;
+        KindEditor.ready(function (K) {
+            editor = K.create('textarea', {
+                uploadJson: '@Url.Action("Upload","FileManager")',
+                fileManagerJson: '@Url.Action("Index","FileManager")',
+                height: 500,
+                allowFileManager: true
+            });
+        });
+        $(function () {
+            $(".btn").click(function () {
+                editor.sync();
+            });
+        });
+    </script>
+}

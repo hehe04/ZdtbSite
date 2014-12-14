@@ -1222,6 +1222,12 @@
     <Content Include="Areas\ZdtbAdmin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1665,12 +1671,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\CompanyNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\IndustryNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\NewsCrawlerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\VisitController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
@@ -1687,6 +1695,7 @@
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\UserViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\WelcomeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />

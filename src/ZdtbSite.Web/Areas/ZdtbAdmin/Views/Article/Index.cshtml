@@ -22,7 +22,7 @@
 }
 
 @section PageHeader{
-    文章发布
+    文章发布 > 技术文章
 }
 <div class="fluid-container">
     <div class="row" style="padding-bottom:10px">
@@ -36,7 +36,7 @@
             <a class="btn btn-danger addClick" id="btnDelete" data-rel="@Url.Action("Delete")" href="javascript:void(0)">
                 <i class="icon-remove icon-white"></i> 删除
             </a>
-            <a class="btn btn-success addClick" id="btnPublish" data-rel="@Url.Action("Publish") href=" javascript:void(0)">
+            <a class="btn btn-success addClick" id="btnPublish" data-rel="@Url.Action("Publish")" href="javascript:void(0)">
                 <i class="icon-share icon-white"></i> 发布
             </a>
         </div>
@@ -44,7 +44,7 @@
             <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
                 <div>
                     <div class="row">
-                        <div class="col-md-2">筛选产品类型</div>
+                        <div class="col-md-2">筛选文章类型</div>
                         <div class="col-md-8">
                             @Html.DropDownList("ContentTypeId", items, new { @class = "with-search" })
                         </div>
@@ -87,8 +87,8 @@
                                     @foreach (var item in Model)
                                     {
 
-                                        var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();
-                                        string coontentTypeName = content == null ? "" : content.Name;
+                                        //var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();
+                                        //string coontentTypeName = content == null ? "" : content.Name;
 
                                         <tr>
                                             <td>
@@ -96,7 +96,7 @@
                                             </td>
                                             <td>@item.Title</td>
                                             <td>@item.Tag</td>
-                                            <td>@coontentTypeName</td>
+                                            <td>@item.ContentType.Name</td>
                                             <td>@item.UpdateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
                                             <td>@item.Publisher</td>
                                             <td>@item.PublisherDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>

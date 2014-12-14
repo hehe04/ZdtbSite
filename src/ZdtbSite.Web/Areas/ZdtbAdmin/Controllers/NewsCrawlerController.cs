@@ -50,7 +50,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Page page = new Page(pageIndex, pageSize);
             var list = articleRepository.GetPage(page, e => e.OriginArticlesType == OriginArticlesType.Web, e => e.Id);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
-            ViewData["ContentTypes"] = types;
+            //ViewData["ContentTypes"] = types;
             return View(list);
         }
 

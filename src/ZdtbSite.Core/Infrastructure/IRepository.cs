@@ -17,6 +17,7 @@ namespace ZdtbSite.Core.Infrastructure
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAll();
         IPagedList<T> GetPage<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order);
+        IPagedList<T> GetPage<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order, bool isDesc);
         T GetAsNoTracking(Expression<Func<T, bool>> where);
         IEnumerable<T> GetManyAsNoTracking(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAllAsNoTracking();
