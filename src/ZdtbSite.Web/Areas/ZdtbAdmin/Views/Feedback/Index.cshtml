@@ -3,12 +3,12 @@
 @using ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 @{
-    ViewBag.Title = "留言预览";
+    ViewBag.Title = "客户追踪 > 留言预览";
     Random rand = new Random();
 }
 
 @section PageHeader{
-    留言预览
+    客户追踪 > 留言预览
 }
 <div class="fluid-container">
     @*<div class="row" style="padding-bottom:10px">
@@ -145,6 +145,7 @@
                                                         <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
                                                         <span class="message-text">@item.Content</span>
                                                     </span>
+
                                                 </p>
                                             }
                                         }

@@ -3,26 +3,26 @@
 @using ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 @{
-    ViewBag.Title = "文章管理";
+    ViewBag.Title = "公司新闻";
     //所有的额产品类型
-    var contenttypes = ViewData["ContentTypes"] as List<ContentTypeViewModel>;
+    //var contenttypes = ViewData["ContentTypes"] as List<ContentTypeViewModel>;
 
-    List<SelectListItem> items = new List<SelectListItem>();
+    //List<SelectListItem> items = new List<SelectListItem>();
 
-    items.Add(new SelectListItem() { Text = "请选择文章类型", Value = "-1" });
+    //items.Add(new SelectListItem() { Text = "请选择文章类型", Value = "-1" });
 
-    foreach (var item in contenttypes)
-    {
-        items.Add(new SelectListItem()
-        {
-            Text = item.Name,
-            Value = item.Id.ToString()
-        });
-    }
+    //foreach (var item in contenttypes)
+    //{
+    //    items.Add(new SelectListItem()
+    //    {
+    //        Text = item.Name,
+    //        Value = item.Id.ToString()
+    //    });
+    //}
 }
 
 @section PageHeader{
-    文章发布 > 技术文章
+    文章发布 > 公司新闻
 }
 <div class="fluid-container">
     <div class="row" style="padding-bottom:10px">
@@ -40,7 +40,7 @@
                 <i class="icon-share icon-white"></i> 发布
             </a>
         </div>
-        <div class="col-md-8">
+        @*<div class="col-md-8">
             <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
                 <div>
                     <div class="row">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </div>*@
     </div>
     <!-- widget grid -->
     <section id="widget-grid" class="">
@@ -63,7 +63,7 @@
                 <!-- new widget -->
                 <div class="jarviswidget" role="widget">
                     <header role="heading">
-                        <h2>文章</h2>
+                        <h2>公司新闻</h2>
                     </header>
                     <!-- wrap div -->
                     <div>

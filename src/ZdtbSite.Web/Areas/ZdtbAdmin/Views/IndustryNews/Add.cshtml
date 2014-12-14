@@ -2,24 +2,12 @@
 
 
 @section PageHeader{
-    文章发布 > 技术文章
+    文章发布 > 行业新闻
 }
 @{
-    ViewBag.Title = "技术文章";
+    ViewBag.Title = "发布行业新闻";
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
-
-    List<SelectListItem> items = new List<SelectListItem>();
-    
-    foreach (var item in Model.ContentTypes)
-    {
-      
-        items.Add(new SelectListItem()
-        {
-            Text = item.Name,
-            Value = item.Id.ToString()
-        });
-    }
 }
 
 <div class="fluid-container">
@@ -29,13 +17,13 @@
                 <!-- new widget -->
                 <div class="jarviswidget" id="widget-id-0" role="widget">
                     <header>
-                        <h2>文章信息</h2>
+                        <h2>行业新闻</h2>
                     </header>
                     <div>
 
                         <div class="inner-spacer">
                             <!-- content goes here -->
-                            <form class="form-horizontal themed" method="post" action="@Url.Action("Modify")">
+                            <form class="form-horizontal themed" method="post" action="@Url.Action("Add")">
                                 <fieldset>
                                     <div class="form-group">
                                         <div class="row">
@@ -56,19 +44,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    @*<div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">@Html.LabelFor(m => m.Article.ContentType)</div>
                                             <div class="col-md-9">
                                                 @Html.DropDownListFor(m => m.Article.ContentTypeId, items, new { @class = "with-search" })
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">@Html.LabelFor(m => m.Article.IsPublish)</div>
                                             <div class="col-md-9">
                                                 <label class="checkbox">
+
                                                     @Html.CheckBoxFor(m => m.Article.IsPublish, new { @class = "form-control", @checked = "" }) 是否发布
                                                 </label>
                                             </div>
@@ -86,7 +75,6 @@
                                     <div class="form-group">
                                         <div class="row" style="text-align:right">
                                             <div class="col-md-12">
-                                                @Html.HiddenFor(e => e.Article.Id)
                                                 <button type="reset" name="name" class="btn btn-danger">
                                                     <i class="icon-repeat icon-white"></i> 重置
                                                 </button>

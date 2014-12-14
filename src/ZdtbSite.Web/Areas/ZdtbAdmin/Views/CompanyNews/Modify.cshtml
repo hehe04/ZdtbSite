@@ -2,24 +2,24 @@
 
 
 @section PageHeader{
-    文章发布 > 技术文章
+    文章发布 > 公司新闻
 }
 @{
-    ViewBag.Title = "技术文章";
+    ViewBag.Title = "编辑公司新闻";
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
 
-    List<SelectListItem> items = new List<SelectListItem>();
-    
-    foreach (var item in Model.ContentTypes)
-    {
-      
-        items.Add(new SelectListItem()
-        {
-            Text = item.Name,
-            Value = item.Id.ToString()
-        });
-    }
+    //List<SelectListItem> items = new List<SelectListItem>();
+
+    //foreach (var item in Model.ContentTypes)
+    //{
+
+    //    items.Add(new SelectListItem()
+    //    {
+    //        Text = item.Name,
+    //        Value = item.Id.ToString()
+    //    });
+    //}
 }
 
 <div class="fluid-container">
@@ -56,14 +56,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    @*<div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">@Html.LabelFor(m => m.Article.ContentType)</div>
                                             <div class="col-md-9">
                                                 @Html.DropDownListFor(m => m.Article.ContentTypeId, items, new { @class = "with-search" })
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">@Html.LabelFor(m => m.Article.IsPublish)</div>

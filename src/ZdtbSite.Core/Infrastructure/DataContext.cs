@@ -67,6 +67,8 @@ namespace ZdtbSite.Core.Infrastructure
                 .WithMany(t => t.Products)
                 .HasForeignKey(p => p.ProductTypeId)
                 .WillCascadeOnDelete(false);
+
+
         }
     }
 }
