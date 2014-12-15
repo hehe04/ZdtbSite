@@ -30,7 +30,7 @@ namespace ZdtbSite.Web
             bundles.Add(new StyleBundle("~/Style/AboutIndex").Include(
                 "~/Stylesheets/googleFonts.css",
                 "~/Stylesheets/style.css"
-                ,"~/Stylesheets/responsive.css"
+                , "~/Stylesheets/responsive.css"
                 ));
             bundles.Add(new ScriptBundle("~/Script/AboutDevice").Include(
                 "~/scripts/jquery.prettyPhoto.js",
