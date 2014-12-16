@@ -17,6 +17,12 @@
             <a class="btn btn-primary" id="btnCrawler" href="@Url.Action("Crawler")">
                 <i class="icon-ok-sign icon-white"></i> 抓取
             </a>
+            <a class="btn btn-warning addClick" id="btnModify" data-rel="@Url.Action("Modify")" href="@Url.Action("Modify")">
+                <i class="icon-edit icon-white"></i> 编辑
+            </a>
+            <a class="btn btn-success addClick" id="btnPublish" data-rel="@Url.Action("Publish")" href="javascript:void(0)">
+                <i class="icon-share icon-white"></i> 发布
+            </a>
         </div>
     </div>
     <!-- widget grid -->
@@ -46,7 +52,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.OrderByDescending(e=>e.UpdateDateTime))
                                     {
 
                                         //var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();
@@ -80,9 +86,37 @@
 </div>
 @section script{
     <script>
+        function setUrl($ele) {
+            var href = $ele.data("rel") + "/" + $("input[type='checkbox']:checked").first().val();
+            $ele.attr("href", href);
+        }
         $(function () {
             $("#btnCrawler").click(function () {
                 ajaxSubmit("@Url.Action("Crawler")", {}, "正在抓取，请稍后");
+                return false;
+            });
+
+
+            $(".addClick").click(function (e) {
+                setUrl($(this));
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    finAlert("请选择需要操作的行业新闻，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+
+                if ($("input[type='checkbox']:checked").length > 1) {
+                    finAlert("选择需要操作的行业新闻过多，请重新选择", false);
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            $("#btnPublish").click(function () {
+                if ($("input[type='checkbox']:checked").length <= 0) {
+                    return false;
+                }
+                var id = $("input[type='checkbox']:checked").first().val();
+                ajaxSubmit("@Url.Action("Publish")", { id: id, url: location.href }, "正在发布，请稍后");
                 return false;
             });
 

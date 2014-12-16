@@ -84,7 +84,7 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.OrderByDescending(e => e.UpdateDateTime))
                                     {
 
                                         //var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();

@@ -84,12 +84,8 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.OrderByDescending(e => e.UpdateDateTime))
                                     {
-
-                                        //var content = contenttypes.Where(e => e.Id == item.ContentTyepId).FirstOrDefault();
-                                        //string coontentTypeName = content == null ? "" : content.Name;
-
                                         <tr>
                                             <td>
                                                 <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
@@ -129,14 +125,15 @@
                 setUrl($("#btnAssign"));
             });
             $(".addClick").click(function (e) {
+                setUrl($(this));
                 if ($("input[type='checkbox']:checked").length <= 0) {
-                    finAlert("请选择需要操作的文章，请重新选择", false);
+                    finAlert("请选择需要操作的技术文章，请重新选择", false);
                     e.preventDefault();
                     return false;
                 }
 
                 if ($("input[type='checkbox']:checked").length > 1) {
-                    finAlert("选择需要操作的文章过多，请重新选择", false);
+                    finAlert("选择需要操作的技术文章过多，请重新选择", false);
                     e.preventDefault();
                     return false;
                 }

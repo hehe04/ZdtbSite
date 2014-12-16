@@ -1235,6 +1235,7 @@
     <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1795,6 +1796,7 @@
     <Content Include="Views\Shared\_OnlineService.cshtml" />
     <Content Include="Views\Shared\_ProductRecommend.cshtml" />
     <Content Include="Views\Shared\_Feedback.cshtml" />
+    <Content Include="Views\Pay\Message.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

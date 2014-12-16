@@ -19,7 +19,7 @@ namespace ZdtbSite.Web.Models
         [RegularExpression("[\\d\\w]+@[\\d\\w]+\\.[\\d\\w]+", ErrorMessage = "请输入正确的邮箱地址")]
         public string Email { get; set; }
 
-        [Display(Name = "联系放松")]
+        [Display(Name = "联系方式")]
         [Required(ErrorMessage = "必须输入联系方式.")]
         public string Phone { get; set; }
 

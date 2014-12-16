@@ -1,0 +1,71 @@
+﻿@using System.Web.Optimization;
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+}
+
+
+@section Header{
+    @Scripts.Render("~/Script/ArticleIndex")
+    @Styles.Render("~/Style/AboutIndex")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
+    <script>
+        $(function () {
+            $('.clients_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.recent_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 1,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('#faq').dltoggle({ "open-image": "images/open.png", "closed-image": "images/closed.png" });
+            $("#open").click(function (event) {
+                $('#faq').dltoggle_show();
+                return false;
+            });
+            $("#close").click(function (event) {
+                $('#faq').dltoggle_hide();
+                return false;
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Payment <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>Pay</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- blog entries full -->
+        <div class="blog_entries blog_entries_full">
+            <div style="min-height:400px">
+                <h3>@ViewBag.Message</h3>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -27,7 +27,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             IPagedList<Contract> pageList = ContractRepository.GetPage(page, e => true, e => e.Id);
             return View(pageList);
         }
-
         public ActionResult SignContract(string ids)
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
@@ -36,8 +35,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 string[] idArr = ids.Split(',');
                 for (int i = 0; i < idArr.Length; i++)
                 {
-                    var Contract = ContractRepository.GetById(idArr[i]);
+                    var Contract = ContractRepository.GetById(int.Parse(idArr[i]));
                     Contract.Status = ContractStatus.Signed;
+                    Contract.SignedTime = DateTime.Now;
                     ContractRepository.Update(Contract);
                 }
                 unitOfWork.Commit();
@@ -50,7 +50,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 model.Success = false;
                 model.Msg = "合同签约失败，请重试" + ex.Message;
             }
-            return Json(model);
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -161,7 +161,7 @@ namespace ZdtbSite.Web.Controllers
 
         public ActionResult PayCallback(string id)
         {
-            string msg = "支付失败";
+            string msg = "Payment failed!";
             string payerId = Request.Params["PayerID"];
             if (!string.IsNullOrEmpty(payerId))
             {
@@ -176,17 +176,18 @@ namespace ZdtbSite.Web.Controllers
                     var contractModel = ContractRepository.GetById(int.Parse(id));
                     if (contractModel == null)
                     {
-                        msg = "合同为空";
+                        msg = "The contract is null";
                     }
                     else
                     {
                         contractModel.IsSuccess = true;
                         unitOfWork.Commit();
-                        msg = "支付成功";
+                        msg = "Payment success!";
                     }
                 }
             }
-            return Content(msg);
+            ViewBag.Message = msg;
+            return View("Message");
         }
     }
 }

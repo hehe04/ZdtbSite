@@ -2,17 +2,21 @@
 
 
 @using System.Web.Optimization;
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+}
+
 
 @section Header{
     @Scripts.Render("~/Script/ArticleIndex")
     @Styles.Render("~/Style/AboutIndex")
-
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
     <script>
         $(function () {
             $('.clients_slider').bxSlider({
@@ -40,67 +44,80 @@
                 hoverEffect: true,
                 webworkerPath: false,
                 responsive: true,
-                invertHoverEffect: true
+                invertHoverEffect: false
             });
         })
     </script>
 }
-@{
-    Html.EnableClientValidation();
-    Html.EnableUnobtrusiveJavaScript();
-}
-<div style="min-height:400px">
-    <form class="form-horizontal" role="form" action="@Url.Action("Process")" method="post">
-        <div class="form-group">
-            @*<label for="Name" class="col-md-2 control-label">姓名</label>*@
-            @Html.LabelFor(e => e.Name, new { @class = "col-md-2 control-label" })
-            <div class="col-md-8">
-                @Html.TextBoxFor(e => e.Name, new { @class = "form-control", placeholder = "请输入姓名" })
-                @*<input type="text" class="form-control" id="Name" placeholder="请输入邮箱">*@
-            </div>
-            <div class="col-md-2">
-                @Html.ValidationMessageFor(e => e.Name)
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Payment <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>Pay</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- blog entries full -->
+        <div class="blog_entries blog_entries_full">
+            <div style="min-height:400px">
+                <form class="form-horizontal" role="form" action="@Url.Action("Process")" method="post">
+                    <div class="form-group">
+                        @*<label for="Name" class="col-md-2 control-label">姓名</label>*@
+                        @Html.LabelFor(e => e.Name, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(e => e.Name, new { @class = "form-control", placeholder = "请输入姓名" })
+                            @*<input type="text" class="form-control" id="Name" placeholder="请输入邮箱">*@
+                        </div>
+                        <div class="col-md-2">
+                            @Html.ValidationMessageFor(e => e.Name)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*<label for="Email" class="col-md-2 control-label">邮箱</label>*@
+                        @Html.LabelFor(e => e.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(e => e.Email, new { @class = "form-control", placeholder = "请输入邮箱" })
+                            @*<input type="email" class="form-control" id="Email" placeholder="请输入邮箱">*@
+                        </div>
+                        <div class="col-md-2">
+                            @Html.ValidationMessageFor(e => e.Email)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*<label for="Phone" class="col-md-2 control-label">联系方式</label>*@
+                        @Html.LabelFor(e => e.Phone, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(e => e.Phone, new { @class = "form-control", placeholder = "请输入联系方式" })
+                            @*<input type="text" class="form-control" id="Phone" placeholder="请输入联系方式">*@
+                        </div>
+                        <div class="col-md-2">
+                            @Html.ValidationMessageFor(e => e.Phone)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*<label for="Money" class="col-md-2 control-label">输入金额</label>*@
+                        @Html.LabelFor(e => e.Amount, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(e => e.Amount, new { @class = "form-control", placeholder = "请输入金额" })
+                            @*<input type="text" class="form-control" id="Money" placeholder="请输入金额">*@
+                        </div>
+                        <div class="col-md-2">
+                            @Html.ValidationMessageFor(e => e.Amount)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit" class="btn btn-default">支付预付款</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="form-group">
-            @*<label for="Email" class="col-md-2 control-label">邮箱</label>*@
-            @Html.LabelFor(e => e.Email, new { @class = "col-md-2 control-label" })
-            <div class="col-md-8">
-                @Html.TextBoxFor(e => e.Email, new { @class = "form-control", placeholder = "请输入邮箱" })
-                @*<input type="email" class="form-control" id="Email" placeholder="请输入邮箱">*@
-            </div>
-            <div class="col-md-2">
-                @Html.ValidationMessageFor(e => e.Email)
-            </div>
-        </div>
-        <div class="form-group">
-            @*<label for="Phone" class="col-md-2 control-label">联系方式</label>*@
-            @Html.LabelFor(e => e.Phone, new { @class = "col-md-2 control-label" })
-            <div class="col-md-8">
-                @Html.TextBoxFor(e => e.Phone, new { @class = "form-control", placeholder = "请输入联系方式" })
-                @*<input type="text" class="form-control" id="Phone" placeholder="请输入联系方式">*@
-            </div>
-            <div class="col-md-2">
-                @Html.ValidationMessageFor(e => e.Phone)
-            </div>
-        </div>
-        <div class="form-group">
-            @*<label for="Money" class="col-md-2 control-label">输入金额</label>*@
-            @Html.LabelFor(e => e.Amount, new { @class = "col-md-2 control-label" })
-            <div class="col-md-8">
-                @Html.TextBoxFor(e => e.Amount, new { @class = "form-control", placeholder = "请输入金额" })
-                @*<input type="text" class="form-control" id="Money" placeholder="请输入金额">*@
-            </div>
-            <div class="col-md-2">
-                @Html.ValidationMessageFor(e => e.Amount)
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default">支付预付款</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
-
-
