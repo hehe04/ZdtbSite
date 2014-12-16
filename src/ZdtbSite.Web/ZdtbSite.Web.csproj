@@ -1189,6 +1189,7 @@
     <Content Include="Images\DSC_01230129.jpg" />
     <Content Include="Images\features\Thumbs.db" />
     <Content Include="Images\flex\Thumbs.db" />
+    <Content Include="Images\fr.Skype.png" />
     <Content Include="Images\full_width\Thumbs.db" />
     <Content Include="Images\home_page_3_feature_circles\Thumbs.db" />
     <Content Include="Images\home_page_5_features\Thumbs.db" />
@@ -1200,6 +1201,7 @@
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />
+    <Content Include="Images\skype_Icon.jpg" />
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
     <Content Include="Images\unleash\Thumbs.db" />
@@ -1724,8 +1726,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IplookupViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\PaypalViewModel.cs" />
     <Compile Include="Models\PayViewModel.cs" />
+=======
+    <Compile Include="Models\ProductViewModell.cs" />
+>>>>>>> 91210d9b1b80adc49f082168d656496887f8176d
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1782,6 +1788,7 @@
     <Content Include="Views\Article\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
+<<<<<<< HEAD
     <Content Include="Views\Pay\Index.cshtml" />
     <Content Include="Stylesheets\bootstrap-theme.css.map" />
     <Content Include="Stylesheets\bootstrap.css.map" />
@@ -1789,6 +1796,11 @@
     <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Views\Pay\Redirect.cshtml" />
+=======
+    <Content Include="Views\Shared\_OnlineService.cshtml" />
+    <Content Include="Views\Shared\_ProductRecommend.cshtml" />
+    <Content Include="Views\Shared\_Feedback.cshtml" />
+>>>>>>> 91210d9b1b80adc49f082168d656496887f8176d
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

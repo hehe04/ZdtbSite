@@ -34,6 +34,8 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Admin.RecruitmentViewModel, Recruitment>();
             AutoMapper.Mapper.CreateMap<Recruitment, Admin.RecruitmentViewModel>();
+
+            AutoMapper.Mapper.CreateMap<Product, ProductViewModel>().ForMember(x => x.ProductTypeName, opt => opt.MapFrom(source => source.ProductType.TypeName));
         }
     }
 }
