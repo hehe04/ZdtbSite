@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Technology Support";
+    IEnumerable<ZdtbSite.Model.ContentType> contentTypes = ViewBag.ContentType;
 }
 @section Header{
     @Scripts.Render("~/Script/ArticleIndex")
@@ -87,6 +88,6 @@
             <!-- /pager_nav -->
         </div>
         <!-- /blog entries -->
-        @Html.Partial("_DetailSidebar")
+        @Html.Partial("_DetailSidebar", contentTypes, ViewContext.ViewData)
     </div>
 </div>

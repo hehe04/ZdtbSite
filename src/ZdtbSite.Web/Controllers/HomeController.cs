@@ -24,7 +24,7 @@ namespace ZdtbSite.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var modelList = GetProductRecommendList(productRepository);
+            ViewBag.ProductRecommendList = GetProductRecommendList(productRepository);
             return View();
         }
     }

@@ -1,6 +1,7 @@
 ﻿@using System.Web.Optimization
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> ProductRecommendList = ViewBag.ProductRecommendList;
 }
 
 @section Header{
@@ -57,35 +58,7 @@
         <!-- sidebar -->
         <div class="sidebar">
             <!-- most popular -->
-            <div class="most_popular">
-                <h4>Most Popular Blog Posts</h4>
-                <ul>
-                    <li>
-                        <div class="bwWrapper"><a href="blog_post.html"><img src="~/images/blog/blog_23.png" width="60" height="55" alt="" /></a></div>
-                        <div class="desc">
-                            <p><strong><a href="blog_post.html">Being Creative Work</a></strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span>February 15th 2012   <a href="#">By Crucio</a></span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bwWrapper"><a href="blog_post.html"><img src="~/images/blog/blog_24.png" width="60" height="55" alt="" /></a></div>
-                        <div class="desc">
-                            <p><strong><a href="blog_post.html">Being Creative Work</a></strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span>February 15th 2012   <a href="#">By Crucio</a></span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bwWrapper"><a href="blog_post.html"><img src="~/images/blog/blog_25.png" width="60" height="55" alt="" /></a></div>
-                        <div class="desc">
-                            <p><strong><a href="blog_post.html">Being Creative Work</a></strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span>February 15th 2012   <a href="#">By Crucio</a></span></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            @Html.Partial("_ProductRecommend", ProductRecommendList)
             <!-- /most popular -->
             <!-- latest tweets -->
             @Html.Partial("_OnlineService")

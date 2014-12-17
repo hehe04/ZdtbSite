@@ -38,6 +38,8 @@ namespace ZdtbSite.Web.Controllers
             cookie.Expires = DateTime.Now.AddDays(7);
             ControllerContext.HttpContext.Response.SetCookie(cookie);
             var viewModel = Mapper.Map<Product, ZdtbSite.Web.Models.ProductViewModel>(model);
+
+            ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
             return View(viewModel);
         }
     }

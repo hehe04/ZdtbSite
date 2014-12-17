@@ -1,7 +1,12 @@
-﻿ <!-- sidebar -->
+﻿@model IEnumerable<ZdtbSite.Model.ContentType>
+@{
+    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> ProductRecommendList = ViewBag.ProductRecommendList;
+}
+
+<!-- sidebar -->
 <div class="sidebar">
     <!-- most popular -->
-    @Html.Partial("_ProductRecommend")
+    @Html.Partial("_ProductRecommend", ProductRecommendList)
     <!-- /most popular -->
     <!-- latest tweets -->
     @Html.Partial("_OnlineService")
@@ -10,25 +15,14 @@
     <div class="acc_tabs">
         <div id="tabs">
             <ul class="tab_select">
-                <li><a href="#tab-1">Archives</a></li>
                 <li><a href="#tab-2">Categories</a></li>
             </ul>
-            <div id="tab-1">
-                <ul>
-                    <li><a href="#">January 2012 (12)</a></li>
-                    <li><a href="#">February 2012 (12)</a></li>
-                    <li><a href="#">March 2012 (12)</a></li>
-                    <li><a href="#">April 2012 (12)</a></li>
-                    <li><a href="#">May 2012 (12)</a></li>
-                    <li><a href="#">June 2012 (12)</a></li>
-                    <li><a href="#">July 2012 (12)</a></li>
-                </ul>
-            </div>
             <div id="tab-2">
                 <ul>
-                    <li><a href="#">Cat 1</a></li>
-                    <li><a href="#">Cat 2</a></li>
-                    <li><a href="#">Cat 3</a></li>
+                    @foreach (var contentype in Model)
+                    {
+                        <li><a href="@Url.Action("TechnologySupportIndex", "about", new { catelog = contentype.Id })">@contentype.Name</a></li>
+                    }
                 </ul>
             </div>
         </div>
