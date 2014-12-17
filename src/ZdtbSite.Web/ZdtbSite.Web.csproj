@@ -1727,6 +1727,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IplookupViewModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
     <Compile Include="Models\PaypalViewModel.cs" />
     <Compile Include="Models\PayViewModel.cs" />
     <Compile Include="Models\ProductViewModell.cs" />

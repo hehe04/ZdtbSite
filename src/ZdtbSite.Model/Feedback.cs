@@ -27,6 +27,11 @@ namespace ZdtbSite.Model
         public string Mobile { get; set; }
 
         public DateTime CreateTime { get; set; }
+
+        public Feedback()
+        {
+            CreateTime = DateTime.Now;
+        }
     }
 
     public enum FeedbackType

@@ -28,8 +28,21 @@ namespace ZdtbSite.Model
         [StringLength(32)]
         public string Phone { get; set; }
 
+        /// <summary>
+        /// 联系人
+        /// </summary>
+        public string ContactsName { get; set; }
+
         public virtual ICollection<Feedback> Feedbacks { get; set; }
 
+        /// <summary>
+        /// 合同
+        /// </summary>
         public virtual ICollection<Contract> Contracts { get; set; }
+
+        public Customer()
+        {
+            CreateTime = DateTime.Now;
+        }
     }
 }
