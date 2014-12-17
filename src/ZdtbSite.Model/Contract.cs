@@ -29,6 +29,8 @@ namespace ZdtbSite.Model
 
         public DateTime SignedTime { get; set; }
 
+        public bool IsSuccess { get; set; }
+
     }
 
     public enum ContractStatus

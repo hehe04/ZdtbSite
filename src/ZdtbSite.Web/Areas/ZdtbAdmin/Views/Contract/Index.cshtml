@@ -48,19 +48,19 @@
                                                 @item.Title
                                             </td>
                                             <td>
-                                                @item.CustomerId
+                                                @item.Customer.Email
                                             </td>
                                             <td>
                                                 @item.Prepayments
                                             </td>
                                             <td>
-                                                @item.Status
+                                                @(item.Status == ZdtbSite.Model.ContractStatus.NotSigned ? "未签订" : "已签订")
                                             </td>
                                             <td>
-                                                @item.CreateTime
+                                                @item.CreateTime.ToString("yyyy.MM.dd HH:mm:ss")
                                             </td>
                                             <td>
-                                                @item.SignedTime
+                                                @(item.Status == ZdtbSite.Model.ContractStatus.NotSigned ? "-" : item.SignedTime.ToString("yyyy.MM.dd HH:mm:ss"))
                                             </td>
                                         </tr>
                                     }
@@ -89,7 +89,7 @@
                 var ids = [];
                 var checks = $("input[type='checkbox']:checked");
                 for (var i = 0; i < checks.length; i++) {
-                    ids.push(checks[i].val());
+                    ids.push($(checks[i]).val());
                 }
                 if (ids.length > 0) {
                     ajaxSubmit("@Url.Action("SignContract", "Contract")", { ids: ids.join(',') }, "签订合同中，请稍后...");
