@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Helper;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
 using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
@@ -10,7 +12,7 @@ using Mail = ZdtbSite.Core.Helper.EmailHelper;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class BasicInfoController : BaseController
+    public class BasicInfoController : Controller
     {
         private string CurrentUrl { get { return Url.Action("Index", "BasicInfo"); } }
         private readonly IRepository<BasicInfo> BasicInfoRepository;
@@ -116,7 +118,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Admin.ResponseModel model = new Admin.ResponseModel();
             try
-            {                
+            {
                 List<string> mailList = new List<string>();
                 mailList.Add("shenxiuyun@qq.com");
                 mailList.Add("289117857@qq.com");
@@ -134,6 +136,13 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 model.Msg = "邮件发送失败!" + ex.Message;
             }
             return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetProductPDF(string HtmlUrl)
+        {
+            string url = HtmlToFileHelper.HtmlToPDF(HtmlUrl);
+            return View();
+            //return File(new FileStream(url, FileMode.Open), "application/octet-stream", Server.UrlEncode(""));
         }
     }
 }

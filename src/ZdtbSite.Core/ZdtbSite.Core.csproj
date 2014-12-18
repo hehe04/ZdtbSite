@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -55,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Extensions\CommonExtensions.cs" />
     <Compile Include="Helper\EmailHelper.cs" />
+    <Compile Include="Helper\HtmlToFileHelper.cs" />
     <Compile Include="Infrastructure\DataContext.cs" />
     <Compile Include="Infrastructure\DbContextFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
@@ -78,7 +80,9 @@
     <Compile Include="Repository\UserInfoRepository.cs" />
     <Compile Include="Repository\VisitLogRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
