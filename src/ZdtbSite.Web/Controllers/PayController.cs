@@ -176,7 +176,7 @@ namespace ZdtbSite.Web.Controllers
                     var contractModel = ContractRepository.GetById(int.Parse(id));
                     if (contractModel == null)
                     {
-                        msg = "The contract is null";
+                        msg = "The contract is null!";
                     }
                     else
                     {
