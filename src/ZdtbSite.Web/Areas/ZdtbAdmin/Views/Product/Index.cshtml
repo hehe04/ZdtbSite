@@ -48,8 +48,9 @@
                                                 <input type="checkbox" value="@item.Id">
                                             </td>
                                             <td>
-                                                @item.Name
+                                                <a href="@Url.Action("Modify", new {id=item.Id })">@item.Name</a>
                                             </td>
+
                                             <td>
                                                 @{
                                         var prentModel = item.ProductType;

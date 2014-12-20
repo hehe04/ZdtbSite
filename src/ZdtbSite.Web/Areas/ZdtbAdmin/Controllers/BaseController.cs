@@ -19,12 +19,18 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
+            Response.Redirect(Url.Action("Index", "Error"));
             base.OnException(filterContext);
         }
 
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
             string action = filterContext.RouteData.Values["Action"].ToString();
+            string controller = filterContext.RouteData.Values["Controller"].ToString();
+            if (controller.ToLower().Equals("error"))
+            {
+                return;
+            }
             if (string.Equals(action, "SingIn", StringComparison.OrdinalIgnoreCase)) { return; }
             if (string.Equals(action, "SingOut", StringComparison.OrdinalIgnoreCase)) { return; }
             if (HttpContext.Request.IsAuthenticated)

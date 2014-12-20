@@ -47,9 +47,7 @@
                                             <td style="width:3%;">
                                                 <input type="checkbox" value="@item.Id">
                                             </td>
-                                            <td style="width:17%;">
-                                                @item.Name
-                                            </td>
+                                            <td style="width:17%;"><a href="@Url.Action("Modify", new {id=item.Id })">@item.Name</a></td>
                                             <td style="width:40%;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                                 @item.Description
                                             </td>

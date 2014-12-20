@@ -27,7 +27,7 @@
 <div class="alert adjusted alert-info">
     <button class="close" data-dismiss="alert">×</button>
     <i class="cus-exclamation"></i>
-    <strong>Welcome to {Jarvis} Admin</strong> Please don't forget to check out all the pages and the features.
+    <strong>{@HttpContext.Current.Items["LoginUserName"]}您好！</strong> .
 </div>
 
 <div class="fluid-container" style="min-height:400px">
@@ -86,7 +86,8 @@
                     <header>
                         <h2>留言信息</h2>
                     </header>
-                    <div>
+                    @Html.Partial("FeedbackPage",Model.Feedbacks)
+                    @*<div>
                         <div class="inner-spacer chat-widget widget-content-padding">
                             <ul id="myChat" class="nav nav-tabs chat-tabs">
                                 <li class="active">
@@ -146,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </article>
         </div>

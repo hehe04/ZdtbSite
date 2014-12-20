@@ -41,20 +41,20 @@
             </a>
         </div>
         @*<div class="col-md-8">
-            <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
-                <div>
-                    <div class="row">
-                        <div class="col-md-2">筛选文章类型</div>
-                        <div class="col-md-8">
-                            @Html.DropDownList("ContentTypeId", items, new { @class = "with-search" })
-                        </div>
-                        <div class="col-md-2">
-                            <button type="submit" class="btn"><i class="icon-search"></i>筛选</button>
+                <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-2">筛选文章类型</div>
+                            <div class="col-md-8">
+                                @Html.DropDownList("ContentTypeId", items, new { @class = "with-search" })
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn"><i class="icon-search"></i>筛选</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
-        </div>*@
+                </form>
+            </div>*@
     </div>
     <!-- widget grid -->
     <section id="widget-grid" class="">
@@ -94,7 +94,7 @@
                                             <td>
                                                 <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
                                             </td>
-                                            <td>@item.Title</td>
+                                            <td><a href="@Url.Action("Modify", new {id=item.Id })">@item.Title</a></td>
                                             <td>@item.Tag</td>
                                             <td>@item.ContentType.Name</td>
                                             <td>@item.UpdateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>

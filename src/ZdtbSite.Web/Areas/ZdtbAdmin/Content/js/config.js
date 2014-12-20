@@ -506,8 +506,8 @@ function setup_widgets_mobile() {
 
 function resetWidget() {
 
-    var cls = confirm("Would you like to RESET all your saved widgets and clear LocalStorage?");
-    if (cls && localStorage) {
+    //var cls = confirm("Would you like to RESET all your saved widgets and clear LocalStorage?");cls && 
+    if (localStorage) {
         localStorage.clear();
         //alert('Local storage has been cleared! Refreshing page...');
         location.reload();
