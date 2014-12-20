@@ -1811,10 +1811,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
-<<<<<<< HEAD
     <Folder Include="Content\OutPutFile\" />
-=======
->>>>>>> 86fb991e80902603a14f3d16a35b675e1f52870d
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">
