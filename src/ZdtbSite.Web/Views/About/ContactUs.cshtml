@@ -1,12 +1,20 @@
-﻿@using System.Web.Optimization
+﻿@model ZdtbSite.Web.Models.MessageViewModel
+@using System.Web.Optimization
 @{
     ViewBag.Title = "ContactUs";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> ProductRecommendList = ViewBag.ProductRecommendList;
 }
 
 @section Header{
     @Styles.Render("~/Style/AboutIndex")
     @Scripts.Render("~/Script/AboutIndex")
+    <style>
+        .field-validation-error
+        {
+            color:red;
+        }
+    </style>
 }
 
 @section Footer{
@@ -59,50 +67,22 @@
                 <li>Construct is located at the heart of downtown New York City.  Come on down and have a visit!  Or feel free to fill out the form below to get in touch with us. We’d love to hear from you, and will be in touch with you right away.  Thanks, we look forward to hearing from you!  Tempora un incidunt ut labore et dolore magnam aliquam quaeraptatem.</li>
             </ul>
             <h4>Drop Us A Quick Line!</h4>
-            <form action="#" method="post" />
-            <p><label for="namet">Name</label>(required)<br /><input id="namet" type="text" /></p>
-            <p><label for="mailt">E-mail</label>(required)<br /><input id="mailt" type="text" /></p>
-            <p><label for="website">Website</label><br /><input id="website" type="text" /></p>
-            <p><label for="message">Message</label>(required)<br /><textarea id="message"></textarea></p>
-            <p><input class="btn_m" type="submit" value="Submit Form" /></p>
-            </form>
+            @using (Html.BeginForm())
+            {
+                <p><label for="namet">Name</label>(required)&nbsp; @Html.ValidationMessageFor(x => x.Name)<br />@Html.TextBoxFor(x => x.Name)</p>
+                <p><label for="mailt">E-mail</label>(required)&nbsp;@Html.ValidationMessageFor(x => x.Email)<br />@Html.TextBoxFor(x => x.Email)</p>
+                <p><label for="Phone">Phone</label><br /><input id="website" type="text" name="phoneNo" /></p>
+                <p><label for="message">Message</label>(required)&nbsp;@Html.ValidationMessageFor(x => x.Message)<br />@Html.TextAreaFor(x => x.Message)</p>
+                <p><input class="btn_m" type="submit" value="Submit Form" /></p>
+            }
         </div>
         <!-- /contact_us -->
         <!-- sidebar -->
         <div class="sidebar">
             <!-- most popular -->
-            <div class="most_popular">
-                <h4>Most Popular Blog Posts</h4>
-                <ul>
-                    <li>
-                        <div class="bwWrapper"><img src="/HtmlTemplate/images/blog/blog_23.png" width="60" height="55" alt="" /></div>
-                        <div class="desc">
-                            <p><strong>Being Creative Work</strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span><a href="#">February 15th 2012</a>   By Crucio</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bwWrapper"><img src="/HtmlTemplate/images/blog/blog_24.png" width="60" height="55" alt="" /></div>
-                        <div class="desc">
-                            <p><strong>Being Creative Work</strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span><a href="#">February 15th 2012</a>   By Crucio</span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bwWrapper"><img src="/HtmlTemplate/images/blog/blog_25.png" width="60" height="55" alt="" /></div>
-                        <div class="desc">
-                            <p><strong>Being Creative Work</strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span><a href="#">February 15th 2012</a>   By Crucio</span></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            @Html.Partial("_ProductRecommend", ProductRecommendList);
             <!-- /most popular -->
             <!-- latest tweets -->
-            
             <!-- /latest tweets -->
             <!-- our clients -->
             <div class="our_clients">

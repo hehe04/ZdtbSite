@@ -68,6 +68,10 @@
     <Reference Include="LitJson">
       <HintPath>..\packages\LitJson.0.7.0\lib\LitJson.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -88,6 +92,9 @@
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal">
+      <HintPath>..\packages\PayPal.1.0.0\lib\net45\PayPal.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -1185,6 +1192,7 @@
     <Content Include="Images\DSC_01230129.jpg" />
     <Content Include="Images\features\Thumbs.db" />
     <Content Include="Images\flex\Thumbs.db" />
+    <Content Include="Images\fr.Skype.png" />
     <Content Include="Images\full_width\Thumbs.db" />
     <Content Include="Images\home_page_3_feature_circles\Thumbs.db" />
     <Content Include="Images\home_page_5_features\Thumbs.db" />
@@ -1196,6 +1204,7 @@
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />
+    <Content Include="Images\skype_Icon.jpg" />
     <Content Include="Images\social\Thumbs.db" />
     <Content Include="Images\testimonials\Thumbs.db" />
     <Content Include="Images\unleash\Thumbs.db" />
@@ -1223,6 +1232,13 @@
     <Content Include="Areas\ZdtbAdmin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1604,6 +1620,7 @@
     <Content Include="Images\video.png" />
     <Content Include="Images\wp.png" />
     <Content Include="Images\x.png" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ie9.js" />
     <Content Include="Scripts\jquery-animate-css-rotate-scale.js" />
     <Content Include="Scripts\jquery-css-transform.js" />
@@ -1621,7 +1638,11 @@
     <Content Include="Scripts\jquery.simpleFAQ-0.7.min.js" />
     <Content Include="Scripts\jquery.touchwipe.min.js" />
     <Content Include="Scripts\jquery.unleash.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js_func.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\piecemaker\contents\flash-preview.png" />
     <Content Include="Scripts\piecemaker\contents\flash.swf" />
     <Content Include="Scripts\piecemaker\contents\index.html" />
@@ -1638,7 +1659,12 @@
     <Content Include="Scripts\piecemaker\scripts\swfobject\expressinstall.swf" />
     <Content Include="Scripts\piecemaker\scripts\swfobject\index.html" />
     <Content Include="Scripts\piecemaker\scripts\swfobject\swfobject.js" />
+    <Content Include="Stylesheets\bootstrap-theme.css" />
+    <Content Include="Stylesheets\bootstrap-theme.min.css" />
+    <Content Include="Stylesheets\bootstrap.css" />
+    <Content Include="Stylesheets\bootstrap.min.css" />
     <Content Include="Stylesheets\flexslider.css" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Stylesheets\googleFonts.css" />
     <Content Include="Stylesheets\jquery.id.moover-1.5.css" />
     <Content Include="Stylesheets\jquery.onebyone.css" />
@@ -1666,12 +1692,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\CompanyNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\IndustryNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\NewsCrawlerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\VisitController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
@@ -1688,18 +1716,24 @@
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\UserViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\WelcomeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IplookupViewModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\PaypalViewModel.cs" />
+    <Compile Include="Models\PayViewModel.cs" />
+    <Compile Include="Models\ProductViewModell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1756,6 +1790,17 @@
     <Content Include="Views\Article\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
+    <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Stylesheets\bootstrap-theme.css.map" />
+    <Content Include="Stylesheets\bootstrap.css.map" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Pay\Redirect.cshtml" />
+    <Content Include="Views\Shared\_OnlineService.cshtml" />
+    <Content Include="Views\Shared\_ProductRecommend.cshtml" />
+    <Content Include="Views\Shared\_Feedback.cshtml" />
+    <Content Include="Views\Pay\Message.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1766,7 +1811,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
+<<<<<<< HEAD
     <Folder Include="Content\OutPutFile\" />
+=======
+>>>>>>> 86fb991e80902603a14f3d16a35b675e1f52870d
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">

@@ -1,7 +1,156 @@
-﻿<div class="fluid-container" style="min-height:400px">
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.WelcomeViewModel
+
+
+@{
+    int hour = DateTime.Now.Hour;
+    string title = "早上好，";
+    if (hour >= 11 && hour < 13)
+    {
+        title = "中午好，";
+    }
+    else if (hour >= 13 && hour < 18)
+    {
+        title = "下午好，";
+    }
+    else if (hour >= 18 && hour <= 23)
+    {
+        title = "晚上好，";
+    }
+    else if (hour >= 0 && hour <= 6)
+    {
+        title = "凌晨好，";
+    }
+    ViewBag.Title = title + HttpContext.Current.Items["LoginUserName"];
+    Random rand = new Random();
+}
+
+<div class="alert adjusted alert-info">
+    <button class="close" data-dismiss="alert">×</button>
+    <i class="cus-exclamation"></i>
+    <strong>Welcome to {Jarvis} Admin</strong> Please don't forget to check out all the pages and the features.
+</div>
+
+<div class="fluid-container" style="min-height:400px">
+    <div id="start">
+        <ul>
+            <li>
+                <label>+@Model.NewCustomer </label>
+                <a href="@Url.Action("Index","Customer")" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/add-user.png" alt="">
+                    <span>新客户</span>
+                </a>
+            </li>
+            <li>
+                <label>+@Model.ContractCount </label>
+                <a href="@Url.Action("Index","Contract")" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/orders.png" alt="">
+                    <span>合同数量</span>
+                </a>
+            </li>
+            <li>
+                <label>+@Model.RecruitmentCount</label>
+                <a href="@Url.Action("Index","Recruitment")" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/mass.png" alt="">
+                    <span>职位</span>
+                </a>
+            </li>
+            <li>
+                <label>+@Model.ArticleCount</label>
+                <a href="@Url.Action("Index", "NewsCrawler")" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/stats.png" alt="">
+                    <span>文章抓取</span>
+                </a>
+            </li>
+            <li>
+                <label>+@Model.FeedbackCount</label>
+                <a href="@Url.Action("Index","Feedback")" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/pending-message.png" alt="">
+                    <span>留言</span>
+                </a>
+            </li>
+            <li>
+                <label>+@Model.VisitLogCount</label>
+                <a href="@Url.Action("Index","Visit")" title="">
+                    <img src="/Areas/ZdtbAdmin/Content/img/start-icons/upgrade.png" alt="">
+                    <span>产品浏览</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
     <section id="widget-grid" class="">
         <div class="row">
-            <h1>@HttpContext.Current.Items["LoginUserName"]！您好，欢迎使用本系统！</h1>
+            @*<h1>@HttpContext.Current.Items["LoginUserName"]！您好，欢迎使用本系统！</h1>*@
+            <article class="col-md-12">
+                <div class="jarviswidget" id="widget-id-2" role="widget">
+                    <header>
+                        <h2>留言信息</h2>
+                    </header>
+                    <div>
+                        <div class="inner-spacer chat-widget widget-content-padding">
+                            <ul id="myChat" class="nav nav-tabs chat-tabs">
+                                <li class="active">
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
+                                </li>
+                                <li>
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user2" data-toggle="tab"><i class="away"></i>留言问题</a>
+                                </li>
+                            </ul>
+                            <div id="myChatTab" class="tab-content chat-content">
+                                <div class="tab-pane fade in active" id="user1">
+                                    <div class="chat-messages">
+                                        @foreach (var item in Model.Feedbacks)
+                                        {
+                                            if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Message)
+                                            {
+                                                string img = rand.Next(0, 9) + ".jpg";
+
+                                                <p id="message-id-@item.Id" class="message-box">
+                                                    <a href="#">
+                                                        <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                                    </a>
+                                                    <span class="message">
+                                                        <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                                        <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                                        <span class="message-text">@item.Content</span>
+                                                    </span>
+                                                </p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="user2">
+                                    <div class="chat-messages">
+                                        @foreach (var item in Model.Feedbacks)
+                                        {
+                                            if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Question)
+                                            {
+                                                string img = rand.Next(0, 9) + ".jpg";
+
+                                                <p id="message-id-@item.Id" class="message-box">
+                                                    <a href="#">
+                                                        <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                                    </a>
+                                                    <span class="message">
+                                                        <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                                        <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                                        <span class="message-text">@item.Content</span>
+                                                    </span>
+
+                                                </p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 </div>
+
+

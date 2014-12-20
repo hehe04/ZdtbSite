@@ -25,12 +25,14 @@ namespace ZdtbSite.Web
                 ));
             bundles.Add(new ScriptBundle("~/Script/AboutIndex").Include(
                 "~/scripts/jquery.bxSlider.min.js",
-                "~/scripts/jquery.blackandwhite.min.js"
+                "~/scripts/jquery.blackandwhite.min.js",                 
+                "~/Scripts/jquery.validate.min.js",
+                "~/Scripts/jquery.validate.unobtrusive.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Style/AboutIndex").Include(
                 "~/Stylesheets/googleFonts.css",
                 "~/Stylesheets/style.css"
-                ,"~/Stylesheets/responsive.css"
+                , "~/Stylesheets/responsive.css"
                 ));
             bundles.Add(new ScriptBundle("~/Script/AboutDevice").Include(
                 "~/scripts/jquery.prettyPhoto.js",

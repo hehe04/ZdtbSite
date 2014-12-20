@@ -12,6 +12,8 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
+    [ValidateInput(false)]
+    [Authorize(Users = "")]
     public class NewsCrawlerController : BaseController
     {
         public static string CurrentPath
@@ -50,8 +52,53 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Page page = new Page(pageIndex, pageSize);
             var list = articleRepository.GetPage(page, e => e.OriginArticlesType == OriginArticlesType.Web, e => e.Id);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
-            ViewData["ContentTypes"] = types;
+            //ViewData["ContentTypes"] = types;
             return View(list);
+        }
+
+
+        [HttpGet]
+        public ActionResult Modify(int id)
+        {
+            Admin.ArticleDataViewModel model = new Admin.ArticleDataViewModel();
+            var contentTypes = contentTypeRepository.GetMany(e => e.PrentId != 0).ToList();
+            var currentArticle = articleRepository.GetById(id);
+            model.ContentTypes = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypes);
+            model.Article = AutoMapper.Mapper.Map<Article, Admin.ArticleViewModel>(currentArticle);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Modify(Admin.ArticleDataViewModel viewModel)
+        {
+            Admin.ResponseModel responseModel = new Admin.ResponseModel();
+
+            Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
+            model.ContentTyepId = 2;
+            model.OriginArticlesType = OriginArticlesType.Web;
+            model.UpdateDateTime = DateTime.Now;
+            articleRepository.Update(model);
+            unitofWork.Commit();
+            responseModel.Success = true;
+            responseModel.Msg = "成功修改行业新闻，页面即将跳转";
+            responseModel.RedirectUrl = CurrentUrl;
+            return Json(responseModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Publish(int id, string url)
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+
+            var article = articleRepository.GetById(id);
+            article.IsPublish = true;
+            article.Publisher = LoginUserName;
+            article.PublisherDateTime = DateTime.Now;
+            articleRepository.Update(article);
+            unitofWork.Commit();
+            model.Success = true;
+            model.Msg = "成功发布行业新闻";
+            model.RedirectUrl = url;
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Crawler()

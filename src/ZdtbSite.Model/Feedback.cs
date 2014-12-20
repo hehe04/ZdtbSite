@@ -19,7 +19,7 @@ namespace ZdtbSite.Model
         public FeedbackType FeedbackType { get; set; }
 
         [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
         public int CustomerId { get; set; }
 
@@ -27,6 +27,11 @@ namespace ZdtbSite.Model
         public string Mobile { get; set; }
 
         public DateTime CreateTime { get; set; }
+
+        public Feedback()
+        {
+            CreateTime = DateTime.Now;
+        }
     }
 
     public enum FeedbackType

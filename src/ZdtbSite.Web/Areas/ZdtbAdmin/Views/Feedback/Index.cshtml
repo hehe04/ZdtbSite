@@ -3,85 +3,158 @@
 @using ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 @{
-    ViewBag.Title = "留言预览";
-
+    ViewBag.Title = "客户追踪 > 留言预览";
+    Random rand = new Random();
 }
 
 @section PageHeader{
-    留言预览
+    客户追踪 > 留言预览
 }
 <div class="fluid-container">
-    <div class="row" style="padding-bottom:10px">
-        <div class="col-md-4">
+    @*<div class="row" style="padding-bottom:10px">
+            <div class="col-md-4">
 
-        </div>
-        <div class="col-md-8">
-            <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
-                <div>
-                    <div class="row">
-                        <div class="col-md-2">筛选留言</div>
-                        <div class="col-md-8">
-                            <select class="with-search">
-                                <option value="1">问题</option>
-                                <option value="2">留言</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="submit" class="btn"><i class="icon-search"></i>筛选</button>
+            </div>
+            <div class="col-md-8">
+                <form id="search" class="form-horizontal themed" method="post" action="@Url.Action("Index")">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-2">筛选留言</div>
+                            <div class="col-md-8">
+                                <select class="with-search">
+                                    <option value="1">问题</option>
+                                    <option value="2">留言</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn"><i class="icon-search"></i>筛选</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
-        </div>
-    </div>
+                </form>
+            </div>
+        </div>*@
     <!-- widget grid -->
+    @*<section id="widget-grid" class="">
+            <div class="row">
+                <article class="col-md-12">
+                    <!-- new widget -->
+                    <div class="jarviswidget" role="widget">
+                        <header role="heading">
+                            <h2>留言</h2>
+                        </header>
+                        <!-- wrap div -->
+                        <div>
+                            <div class="inner-spacer">
+                                <!-- content goes here -->
+                                <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="first"><i class="icon-resize-vertical"></i></th>
+                                            <th>客户</th>
+                                            <th>留言内容</th>
+                                            <th>联系电话</th>
+                                            <th>留言时间</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+
+
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
+                                                </td>
+                                                <td>@item.Customer.IPAddress</td>
+                                                <td>@item.Content</td>
+                                                <td>@item.Mobile</td>
+                                                <td>@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                @Html.Partial("PartialPage", Model)
+                            </div>
+                            <!-- end content-->
+                        </div>
+                        <!-- end wrap div -->
+                    </div>
+                    <!-- end widget -->
+                </article>
+            </div>
+        </section>*@
     <section id="widget-grid" class="">
         <div class="row">
+            @*<h1>@HttpContext.Current.Items["LoginUserName"]！您好，欢迎使用本系统！</h1>*@
             <article class="col-md-12">
-                <!-- new widget -->
-                <div class="jarviswidget" role="widget">
-                    <header role="heading">
-                        <h2>留言</h2>
+                <div class="jarviswidget" id="widget-id-2" role="widget">
+                    <header>
+                        <h2>留言信息</h2>
                     </header>
-                    <!-- wrap div -->
                     <div>
-                        <div class="inner-spacer">
-                            <!-- content goes here -->
-                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
-                                <thead>
-                                    <tr>
-                                        <th class="first"><i class="icon-resize-vertical"></i></th>
-                                        <th>客户</th>
-                                        <th>留言内容</th>
-                                        <th>联系电话</th>
-                                        <th>留言时间</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <div class="inner-spacer chat-widget widget-content-padding">
+                            <ul id="myChat" class="nav nav-tabs chat-tabs">
+                                <li class="active">
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
+                                </li>
+                                <li>
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user2" data-toggle="tab"><i class="away"></i>留言问题</a>
+                                </li>
+                            </ul>
+                            <div id="myChatTab" class="tab-content chat-content">
+                                <div class="tab-pane fade in active" id="user1">
+                                    <div class="chat-messages">
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Message)
+                                            {
+                                                string img = rand.Next(0, 9) + ".jpg";
 
-                                    @foreach (var item in Model)
-                                    {
+                                                <p id="message-id-@item.Id" class="message-box">
+                                                    <a href="#">
+                                                        <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                                    </a>
+                                                    <span class="message">
+                                                        <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                                        <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                                        <span class="message-text">@item.Content</span>
+                                                    </span>
+                                                </p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="user2">
+                                    <div class="chat-messages">
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Question)
+                                            {
+                                                string img = rand.Next(0, 9) + ".jpg";
 
+                                                <p id="message-id-@item.Id" class="message-box">
+                                                    <a href="#">
+                                                        <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                                    </a>
+                                                    <span class="message">
+                                                        <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                                        <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                                        <span class="message-text">@item.Content</span>
+                                                    </span>
 
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
-                                            </td>
-                                            <td>@item.Customer.IPAddress</td>
-                                            <td>@item.Content</td>
-                                            <td>@item.Mobile</td>
-                                            <td>@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                            @Html.Partial("PartialPage", Model)
+                                                </p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- end content-->
                     </div>
-                    <!-- end wrap div -->
                 </div>
-                <!-- end widget -->
             </article>
         </div>
     </section>

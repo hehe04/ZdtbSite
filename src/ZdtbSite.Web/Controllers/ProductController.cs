@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,7 +33,14 @@ namespace ZdtbSite.Web.Controllers
         public ActionResult ProductDetail(int id)
         {
             var model = _productRepository.GetById(id);
-            return View(model);
+            HttpCookie cookie = new HttpCookie("RecommendProductType");
+            cookie.Value = model.ProductTypeId.ToString();
+            cookie.Expires = DateTime.Now.AddDays(7);
+            ControllerContext.HttpContext.Response.SetCookie(cookie);
+            var viewModel = Mapper.Map<Product, ZdtbSite.Web.Models.ProductViewModel>(model);
+
+            ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
+            return View(viewModel);
         }
     }
 }
