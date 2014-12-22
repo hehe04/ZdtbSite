@@ -1,13 +1,23 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Infrastructure;
+using ZdtbSite.Model;
+using ZdtbSite.Web.ActionFilters;
 
 namespace ZdtbSite.Web.Controllers
 {
     public class ProductController : BaseController
     {
+        private IRepository<Product> _productRepository;
+        public ProductController(IRepository<Product> productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
         // GET: Product
         public ActionResult Index()
         {
@@ -19,9 +29,18 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
+        [ClientVisit]
         public ActionResult ProductDetail(int id)
         {
-            return View();
+            var model = _productRepository.GetById(id);
+            HttpCookie cookie = new HttpCookie("RecommendProductType");
+            cookie.Value = model.ProductTypeId.ToString();
+            cookie.Expires = DateTime.Now.AddDays(7);
+            ControllerContext.HttpContext.Response.SetCookie(cookie);
+            var viewModel = Mapper.Map<Product, ZdtbSite.Web.Models.ProductViewModel>(model);
+
+            ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
+            return View(viewModel);
         }
     }
 }

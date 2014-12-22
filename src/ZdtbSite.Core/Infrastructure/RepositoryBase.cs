@@ -72,6 +72,21 @@ namespace ZdtbSite.Core.Infrastructure
             return new StaticPagedList<T>(result, page.PageIndex, page.PageSize, count);
         }
 
+        public IPagedList<T> GetPage<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order, bool isDesc)
+        {
+            if (isDesc)
+            {
+
+                var result = dbSet.Where(where).OrderByDescending(order).GetPage(page);
+                var count = dbSet.Count(where);
+                return new StaticPagedList<T>(result, page.PageIndex, page.PageSize, count);
+            }
+            else
+            {
+                return GetPage<TOrder>(page, where, order);
+            }
+        }
+
         public T GetAsNoTracking(Expression<Func<T, bool>> where)
         {
             return dbSet.Where(where).AsNoTracking().FirstOrDefault();

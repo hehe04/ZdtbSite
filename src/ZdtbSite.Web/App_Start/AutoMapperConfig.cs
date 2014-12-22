@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ZdtbSite.Model;
+using ZdtbSite.Web.Models;
 using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web
@@ -33,6 +34,8 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Admin.RecruitmentViewModel, Recruitment>();
             AutoMapper.Mapper.CreateMap<Recruitment, Admin.RecruitmentViewModel>();
+
+            AutoMapper.Mapper.CreateMap<Product, ProductViewModel>().ForMember(x => x.ProductTypeName, opt => opt.MapFrom(source => source.ProductType.TypeName));
         }
     }
 }

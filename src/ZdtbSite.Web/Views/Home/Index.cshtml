@@ -3,6 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> ProductRecommendList = ViewBag.ProductRecommendList;
+}
 
 @section Header{
     @Styles.Render("~/Style/HomeIndex")
@@ -38,14 +41,14 @@
             <span class="txt1 txt_right">Highest Quality Product</span>
             <span class="txt2 txt_right">On-Time Delivery</span>
             <span class="txt3 txt_right">Minnan's total quality commitment to our customers is demonstrated by providing the highest quality product, competitively designed and fairly priced, with on-time delivery. </span>
-            <span class="txt4 txt_right"><a href="#" class="btn_l">Learn More</a></span>
+            <span class="txt4 txt_right"><a href="@Url.Action("Process", "About")" class="btn_l">Learn More</a></span>
         </div>
         <div class="oneByOne_item">
             <img src="/HtmlTemplate/images/sliders/home_page_7/home7_slide_2.jpg" class="wp1_3 wp1_left" alt="" />
             <span class="txt1 blue txt_right2">Flexible Manufacturing System</span>
             <span class="txt2 blue txt_right2">Fit Design</span>
             <span class="txt2 blue txt_right2">Safety</span>
-            <span class="txt4 txt_right2"><a href="#" class="btn_l">Learn More</a></span>
+            <span class="txt4 txt_right2"><a href="@Url.Action("Index", "About")" class="btn_l">Learn More</a></span>
         </div>
 
         <div class="oneByOne_item">
@@ -53,7 +56,7 @@
             <span class="txt1">Minnan Power Transformer</span>
             <span class="txt2">quality leading</span>
             <span class="txt3">Minnan has a long and successful history of supplying power transformers for use in China, and globally</span>
-            <span class="txt4"><a href="#" class="btn_l">Learn More</a></span>
+            <span class="txt4"><a href="@Url.Action("ProductList", "product", new { catelog = 1 })" class="btn_l">Learn More</a></span>
         </div>
 
         <div class="oneByOne_item">
@@ -61,7 +64,7 @@
             <span class="txt1 blue">Minnan Switchgear</span>
             <span class="txt2 blue">Reliable Powerful</span>
             <span class="txt3 short">All Minnan's products have ISO 9001, ISO 14001, and OHSAS 18001 certifications</span>
-            <span class="txt4"><a href="#" class="btn_l">Learn More</a></span>
+            <span class="txt4"><a href="@Url.Action("ProductList", "product", new { catelog = 4 })" class="btn_l">Learn More</a></span>
         </div>
 
     </div>
@@ -104,73 +107,15 @@
         <!-- sidebar -->
         <div class="sidebar">
             <!-- most popular -->
-            <div class="most_popular">
-                <h4>Most Popular Series</h4>
-                <ul>
-                    <li>
-                        <div class="bwWrapper"><a href="blog_post.html"><img src="/HtmlTemplate/images/blog/blog_23.png" width="60" height="55" alt="" /></a></div>
-                        <div class="desc">
-                            <p><strong><a href="blog_post.html">Dry type Power Transformer</a></strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span>February 15th 2012   <a href="#">By Crucio</a></span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bwWrapper"><a href="blog_post.html"><img src="/HtmlTemplate/images/blog/blog_24.png" width="60" height="55" alt="" /></a></div>
-                        <div class="desc">
-                            <p><strong><a href="blog_post.html">Oil Immersed Power Transformer</a></strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span>February 15th 2012   <a href="#">By Crucio</a></span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="bwWrapper"><a href="blog_post.html"><img src="/HtmlTemplate/images/blog/blog_25.png" width="60" height="55" alt="" /></a></div>
-                        <div class="desc">
-                            <p><strong><a href="blog_post.html">Switchgear</a></strong></p>
-                            <p>Sectetut amet fermens ...</p>
-                            <p><span>February 15th 2012   <a href="#">By Crucio</a></span></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            @Html.Partial("_ProductRecommend", ProductRecommendList)
             <!-- /most popular -->
+            <!-- latest tweets -->
+            @Html.Partial("_OnlineService")
+            <!-- /latest tweets -->
             <!-- our clients -->
-            <div class="our_clients">
-                <h4>Our Clients Just Love Us</h4>
-                <ul class="clients_slider">
-                    <li>
-                        <blockquote>
-                            <p>"Nam libero tempore, cum soluta nobis est eligendi optio cumque nihl impedit quois minus id quod maxime placeat facere rendus sit sadipsamets."</p>
-                            <p>Jane Doe, CEO of Imperio</p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <blockquote>
-                            <p>"Cum soluta nobis est eligendi optio cumque nihl impedit quois minus id quod maxime placeait sadipsamets."</p>
-                            <p>Jane Doe, CEO of Imperio</p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <blockquote>
-                            <p>"Libero tempore, cuendi optio cumque nihl impedit quois minus id quod maxime placeat facere rendus sit sadipsamets."</p>
-                            <p>Jane Doe, CEO of Imperio</p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <blockquote>
-                            <p>"Nam libero tempore, cum soluta nobis es nihl impedit quois minus id quod maxime placeat facere rendus sit sadipsamets."</p>
-                            <p>Jane Doe, CEO of Imperio</p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <blockquote>
-                            <p>"Am libero tempore, cum soluta nobis est eligendi optio cumque ipsamets."</p>
-                            <p>Jane Doe, CEO of Imperio</p>
-                        </blockquote>
-                    </li>
-                </ul>
-            </div>
+            @Html.Partial("_Feedback")
             <!-- /our clients -->
+
         </div>
         <!-- /sidebar -->
     </div>

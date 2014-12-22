@@ -25,8 +25,6 @@ namespace ZdtbSite.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.CreateAllMap();
             AdminMenuCacheConfig.SetAdminMenuCache();
-
-
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -37,9 +38,22 @@ namespace ZdtbSite.Model
 
         public string Message { get; set; }
 
-        public virtual ICollection<Product> ExploreProducts { get; set; }
+        public int ProductId { get; set; }
+
+        [ForeignKey("ProductId")]
+        public virtual Product ExploreProducts { get; set; }
 
         public DateTime VisitDateTime { get; set; }
+
+        public string Country { get; set; }
+
+        public string Area { get; set; }
+
+        public string Province { get; set; }
+
+        public string City { get; set; }
+
+        public string District { get; set; }
 
         public VisitLog()
         {

@@ -28,22 +28,28 @@
 
 
                 }
-
+                string href = "javascript:void(0)";
 
                 if (flg || assign.IndexOf("," + item.Id) >= 0) //所有父节点 子节点都有均加载菜单
                 {
                     <li class="@menuclass">
-                        <a href="javascript:void(0)">
+
+                        @if (!string.IsNullOrEmpty(item.Action) && !string.IsNullOrEmpty(item.Controller))
+                        {
+                            href = Url.Action(item.Action, item.Controller);
+                        }
+                        <a href="@href">
+
                             @{
                     if (!string.IsNullOrEmpty(item.Icon))
                     {
                         <i class="@item.Icon"></i>
                     }
                     @item.Name
-                    if (existscount > 0)
+                    @*if (existscount > 0)
                     {
                         <span class="badge">@existscount</span>
-                    }
+                    }*@
 
                             }
                         </a>

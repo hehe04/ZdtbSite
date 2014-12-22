@@ -17,7 +17,7 @@ namespace ZdtbSite.Model
         public string Title { get; set; }
 
         [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
         public int CustomerId { get; set; }
 
@@ -28,6 +28,8 @@ namespace ZdtbSite.Model
         public DateTime CreateTime { get; set; }
 
         public DateTime SignedTime { get; set; }
+
+        public bool IsSuccess { get; set; }
 
     }
 

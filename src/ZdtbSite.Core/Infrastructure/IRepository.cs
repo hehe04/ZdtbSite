@@ -8,7 +8,6 @@ namespace ZdtbSite.Core.Infrastructure
 {
     public interface IRepository<T> where T : class
     {
-        IDbSet<T> DbSet { get; set; }
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
@@ -18,6 +17,7 @@ namespace ZdtbSite.Core.Infrastructure
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAll();
         IPagedList<T> GetPage<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order);
+        IPagedList<T> GetPage<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order, bool isDesc);
         T GetAsNoTracking(Expression<Func<T, bool>> where);
         IEnumerable<T> GetManyAsNoTracking(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAllAsNoTracking();

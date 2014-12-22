@@ -1,0 +1,103 @@
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Contract>
+@{
+    ViewBag.Title = "客户管理 > 合同管理";
+}
+@section PageHeader{
+    客户管理 > 合同管理
+}
+<div class="fluid-container">
+    <div style="padding-bottom:10px">
+        <a class="btn btn-primary" id="SignContract" href="@Url.Action("SignContract")">
+            <i class="icon-ok-sign icon-white"></i> 签订合同
+        </a>
+    </div>
+    <!-- widget grid -->
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget jarviswidget-sortable" role="widget">
+                    <header role="heading">
+                        <h2>合同管理</h2>
+                    </header>
+                    <!-- wrap div -->
+                    <div>
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <table class="table table-bordered table-striped checked-in responsive has-checkbox"
+                                   id="sc-table" style=" table-layout:fixed;">
+                                <thead>
+                                    <tr>
+                                        <th class="first"><i class="icon-resize-vertical"></i></th>
+                                        <th>名称</th>
+                                        <th>客户</th>
+                                        <th>预付款</th>
+                                        <th>合同状态</th>
+                                        <th>创建时间</th>
+                                        <th>签订时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" value="@item.Id">
+                                            </td>
+                                            <td>
+                                                @item.Title
+                                            </td>
+                                            <td>
+                                                @item.Customer.Email
+                                            </td>
+                                            <td>
+                                                @item.Prepayments
+                                            </td>
+                                            <td>
+                                                @(item.Status == ZdtbSite.Model.ContractStatus.NotSigned ? "未签订" : "已签订")
+                                            </td>
+                                            <td>
+                                                @item.CreateTime.ToString("yyyy.MM.dd HH:mm:ss")
+                                            </td>
+                                            <td>
+                                                @(item.Status == ZdtbSite.Model.ContractStatus.NotSigned ? "-" : item.SignedTime.ToString("yyyy.MM.dd HH:mm:ss"))
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                            @Html.Partial("PartialPage", Model)
+                        </div>
+                        <!-- end content-->
+                    </div>
+                    <!-- end wrap div -->
+                </div>
+                <!-- end widget -->
+            </article>
+        </div>
+
+
+    </section>
+
+</div>
+
+@section script{
+    <script type="text/javascript">
+        $(function () {
+            $("#SignContract").click(function () {
+                var ids = [];
+                var checks = $("input[type='checkbox']:checked");
+                for (var i = 0; i < checks.length; i++) {
+                    ids.push($(checks[i]).val());
+                }
+                if (ids.length > 0) {
+                    ajaxSubmit("@Url.Action("SignContract", "Contract")", { ids: ids.join(',') }, "签订合同中，请稍后...");
+                }
+                else finAlert("请选择合同...", false);
+                return false;
+            });
+        });
+    </script>
+}
+

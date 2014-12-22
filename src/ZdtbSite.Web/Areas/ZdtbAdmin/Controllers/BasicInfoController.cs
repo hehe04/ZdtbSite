@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Helper;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
 using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
+using Mail = ZdtbSite.Core.Helper.EmailHelper;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
@@ -109,6 +112,37 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 model.Msg = "删除企业信息失败，请重试" + ex.Message;
             }
             return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult sendEmailTest()
+        {
+            Admin.ResponseModel model = new Admin.ResponseModel();
+            try
+            {
+                List<string> mailList = new List<string>();
+                mailList.Add("shenxiuyun@qq.com");
+                mailList.Add("289117857@qq.com");
+                mailList.Add("13200652@qq.com");
+                mailList.Add("jiangchun1320@163.com");
+                string title = "测试邮件";
+                string text = DateTime.Now + ":测试内容";
+                Mail.SendEmail(mailList, "ZdtbSite", title, text);
+                model.Success = true;
+                model.Msg = "发送成功！";
+            }
+            catch (Exception ex)
+            {
+                model.Success = false;
+                model.Msg = "邮件发送失败!" + ex.Message;
+            }
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetProductPDF(string HtmlUrl)
+        {
+            string url = HtmlToFileHelper.HtmlToPDF(HtmlUrl);
+            return View();
+            //return File(new FileStream(url, FileMode.Open), "application/octet-stream", Server.UrlEncode(""));
         }
     }
 }

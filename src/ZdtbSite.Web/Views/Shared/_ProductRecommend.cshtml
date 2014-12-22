@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ZdtbSite.Web.Models.ProductViewModel>
+
+<div class="most_popular">
+    <h4>Most Popular Series</h4>
+    <ul>
+        @if (Model != null)
+        {
+            foreach (var productViewModel in Model)
+            {
+                <li>
+                    <div class="bwWrapper"><a href="@Url.Action("ProductDetail", "Product", new { Id = productViewModel.Id })"><img src="/HtmlTemplate/images/blog/blog_23.png" width="60" height="55" alt="" /></a></div>
+                    <div class="desc">
+                        <p><strong><a href="@Url.Action("ProductDetail", "Product", new { Id = productViewModel.Id })">Dry type Power Transformer</a></strong></p>
+                        <p>Sectetut amet fermens ...</p>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+</div>

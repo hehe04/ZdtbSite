@@ -1,0 +1,93 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Technology Support";
+    IEnumerable<ZdtbSite.Model.ContentType> contentTypes = ViewBag.ContentType;
+}
+@section Header{
+    @Scripts.Render("~/Script/ArticleIndex")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.clients_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.post_slider').bxSlider({
+                auto: false,
+                speed: 1000
+            });
+            $('.recent_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 1,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('#faq').dltoggle();
+            $("#open").click(function (event) {
+                $('#faq').dltoggle_show();
+                return false;
+            });
+            $("#close").click(function (event) {
+                $('#faq').dltoggle_hide();
+                return false;
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Technology Support<span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li>Large Image With Sidebar</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        <!-- blog entries -->
+        <div class="blog_entries">
+
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="post">
+                    <div class="img_wrap bwWrapper">
+                        <div class="date">April 2, 2012</div>
+                        <a href="@Url.Action("TechnologySupportDetail", "About")"><img src="~/HtmlTemplate/images/blog/blog_01.jpg" width="640" height="265" alt="" /></a>
+                    </div>
+                    <div class="desc">
+                        <h4><a href="blog_post.html">Transformer Material Knowledge</a></h4>
+                        <p>Transformer core material mainly including iron, low silicon, high silicon. Steel sheet with silicon can reduce conductivity, increase resistivity, which can reduce the eddy current to decrease losses. Steel sheet with silicon are used to be called as silicon steel. Silicon steel’s quality highly affect transformer’s quality, which is...</p>
+                        <div class="metadata">
+                            <strong class="dots">....</strong>
+                            By <a href="#">Minnan</a>  |  <a href="#">Transformer, iron, low silicon, high silicon</a>@*文章关键词*@
+                            <a href="@Url.Action("TechnologySupportDetail", "About")" class="read_more btn_col">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- pager_nav -->
+            <div class="pager_nav">
+                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+            </div>
+            <!-- /pager_nav -->
+        </div>
+        <!-- /blog entries -->
+        @Html.Partial("_DetailSidebar", contentTypes, ViewContext.ViewData)
+    </div>
+</div>
