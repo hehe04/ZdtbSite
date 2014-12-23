@@ -1,4 +1,4 @@
-/*         
+﻿/*         
      __                   .__        
     |__|____ __________  _|__| ______
     |  \__  \\_  __ \  \/ /  |/  ___/
@@ -1799,7 +1799,10 @@ function setup_chatbox_demo() {
         if (msg_input.length) {
             var msg_input = $.istying.val();
             id++;
-            $('.tab-pane.active > div > .chat-messages').prepend('<p id="message-dynamic-' + id + '" class="message-box you"><img src="img/avatar/avatar_0.jpg" alt=""><span class="message"><strong>Me</strong><span class="message-time">by Victoria at 14:25pm, 4th Jan 2013</span><span class="message-text">' + msg_input + '</span></span></p>')
+            var date = new Date();
+            var formdate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            //prepend
+            $('.tab-pane.active > div > .chat-messages').prepend('<p id="message-dynamic-' + id + '" class="message-box you"><img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_0.jpg" alt=""><span class="message"><strong>我：</strong><span class="message-time">' + formdate + '</span><span class="message-text">' + msg_input + '</span></span></p>')
             $('.tab-pane.active > div > .chat-messages #message-dynamic-' + id).hide().fadeIn(750);
             //console.log(msg_input.trim() + id);
             $.istying.val('');

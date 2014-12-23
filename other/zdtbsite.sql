@@ -21,8 +21,6 @@ INSERT INTO `adminmenus` VALUES ('1', '0', '用户模块', '#', '', '', '维护�
 INSERT INTO `adminmenus` VALUES ('2', '1', '用户管理', '/User/Index', 'Index', 'User', '用户维护，重置密码，权限分配等', '');
 INSERT INTO `adminmenus` VALUES ('3', '0', '文章发布', '#', '', '', '文章信息维护，技术文章，新闻发布，文章采集', 'icon-envelope');
 INSERT INTO `adminmenus` VALUES ('4', '3', '技术文章', '#', 'Index', 'Article', '技术文章发布，编辑，删除等', '');
-INSERT INTO `adminmenus` VALUES ('5', '3', '新闻发布', '#', '', null, '行业新闻发布，编辑，删除等', null);
-INSERT INTO `adminmenus` VALUES ('6', '3', '文章采集', '#', 'Index', 'NewsCrawler', '自动更新行业类新闻，预览更新的新闻', null);
 INSERT INTO `adminmenus` VALUES ('7', '0', '产品模块', '#', 'Index', 'Product', '产品信息的维护', 'icon-check');
 INSERT INTO `adminmenus` VALUES ('8', '7', '类型维护', '#', 'Index', 'ProductType', '产品类型的维护，添加，编辑，删除', '');
 INSERT INTO `adminmenus` VALUES ('9', '7', '产品发布', '#', 'Index', 'Product', '产品的维护，发布，编辑，删除等产品', '');
@@ -34,7 +32,9 @@ INSERT INTO `adminmenus` VALUES ('14', '11', '产品浏览信息', '#', 'Index',
 INSERT INTO `adminmenus` VALUES ('15', '11', '留言预览', '#', 'Index', 'Feedback', '客户留言预览', null);
 INSERT INTO `adminmenus` VALUES ('16', '0', '人才管理', '#', '', '', '公司企业的人才管理', 'icon-briefcase');
 INSERT INTO `adminmenus` VALUES ('17', '16', '职位发布', '#', 'Index', 'Recruitment', '公司所缺的职位招聘信息', null);
-
+INSERT INTO `adminmenus` VALUES ('18', '3', '公司新闻', '#', 'Index', 'CompanyNews', '公司新闻发布，编辑，删除等', '');
+INSERT INTO `adminmenus` VALUES ('19', '3', '行业新闻', '#', 'Index', 'IndustryNews', '行业新闻发布，编辑，删除等', '');
+INSERT INTO `adminmenus` VALUES ('20', '3', '文章采集', '#', 'Index', 'NewsCrawler', '自动更新行业类新闻，预览更新的新闻', null);
 -- ----------------------------
 -- Records of contenttypes
 -- ----------------------------
