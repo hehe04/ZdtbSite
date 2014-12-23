@@ -17,5 +17,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Display(Name = "键")]
         [Required(ErrorMessage = "键不能为空！")]
         public string Key { get; set; }
+
+        [Display(Name = "描述")]
+        [Required(ErrorMessage = "描述不能为空！")]
+        public string Description { get; set; }
     }
 }
