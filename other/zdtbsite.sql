@@ -89,14 +89,25 @@ INSERT INTO `feedbacks` VALUES ('4', '测试测试测试测试测试测试测试
 INSERT INTO `feedbacks` VALUES ('5', '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试', '1', '1', '12345678932', '2014-12-12 21:42:49');
 
 
--- ----------------------------
--- Records of products
--- ----------------------------
-
 
 -- ----------------------------
 -- Records of producttypes
 -- ----------------------------
+INSERT INTO `producttypes` VALUES ('1', 'Power Trasformer', '-1', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('2', 'Dry type Power Trasformer', '1', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('3', 'Oil Immersed Power Trasformer', '1', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('4', 'Switchgear', '-1', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('5', 'High Voltage Switchgear', '4', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('6', 'Low Voltage Switchgear', '4', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('7', 'Europea type Box Substatio', '13', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('8', 'America type Box Substatio', '13', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('9', 'Box Substatio', '-1', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('10', 'Electrical products', '-1', 'sa', '2014-01-01 00:00:00', '1');
+
+-- ----------------------------
+-- Records of products
+-- ----------------------------
+INSERT INTO `products` VALUES ('1', '123', '123', '123', '123', '1', '2014-12-14 20:57:41');
 
 
 -- ----------------------------
