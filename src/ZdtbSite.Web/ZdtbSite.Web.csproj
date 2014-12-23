@@ -1238,7 +1238,6 @@
     <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Customer\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Shared\FeedbackPage.cshtml" />
-    <Content Include="Areas\Web.config" />
     <Content Include="Areas\ZdtbAdmin\Views\Error\Index.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
