@@ -21,7 +21,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            Response.Redirect(Url.Action("Index", "Error"));
+            //Response.Redirect(Url.Action("Index", "Error"));
             base.OnException(filterContext);
         }
 
