@@ -61,10 +61,13 @@ INSERT INTO `basicinfoes` VALUES ('1', 'leixiangyang@foxmail.com', 'mailUser','�
 INSERT INTO `basicinfoes` VALUES ('2', 'woshuo023.', 'mailPwd','邮件发送账户密码');
 INSERT INTO `basicinfoes` VALUES ('3', 'smtp.qq.com', 'mailServer','邮件发送服务');
 INSERT INTO `basicinfoes` VALUES ('4', '25', 'mailPort','邮件发送端口');
-INSERT INTO `basicinfoes` VALUES ('5', 'xxxx有限公司', 'companyName','公司名称');
-INSERT INTO `basicinfoes` VALUES ('6', '020-12341234', 'companyPhone','公司电话');
-INSERT INTO `basicinfoes` VALUES ('7', '020-43214321', 'companyFax','公司传真');
-INSERT INTO `basicinfoes` VALUES ('8', '天河区中山路XX号', 'companyAddress','公司地址');
+INSERT INTO `basicinfoes` VALUES ('5', 'leixiangyang@foxmail.com', 'receiveEmailList','接收邮件人，多个用分号分隔');
+INSERT INTO `basicinfoes` VALUES ('6', 'xxxx有限公司', 'companyName','公司名称');
+INSERT INTO `basicinfoes` VALUES ('7', '020-12341234', 'companyPhone','公司电话');
+INSERT INTO `basicinfoes` VALUES ('8', '020-43214321', 'companyFax','公司传真');
+INSERT INTO `basicinfoes` VALUES ('9', '天河区中山路XX号', 'companyAddress','公司地址');
+
+
 
 
 
