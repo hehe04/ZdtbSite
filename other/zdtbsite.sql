@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
@@ -57,7 +57,14 @@ INSERT INTO `articles` VALUES ('48', 'Going Beyond Wind and Solar Farms', null, 
 -- ----------------------------
 -- Records of basicinfoes
 -- ----------------------------
-INSERT INTO `basicinfoes` VALUES ('1', 'value ', 'test');
+INSERT INTO `basicinfoes` VALUES ('1', 'leixiangyang@foxmail.com', 'mailUser');
+INSERT INTO `basicinfoes` VALUES ('2', 'woshuo023.', 'mailPwd');
+INSERT INTO `basicinfoes` VALUES ('3', 'smtp.qq.com', 'mailServer');
+INSERT INTO `basicinfoes` VALUES ('4', '25', 'mailPort');
+INSERT INTO `basicinfoes` VALUES ('5', 'xxxx有限公司', 'companyName');
+INSERT INTO `basicinfoes` VALUES ('6', '020-12341234', 'companyPhone');
+INSERT INTO `basicinfoes` VALUES ('7', '020-43214321', 'companyFax');
+INSERT INTO `basicinfoes` VALUES ('8', '天河区中山路XX号', 'companyAddress');
 
 
 
