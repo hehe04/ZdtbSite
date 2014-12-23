@@ -172,7 +172,10 @@
                                         <img src="/Areas/ZdtbAdmin/Content/img/email-important.png" width="22" height="18" alt="important mail" />
                                         @list[i].Customer.IPAddress
                                     </a>
-                                    @list[i].Content.strSub(0, 20, "...")
+                                    @if (!string.IsNullOrEmpty(list[i].Content))
+                                    {
+                                        @list[i].Content.strSub(0, 20, "...")
+                                    }
                                 </div>
                             }
                         }
