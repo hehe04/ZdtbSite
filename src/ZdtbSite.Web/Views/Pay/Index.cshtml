@@ -9,14 +9,15 @@
 
 
 @section Header{
-    @Scripts.Render("~/Script/ArticleIndex")
     @Styles.Render("~/Style/AboutIndex")
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-<link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
-<link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
+    @Scripts.Render("~/Script/ArticleIndex")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
     <script>
         $(function () {
             $('.clients_slider').bxSlider({
@@ -25,13 +26,17 @@
                 mode: 'fade',
                 pager: true
             });
+            $('.post_slider').bxSlider({
+                auto: false,
+                speed: 1000
+            });
             $('.recent_slider').bxSlider({
                 auto: false,
                 displaySlideQty: 1,
                 moveSlideQty: 1,
                 speed: 1000
             });
-            $('#faq').dltoggle({ "open-image": "images/open.png", "closed-image": "images/closed.png" });
+            $('#faq').dltoggle();
             $("#open").click(function (event) {
                 $('#faq').dltoggle_show();
                 return false;
@@ -47,7 +52,7 @@
                 invertHoverEffect: false
             });
         })
-    </script>
+</script>
 }
 
 <div class="content_block">
