@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using ZdtbSite.Core.Infrastructure;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
@@ -53,6 +55,12 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 HttpContext.Items.Add("LoginUserId", LoginUserId);
                 HttpContext.Items.Add("AuthorityUrl", LoginUserAuthorityUrl);
                 ///TODO加载留言板的数据
+                ///
+
+                ZdtbSite.Core.Repository.FeedbackRepository repository = new Core.Repository.FeedbackRepository(new DbContextFactory());
+                var list = repository.GetAll().OrderByDescending(e => e.CreateTime).Take(3).ToList();
+
+                HttpContext.Items.Add("FeedBackList", list);
             }
             else
             {
