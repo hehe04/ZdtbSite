@@ -43,6 +43,11 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         /// </summary>
         public string ContactsName { get; set; }
 
+        /// <summary>
+        /// 头像索引
+        /// </summary>
+        public string HeaderPath { get; set; }
+
         public virtual ICollection<FeedbackViewModel> Feedbacks { get; set; }
 
         /// <summary>

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
+using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
@@ -58,6 +59,20 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             IPagedList<Feedback> pageList = FeedbackRepository.GetPage(page, where, e => e.Id);
             return View(pageList);
+        }
+
+        [HttpGet]
+        public ActionResult Reply(int id)
+        {
+            var feedback = FeedbackRepository.GetById(id);
+            Admin.FeedbackViewModel viewmodel = AutoMapper.Mapper.Map<Model.Feedback, Admin.FeedbackViewModel>(feedback);
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        public ActionResult Reply()
+        {
+            return View();
         }
     }
 }
