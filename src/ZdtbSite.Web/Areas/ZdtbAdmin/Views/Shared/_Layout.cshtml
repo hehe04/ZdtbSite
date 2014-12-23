@@ -13,8 +13,9 @@
         .field-validation-error {
             color: red;
         }
+
         .fluid-container {
-            min-height:450px;
+            min-height: 450px;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -64,7 +65,7 @@
     <link rel="apple-touch-startup-image" href="~/Areas/ZdtbAdmin/Content/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
 </head>
-
+@using ZdtbSite
 <body>
     <!-- .height-wrapper -->
     <div class="height-wrapper">
@@ -139,8 +140,8 @@
                         </a>
                         @{
                             var id = HttpContext.Current.Items["LoginUserId"];
-                            var route =new RouteValueDictionary();
-                            route.Add("id",id);
+                            var route = new RouteValueDictionary();
+                            route.Add("id", id);
                         }
                         <span class="first-child">欢迎 <strong>@HttpContext.Current.Items["LoginUserName"] !</strong></span>
                         <span><a href="@Url.Action("Modify", "User", route)">编辑信息 </a></span>
@@ -151,40 +152,30 @@
                     </div>
                     <div class="divider"></div>
                     <div class="mini-inbox">
-                        <div class="alert inbox">
-                            <button type="button" class="close" data-dismiss="alert">
-                                ×
-                            </button>
 
-                            <a href="javascript:void(0)">
-                                <img src="/Areas/ZdtbAdmin/Content/img/email-important.png" width="22" height="18" alt="important mail" />
-                                IP:121.265.33.99
-                            </a>
-                            The physical and digital worlds continue to converge...
-                        </div>
-                        <!-- inbox message 2-->
-                        <div class="alert inbox">
-                            <button type="button" class="close" data-dismiss="alert">
-                                ×
-                            </button>
-                            <a href="javascript:void(0)">
-                                <img src="/Areas/ZdtbAdmin/Content/img/email-unread.png" width="22" height="18" alt="important mail" />
-                                IP:121.265.25.65
-                            </a>
-                            Vietnam’s vision is to become an industrialized nation by 2020...
-                        </div>
-                        <!-- inbox message 3-->
-                        <div class="alert inbox last-child">
-                            <button type="button" class="close" data-dismiss="alert">
-                                ×
-                            </button>
-                            <a href="javascript:void(0)">
-                                <img src="/Areas/ZdtbAdmin/Content/img/email-unread.png" width="22" height="18" alt="important mail" />
-                                IP:121.265.36.35
-                            </a>
-                            The Gartner Symposium/ITxpo in Barcelona takes place from November 9-13...
-                        </div>
+                        @{
+                            //List<System.Collections.Hashtable> feedList = new List<System.Collections.Hashtable>();
+                            //feedList = (List<System.Collections.Hashtable>)HttpContext.Current.Items["FeedBackList"];
 
+                            List<ZdtbSite.Model.Feedback> list = (List<ZdtbSite.Model.Feedback>)HttpContext.Current.Items["FeedBackList"];
+                        }
+                        @if (list != null)
+                        {
+                            for (int i = 0; i < list.Count; i++)
+                            {
+                                <div class="alert inbox">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        ×
+                                    </button>
+
+                                    <a href="javascript:void(0)">
+                                        <img src="/Areas/ZdtbAdmin/Content/img/email-important.png" width="22" height="18" alt="important mail" />
+                                        @list[i].Customer.IPAddress
+                                    </a>
+                                    @list[i].Content.strSub(0, 20, "...")
+                                </div>
+                            }
+                        }
                     </div>
                     <div class="divider"></div>
                 </aside>

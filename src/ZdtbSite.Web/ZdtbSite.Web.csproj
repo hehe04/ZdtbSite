@@ -720,6 +720,9 @@
     <Content Include="Areas\ZdtbAdmin\Content\sounds\messagebox.mp3" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\smallbox.mp3" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\sound-pop-clear.mp3" />
+    <Content Include="Content\Resoure\wkhtmltopdf.exe" />
+    <Content Include="Content\Resoure\wkhtmltox-win32.exe" />
+    <Content Include="Content\Resoure\wkhtmltox-win64.exe" />
     <Content Include="Global.asax" />
     <Content Include="HtmlTemplate\about.html" />
     <Content Include="HtmlTemplate\blog_large.html" />
@@ -1816,6 +1819,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
+    <Folder Include="Content\OutPutFile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">
