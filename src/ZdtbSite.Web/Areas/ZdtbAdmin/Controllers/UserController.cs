@@ -159,8 +159,15 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             unitOfWork.Commit();
             model.Success = true;
             model.RedirectUrl = CurrentUrl;
-            model.Msg = "成功分配权限，页面即将跳转";
-            Session["UserAssign"] = assign;
+            if (Id == LoginUserId)
+            {
+                model.Msg = "成功分配权限，页面即将跳转，自己用户请重新登录";
+                FormsAuthentication.SignOut();
+            }
+            else
+            {
+                model.Msg = "成功分配权限，页面即将跳转，用户须下次登录生效";
+            }
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
