@@ -11,12 +11,12 @@
 @section Header{
     @Scripts.Render("~/Script/ArticleIndex")
     @Styles.Render("~/Style/AboutIndex")
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-<link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
-<link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link href="~/Stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
     <script>
         $(function () {
             $('.clients_slider').bxSlider({
@@ -46,6 +46,9 @@
                 responsive: true,
                 invertHoverEffect: false
             });
+            $("#braintree-paypal-button").click(function () {
+                $("#Payform").submit();
+            });
         })
     </script>
 }
@@ -66,7 +69,7 @@
         <!-- blog entries full -->
         <div class="blog_entries blog_entries_full">
             <div style="min-height:400px">
-                <form class="form-horizontal" role="form" action="@Url.Action("Process")" method="post">
+                <form id="Payform" class="form-horizontal" role="form" action="@Url.Action("Process")" method="post">
                     <div class="form-group">
                         @*<label for="Name" class="col-md-2 control-label">姓名</label>*@
                         @Html.LabelFor(e => e.Name, new { @class = "col-md-2 control-label" })
@@ -113,7 +116,10 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <button type="submit" class="btn btn-default">Payment</button>
+                            <span style="font-weight: bold; color: #666;font-size: 13px;">Pay with &nbsp;</span>
+                            <a id="braintree-paypal-button" href="#" style="margin-top:10px;margin-left:10px; display: block; width: 115px; height: 44px; overflow: hidden;">
+                                <img src="~/Images/pay-with-paypal.png" style="max-width: 100%; display: block; width: 100%; height: 100%; outline: medium none; border: 0px none;" alt="Pay with PayPal" />
+                            </a>
                         </div>
                     </div>
                 </form>

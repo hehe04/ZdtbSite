@@ -76,7 +76,7 @@ INSERT INTO `basicinfoes` VALUES ('8', '天河区中山路XX号', 'companyAddres
 -- ----------------------------
 -- Records of customers
 -- ----------------------------
-INSERT INTO `customers` VALUES ('1', '123456', '192.168.1.123', '2014-12-12 21:43:13', '1',null,null,null);
+INSERT INTO `customers` VALUES ('1', '123456', '192.168.1.123', '2014-12-12 21:43:13', '1',null,null,null,null);
 
 
 -- ----------------------------
