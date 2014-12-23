@@ -1201,6 +1201,7 @@
     <Content Include="Images\moover\Thumbs.db" />
     <Content Include="Images\nivo\Thumbs.db" />
     <Content Include="Images\obo\Thumbs.db" />
+    <Content Include="Images\pay-with-paypal.png" />
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />

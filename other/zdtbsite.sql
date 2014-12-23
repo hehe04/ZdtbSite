@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
@@ -57,7 +57,14 @@ INSERT INTO `articles` VALUES ('48', 'Going Beyond Wind and Solar Farms', null, 
 -- ----------------------------
 -- Records of basicinfoes
 -- ----------------------------
-INSERT INTO `basicinfoes` VALUES ('1', 'value ', 'test');
+INSERT INTO `basicinfoes` VALUES ('1', 'leixiangyang@foxmail.com', 'mailUser','邮件发送账户');
+INSERT INTO `basicinfoes` VALUES ('2', 'woshuo023.', 'mailPwd','邮件发送账户密码');
+INSERT INTO `basicinfoes` VALUES ('3', 'smtp.qq.com', 'mailServer','邮件发送服务');
+INSERT INTO `basicinfoes` VALUES ('4', '25', 'mailPort','邮件发送端口');
+INSERT INTO `basicinfoes` VALUES ('5', 'xxxx有限公司', 'companyName','公司名称');
+INSERT INTO `basicinfoes` VALUES ('6', '020-12341234', 'companyPhone','公司电话');
+INSERT INTO `basicinfoes` VALUES ('7', '020-43214321', 'companyFax','公司传真');
+INSERT INTO `basicinfoes` VALUES ('8', '天河区中山路XX号', 'companyAddress','公司地址');
 
 
 
@@ -69,7 +76,7 @@ INSERT INTO `basicinfoes` VALUES ('1', 'value ', 'test');
 -- ----------------------------
 -- Records of customers
 -- ----------------------------
-INSERT INTO `customers` VALUES ('1', '123456', '192.168.1.123', '2014-12-12 21:43:13', '1',null,null,null);
+INSERT INTO `customers` VALUES ('1', '123456', '192.168.1.123', '2014-12-12 21:43:13', '1',null,null,null,null);
 
 
 -- ----------------------------
@@ -86,16 +93,16 @@ INSERT INTO `feedbacks` VALUES ('5', '测试测试测试测试测试测试测试
 -- ----------------------------
 -- Records of producttypes
 -- ----------------------------
-INSERT INTO `producttypes` VALUES ('1', 'Power Trasformer', '-1', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('2', 'Dry type Power Trasformer', '1', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('3', 'Oil Immersed Power Trasformer', '1', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('4', 'Switchgear', '-1', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('5', 'High Voltage Switchgear', '4', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('6', 'Low Voltage Switchgear', '4', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('7', 'Europea type Box Substatio', '13', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('8', 'America type Box Substatio', '13', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('9', 'Box Substatio', '-1', 'sa', '2014-01-01 00:00:00', '1');
-INSERT INTO `producttypes` VALUES ('10', 'Electrical products', '-1', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('1', 'Power Trasformer', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('2', 'Dry type Power Trasformer', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('3', 'Oil Immersed Power Trasformer', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('4', 'Switchgear', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('5', 'High Voltage Switchgear', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('6', 'Low Voltage Switchgear', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('7', 'Europea type Box Substatio', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('8', 'America type Box Substatio', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('9', 'Box Substatio', '0', 'sa', '2014-01-01 00:00:00', '1');
+INSERT INTO `producttypes` VALUES ('10', 'Electrical products', '0', 'sa', '2014-01-01 00:00:00', '1');
 
 -- ----------------------------
 -- Records of products
