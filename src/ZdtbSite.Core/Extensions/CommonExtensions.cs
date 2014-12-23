@@ -28,8 +28,11 @@ namespace ZdtbSite
         public static string strSub(this string str, int startIndex, int endIndex, string paddingStr)
         {
             string resStr = str;
-            if (endIndex - startIndex < str.Length) resStr = str.Substring(startIndex, endIndex);
-            if (!string.IsNullOrEmpty(paddingStr)) resStr += paddingStr;
+            if (!string.IsNullOrEmpty(str))
+            {
+                if (endIndex - startIndex < str.Length) resStr = str.Substring(startIndex, endIndex);
+                if (!string.IsNullOrEmpty(paddingStr)) resStr += paddingStr;
+            }
             return resStr;
         }
     }
