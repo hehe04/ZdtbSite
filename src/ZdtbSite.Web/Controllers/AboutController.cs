@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
+using ZdtbSite.Web.ActionFilters;
 using ZdtbSite.Web.Models;
 
 namespace ZdtbSite.Web.Controllers
@@ -53,6 +54,7 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
+        //[ClientVisit]
         [HttpPost]
         public ActionResult ContactUs(MessageViewModel model)
         {
