@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using ZdtbSite.Model;
 
 namespace ZdtbSite
 {
@@ -19,10 +20,23 @@ namespace ZdtbSite
         /// 得到客户头像的地址
         /// </summary>
         /// <param name="index"></param>
-        /// <returns></returns>
+        /// <returns></returns>Customer
         public static string GetHeaderPath(this string index)
         {
             return string.Format(@"/Areas/ZdtbAdmin/Content/img/avatar/avatar_{0}.jpg", index);
+        }
+
+        /// <summary>
+        /// 设置用户的头像
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        public static string SetHeaderPath(this Customer customer)
+        {
+            Random rand = new Random();
+            string pathIndex = rand.Next(0, 9).ToString();
+            customer.HeaderPath = pathIndex;
+            return pathIndex;
         }
 
         public static string strSub(this string str, int startIndex, int endIndex, string paddingStr)

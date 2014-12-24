@@ -9,6 +9,11 @@
     <link rel="apple-touch-icon" href="/HtmlTemplate/images/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/HtmlTemplate/images/apple-touch-icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="114x114" href="/HtmlTemplate/images/apple-touch-icon-114x114.png" />
+    <style>
+        .field-validation-error {
+            color:red;
+        }
+    </style>
     @Scripts.Render("~/Scripts/HomeLayout")
     @Scripts.Render("~/Script/unobtrusive")
     @RenderSection("Header", false)
@@ -126,9 +131,35 @@
                 <h3><span>Stay Connected</span></h3>
                 @using (Ajax.BeginForm("ContactUs", "About", new AjaxOptions() { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))
                 {
-                    <p>@Html.TextBox("Name", null, new { id = "name", placeholder = "NAME ..." })@Html.ValidationMessage("Name")</p>
-                    <p>@Html.TextBox("Email", null, new { id = "email", placeholder = "EMAIL ..." })@Html.ValidationMessage("Email")</p>
-                    <p>@Html.TextBox("Message", null, new { id = "message", placeholder = "MESSAGE ..." })@Html.ValidationMessage("Message")</p>
+                    Dictionary<string, object> namedic = new Dictionary<string, object>();
+                    Dictionary<string, object> emaildic = new Dictionary<string, object>();
+                    Dictionary<string, object> messagedic = new Dictionary<string, object>();
+                    namedic.Add("id", "name");
+                    namedic.Add("placeholder", "NAME ...");
+                    namedic.Add("data-val", "true");
+                    namedic.Add("data-val-required", "!");
+
+
+                    emaildic.Add("id", "email");
+                    emaildic.Add("placeholder", "EMAIL ...");
+                    emaildic.Add("data-val-regex-pattern", @"[\d\w]+@[\d\w]+\.[\d\w]+");
+                    emaildic.Add("data-val-regex", "!");
+                    emaildic.Add("data-val", "true");
+                    emaildic.Add("data-val-required", "!");
+
+
+                    messagedic.Add("id", "message");
+                    messagedic.Add("placeholder", "MESSAGE ...");
+                    messagedic.Add("data-val", "true");
+                    messagedic.Add("data-val-required", "!");
+                    
+
+                    @*<p>@Html.TextBox("Name", null, new { id = "name", placeholder = "NAME ..." })@Html.ValidationMessage("Name")</p>
+                        <p>@Html.TextBox("Email", null, new { id = "email", placeholder = "EMAIL ..." })@Html.ValidationMessage("Email")</p>
+                        <p>@Html.TextBox("Message", null, new { id = "message", placeholder = "MESSAGE ..." })@Html.ValidationMessage("Message")</p>*@
+                    <p>@Html.TextBox("Name", null, namedic)@Html.ValidationMessage("Name")</p>
+                    <p>@Html.TextBox("Email", null, emaildic)@Html.ValidationMessage("Email")</p>
+                    <p>@Html.TextBox("Message", null, messagedic)@Html.ValidationMessage("Message")</p>
                     <p><input type="submit" value="Subscribe" /></p>
                 }
                 <script type="text/javascript">
