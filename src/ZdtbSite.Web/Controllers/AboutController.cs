@@ -57,7 +57,7 @@ namespace ZdtbSite.Web.Controllers
         public ActionResult ContactUs(MessageViewModel model)
         {
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) return ReturnView();
 
             var feedbacks = new List<Feedback>()
             {
@@ -94,6 +94,15 @@ namespace ZdtbSite.Web.Controllers
 
             _unitOfWork.Commit();
 
+            return ReturnView();
+        }
+
+        private ActionResult ReturnView()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return Json("ok");
+            }
             return View();
         }
     }
