@@ -1,0 +1,67 @@
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.FeedbackViewModel
+@using ZdtbSite;
+@using ZdtbSite.Web.Areas.ZdtbAdmin.Models;
+
+@{
+    ViewBag.Title = "客户追踪 > " + Model.Customer.ContactsName;
+}
+
+@section PageHeader{
+    客户追踪 > @Model.Customer.ContactsName
+}
+<div class="fluid-container">
+
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <div class="jarviswidget" id="widget-id-2" role="widget">
+                    <header>
+                        <h2>留言信息</h2>
+                    </header>
+                    <div>
+                        <div class="inner-spacer chat-widget widget-content-padding">
+                            <ul id="myChat" class="nav nav-tabs chat-tabs">
+                                <li class="active">
+                                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                    <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
+                                </li>
+                            </ul>
+                            <div id="myChatTab" class="tab-content chat-content">
+                                <div class="tab-pane fade in active" id="user1">
+                                    <div class="chat-messages">
+                                        <p id="message-id-1" class="message-box">
+                                            <a href="#">
+                                                <img src="@Model.Customer.HeaderPath.GetHeaderPath()" alt="">
+                                            </a>
+                                            <span class="message">
+                                                <strong>IP：@Model.Customer.IPAddress 姓名：@Model.Customer.ContactsName 电话：@Model.Mobile</strong>
+                                                <span class="message-time">@Model.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                                <span class="message-text">@Model.Content</span>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row chat-box">
+                                <textarea name="enter-message" rows="3" cols="1" placeholder="请输入回复消息..." id="chat-box-textarea"></textarea>
+                                <div class="row">
+                                    @*<div class="col-md-6 type-effect" style="display:none"><img src="~/Areas/ZdtbAdmin/Content/img/loaders/misc/16-2.gif" alt=""> Victoria is typing...</div>*@
+                                    <div class="col-md-6 chat-box-buttons pull-right">
+                                        <input type="submit" name="chat-box-textarea" class="btn medium btn-danger pull-right" value="回复" id="send-msg-js">
+                                        <a href="javascript:void(0);" title="" class="pull-right"><i class="icon-camera"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                   
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+@section script{
+
+}

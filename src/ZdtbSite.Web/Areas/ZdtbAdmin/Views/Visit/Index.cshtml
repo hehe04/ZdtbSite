@@ -30,6 +30,7 @@
                                         <th>访客邮件</th>
                                         <th>手机号</th>
                                         <th>是否发送</th>
+                                        <th>地理位置</th>
                                         <th>浏览时间</th>
                                     </tr>
                                 </thead>
@@ -46,6 +47,7 @@
                                             <td>@item.VisitorMail</td>
                                             <td>@item.VisitorPhone</td>
                                             <td>@(item.IsSendToMail ? "已发送" : "未发送")</td>
+                                            <td>@string.Format("{0} {1} {2} {3}", item.Country, item.City, item.District, item.Area)</td>
                                             <td>@item.VisitDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
                                         </tr>
                                     }

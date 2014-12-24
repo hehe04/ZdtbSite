@@ -11,6 +11,12 @@ namespace ZdtbSite.Web
                 "~/scripts/jquery.min.js",
                 "~/scripts/js_func.js"
                 ));
+            bundles.Add((new ScriptBundle("~/Script/unobtrusive").Include(
+                "~/Scripts/jquery.validate.min.js",
+                "~/Scripts/jquery.validate.unobtrusive.min.js",
+                "~/Scripts/jquery.unobtrusive-ajax.min.js")
+                ));
+
             bundles.Add(new ScriptBundle("~/Script/HomeIndex").Include(
                 "~/scripts/jquery.bxSlider.min.js",
                 "~/scripts/jquery.onebyone.min.js",
@@ -25,9 +31,7 @@ namespace ZdtbSite.Web
                 ));
             bundles.Add(new ScriptBundle("~/Script/AboutIndex").Include(
                 "~/scripts/jquery.bxSlider.min.js",
-                "~/scripts/jquery.blackandwhite.min.js",                 
-                "~/Scripts/jquery.validate.min.js",
-                "~/Scripts/jquery.validate.unobtrusive.min.js"
+                "~/scripts/jquery.blackandwhite.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Style/AboutIndex").Include(
                 "~/Stylesheets/googleFonts.css",

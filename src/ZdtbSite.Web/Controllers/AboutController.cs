@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
+using ZdtbSite.Web.ActionFilters;
 using ZdtbSite.Web.Models;
 
 namespace ZdtbSite.Web.Controllers
@@ -35,11 +36,15 @@ namespace ZdtbSite.Web.Controllers
         {
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
             ViewBag.ContentType = _contentType.GetManyAsNoTracking(x => x.PrentId == 1);
+            ViewBag.ActionName = "TechnologySupportIndex";
             return View();
         }
 
         public ActionResult TechnologySupportDetail()
         {
+            ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
+            ViewBag.ContentTypes = _contentType.GetManyAsNoTracking(x => x.PrentId == 1);
+            ViewBag.ActionName = "TechnologySupportIndex";
             return View();
         }
 
@@ -49,11 +54,12 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
+        //[ClientVisit]
         [HttpPost]
         public ActionResult ContactUs(MessageViewModel model)
         {
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) return ReturnView();
 
             var feedbacks = new List<Feedback>()
             {
@@ -90,6 +96,15 @@ namespace ZdtbSite.Web.Controllers
 
             _unitOfWork.Commit();
 
+            return ReturnView();
+        }
+
+        private ActionResult ReturnView()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return Json("ok");
+            }
             return View();
         }
     }

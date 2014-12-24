@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<ZdtbSite.Model.ContentType>
 @{
     IEnumerable<ZdtbSite.Web.Models.ProductViewModel> ProductRecommendList = ViewBag.ProductRecommendList;
+    var controllerName = Context.Request.RequestContext.RouteData.GetRequiredString("controller");
+    string actionName = ViewBag.ActionName;
 }
 
 <!-- sidebar -->
@@ -21,7 +23,7 @@
                 <ul>
                     @foreach (var contentype in Model)
                     {
-                        <li><a href="@Url.Action("TechnologySupportIndex", "about", new { catelog = contentype.Id })">@contentype.Name</a></li>
+                        <li><a href="@Url.Action(actionName, controllerName, new { catelog = contentype.Id })">@contentype.Description</a></li>
                     }
                 </ul>
             </div>

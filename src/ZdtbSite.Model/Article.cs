@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZdtbSite.Model
 {
-    [Table("articles")]
     public class Article
     {
         [Key]
@@ -30,7 +29,7 @@ namespace ZdtbSite.Model
         /// <summary>
         /// 内容
         /// </summary>
-        [Column(TypeName = "longText")]
+        [Column(TypeName = "nText")]
         [MaxLength]
         public string Content { get; set; }
 

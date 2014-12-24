@@ -3,6 +3,7 @@
 @{
     Random rand = new Random();
 }
+@using ZdtbSite;
 <div>
     <div class="inner-spacer chat-widget widget-content-padding">
         <ul id="myChat" class="nav nav-tabs chat-tabs">
@@ -26,11 +27,11 @@
                             if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Message)
                             {
                                 <p id="message-id-@item.Id" class="message-box">
-                                    <a href="#">
-                                        <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                    <a href="@Url.Action("Reply", "Feedback", new { id = item.Id })">
+                                    <img src="@item.Customer.HeaderPath.GetHeaderPath()" alt="">
                                     </a>
                                     <span class="message">
-                                        <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                        <strong>IP：@item.Customer.IPAddress 姓名：@item.Customer.ContactsName 电话：@item.Mobile</strong>
                                         <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
                                         <span class="message-text">@item.Content</span>
                                     </span>
@@ -66,4 +67,3 @@
         </div>
     </div>
 </div>
-

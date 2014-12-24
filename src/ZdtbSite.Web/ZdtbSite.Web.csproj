@@ -1201,6 +1201,7 @@
     <Content Include="Images\moover\Thumbs.db" />
     <Content Include="Images\nivo\Thumbs.db" />
     <Content Include="Images\obo\Thumbs.db" />
+    <Content Include="Images\pay-with-paypal.png" />
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />
@@ -1241,8 +1242,8 @@
     <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Customer\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Shared\FeedbackPage.cshtml" />
-    <Content Include="Areas\Web.config" />
     <Content Include="Areas\ZdtbAdmin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Feedback\Reply.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />

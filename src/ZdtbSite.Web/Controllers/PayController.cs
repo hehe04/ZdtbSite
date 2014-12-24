@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Helper;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
 using ZdtbSite.Web.Models;
@@ -182,6 +183,7 @@ namespace ZdtbSite.Web.Controllers
                     {
                         contractModel.IsSuccess = true;
                         unitOfWork.Commit();
+                        ///TODO发送邮件；用户跟管理员
                         msg = "Payment success!";
                     }
                 }
