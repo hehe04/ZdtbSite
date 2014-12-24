@@ -35,11 +35,15 @@ namespace ZdtbSite.Web.Controllers
         {
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
             ViewBag.ContentType = _contentType.GetManyAsNoTracking(x => x.PrentId == 1);
+            ViewBag.ActionName = "TechnologySupportIndex";
             return View();
         }
 
         public ActionResult TechnologySupportDetail()
         {
+            ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
+            ViewBag.ContentTypes = _contentType.GetManyAsNoTracking(x => x.PrentId == 1);
+            ViewBag.ActionName = "TechnologySupportIndex";
             return View();
         }
 

@@ -1,6 +1,7 @@
 ﻿@using System.Web.Optimization
 @{
     ViewBag.Title = "TechnologySupportDetail";
+    IEnumerable<ZdtbSite.Model.ContentType> contentTypes = ViewBag.ContentTypes;
 }
 
 @section Header{
@@ -54,7 +55,7 @@
     <!-- /top_title -->
     <div class="wraper">
         @Html.Partial("_Detail")
-        @Html.Partial("_DetailSidebar")
+        @Html.Partial("_DetailSidebar", contentTypes, ViewData)
     </div>
 </div>
 

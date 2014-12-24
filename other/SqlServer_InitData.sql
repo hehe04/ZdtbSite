@@ -40,9 +40,9 @@ SET IDENTITY_INSERT [dbo].[AdminMenus] OFF
 -- ----------------------------
 -- Records of contenttypes
 -- ----------------------------
-INSERT INTO contenttypes VALUES ('技术文章', '公司技术信息解说', '0');
-INSERT INTO contenttypes VALUES ('行业新闻', '同行业的新闻', '0');
-INSERT INTO contenttypes VALUES ('公司新闻', '公司的最新新闻冬天', '0');
+INSERT INTO contenttypes VALUES ('技术文章', 'Technology Article', '0');
+INSERT INTO contenttypes VALUES ('行业新闻', 'Industry News', '0');
+INSERT INTO contenttypes VALUES ('公司新闻', 'Company News', '0');
 
 -- ----------------------------
 -- Records of articles

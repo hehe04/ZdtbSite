@@ -27,7 +27,8 @@ namespace ZdtbSite.Web.Controllers
         public ActionResult Detail(int id)
         {
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
-            ViewBag.ContentTypes = _contentTypeRepository.GetAllAsNoTracking();
+            ViewBag.ContentTypes = _contentTypeRepository.GetManyAsNoTracking(x => x.Id == 2 || x.Id == 3);
+            ViewBag.ActionName = "Index";
             return View();
         }
     }
