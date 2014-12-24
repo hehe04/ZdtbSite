@@ -7,8 +7,6 @@
     ViewBag.Title = "客户追踪 > 客户信息";
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
-    Random rand = new Random();
-    string img = rand.Next(0, 9) + ".jpg";
 }
 
 <div class="fluid-container">
@@ -69,7 +67,7 @@
                                                 @Html.HiddenFor(e => e.Id)
                                                 @Html.HiddenFor(e => e.CreateTime)
                                                 @Html.HiddenFor(e => e.Count)
-                                                @Html.HiddenFor(e=>e.IPAddress)
+                                                @Html.HiddenFor(e => e.IPAddress)
                                                 <button type="reset" name="name" class="btn btn-danger">
                                                     <i class="icon-repeat icon-white"></i> 重置
                                                 </button>
@@ -97,39 +95,7 @@
                     </header>
                     @Html.Partial("FeedbackPage",
                     AutoMapper.Mapper.Map<List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.FeedbackViewModel>,
-                                        List<ZdtbSite.Model.Feedback>>(Model.Feedbacks.OrderByDescending(e => e.CreateTime).Take(10).ToList()))
-                    @*<div>
-                            <div class="inner-spacer chat-widget widget-content-padding">
-                                <ul id="myChat" class="nav nav-tabs chat-tabs">
-                                    <li class="active">
-                                        <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
-                                        <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
-                                    </li>
-                                </ul>
-                                <div id="myChatTab" class="tab-content chat-content">
-                                    <div class="tab-pane fade in active" id="user1">
-                                        <div class="chat-messages">
-                                            @foreach (var item in Model.Feedbacks.OrderByDescending(e => e.CreateTime).Take(10))
-                                            {
-                                                if (item.FeedbackType == ZdtbSite.Web.Areas.ZdtbAdmin.Models.FeedbackType.Message)
-                                                {
-                                                    <p id="message-id-@item.Id" class="message-box">
-                                                        <a href="#">
-                                                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
-                                                        </a>
-                                                        <span class="message">
-                                                            <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
-                                                            <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
-                                                            <span class="message-text">@item.Content</span>
-                                                        </span>
-                                                    </p>
-                                                }
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*@
+                                        List<ZdtbSite.Model.Feedback>>(Model.Feedbacks.OrderByDescending(e => e.CreateTime).Take(100).ToList()))
                 </div>
             </article>
         </div>
