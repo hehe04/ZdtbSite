@@ -74,7 +74,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
 
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
-            model.ContentTyepId = 2;
+            model.ContentTypeId = 2;
             model.OriginArticlesType = OriginArticlesType.Web;
             model.UpdateDateTime = DateTime.Now;
             articleRepository.Update(model);
@@ -146,7 +146,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                         model.PublisherDateTime = DateTime.Now;
                         model.Title = item.Groups[2].Value;
                         model.Tag = item.Groups[2].Value;
-                        model.ContentTyepId = 2;
+                        model.ContentTypeId = 2;
                         content = client.DownloadString(item.Groups[1].Value);
                         model.Content = regexcontent.Match(content).Groups[0].Value;
                         articleRepository.Add(model);

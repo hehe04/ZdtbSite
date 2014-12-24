@@ -33,10 +33,10 @@ namespace ZdtbSite.Model
         [MaxLength]
         public string Content { get; set; }
 
-        [ForeignKey("ContentTyepId")]
+        [ForeignKey("ContentTypeId")]
         public virtual ContentType ContentType { get; set; }
 
-        public int ContentTyepId { get; set; }
+        public int ContentTypeId { get; set; }
 
         [StringLength(256)]
         public string Tag { get; set; }

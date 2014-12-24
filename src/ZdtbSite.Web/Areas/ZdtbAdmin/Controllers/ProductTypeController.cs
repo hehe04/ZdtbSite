@@ -63,7 +63,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 StringBuilder currentTypeName = new StringBuilder();
                 for (int i = nameList.Count; i > 0; i--)
                 {
-                    currentTypeName.Append(nameList[i - 1] + ">");
+                    currentTypeName.Append(nameList[i - 1] + " > ");
                 }
                 results.Add(item.Id.ToString(), currentTypeName.ToString() + item.TypeName);
                 var result = BindDropDownList(item.Id, list);

@@ -12,6 +12,8 @@ using Admin = ZdtbSite.Web.Areas.ZdtbAdmin.Models;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
+    [ValidateInput(false)]
+    [Authorize(Users = "")]
     public class ProductController : BaseController
     {
         private readonly IRepository<Product> productRepository;
