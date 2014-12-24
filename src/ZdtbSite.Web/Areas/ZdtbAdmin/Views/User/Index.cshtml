@@ -59,7 +59,7 @@
                                             <td>
                                                 <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
                                             </td>
-                                            <td>@item.UserName</td>
+                                            <td><a href="@Url.Action("Modify", new {id=item.Id })">@item.UserName</a></td>
                                             <td>@item.Email</td>
                                             <td>@item.Mobile</td>
                                             <td>@(item.IsActive ? "是" : "否")</td>

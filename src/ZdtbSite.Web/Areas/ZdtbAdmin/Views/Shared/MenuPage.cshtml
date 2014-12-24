@@ -1,4 +1,4 @@
-﻿<ul class="menu" id="accordion-menu-js">
+﻿<ul class="menu ctAccordion" id="accordion-menu-js">
     @{
         List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel> menus = HttpContext.Current.Application.Get("MenuList") as List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.AdminMenuViewModel>;
         string assign = HttpContext.Current.Items["AuthorityUrl"] as string;
@@ -46,10 +46,10 @@
                         <i class="@item.Icon"></i>
                     }
                     @item.Name
-                    @*if (existscount > 0)
-                    {
-                        <span class="badge">@existscount</span>
-                    }*@
+                                @*if (existscount > 0)
+                                    {
+                                        <span class="badge">@existscount</span>
+                                    }*@
 
                             }
                         </a>

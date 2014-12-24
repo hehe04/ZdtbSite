@@ -15,11 +15,24 @@ namespace ZdtbSite
             return BitConverter.ToString(hashmd5.ComputeHash(Encoding.UTF8.GetBytes(str))).Replace("-", "").ToUpper();
         }
 
+        /// <summary>
+        /// 得到客户头像的地址
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static string GetHeaderPath(this string index)
+        {
+            return string.Format(@"/Areas/ZdtbAdmin/Content/img/avatar/avatar_{0}.jpg", index);
+        }
+
         public static string strSub(this string str, int startIndex, int endIndex, string paddingStr)
         {
             string resStr = str;
-            if (endIndex - startIndex < str.Length) resStr = str.Substring(startIndex, endIndex);
-            if (!string.IsNullOrEmpty(paddingStr)) resStr += paddingStr;
+            if (!string.IsNullOrEmpty(str))
+            {
+                if (endIndex - startIndex < str.Length) resStr = str.Substring(startIndex, endIndex);
+                if (!string.IsNullOrEmpty(paddingStr)) resStr += paddingStr;
+            }
             return resStr;
         }
     }

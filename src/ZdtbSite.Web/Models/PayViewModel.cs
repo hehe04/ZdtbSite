@@ -9,22 +9,25 @@ namespace ZdtbSite.Web.Models
 {
     public class PayViewModel
     {
-        [Display(Name = "姓名")]
-        [Required(ErrorMessage = "必须输入姓名.")]
+        [Display(Name = "Name")]
+        [Required(ErrorMessage = "You must enter a name.")]
         public string Name { get; set; }
 
-        [Display(Name = "邮箱")]
-        [Required(ErrorMessage = "必须输入邮箱.")]
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "You must enter a mail.")]
         [DataType(System.ComponentModel.DataAnnotations.DataType.EmailAddress)]
-        [RegularExpression("[\\d\\w]+@[\\d\\w]+\\.[\\d\\w]+", ErrorMessage = "请输入正确的邮箱地址")]
+        [RegularExpression("[\\d\\w]+@[\\d\\w]+\\.[\\d\\w]+", ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
 
-        [Display(Name = "联系方式")]
-        [Required(ErrorMessage = "必须输入联系方式.")]
+        [Display(Name = "Phone")]
+        [Required(ErrorMessage = "You must enter the phone.")]
+        //[Phone(ErrorMessage="Please enter a valid phone.")]
+        [RegularExpression(@"^\s*\+?\s*(\(\s*\d+\s*\)|\d+)(\s*-?\s*(\(\s*\d+\s*\)|\s*\d+\s*))*\s*$", ErrorMessage = "Please enter a valid phone.")]
         public string Phone { get; set; }
 
-        [Display(Name = "预付款")]
-        [Required(ErrorMessage = "必须输入联系预付款.")]
+        [Display(Name = "Advance payment")]
+        [Required(ErrorMessage = "You must enter a contact prepayments.")]
+        [RegularExpression(@"^((\d+)||(\d+\.\d{1,2}))$", ErrorMessage = "Please enter the correct amount.")]
         public decimal Amount { get; set; }
 
         public string AttachData { get; set; }

@@ -29,6 +29,12 @@ namespace ZdtbSite.Model
         public string Phone { get; set; }
 
         /// <summary>
+        /// 用户头像，系统随机生成0-8数字作为头像索引 
+        /// </summary>
+        [StringLength(64)]
+        public string HeaderPath { get; set; }
+
+        /// <summary>
         /// 联系人
         /// </summary>
         public string ContactsName { get; set; }

@@ -10,13 +10,13 @@
         <a class="btn btn-primary" href="@Url.Action("Add")">
             <i class="icon-ok-sign icon-white"></i> 添加
         </a>
-        <a class="btn btn-primary" href="@Url.Action("sendEmailTest")">
-            <i class="icon-ok-sign icon-white"></i> 发送邮件
-        </a>
+        @*<a class="btn btn-primary" href="@Url.Action("sendEmailTest")">
+                <i class="icon-ok-sign icon-white"></i> 发送邮件
+            </a>
 
-        <a class="btn btn-danger addClick" id="btnToPDF" data-rel="@Url.Action("GetProductPDF")">
-            <i class="icon-remove icon-white"></i> ToPDF
-        </a>
+            <a class="btn btn-danger addClick" id="btnToPDF" data-rel="@Url.Action("GetProductPDF")">
+                <i class="icon-remove icon-white"></i> ToPDF
+            </a>*@
     </div>
 
 
@@ -34,21 +34,21 @@
                             <!-- content goes here -->
                             @foreach (var item in Model)
                             {
-                            <form class="form-horizontal themed" method="post" action="@Url.Action("Save")">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                @Html.HiddenFor(m => item.Id)
-                                                @Html.HiddenFor(m => item.Key)
-                                                @item.Key
+                                <form class="form-horizontal themed" method="post" action="@Url.Action("Save")">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    @Html.HiddenFor(m => item.Id)
+                                                    @Html.HiddenFor(m => item.Key)
+                                                    @item.Description
                                             </div>
                                             <div class="col-md-7">
                                                 @Html.TextBoxFor(m => item.Value, new { @class = "form-control", autofocus = "" })
                                                 @Html.ValidationMessageFor(m => item.Value)
                                             </div>
                                             <div class="col-lg-3">
-                                                <button type="submit" name="name" class="btn btn-primary">
+                                                <button type="submit" name="name" class="btn btn-warning addClick">
                                                     <i class="icon-ok-sign icon-white"></i> 更新
                                                 </button>
                                                 <a class="btn btn-danger addClick" name="btnDelete" value="@item.Id">
@@ -60,7 +60,7 @@
                                     </div>
                                 </fieldset>
                             </form>
-                            <hr style=" width:100%;" />
+                                <hr style=" width:100%;" />
                             }
                         </div>
 

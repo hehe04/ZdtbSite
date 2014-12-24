@@ -1201,6 +1201,7 @@
     <Content Include="Images\moover\Thumbs.db" />
     <Content Include="Images\nivo\Thumbs.db" />
     <Content Include="Images\obo\Thumbs.db" />
+    <Content Include="Images\pay-with-paypal.png" />
     <Content Include="Images\portfolio\Thumbs.db" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\services_process\Thumbs.db" />
@@ -1239,6 +1240,10 @@
     <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Customer\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Shared\FeedbackPage.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Feedback\Reply.cshtml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1695,6 +1700,7 @@
     <Compile Include="Areas\ZdtbAdmin\Controllers\CompanyNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
@@ -1710,6 +1716,9 @@
     <Compile Include="Areas\ZdtbAdmin\Models\AdminMenuViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ArticleViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\BasicInfoViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\ContractViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\CustomerViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\FeedbackViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\RecruitmentViewModel.cs" />

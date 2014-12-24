@@ -36,6 +36,15 @@ namespace ZdtbSite.Web
             AutoMapper.Mapper.CreateMap<Recruitment, Admin.RecruitmentViewModel>();
 
             AutoMapper.Mapper.CreateMap<Product, ProductViewModel>().ForMember(x => x.ProductTypeName, opt => opt.MapFrom(source => source.ProductType.TypeName));
+
+            AutoMapper.Mapper.CreateMap<Customer, Admin.CustomerViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.CustomerViewModel, Customer>();
+
+            AutoMapper.Mapper.CreateMap<Feedback, Admin.FeedbackViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.FeedbackViewModel, Feedback>();
+
+            AutoMapper.Mapper.CreateMap<Contract, Admin.ContractViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.ContractViewModel, Contract>();
         }
     }
 }

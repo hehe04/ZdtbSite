@@ -1,0 +1,69 @@
+﻿@model ICollection<ZdtbSite.Model.Feedback>
+
+@{
+    Random rand = new Random();
+}
+@using ZdtbSite;
+<div>
+    <div class="inner-spacer chat-widget widget-content-padding">
+        <ul id="myChat" class="nav nav-tabs chat-tabs">
+            <li class="active">
+                @*<button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>*@
+                <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
+            </li>
+            @*<li>
+                    <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                    <a href="#user2" data-toggle="tab"><i class="away"></i>留言问题</a>
+                </li>*@
+        </ul>
+        <div id="myChatTab" class="tab-content chat-content">
+            <div class="tab-pane fade in active" id="user1">
+                <div class="chat-messages">
+                    @foreach (var key in Model.GroupBy(e => e.CustomerId).Select(e => e.Key))
+                    {
+                        string img = rand.Next(0, 9) + ".jpg";
+                        foreach (var item in Model.Where(e => e.CustomerId == key))
+                        {
+                            if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Message)
+                            {
+                                <p id="message-id-@item.Id" class="message-box">
+                                    <a href="@Url.Action("Reply", "Feedback", new { id = item.Id })">
+                                    <img src="@item.Customer.HeaderPath.GetHeaderPath()" alt="">
+                                    </a>
+                                    <span class="message">
+                                        <strong>IP：@item.Customer.IPAddress 姓名：@item.Customer.ContactsName 电话：@item.Mobile</strong>
+                                        <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                        <span class="message-text">@item.Content</span>
+                                    </span>
+                                </p>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            @*<div class="tab-pane fade" id="user2">
+                    <div class="chat-messages">
+                        @foreach (var item in Model)
+                        {
+                            if (item.FeedbackType == ZdtbSite.Model.FeedbackType.Question)
+                            {
+                                string img = rand.Next(0, 9) + ".jpg";
+
+                                <p id="message-id-@item.Id" class="message-box">
+                                    <a href="#">
+                                        <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                    </a>
+                                    <span class="message">
+                                        <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                        <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                        <span class="message-text">@item.Content</span>
+                                    </span>
+
+                                </p>
+                            }
+                        }
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</div>

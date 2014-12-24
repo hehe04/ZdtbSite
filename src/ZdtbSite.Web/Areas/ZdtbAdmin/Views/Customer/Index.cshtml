@@ -25,6 +25,7 @@
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
+                                        <th>姓名</th>
                                         <th>客户号</th>
                                         <th>网络地址</th>
                                         <th>邮件</th>
@@ -41,6 +42,7 @@
                                             <td>
                                                 <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
                                             </td>
+                                            <td><a href="@Url.Action("Modify", new { id = item.Id })">@item.ContactsName</a></td>
                                             <td>@item.Number</td>
                                             <td>@item.IPAddress</td>
                                             <td>@item.Email</td>

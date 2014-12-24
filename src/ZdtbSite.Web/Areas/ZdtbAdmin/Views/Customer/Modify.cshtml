@@ -1,0 +1,137 @@
+﻿@model ZdtbSite.Web.Areas.ZdtbAdmin.Models.CustomerViewModel
+
+@section PageHeader{
+    客户追踪 > 客户信息
+}
+@{
+    ViewBag.Title = "客户追踪 > 客户信息";
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Random rand = new Random();
+    string img = rand.Next(0, 9) + ".jpg";
+}
+
+<div class="fluid-container">
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-md-12">
+                <!-- new widget -->
+                <div class="jarviswidget" id="widget-id-0" role="widget">
+                    <header>
+                        <h2>客户信息</h2>
+                    </header>
+                    <div>
+
+                        <div class="inner-spacer">
+                            <!-- content goes here -->
+                            <form class="form-horizontal themed" method="post" action="@Url.Action("Modify")">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.ContactsName)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.ContactsName, new { @class = "form-control", autofocus = "", })
+                                                @Html.ValidationMessageFor(m => m.ContactsName)
+                                                @*<input type="text" class="form-control" id="input01" />*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Number)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Number)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Email)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Email)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.Phone)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Phone)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row" style="text-align:right">
+                                            <div class="col-md-12">
+                                                @Html.HiddenFor(e => e.Id)
+                                                @Html.HiddenFor(e => e.CreateTime)
+                                                @Html.HiddenFor(e => e.Count)
+                                                @Html.HiddenFor(e=>e.IPAddress)
+                                                <button type="reset" name="name" class="btn btn-danger">
+                                                    <i class="icon-repeat icon-white"></i> 重置
+                                                </button>
+                                                <button type="submit" name="name" class="btn btn-primary">
+                                                    <i class="icon-ok-sign icon-white"></i> 保存
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <section id="widget-grid" class="">
+        <div class="row">
+            @*<h1>@HttpContext.Current.Items["LoginUserName"]！您好，欢迎使用本系统！</h1>*@
+            <article class="col-md-12">
+                <div class="jarviswidget" id="widget-id-2" role="widget">
+                    <header>
+                        <h2>留言预览</h2>
+                    </header>
+                    @Html.Partial("FeedbackPage",
+                    AutoMapper.Mapper.Map<List<ZdtbSite.Web.Areas.ZdtbAdmin.Models.FeedbackViewModel>,
+                                        List<ZdtbSite.Model.Feedback>>(Model.Feedbacks.OrderByDescending(e => e.CreateTime).Take(10).ToList()))
+                    @*<div>
+                            <div class="inner-spacer chat-widget widget-content-padding">
+                                <ul id="myChat" class="nav nav-tabs chat-tabs">
+                                    <li class="active">
+                                        <button class="btn btn-mini pull-right chat-close-btn"><i class="icon-remove"></i></button>
+                                        <a href="#user1" data-toggle="tab"><i class="online"></i>留言板</a>
+                                    </li>
+                                </ul>
+                                <div id="myChatTab" class="tab-content chat-content">
+                                    <div class="tab-pane fade in active" id="user1">
+                                        <div class="chat-messages">
+                                            @foreach (var item in Model.Feedbacks.OrderByDescending(e => e.CreateTime).Take(10))
+                                            {
+                                                if (item.FeedbackType == ZdtbSite.Web.Areas.ZdtbAdmin.Models.FeedbackType.Message)
+                                                {
+                                                    <p id="message-id-@item.Id" class="message-box">
+                                                        <a href="#">
+                                                            <img src="/Areas/ZdtbAdmin/Content/img/avatar/avatar_@img" alt="">
+                                                        </a>
+                                                        <span class="message">
+                                                            <strong>IP：@item.Customer.IPAddress 电话：@item.Mobile</strong>
+                                                            <span class="message-time">@item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                                                            <span class="message-text">@item.Content</span>
+                                                        </span>
+                                                    </p>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

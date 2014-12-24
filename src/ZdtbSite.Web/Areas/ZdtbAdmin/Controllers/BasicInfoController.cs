@@ -12,7 +12,7 @@ using Mail = ZdtbSite.Core.Helper.EmailHelper;
 
 namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
-    public class BasicInfoController : Controller
+    public class BasicInfoController : BaseController
     {
         private string CurrentUrl { get { return Url.Action("Index", "BasicInfo"); } }
         private readonly IRepository<BasicInfo> BasicInfoRepository;

@@ -11,5 +11,7 @@ namespace ZdtbSite.Model
         public string Value { get; set; }
 
         public string Key { get; set; }
+
+        public string Description { get; set; }
     }
 }

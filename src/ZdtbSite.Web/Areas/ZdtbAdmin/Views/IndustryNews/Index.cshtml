@@ -94,7 +94,7 @@
                                             <td>
                                                 <input type="checkbox" value="@item.Id" name="name @item.Id" id="id @item.Id">
                                             </td>
-                                            <td>@item.Title</td>
+                                            <td><a href="@Url.Action("Modify", new {id=item.Id })">@item.Title</a></td>
                                             <td>@item.Tag</td>
                                             <td>@item.ContentType.Name</td>
                                             <td>@item.UpdateDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
