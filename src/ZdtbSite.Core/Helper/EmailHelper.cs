@@ -49,6 +49,7 @@ namespace ZdtbSite.Core.Helper
             {
                 mail.To.Add(emailList[i]);
             }
+            mail.BodyEncoding = UTF8Encoding.UTF8;
             mail.Subject = subject;
             mail.Body = content;
             mail.BodyEncoding = Encoding.Default;

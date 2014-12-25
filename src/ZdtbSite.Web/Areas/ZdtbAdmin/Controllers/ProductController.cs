@@ -37,7 +37,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Admin.ProductViewModel model = new Admin.ProductViewModel();
             var list = productRepository.GetAll().ToList();
-            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).BindDropDownList(0, productTypeRepository.GetAll().ToList());
+            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).GetDownList(0, productTypeRepository.GetAll().ToList());
             return View(model);
         }
 
@@ -122,7 +122,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
 
             var list = productTypeRepository.GetAll().ToList();
-            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).BindDropDownList(0, list);
+            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).GetDownList(0, list);
             return View(model);
         }
 

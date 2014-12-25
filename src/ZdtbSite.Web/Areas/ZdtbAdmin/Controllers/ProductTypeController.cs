@@ -42,9 +42,34 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Admin.ProductTypeViewModel model = new Admin.ProductTypeViewModel();
             var list = productTypeRepository.GetAll().ToList();
-            ViewBag.DropDownListResult = BindDropDownList(0, list);
+            ViewBag.DropDownListResult = GetDownList(0, list);
             return View(model);
         }
+
+        public Dictionary<string, string> GetDownList(int id, List<Model.ProductType> list)
+        {
+            Dictionary<string, string> results = new Dictionary<string, string>();
+            var serachList = list.Where(e => e.ParentId.Equals(id));
+            foreach (var item in serachList)
+            {
+                Model.ProductType model = item;
+                //string TypeName = "";
+                int lv = 0;
+                for (int i = 0; i < item.Level; i++)
+                {
+                    model = list.Where(e => e.Id == model.ParentId).FirstOrDefault();
+                    if (model != null) lv += 1;//nameList.Add(model.TypeName);
+                }
+                results.Add(item.Id.ToString(), "<label style=' margin-left:" + lv * 20 + "px;'>" + item.TypeName + "</label>");
+                var result = GetDownList(item.Id, list);
+                foreach (var item1 in result)
+                {
+                    results.Add(item1.Key, item1.Value);
+                }
+            }
+            return results;
+        }
+
 
         public Dictionary<string, string> BindDropDownList(int id, List<Model.ProductType> list)
         {
@@ -105,7 +130,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             ProductType ProductTypeInfo = productTypeRepository.GetById(id);
             Admin.ProductTypeViewModel viewModel = AutoMapper.Mapper.Map<Model.ProductType, Admin.ProductTypeViewModel>(ProductTypeInfo);
             var list = productTypeRepository.GetAll().ToList();
-            ViewBag.DropDownListResult = BindDropDownList(0, list);
+            ViewBag.DropDownListResult = GetDownList(0, list);
             return View(viewModel);
         }
 
