@@ -116,7 +116,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ProductViewModel model = AutoMapper.Mapper.Map<Model.Product, Admin.ProductViewModel>(ProductInfo);
             if (model.ImageUrl != null)
             {
-                ///绝对路径转成相对路径
+                //绝对路径转成相对路径
                 string tmpRootDir = Server.MapPath(Request.ApplicationPath.ToString());//获取程序根目录
                 string imagesurl2 = ProductInfo.ImageUrl.Replace(tmpRootDir, ""); //转换成相对路径
                 imagesurl2 = imagesurl2.Replace(@"\", @"/");

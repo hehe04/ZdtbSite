@@ -187,7 +187,7 @@ namespace ZdtbSite.Web.Controllers
                         unitOfWork.Commit();
                         string managerContent = string.Format("{0}客户给的预付款为：{1}", contractModel.Customer.ContactsName, contractModel.Prepayments);
                         string customerContent = string.Format("{0} Hello! Prepayment for：${1}", contractModel.Customer.ContactsName, contractModel.Prepayments);
-                        ///TODO发送邮件；用户跟管理员
+                        //TODO: 发送邮件；用户跟管理员
                         EmailHelper.SendEmail("Minnan Manager", "客户合同签订给预付款", managerContent);
                         EmailHelper.SendEmail(new List<string>() { contractModel.Customer.Email }, "Minnan Manager", "Minnan Payment Notification", customerContent);
                         msg = "Payment success!";

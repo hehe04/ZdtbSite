@@ -1120,6 +1120,7 @@
     <Content Include="HtmlTemplate\images\x.png" />
     <Content Include="Images\about_us\process-media-banner.jpg" />
     <Content Include="Images\about_us\Sales_Network.jpg" />
+    <Content Include="Images\blog\blog_01.jpg" />
     <Content Include="Images\Careers\ourteam.jpg" />
     <Content Include="Images\Cert\DSTUISO170952005_nEO_IMG.jpg" />
     <Content Include="Images\Cert\GOSTRISO90012008_nEO_IMG.jpg" />
@@ -1536,6 +1537,7 @@
     <Content Include="Images\social\social_shadow.png" />
     <Content Include="Images\social\white_dot.png" />
     <Content Include="Images\sprite.png" />
+    <Content Include="Images\substation-350x255.jpg" />
     <Content Include="Images\testimonials\index.html" />
     <Content Include="Images\testimonials\testimonials1.png" />
     <Content Include="Images\testimonials\testimonials2.png" />

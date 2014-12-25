@@ -330,7 +330,7 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	background:#7EA437;
 	background: url('../img/overlay-pattern.png'), -moz-linear-gradient(top, #AAD15F, #7EA437);
-	background: url('../img/overlay-pattern.png'), -webkit-linear-gradient(top, #AAD15F, #7EA437);	.
+	background: url('../img/overlay-pattern.png'), -webkit-linear-gradient(top, #AAD15F, #7EA437);
 	background: url('../img/overlay-pattern.png'), -ms-linear-gradient(top, #AAD15F, #7EA437);
 	background: url('../img/overlay-pattern.png'), -o-linear-gradient(top, #AAD15F, #7EA437);
 	background: url('../img/overlay-pattern.png'), linear-gradient(top, #AAD15F, #7EA437);	
