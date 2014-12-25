@@ -5,30 +5,29 @@
 
 
 @section Header{
-    @Scripts.Render("~/Script/ArticleIndex")
-    @Styles.Render("~/Style/AboutIndex")
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/stylesheets/style.css" />
+    <link rel="stylesheet" href="~/stylesheets/responsive.css" />
+    <link rel="stylesheet" href="~/stylesheets/nivoslider.css" />
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/jquery.bxSlider.min.js"></script>
+    <script src="~/scripts/jquery.nivo.slider.js"></script>
+    <script src="~/scripts/jquery.blackandwhite.min.js"></script>
+    <script src="~/scripts/js_func.js"></script>
     <script>
         $(function () {
+            $('#slider').nivoSlider({
+                controlNav: false
+            });
+            $('.post_slider').bxSlider({
+                auto: false,
+                speed: 1000
+            });
             $('.clients_slider').bxSlider({
                 auto: false,
                 controls: false,
                 mode: 'fade',
                 pager: true
-            });
-            $('.recent_slider').bxSlider({
-                auto: false,
-                displaySlideQty: 1,
-                moveSlideQty: 1,
-                speed: 1000
-            });
-            $('#faq').dltoggle({ "open-image": "images/open.png", "closed-image": "images/closed.png" });
-            $("#open").click(function (event) {
-                $('#faq').dltoggle_show();
-                return false;
-            });
-            $("#close").click(function (event) {
-                $('#faq').dltoggle_hide();
-                return false;
             });
             $('.bwWrapper').BlackAndWhite({
                 hoverEffect: true,
@@ -40,23 +39,38 @@
     </script>
 }
 
-<div class="content_block">
-    <!-- top_title -->
-    <div class="top_title">
-        <div class="wraper">
-            <h2>Product<span>Keep up with the latest news, tips and features right here!</span></h2>
-            <ul>
-                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                <li><a href="@Url.Action("Index", "Product")">Product</a></li>
-                <li>ProductList</li>
-            </ul>
+<!-- nivo slider -->
+<div class="nivo-wrap">
+    <div class="wraper">
+        <!--<div class="fallback"><img src="images/sliders/home_page_4/fallback.png" alt="" /></div>-->
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+                <img src="~/images/ProductType/BoxSubstation.jpg" width="933" height="377" data-thumb="~/images/features/img.png" alt="" title="#htmlcaption" />
+                <img src="~/images/ProductType/PowerTransformer.jpg" width="933" height="377" data-thumb="~/images/features/img.png" alt="" title="#htmlcaption2" />
+                <img src="~/images/ProductType/switchgear.jpg" width="933" height="377" data-thumb="~/images/features/img.png" alt="" title="#htmlcaption3" />
+            </div>
+            <div id="htmlcaption" class="dd nivo-html-caption">
+                <span class="tit">Minnan's</span><strong class="tit2">Box Substation</strong> 
+            </div>
+            <div id="htmlcaption2" class="dd nivo-html-caption">
+                <span class="tit">Minnan's</span><strong class="tit2">Transformer</strong>
+            </div>
+            <div id="htmlcaption3" class="dd nivo-html-caption">
+                <span class="tit">Minnan's</span><strong class="tit2">Switchgear</strong>
+            </div>
         </div>
     </div>
-    <!-- /top_title -->
+</div>
+<!-- /nivo slider -->
+
+<div class="content_block">
+    <!-- text bar2 -->
+    @Html.Partial("_BuyMinnan")
+    <!-- /text bar2 -->
     <div class="wraper">
         <!-- blog entries full -->
         <div class="blog_entries blog_entries_full">
-            @for (int i = 0; i < 4; i++)
+            @for (int i = 0; i < 2; i++)
             {
                 <div class="post post_medium">
                     <div class="img_wrap bwWrapper">
@@ -82,6 +96,5 @@
             <!-- /pager_nav -->
         </div>
         <!-- /blog entries full -->
-
     </div>
 </div>

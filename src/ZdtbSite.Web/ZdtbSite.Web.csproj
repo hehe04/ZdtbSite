@@ -1139,6 +1139,9 @@
     <Content Include="Images\ISO14001.jpg" />
     <Content Include="Images\log_black.jpg" />
     <Content Include="Images\pay-with-paypal.png" />
+    <Content Include="Images\ProductType\BoxSubstation.jpg" />
+    <Content Include="Images\ProductType\PowerTransformer.jpg" />
+    <Content Include="Images\ProductType\switchgear.jpg" />
     <Content Include="Images\Sales_Network.jpg" />
     <Content Include="Images\skype_Icon.jpg" />
     <Content Include="Areas\ZdtbAdmin\Views\ProductType\Add.cshtml" />
@@ -1726,6 +1729,7 @@
     <Content Include="Views\Shared\_ProductRecommend.cshtml" />
     <Content Include="Views\Shared\_Feedback.cshtml" />
     <Content Include="Views\Pay\Message.cshtml" />
+    <Content Include="Views\Shared\_BuyMinnan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
