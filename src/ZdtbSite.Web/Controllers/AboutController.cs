@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Helper;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
 using ZdtbSite.Web.ActionFilters;
@@ -95,6 +96,10 @@ namespace ZdtbSite.Web.Controllers
             }
 
             _unitOfWork.Commit();
+
+            string content = string.Format("客户{0}说:‘{1}’。他的联系方式如下，快点联系他吧~~~\r\n Phone:{2} \r\n Email:{3}"
+                , model.Name, model.Message, string.IsNullOrEmpty(model.PhoneNo) ? "无" : model.PhoneNo, model.Email);
+            EmailHelper.SendEmail("Minnan Web System", "新的客户留言", content);
 
             return ReturnView();
         }
