@@ -1617,7 +1617,9 @@
     <Content Include="Areas\ZdtbAdmin\Views\User\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Assign.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Add.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\ClientVisitAttribute.cs" />
