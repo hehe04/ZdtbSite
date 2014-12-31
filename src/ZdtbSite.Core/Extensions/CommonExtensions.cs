@@ -39,6 +39,11 @@ namespace ZdtbSite
             return pathIndex;
         }
 
+        public static string ReplaceHtml(this string str)
+        {
+            return System.Text.RegularExpressions.Regex.Replace(str, "<.*?>", string.Empty).Replace("\\r", string.Empty).Replace("\\n", string.Empty);
+        }
+
         public static string strSub(this string str, int startIndex, int endIndex, string paddingStr)
         {
             string resStr = str;

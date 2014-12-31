@@ -1,4 +1,6 @@
-﻿@using System.Web.Optimization
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Article>
+
+@using System.Web.Optimization
 @{
     ViewBag.Title = "CompanyNews";
 }
@@ -38,4 +40,4 @@
     </script>
 }
 
-@Html.Partial("_BlogList")
+@Html.Partial("_BlogList", Model)

@@ -1,4 +1,6 @@
-﻿@using System.Web.Optimization
+﻿@model ZdtbSite.Model.Article
+
+@using System.Web.Optimization
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     IEnumerable<ZdtbSite.Model.ContentType> contentTypes = ViewBag.ContentTypes;
@@ -46,7 +48,7 @@
         <div class="wraper">
             <h2>News<span>Keep up with the latest news, tips and features right here!</span></h2>
             <ul>
-               <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                 <li><a href="@Url.Action("Index", "Article")">News</a></li>
                 <li>News</li>
             </ul>
@@ -54,7 +56,20 @@
     </div>
     <!-- /top_title -->
     <div class="wraper">
-        @Html.Partial("_Detail")
+        @*@Html.Partial("_Detail")*@
+        <!-- blog entries -->
+        <div class="blog_entries">
+            <div class="post post_full">
+                <div class="img_wrap bwWrapper">
+                    <div class="date">@Model.UpdateDateTime.ToString("MM/dd/yyyy")</div>
+                    <img src="@Model.ImgUrl" width="640" height="265" alt="" />
+                </div>
+                <div class="desc">
+                    @Html.Raw(Model.Content.Replace("\\n", string.Empty).Replace("\\r", string.Empty))
+                </div>
+            </div>
+        </div>
+        <!-- /blog entries -->
         <!-- sidebar -->
         @Html.Partial("_DetailSidebar", contentTypes, ViewData)
         <!-- /sidebar -->
