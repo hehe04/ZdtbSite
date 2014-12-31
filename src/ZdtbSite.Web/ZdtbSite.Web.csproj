@@ -1138,6 +1138,7 @@
     <Content Include="Images\fr.Skype.png" />
     <Content Include="Images\ISO14001.jpg" />
     <Content Include="Images\log_black.jpg" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\pay-with-paypal.png" />
     <Content Include="Images\ProductType\BoxSubstation.jpg" />
     <Content Include="Images\ProductType\PowerTransformer.jpg" />
@@ -1292,7 +1293,7 @@
     <Content Include="Images\line.png" />
     <Content Include="Images\line2.png" />
     <Content Include="Images\line3.png" />
-    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_1.png" />
     <Content Include="Images\meet_the_team\home_page_8\index.html" />
     <Content Include="Images\meet_the_team\home_page_8\large_image_up_top.png" />
     <Content Include="Images\meet_the_team\index.html" />

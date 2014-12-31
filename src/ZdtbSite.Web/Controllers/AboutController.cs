@@ -85,7 +85,8 @@ namespace ZdtbSite.Web.Controllers
             customer.Feedbacks = feedbacks;
             customer.IPAddress = Request.UserHostAddress;
             customer.Count = customer.Count + 1;
-
+            var radom = new Random();
+            customer.HeaderPath = radom.Next(1, 9).ToString();
             if (flag)
             {
                 _customerRepository.Add(customer);
