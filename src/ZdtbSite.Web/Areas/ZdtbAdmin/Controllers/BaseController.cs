@@ -79,8 +79,13 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 //得到上传的图片名 hpFill.FileName得到客户端上传文件的路劲
                 string fillName = System.IO.Path.GetFileName(hpFill.FileName);
                 string path = "/Images/uploadImages/";
+               
                 //获取保存路径
                 string filePath = HttpContext.Server.MapPath(path);
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
                 //判断路径是否存 创建路径
                 if (!Directory.Exists(filePath))
                 {
