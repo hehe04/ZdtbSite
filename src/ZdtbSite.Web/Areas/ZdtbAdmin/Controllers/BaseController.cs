@@ -59,7 +59,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 
                 ZdtbSite.Core.Repository.FeedbackRepository repository = new Core.Repository.FeedbackRepository(new DbContextFactory());
                 var list = repository.GetAll().OrderByDescending(e => e.CreateTime).Take(3).ToList();
-
                 HttpContext.Items.Add("FeedBackList", list);
             }
             else
