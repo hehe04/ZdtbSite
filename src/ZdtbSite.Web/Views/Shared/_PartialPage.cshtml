@@ -1,0 +1,98 @@
+﻿@model PagedList.IPagedList
+
+
+@{
+
+    string queryParameter = string.Empty;
+    foreach (string key in Request.QueryString.AllKeys)
+    {
+        if (key != "pageIndex")
+        {
+            queryParameter += (key + "=" + Request.QueryString[key] + "&");
+        }
+    }
+
+    if (Model.PageCount > 1)
+    {
+
+        int start = Model.PageNumber - 5;
+        if (Model.PageCount - (10 - 1) < start)
+        {
+            start = Model.PageCount - 9;
+        }
+        if (start < 1)
+        {
+            start = 1;
+        }
+
+
+        int end = Model.PageNumber + 4;
+
+
+        if ((end < 10 && Model.PageCount >= 10) || Model.PageCount < 10)
+        {
+            if (Model.PageCount >= 10)
+            {
+
+                end = 10;
+            }
+            else
+            {
+                end = Model.PageCount;
+            }
+        }
+        if (end > Model.PageCount)
+        {
+            end = Model.PageCount;
+        }
+
+
+
+
+        if (Model.IsFirstPage)
+        {
+            @*<li class="prev disabled"><a href="#">← 上一页</a></li>*@
+            <a href="#" class="bx-prev">prev</a>
+        }
+        else
+        {
+            @*<li class="prev"><a href="?pageIndex=@(Model.PageNumber - 1)">← 上一页</a></li>*@
+            <a href="@string.Format("?{0}pageIndex={1}", queryParameter, (Model.PageNumber - 1))" class="bx-prev">prev</a>
+        }
+
+        @*<a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+            <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>*@
+
+        for (int i = start; i <= end; i++)
+        {
+            if (i == Model.PageNumber)
+            {
+                <span>@i</span>
+            }
+            else
+            {
+                <a href="@string.Format("?{0}pageIndex={1}", queryParameter, i)">@i</a>
+            }
+        }
+        @*<li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>*@
+
+        if (Model.IsLastPage)
+        {
+            @*<li class="next disabled"><a href="#">下一页 → </a></li>*@
+            <a href="#" class="bx-next">next</a>
+
+        }
+        else
+        {
+            @*<li class="next"><a href="?pageIndex=@(Model.PageNumber + 1)">下一页 → </a></li>*@
+            <a href="@string.Format("?{0}pageIndex={1}", queryParameter, (Model.PageNumber + 1))" class="bx-next">next</a>
+        }
+
+
+
+    }
+}

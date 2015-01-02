@@ -1,5 +1,6 @@
 ﻿@model PagedList.IPagedList<ZdtbSite.Model.Product>
 @using System.Web.Optimization
+@using ZdtbSite;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -51,7 +52,7 @@
                 <img src="~/images/ProductType/switchgear.jpg" width="933" height="377" data-thumb="~/images/features/img.png" alt="" title="#htmlcaption3" />
             </div>
             <div id="htmlcaption" class="dd nivo-html-caption">
-                <span class="tit">Minnan's</span><strong class="tit2">Box Substation</strong> 
+                <span class="tit">Minnan's</span><strong class="tit2">Box Substation</strong>
             </div>
             <div id="htmlcaption2" class="dd nivo-html-caption">
                 <span class="tit">Minnan's</span><strong class="tit2">Transformer</strong>
@@ -75,21 +76,28 @@
             {
                 <div class="post post_medium">
                     <div class="img_wrap bwWrapper">
-                        <div class="date">@item.CreateTime</div>
-                        <a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })"><img src="~/images/blog/blog_01.jpg" width="493" height="249" alt="" /></a>
+                        <div class="date">@item.CreateTime.ToString("MM/dd/yyyy")</div>
+                        <a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })"><img src="@item.ImageUrl" width="493" height="249" alt="" /></a>
                     </div>
                     <div class="desc">
                         <h4><a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })">@item.Name</a></h4>
-                        <p>@item.Description</p>
+                        <p>
+                            @{
+                string des = item.Description;
+                            }
+                            @des.ReplaceHtml().strSub(0, 250, "...")
+                        </p>
                         <div class="metadata">
-                            <strong class="dots">....</strong>
+                            @*<strong class="dots">....</strong>*@
                             <a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })" class="read_more btn_col">Read More</a>
                         </div>
                     </div>
                 </div>
             }
-            <!-- pager_nav -->
+            @Html.Partial("_PartialPage", Model)
+            <!-- pager_nav--
             <div class="pager_nav">
+
                 <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
                 <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
             </div>
