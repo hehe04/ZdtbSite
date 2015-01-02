@@ -67,6 +67,7 @@ INSERT INTO basicinfoes VALUES ('xxxx有限公司', 'companyName','公司名称');
 INSERT INTO basicinfoes VALUES ('020-12341234', 'companyPhone','公司电话');
 INSERT INTO basicinfoes VALUES ('020-43214321', 'companyFax','公司传真');
 INSERT INTO basicinfoes VALUES ('天河区中山路XX号', 'companyAddress','公司地址');
+INSERT INTO basicinfoes (Value, [Key], [Description]) VALUES ('leixiangyang@foxmail.com', 'receiveEmailList', '接收邮件账户');
 
 
 

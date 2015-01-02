@@ -47,7 +47,7 @@ namespace ZdtbSite.Core.Infrastructure
             modelBuilder.Entity<Article>()
                 .HasRequired(a => a.ContentType)
                 .WithMany(c => c.Articles)
-                .HasForeignKey(a => a.ContentTyepId)
+                .HasForeignKey(a => a.ContentTypeId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Contract>()

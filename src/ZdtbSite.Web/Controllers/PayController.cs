@@ -42,6 +42,8 @@ namespace ZdtbSite.Web.Controllers
                 customer.IPAddress = Request.UserHostName;
                 customer.Number = DateTime.Now.Ticks;
                 customer.Count = 1;
+                customer.ContactsName = model.Name;
+                customer.SetHeaderPath();
                 customerRepository.Add(customer);
                 unitOfWork.Commit();
             }
@@ -183,7 +185,11 @@ namespace ZdtbSite.Web.Controllers
                     {
                         contractModel.IsSuccess = true;
                         unitOfWork.Commit();
-                        ///TODO发送邮件；用户跟管理员
+                        string managerContent = string.Format("{0}客户给的预付款为：{1}", contractModel.Customer.ContactsName, contractModel.Prepayments);
+                        string customerContent = string.Format("{0} Hello! Prepayment for：${1}", contractModel.Customer.ContactsName, contractModel.Prepayments);
+                        //TODO: 发送邮件；用户跟管理员
+                        EmailHelper.SendEmail("Minnan Manager", "客户合同签订给预付款", managerContent);
+                        EmailHelper.SendEmail(new List<string>() { contractModel.Customer.Email }, "Minnan Manager", "Minnan Payment Notification", customerContent);
                         msg = "Payment success!";
                     }
                 }

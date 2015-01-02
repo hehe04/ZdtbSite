@@ -51,7 +51,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             if (ContentTypeId != -1)
             {
-                where = e => e.ContentTyepId == ContentTypeId;
+                where = e => e.ContentTypeId == ContentTypeId;
             }
             var list = articleRepository.GetPage(page, where, e => e.UpdateDateTime, true);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetMany(e => e.PrentId != 0).ToList());
@@ -69,7 +69,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Response.SetCookie(cookie);
             if (ContentTypeId != -1)
             {
-                where = e => e.ContentTyepId == ContentTypeId;
+                where = e => e.ContentTypeId == ContentTypeId;
             }
             var list = articleRepository.GetPage(page, where, e => e.UpdateDateTime, true);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetMany(e => e.PrentId != 0).ToList());
@@ -102,7 +102,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
-            model.ContentTyepId = ContentTypeId.Value;
+            model.ContentTypeId = ContentTypeId.Value;
             articleRepository.Add(model);
             unitofWork.Commit();
             responseModel.Success = true;
@@ -128,7 +128,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
 
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
-            //model.ContentTyepId = 1;
+            //model.ContentTypeId = 1;
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
             articleRepository.Update(model);

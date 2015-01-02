@@ -24,7 +24,7 @@ namespace ZdtbSite.Web
                 "~/scripts/jquery.blackandwhite.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Style/HomeIndex").Include(
-                "~/Stylesheets/googleFonts.css",
+                
                 "~/Stylesheets/style.css",
                 "~/Stylesheets/responsive.css",
                 "~/Stylesheets/jquery.onebyone.css"
@@ -34,7 +34,7 @@ namespace ZdtbSite.Web
                 "~/scripts/jquery.blackandwhite.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Style/AboutIndex").Include(
-                "~/Stylesheets/googleFonts.css",
+                
                 "~/Stylesheets/style.css"
                 , "~/Stylesheets/responsive.css"
                 ));
@@ -43,7 +43,7 @@ namespace ZdtbSite.Web
                 "~/scripts/jquery.blackandwhite.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Style/AboutDevice").Include(
-                "~/Stylesheets/googleFonts.css",
+                
                 "~/Stylesheets/style.css",
                 "~/Stylesheets/responsive.css",
                 "~/Stylesheets/prettyPhoto.css"

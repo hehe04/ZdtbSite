@@ -36,10 +36,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
 
         [Display(Name = "内容")]
         [Required(ErrorMessage = "文章内容必须输入.")]
-        /// <summary>
-        /// 内容
-        /// </summary>
         public string Content { get; set; }
+
         [Display(Name="文章类型")]
         public ContentTypeViewModel ContentType { get; set; }
 

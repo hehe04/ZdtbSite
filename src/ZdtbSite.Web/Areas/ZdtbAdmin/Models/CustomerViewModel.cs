@@ -36,11 +36,11 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [RegularExpression(@"^\s*\+?\s*(\(\s*\d+\s*\)|\d+)(\s*-?\s*(\(\s*\d+\s*\)|\s*\d+\s*))*\s*$", ErrorMessage = "请输入正确的联系方式.")]
         public string Phone { get; set; }
 
-        [Display(Name = "客户姓名")]
-        [Required(ErrorMessage = "客户姓名不能为空.")]
         /// <summary>
         /// 联系人
         /// </summary>
+        [Display(Name = "客户姓名")]
+        [Required(ErrorMessage = "客户姓名不能为空.")]
         public string ContactsName { get; set; }
 
         /// <summary>

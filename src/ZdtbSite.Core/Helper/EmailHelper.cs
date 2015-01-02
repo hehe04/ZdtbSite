@@ -55,6 +55,7 @@ namespace ZdtbSite.Core.Helper
             mail.BodyEncoding = Encoding.Default;
             mail.Priority = MailPriority.Normal;
             mail.IsBodyHtml = true;
+            mail.BodyEncoding = UTF8Encoding.UTF8;
             SmtpClient smtp = new SmtpClient(Server, Port);
             smtp.UseDefaultCredentials = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -105,6 +106,7 @@ namespace ZdtbSite.Core.Helper
             mail.BodyEncoding = Encoding.Default;
             mail.Priority = MailPriority.Normal;
             mail.IsBodyHtml = true;
+            mail.BodyEncoding = UTF8Encoding.UTF8;
             SmtpClient smtp = new SmtpClient(Server, Port);
             smtp.UseDefaultCredentials = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -140,6 +142,7 @@ namespace ZdtbSite.Core.Helper
             smtp.UseDefaultCredentials = true;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Credentials = new System.Net.NetworkCredential(id, pwd);
+            mail.BodyEncoding = UTF8Encoding.UTF8;
             smtp.Send(mail);
         }
 

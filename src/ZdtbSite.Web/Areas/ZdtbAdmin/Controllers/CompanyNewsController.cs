@@ -42,7 +42,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
             Page page = new Page(pageIndex, pageSize);
-            Expression<Func<Article, bool>> where = e => e.ContentTyepId == 3;
+            Expression<Func<Article, bool>> where = e => e.ContentTypeId == 3;
 
             var list = articleRepository.GetPage(page, where, e => e.UpdateDateTime, true);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
@@ -54,13 +54,13 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult Index(int ContentTypeId = -1)
         {
             Page page = new Page(1, 10);
-            Expression<Func<Article, bool>> where = e => e.ContentTyepId == 3;
+            Expression<Func<Article, bool>> where = e => e.ContentTypeId == 3;
             HttpCookie cookie = new HttpCookie("searchContentTypeId");
             cookie.Value = ContentTypeId.ToString();
             Response.SetCookie(cookie);
             if (ContentTypeId != -1)
             {
-                where = e => e.ContentTyepId == ContentTypeId;
+                where = e => e.ContentTypeId == ContentTypeId;
             }
             var list = articleRepository.GetPage(page, where, e => e.UpdateDateTime, true);
             var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
@@ -89,7 +89,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
-            model.ContentTyepId = 3;
+            model.ContentTypeId = 3;
             articleRepository.Add(model);
             unitofWork.Commit();
             responseModel.Success = true;
@@ -115,7 +115,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
 
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
-            model.ContentTyepId = 3;
+            model.ContentTypeId = 3;
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
             articleRepository.Update(model);

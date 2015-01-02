@@ -54,8 +54,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 HttpContext.Items.Add("LoginUserName", LoginUserName);
                 HttpContext.Items.Add("LoginUserId", LoginUserId);
                 HttpContext.Items.Add("AuthorityUrl", LoginUserAuthorityUrl);
-                ///TODO加载留言板的数据
-                ///
+                //TODO 加载留言板的数据
 
                 ZdtbSite.Core.Repository.FeedbackRepository repository = new Core.Repository.FeedbackRepository(new DbContextFactory());
                 var list = repository.GetAll().OrderByDescending(e => e.CreateTime).Take(3).ToList();
@@ -63,7 +62,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             else
             {
-                ///TODO 请登录
+                // TODO 请登录
                 Response.Redirect(Url.Action("SingIn", "User"));
             }
             base.OnAuthorization(filterContext);

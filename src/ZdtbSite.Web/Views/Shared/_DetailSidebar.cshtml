@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ZdtbSite.Model.ContentType>
 @{
-    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> ProductRecommendList = ViewBag.ProductRecommendList;
+    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> productRecommendList = ViewBag.ProductRecommendList;
     var controllerName = Context.Request.RequestContext.RouteData.GetRequiredString("controller");
     string actionName = ViewBag.ActionName;
 }
@@ -8,7 +8,7 @@
 <!-- sidebar -->
 <div class="sidebar">
     <!-- most popular -->
-    @Html.Partial("_ProductRecommend", ProductRecommendList)
+    @Html.Partial("_ProductRecommend", productRecommendList)
     <!-- /most popular -->
     <!-- latest tweets -->
     @Html.Partial("_OnlineService")

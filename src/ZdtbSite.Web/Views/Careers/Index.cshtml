@@ -32,7 +32,7 @@
                 hoverEffect: true,
                 webworkerPath: false,
                 responsive: true,
-                invertHoverEffect: false
+                invertHoverEffect: true
             });
         })
     </script>
@@ -42,35 +42,37 @@
     <!-- top_title -->
     <div class="top_title">
         <div class="wraper">
-            <h2>News <span>Keep up with the latest news, tips and features right here!</span></h2>
+            <h2>Careers <span>Keep up with the latest news, tips and features right here!</span></h2>
             <ul>
-                <li><a href="@Url.Action("Index", "Careers")">Careers</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li>Careers</li>
             </ul>
         </div>
     </div>
     <!-- /top_title -->
     <div class="wraper">
         <!-- blog entries full -->
-        <div class="blog_entries blog_entries_full">
-
-            @for (int i = 0; i < 4; i++)
-            {
-                <div class="post post_left">
-                    <div class="desc">
-                        <h4><a href="@Url.Action("Detail", "Article")">Design Engineer</a></h4>
-                        <p>The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : rk@krkpower.com</p>
-                    </div>
-                </div>
-            }
-
-            <!-- pager_nav -->
-            <div class="pager_nav">
-                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
-                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
-            </div>
-            <!-- /pager_nav -->
-        </div>
         <!-- /blog entries full -->
-
+        <!-- features4_block -->
+        <div class="features4_block">
+            <ul>
+                <li>
+                    <div class="bwWrapper"><img src="images/home_page_5_features/feature_1.png" width="280" height="140" alt="" /></div>
+                    <h4>Design Engineer</h4>
+                    <p style="text-align: left;">The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : <a href="mailto:rk@krkpower.com">rk@krkpower.com</a></p>
+                </li>
+                <li>
+                    <div class="bwWrapper"><img src="images/home_page_5_features/feature_2.png" width="280" height="140" alt="" /></div>
+                    <h4>Design Engineer</h4>
+                    <p style="text-align: left;">The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : <a href="mailto:rk@krkpower.com">rk@krkpower.com</a></p>
+                </li>
+                <li>
+                    <div class="bwWrapper"><img src="images/home_page_5_features/feature_3.png" width="280" height="140" alt="" /></div>
+                    <h4>Design Engineer</h4>
+                    <p style="text-align: left;">The Individual should be Graduate/Post Graduate in Electrical Engineering with 3 - 5 years of experience in design of power transformers up to 50 MVA, Distribution 16/25/40 KVA of 11/33 KV. Candidate shall have good knowledge of design calculation methods, cost estimation, bill of materials & IEC and related standards. Exposure to computerized calculations is highly desirable.Appy at : <a href="mailto:rk@krkpower.com">rk@krkpower.com</a></p>
+                </li>
+            </ul>
+        </div>
+        <!-- /features4_block -->
     </div>
 </div>

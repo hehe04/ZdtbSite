@@ -42,7 +42,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
             Page page = new Page(pageIndex, pageSize);
-            Expression<Func<Article, bool>> where = e => e.ContentTyepId == 2;
+            Expression<Func<Article, bool>> where = e => e.ContentTypeId == 2;
             var list = articleRepository.GetPage(page, where, e => e.UpdateDateTime, true);
             //var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
             //ViewData["ContentTypes"] = types;
@@ -53,7 +53,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult Index(int ContentTypeId = -1)
         {
             Page page = new Page(1, 10);
-            Expression<Func<Article, bool>> where = e => e.ContentTyepId == 2;
+            Expression<Func<Article, bool>> where = e => e.ContentTypeId == 2;
 
             var list = articleRepository.GetPage(page, where, e => e.UpdateDateTime, true);
             //var types = AutoMapper.Mapper.Map<List<ContentType>, List<Admin.ContentTypeViewModel>>(contentTypeRepository.GetAll().ToList());
@@ -82,7 +82,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
-            model.ContentTyepId = 2;
+            model.ContentTypeId = 2;
             articleRepository.Add(model);
             unitofWork.Commit();
             responseModel.Success = true;
@@ -108,7 +108,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
 
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
-            model.ContentTyepId = 2;
+            model.ContentTypeId = 2;
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
             articleRepository.Update(model);

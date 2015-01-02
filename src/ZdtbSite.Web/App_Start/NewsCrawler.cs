@@ -74,7 +74,7 @@ namespace ZdtbSite.Web
                                 model.PublisherDateTime = DateTime.Now;
                                 model.Title = item.Groups[2].Value;
                                 model.Tag = item.Groups[2].Value;
-                                model.ContentTyepId = 2;
+                                model.ContentTypeId = 2;
                                 content = client.DownloadString(item.Groups[1].Value);
                                 model.Content = regexcontent.Match(content).Groups[0].Value;
                                 repository.Add(model);
