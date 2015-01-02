@@ -1,4 +1,5 @@
-﻿@using System.Web.Optimization
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Product>
+@using System.Web.Optimization
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -70,24 +71,23 @@
     <div class="wraper">
         <!-- blog entries full -->
         <div class="blog_entries blog_entries_full">
-            @for (int i = 0; i < 2; i++)
+            @foreach (var item in Model)
             {
                 <div class="post post_medium">
                     <div class="img_wrap bwWrapper">
-                        <div class="date">April 2, 2012</div>
-                        <a href="@Url.Action("ProductDetail", "Product", new { id = 1 })"><img src="~/images/blog/blog_01.jpg" width="493" height="249" alt="" /></a>
+                        <div class="date">@item.CreateTime</div>
+                        <a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })"><img src="~/images/blog/blog_01.jpg" width="493" height="249" alt="" /></a>
                     </div>
                     <div class="desc">
-                        <h4><a href="@Url.Action("ProductDetail", "Product", new { id = 1 })">11kv Oil immersed power distribution transformer</a></h4>
-                        <p>S9 and S11 series three-phase oil-immersed power distributing transformers apply new type insulating structure and make short-circuit resistance strong. The iron core is made of high-quality cold-rolled silicon-steel plate. High –voltage winding group is made up of high-quality oxygen-free copper lines and it adopts multilayered drum type structure. All fasteners have been processed with special treatment to prevent them from loosening. As country promoted high-tech product</p>
+                        <h4><a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })">@item.Name</a></h4>
+                        <p>@item.Description</p>
                         <div class="metadata">
                             <strong class="dots">....</strong>
-                            <a href="@Url.Action("ProductDetail", "Product", new { id = 1 })" class="read_more btn_col">Read More</a>
+                            <a href="@Url.Action("ProductDetail", "Product", new { id = item.Id })" class="read_more btn_col">Read More</a>
                         </div>
                     </div>
                 </div>
             }
-
             <!-- pager_nav -->
             <div class="pager_nav">
                 <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>

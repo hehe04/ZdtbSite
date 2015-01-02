@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,11 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
-        public ActionResult ProductList(string catelog, string keywords, int pageIndex = 1)
+        public ActionResult ProductList(string catelog, string keywords, int pageIndex = 1, int pageSize = 10)
         {
-            return View();
+            Page page = new Page(pageIndex, pageSize);
+            IPagedList<Product> pageList = _productRepository.GetPage(page, e => true, e => e.Id);
+            return View(pageList);
         }
 
         [ClientVisit]
