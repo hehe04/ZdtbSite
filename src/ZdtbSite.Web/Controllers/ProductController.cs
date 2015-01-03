@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
+using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZdtbSite.Core.Helper;
 using ZdtbSite.Core.Infrastructure;
 using ZdtbSite.Model;
 using ZdtbSite.Web.ActionFilters;
@@ -24,9 +27,11 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
-        public ActionResult ProductList(string catelog, string keywords, int pageIndex = 1)
+        public ActionResult ProductList(string catelog, string keywords, int pageIndex = 1, int pageSize = 2)
         {
-            return View();
+            Page page = new Page(pageIndex, pageSize);
+            IPagedList<Product> pageList = _productRepository.GetPage(page, e => true, e => e.Id);
+            return View(pageList);
         }
 
         [ClientVisit]
@@ -41,6 +46,13 @@ namespace ZdtbSite.Web.Controllers
 
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
             return View(viewModel);
+        }
+
+        public ActionResult downPDF(string HtmlUrl)
+        {
+            string url = HtmlToFileHelper.HtmlToPDF(HtmlUrl);
+            string fileName = "ProductInfo" + DateTime.Now.ToString("MM/dd/yyyy") + ".pdf";
+            return File(new FileStream(url, FileMode.Open), "application/octet-stream", Server.UrlEncode(fileName));
         }
     }
 }

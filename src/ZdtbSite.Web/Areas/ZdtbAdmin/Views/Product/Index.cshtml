@@ -30,7 +30,7 @@
                     <div>
                         <div class="inner-spacer">
                             <!-- content goes here -->
-                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table">
+                            <table class="table table-bordered table-striped checked-in responsive has-checkbox" id="sc-table" style=" table-layout:fixed;">
                                 <thead>
                                     <tr>
                                         <th class="first"><i class="icon-resize-vertical"></i></th>
@@ -50,7 +50,6 @@
                                             <td>
                                                 <a href="@Url.Action("Modify", new {id=item.Id })">@item.Name</a>
                                             </td>
-
                                             <td>
                                                 @{
                                         var prentModel = item.ProductType;
@@ -60,12 +59,11 @@
                                             <td>
                                                 @item.CreateTime
                                             </td>
-                                            <td>
+                                            <td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                                 @item.Description
                                             </td>
                                         </tr>
                                     }
-
                                 </tbody>
                             </table>
                             @Html.Partial("PartialPage", Model)

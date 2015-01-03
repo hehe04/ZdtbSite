@@ -20,5 +20,6 @@ namespace ZdtbSite.Web.Models
         public string ProductTypeName{ get; set; }
 
         public int ProductTypeId { get; set; }
+        public DateTime CreateTime { get; set; }
     }
 }
