@@ -21,20 +21,13 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             this.productTypeRepository = productTypeRepository;
             this.unitOfWork = unitOfWork;
         }
+
         // GET: ZdtbAdmin/ProductType
-        public ActionResult Index()
+        public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
-            List<Admin.ProductTypeViewModel> ProdutTypeList = new List<Admin.ProductTypeViewModel>();
-            try
-            {
-                //pageList
-                var list = productTypeRepository.GetAll().ToList();
-                ProdutTypeList = AutoMapper.Mapper.Map<List<Model.ProductType>, List<Admin.ProductTypeViewModel>>(list);
-            }
-            catch (Exception)
-            {
-            }
-            return View(ProdutTypeList);
+            Page page = new Page(pageIndex, pageSize);
+            IPagedList<ProductType> pageList = productTypeRepository.GetPage(page, e => true, e => e.Id);
+            return View(pageList);
         }
 
         [HttpGet]

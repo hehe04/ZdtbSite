@@ -68,6 +68,10 @@
     <Reference Include="LitJson">
       <HintPath>..\packages\LitJson.0.7.0\lib\LitJson.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -88,6 +92,9 @@
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal">
+      <HintPath>..\packages\PayPal.1.0.0\lib\net45\PayPal.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -713,13 +720,20 @@
     <Content Include="Areas\ZdtbAdmin\Content\sounds\messagebox.mp3" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\smallbox.mp3" />
     <Content Include="Areas\ZdtbAdmin\Content\sounds\sound-pop-clear.mp3" />
+    <Content Include="Content\Resoure\wkhtmltopdf.exe" />
+    <Content Include="Content\Resoure\wkhtmltox-win32.exe" />
+    <Content Include="Content\Resoure\wkhtmltox-win64.exe" />
     <Content Include="Global.asax" />
-    <Content Include="HtmlTemplate\about.html" />
-    <Content Include="HtmlTemplate\blog_large.html" />
-    <Content Include="HtmlTemplate\blog_large_sidebar.html" />
-    <Content Include="HtmlTemplate\blog_post.html" />
-    <Content Include="HtmlTemplate\contact_us.html" />
-    <Content Include="HtmlTemplate\faq.html" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\bootstrap-theme.css.map" />
+    <Content Include="Areas\ZdtbAdmin\Content\css\bootstrap.css.map" />
+    <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.eot" />
+    <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
+    <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
+    <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
     <Content Include="HtmlTemplate\images\1.png" />
     <Content Include="HtmlTemplate\images\2.png" />
     <Content Include="HtmlTemplate\images\3.png" />
@@ -826,15 +840,17 @@
     <Content Include="HtmlTemplate\images\home_page_5_features\index.html" />
     <Content Include="HtmlTemplate\images\home_page_5_features\tons_of_feature_image_1.png" />
     <Content Include="HtmlTemplate\images\home_page_5_features\tons_of_feature_image_2.png" />
-    <Content Include="HtmlTemplate\images\meet_the_team\home_page_8\index.html" />
-    <Content Include="HtmlTemplate\images\meet_the_team\home_page_8\large_image_up_top.png" />
     <Content Include="HtmlTemplate\images\img.png" />
     <Content Include="HtmlTemplate\images\img2.png" />
     <Content Include="HtmlTemplate\images\index2_bg.png" />
+    <Content Include="HtmlTemplate\images\ISO14001.jpg" />
     <Content Include="HtmlTemplate\images\line.png" />
     <Content Include="HtmlTemplate\images\line2.png" />
     <Content Include="HtmlTemplate\images\line3.png" />
     <Content Include="HtmlTemplate\images\logo.png" />
+    <Content Include="HtmlTemplate\images\log_black.jpg" />
+    <Content Include="HtmlTemplate\images\meet_the_team\home_page_8\index.html" />
+    <Content Include="HtmlTemplate\images\meet_the_team\home_page_8\large_image_up_top.png" />
     <Content Include="HtmlTemplate\images\meet_the_team\index.html" />
     <Content Include="HtmlTemplate\images\meet_the_team\meet_team_1.png" />
     <Content Include="HtmlTemplate\images\meet_the_team\meet_team_2.png" />
@@ -1102,70 +1118,9 @@
     <Content Include="HtmlTemplate\images\video.png" />
     <Content Include="HtmlTemplate\images\wp.png" />
     <Content Include="HtmlTemplate\images\x.png" />
-    <Content Include="HtmlTemplate\index7.html" />
-    <Content Include="HtmlTemplate\process.html" />
-    <Content Include="HtmlTemplate\right_nav.html" />
-    <Content Include="HtmlTemplate\scripts\ie9.js" />
-    <Content Include="HtmlTemplate\scripts\jquery-animate-css-rotate-scale.js" />
-    <Content Include="HtmlTemplate\scripts\jquery-css-transform.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.animation.easing.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.blackandwhite.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.bxSlider.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.faq.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.flexslider-min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.id.moover-1.5.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.isotope.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.nivo.slider.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.onebyone.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.prettyPhoto.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.simpleFAQ-0.7.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.touchwipe.min.js" />
-    <Content Include="HtmlTemplate\scripts\jquery.unleash.min.js" />
-    <Content Include="HtmlTemplate\scripts\js_func.js" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\flash-preview.png" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\flash.swf" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\index.html" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\piecemaker1.png" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\piecemaker2.png" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\piecemaker3.png" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\video-preview.jpg" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\contents\video.mp4" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\help.txt" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\piecemaker.css" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\piecemaker.swf" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\piecemaker.xml" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\scripts\index.html" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\scripts\swfobject\expressinstall.swf" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\scripts\swfobject\index.html" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\scripts\swfobject\swfobject.js" />
-    <Content Include="HtmlTemplate\services.html" />
-    <Content Include="HtmlTemplate\short_text.html" />
-    <Content Include="HtmlTemplate\short_text2.html" />
-    <Content Include="HtmlTemplate\single_full.html" />
-    <Content Include="HtmlTemplate\stylesheets\flexslider.css" />
-    <Content Include="HtmlTemplate\stylesheets\googleFonts.css" />
-    <Content Include="HtmlTemplate\stylesheets\jquery.id.moover-1.5.css" />
-    <Content Include="HtmlTemplate\stylesheets\jquery.onebyone.css" />
-    <Content Include="HtmlTemplate\stylesheets\nivoslider.css" />
-    <Content Include="HtmlTemplate\stylesheets\PIE.htc" />
-    <Content Include="HtmlTemplate\stylesheets\prettyPhoto.css" />
-    <Content Include="HtmlTemplate\stylesheets\responsive.css" />
-    <Content Include="HtmlTemplate\stylesheets\style.css" />
-    <Content Include="HtmlTemplate\stylesheets\unleash.css" />
-    <Content Include="HtmlTemplate\team.html" />
-    <Content Include="Areas\ZdtbAdmin\Content\css\bootstrap-theme.css.map" />
-    <Content Include="Areas\ZdtbAdmin\Content\css\bootstrap.css.map" />
-    <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Areas\ZdtbAdmin\Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.eot" />
-    <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.ttf" />
-    <Content Include="Areas\ZdtbAdmin\Content\font\fontawesome-webfont.woff" />
-    <Content Include="Areas\ZdtbAdmin\Content\font\FontAwesome.otf" />
-    <Content Include="Areas\ZdtbAdmin\Views\Account\Add.cshtml" />
     <Content Include="Images\about_us\process-media-banner.jpg" />
     <Content Include="Images\about_us\Sales_Network.jpg" />
+    <Content Include="Images\blog\blog_01.jpg" />
     <Content Include="Images\Careers\ourteam.jpg" />
     <Content Include="Images\Cert\DSTUISO170952005_nEO_IMG.jpg" />
     <Content Include="Images\Cert\GOSTRISO90012008_nEO_IMG.jpg" />
@@ -1180,22 +1135,16 @@
     <Content Include="Images\Cert\ISO90012008.jpg" />
     <Content Include="Images\Cert\OHSAS180012007_nEO_IMG.jpg" />
     <Content Include="Images\DSC_01230129.jpg" />
-    <Content Include="Images\features\Thumbs.db" />
-    <Content Include="Images\flex\Thumbs.db" />
-    <Content Include="Images\full_width\Thumbs.db" />
-    <Content Include="Images\home_page_3_feature_circles\Thumbs.db" />
-    <Content Include="Images\home_page_5_features\Thumbs.db" />
-    <Content Include="Images\meet_the_team\home_page_8\Thumbs.db" />
-    <Content Include="Images\meet_the_team\Thumbs.db" />
-    <Content Include="Images\moover\Thumbs.db" />
-    <Content Include="Images\nivo\Thumbs.db" />
-    <Content Include="Images\obo\Thumbs.db" />
-    <Content Include="Images\portfolio\Thumbs.db" />
+    <Content Include="Images\fr.Skype.png" />
+    <Content Include="Images\ISO14001.jpg" />
+    <Content Include="Images\log_black.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\pay-with-paypal.png" />
+    <Content Include="Images\ProductType\BoxSubstation.jpg" />
+    <Content Include="Images\ProductType\PowerTransformer.jpg" />
+    <Content Include="Images\ProductType\switchgear.jpg" />
     <Content Include="Images\Sales_Network.jpg" />
-    <Content Include="Images\services_process\Thumbs.db" />
-    <Content Include="Images\social\Thumbs.db" />
-    <Content Include="Images\testimonials\Thumbs.db" />
-    <Content Include="Images\unleash\Thumbs.db" />
+    <Content Include="Images\skype_Icon.jpg" />
     <Content Include="Areas\ZdtbAdmin\Views\ProductType\Add.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Shared\PartialPage.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Modify.cshtml" />
@@ -1206,7 +1155,6 @@
     <Content Include="Areas\ZdtbAdmin\Views\Shared\MenuPage.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Add.cshtml" />
-    <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\plugins\image\images\Thumbs.db" />
     <Content Include="Areas\ZdtbAdmin\Views\Article\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Product\Modify.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\BasicInfo\Index.cshtml" />
@@ -1220,6 +1168,19 @@
     <Content Include="Areas\ZdtbAdmin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Contract\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\CompanyNews\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\IndustryNews\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\NewsCrawler\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Customer\Modify.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Shared\FeedbackPage.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Feedback\Reply.cshtml" />
+    <None Include="Properties\PublishProfiles\file.pubxml" />
+    <None Include="Properties\PublishProfiles\relsease.pubxml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
@@ -1332,7 +1293,7 @@
     <Content Include="Images\line.png" />
     <Content Include="Images\line2.png" />
     <Content Include="Images\line3.png" />
-    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_1.png" />
     <Content Include="Images\meet_the_team\home_page_8\index.html" />
     <Content Include="Images\meet_the_team\home_page_8\large_image_up_top.png" />
     <Content Include="Images\meet_the_team\index.html" />
@@ -1580,6 +1541,7 @@
     <Content Include="Images\social\social_shadow.png" />
     <Content Include="Images\social\white_dot.png" />
     <Content Include="Images\sprite.png" />
+    <Content Include="Images\substation-350x255.jpg" />
     <Content Include="Images\testimonials\index.html" />
     <Content Include="Images\testimonials\testimonials1.png" />
     <Content Include="Images\testimonials\testimonials2.png" />
@@ -1601,6 +1563,7 @@
     <Content Include="Images\video.png" />
     <Content Include="Images\wp.png" />
     <Content Include="Images\x.png" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ie9.js" />
     <Content Include="Scripts\jquery-animate-css-rotate-scale.js" />
     <Content Include="Scripts\jquery-css-transform.js" />
@@ -1618,7 +1581,11 @@
     <Content Include="Scripts\jquery.simpleFAQ-0.7.min.js" />
     <Content Include="Scripts\jquery.touchwipe.min.js" />
     <Content Include="Scripts\jquery.unleash.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js_func.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\piecemaker\contents\flash-preview.png" />
     <Content Include="Scripts\piecemaker\contents\flash.swf" />
     <Content Include="Scripts\piecemaker\contents\index.html" />
@@ -1635,7 +1602,12 @@
     <Content Include="Scripts\piecemaker\scripts\swfobject\expressinstall.swf" />
     <Content Include="Scripts\piecemaker\scripts\swfobject\index.html" />
     <Content Include="Scripts\piecemaker\scripts\swfobject\swfobject.js" />
+    <Content Include="Stylesheets\bootstrap-theme.css" />
+    <Content Include="Stylesheets\bootstrap-theme.min.css" />
+    <Content Include="Stylesheets\bootstrap.css" />
+    <Content Include="Stylesheets\bootstrap.min.css" />
     <Content Include="Stylesheets\flexslider.css" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Stylesheets\googleFonts.css" />
     <Content Include="Stylesheets\jquery.id.moover-1.5.css" />
     <Content Include="Stylesheets\jquery.onebyone.css" />
@@ -1652,6 +1624,13 @@
     <Content Include="Areas\ZdtbAdmin\Views\User\Assign.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Add.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Shared\_PartialPage.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\ClientVisitAttribute.cs" />
@@ -1663,12 +1642,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\AccountController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\CompanyNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BaseController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\BasicInfoController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\IndustryNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\NewsCrawlerController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\VisitController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\WelcomeController.cs" />
@@ -1679,51 +1661,42 @@
     <Compile Include="Areas\ZdtbAdmin\Models\AdminMenuViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ArticleViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\BasicInfoViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\ContractViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\CustomerViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\FeedbackViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\RecruitmentViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ResponseModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\SignInViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\UserViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\WelcomeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\ZdtbAdminAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CareersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IplookupViewModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\PaypalViewModel.cs" />
+    <Compile Include="Models\PayViewModel.cs" />
+    <Compile Include="Models\ProductViewModell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Areas\ZdtbAdmin\Views\web.config" />
+    <Content Include="Areas\ZdtbAdmin\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="HtmlTemplate\images\about_us\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\bxslider\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\contact_us\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\featured_list\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\features\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\flex\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\full_width\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\home_page_3_feature_circles\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\home_page_5_features\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\meet_the_team\home_page_8\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\meet_the_team\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\moover\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\nivo\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\obo\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\portfolio\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\services_process\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\social\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\testimonials\Thumbs.db" />
-    <Content Include="HtmlTemplate\images\unleash\Thumbs.db" />
-    <Content Include="HtmlTemplate\scripts\piecemaker\index.URL" />
     <Content Include="Areas\ZdtbAdmin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Account\Index.cshtml" />
@@ -1753,21 +1726,34 @@
     <Content Include="Views\Article\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Properties\PublishProfiles\WebConfig.pubxml" />
+    <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Stylesheets\bootstrap-theme.css.map" />
+    <Content Include="Stylesheets\bootstrap.css.map" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Stylesheets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Pay\Redirect.cshtml" />
+    <Content Include="Views\Shared\_OnlineService.cshtml" />
+    <Content Include="Views\Shared\_ProductRecommend.cshtml" />
+    <Content Include="Views\Shared\_Feedback.cshtml" />
+    <Content Include="Views\Pay\Message.cshtml" />
+    <Content Include="Views\Shared\_BuyMinnan.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\Shared\_PartialPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+>>>>>>> zs/devlei
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
-<<<<<<< HEAD
-    <Folder Include="Models\" />
-    <Folder Include="Areas\ZdtbAdmin\Views\Customer\" />
-=======
->>>>>>> zs/devjiang
+    <Folder Include="Content\OutPutFile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">

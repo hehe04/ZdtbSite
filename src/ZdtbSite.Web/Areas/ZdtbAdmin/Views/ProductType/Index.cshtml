@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ZdtbSite.Web.Areas.ZdtbAdmin.Models.ProductTypeViewModel>
+﻿@model PagedList.IPagedList<ZdtbSite.Model.ProductType>
 @{
     ViewBag.Title = "产品模块 > 类型维护";
 }
@@ -62,9 +62,9 @@
                                             </td>
                                         </tr>
                                     }
-
                                 </tbody>
                             </table>
+                            @Html.Partial("PartialPage", Model)
                         </div>
                         <!-- end content-->
                     </div>
