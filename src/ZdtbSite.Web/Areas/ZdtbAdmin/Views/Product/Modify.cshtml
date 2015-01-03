@@ -155,20 +155,21 @@
     <link href="~/Areas/ZdtbAdmin/Content/js/kindeditor/themes/default/default.css" rel="stylesheet" />
     <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/kindeditor-min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/lang/zh_CN.js"></script>
-    <script>
-        var editor;
-        KindEditor.ready(function (K) {
-            editor = K.create('textarea', {
-                uploadJson: '@Url.Action("Upload", "FileManager")',
-                fileManagerJson: '@Url.Action("Index", "FileManager")',
-                height: 500,
-                allowFileManager: true
+    <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor.code.js"></script>
+    @*<script>
+            var editor;
+            KindEditor.ready(function (K) {
+                editor = K.create('textarea', {
+                    uploadJson: '@Url.Action("Upload", "FileManager")',
+                    fileManagerJson: '@Url.Action("Index", "FileManager")',
+                    height: 500,
+                    allowFileManager: true
+                });
             });
-        });
-        $(function () {
-            $(".btn").click(function () {
-                editor.sync();
+            $(function () {
+                $(".btn").click(function () {
+                    editor.sync();
+                });
             });
-        });
-    </script>
+        </script>*@
 }
