@@ -10,10 +10,10 @@
     Html.EnableUnobtrusiveJavaScript();
 
     List<SelectListItem> items = new List<SelectListItem>();
-    
+
     foreach (var item in Model.ContentTypes)
     {
-      
+
         items.Add(new SelectListItem()
         {
             Text = item.Name,
@@ -99,7 +99,7 @@
                                         <div class="row" style="text-align:right">
                                             <div class="col-md-12">
                                                 @Html.HiddenFor(e => e.Article.Id)
-                                                @Html.HiddenFor(e=>e.Article.ImgUrl)
+                                                @Html.HiddenFor(e => e.Article.ImgUrl)
                                                 @Html.HiddenFor(e => e.Article.ThumbnailUrl)
                                                 <button type="reset" name="name" class="btn btn-danger">
                                                     <i class="icon-repeat icon-white"></i> 重置
@@ -126,6 +126,7 @@
     <link href="~/Areas/ZdtbAdmin/Content/js/kindeditor/themes/default/default.css" rel="stylesheet" />
     <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/kindeditor-min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/lang/zh_CN.js"></script>
+    <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor.code.js"></script>
     <script>
         window.URL = window.URL || window.webkitURL;
         var fileElem = document.getElementById("fileElem"),
@@ -169,12 +170,22 @@
             }
         }
 
-        var editor;
+        @*var editor;
         KindEditor.ready(function (K) {
             editor = K.create('textarea', {
                 uploadJson: '@Url.Action("Upload","FileManager")',
                 fileManagerJson: '@Url.Action("Index","FileManager")',
                 height: 500,
+                items: [
+        'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'cut', 'copy', 'paste',
+        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+        'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+        'anchor', 'link', 'unlink', '|', 'about'
+                ],
                 allowFileManager: true
             });
         });
@@ -182,6 +193,6 @@
             $(".btn").click(function () {
                 editor.sync();
             });
-        });
+        });*@
     </script>
 }
