@@ -27,10 +27,12 @@ namespace ZdtbSite.Web.Controllers
             return View();
         }
 
-        public ActionResult ProductList(string catelog, string keywords, int pageIndex = 1, int pageSize = 2)
+        public ActionResult ProductList(int? catelog, string keywords, int pageIndex = 1, int pageSize = 2)
         {
             Page page = new Page(pageIndex, pageSize);
-            IPagedList<Product> pageList = _productRepository.GetPage(page, e => true, e => e.Id);
+            
+            //暂时支持2级查询，如果产品类型有更多级，再使用递归重构
+            IPagedList<Product> pageList = _productRepository.GetPage(page, e => e.ProductTypeId == catelog || e.ProductType.ParentId == catelog, e => e.Id);
             return View(pageList);
         }
 
@@ -48,9 +50,9 @@ namespace ZdtbSite.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult downPDF(string HtmlUrl)
+        public ActionResult DownPdf(string htmlUrl)
         {
-            string url = HtmlToFileHelper.HtmlToPDF(HtmlUrl);
+            string url = HtmlToFileHelper.HtmlToPDF(htmlUrl);
             string fileName = "ProductInfo" + DateTime.Now.ToString("MM/dd/yyyy") + ".pdf";
             return File(new FileStream(url, FileMode.Open), "application/octet-stream", Server.UrlEncode(fileName));
         }

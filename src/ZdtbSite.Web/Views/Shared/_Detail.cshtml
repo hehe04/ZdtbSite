@@ -4,7 +4,7 @@
     function downPDF() {
         var url = window.location;
         //alert(url);
-        //ajaxSubmit("@Url.Action("downPDF", "Product")", { HtmlUrl: encodeURI(url) }, "正在下载文件..");
+        //ajaxSubmit("@Url.Action("DownPdf", "Product")", { HtmlUrl: encodeURI(url) }, "正在下载文件..");
         if (url) {
             $("#DownFiel").attr("src", "/Product/downPDF?HtmlUrl=" + url);
         } else alert("获取产品URL失败！");

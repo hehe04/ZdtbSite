@@ -151,3 +151,5 @@ $RECYCLE.BIN/
 .DS_Store
 gitignore/
 *.config
+src/ZdtbSite.Web/Images/uploadImages/
+src/ZdtbSite.Web/Images/attached/
