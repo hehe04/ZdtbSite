@@ -16,7 +16,7 @@ input:focus, textarea:focus {outline:none;}
 
 /* header */ 
 .header {position:relative;min-height:108px;z-index:1001;}
-.header .logo, .header .logo:visited {text-indent:-999em;cursor:pointer;background:url(../images/logo.png) no-repeat;display:block;width:175px;height:37px;position:absolute;top:37px;left:0;}
+.header .logo, .header .logo:visited {text-indent:-999em;cursor:pointer;background:url(../images/logo.png) no-repeat;display:block;width:210px;height:37px;position:absolute;top:37px;left:0;}
 	/* top menu */
 .header nav {position:absolute;top:48px;right:0;}
 .header nav ul {zoom:1;}
