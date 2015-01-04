@@ -72,14 +72,17 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <input type="file" id="fileElem" name="fileElem" onchange="handleFiles(this)" />
+                                                预设图片
                                                 @Html.HiddenFor(m => m.ImageUrl)
                                                 @Html.HiddenFor(m => m.ThumbnailUrl)
                                             </div>
                                             <div class="col-md-9">
+                                                (该图片会出现在列表页及详情页框架顶部)
                                                 <div id="fileList" style="height:250px;">
                                                     <img style=" height:250px;" id="ImageUrl" src="@Model.showImageUrl" />
                                                 </div>
+                                                <br />
+                                                <input type="file" id="fileElem" name="fileElem" onchange="handleFiles(this)" />
                                             </div>
                                         </div>
                                     </div>
