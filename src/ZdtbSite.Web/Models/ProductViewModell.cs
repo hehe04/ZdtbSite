@@ -20,6 +20,27 @@ namespace ZdtbSite.Web.Models
         public string ProductTypeName{ get; set; }
 
         public int ProductTypeId { get; set; }
+
         public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 描述:标准和应用
+        /// </summary>
+        public string StandardsApplication { get; set; }
+
+        /// <summary>
+        /// 描述:机械特性
+        /// </summary>
+        public string MechanicalFeatures { get; set; }
+
+        /// <summary>
+        /// 描述:电气参数
+        /// </summary>
+        public string ElectricalParameters { get; set; }
+
+        /// <summary>
+        /// 描述:配件和安装
+        /// </summary>
+        public string FittingsInstallation { get; set; }
     }
 }

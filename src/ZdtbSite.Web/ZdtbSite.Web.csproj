@@ -456,6 +456,7 @@
     <Content Include="Areas\ZdtbAdmin\Content\js\include\wysihtml5-0.3.0.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\ZeroClipboard.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\ZeroClipboard.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor.code.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\examples\auto-height.html" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\examples\colorpicker.html" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\examples\custom-plugin.html" />

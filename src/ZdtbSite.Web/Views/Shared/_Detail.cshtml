@@ -14,12 +14,40 @@
 <div style=" display:none">
     <iframe id="DownFiel"></iframe>
 </div>
-<div class="blog_entries">
+<div class="Product_entries">
     <div class="post post_full">
-        <div class="img_wrap bwWrapper">
-            <div class="date">@Model.CreateTime.ToString("MM/dd/yyyy")</div>
-            <img src="@Model.ImageUrl" width="640" height="265" alt="" />
+        <div class="services_option2 vertical_tabs">
+            <h4>Vertical Tabs</h4>
+            @*<div class="img_wrap bwWrapper">
+                    <div class="date">@Model.CreateTime.ToString("MM/dd/yyyy")</div>
+                    <img src="@Model.ImageUrl" width="640" height="265" alt="" />
+                </div>*@
+            <div id="tabs">
+                <ul class="tab_select">
+                    <li><a href="#tab-1">Standards & Application</a></li>
+                    <li><a href="#tab-2">Description</a></li>
+                    <li><a href="#tab-3">Mechanical Features</a></li>
+                    <li><a href="#tab-4">Electrical Parameters</a></li>
+                    <li><a href="#tab-5">Fittings & Installation</a></li>
+                </ul>
+                <div id="tab-1">
+                    @Html.Raw(Model.StandardsApplication)
+                </div>
+                <div id="tab-2">
+                    @Html.Raw(Model.Description)
+                </div>
+                <div id="tab-3">
+                    @Html.Raw(Model.MechanicalFeatures)
+                </div>
+                <div id="tab-4">
+                   @Html.Raw(Model.ElectricalParameters)
+                </div>
+                <div id="tab-5">
+                    @Html.Raw(Model.FittingsInstallation)
+                </div>
+            </div>
         </div>
+
         <div class="desc">
             <h4>@*Power Inductors Printed Circuit Mount PTL-02 SERIES SIZE 100*@@Model.Name</h4>
             @Html.Raw(Model.Description);

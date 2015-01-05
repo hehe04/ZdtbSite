@@ -24,7 +24,6 @@ namespace ZdtbSite.Web
                 "~/scripts/jquery.blackandwhite.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Style/HomeIndex").Include(
-                
                 "~/Stylesheets/style.css",
                 "~/Stylesheets/responsive.css",
                 "~/Stylesheets/jquery.onebyone.css"
