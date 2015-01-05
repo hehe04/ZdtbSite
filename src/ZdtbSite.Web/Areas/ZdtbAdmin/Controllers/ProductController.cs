@@ -143,8 +143,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 }
                 viewmodel.CreateTime = DateTime.Now;
                 //viewmodel.ProductType = productTypeRepository.GetById(viewmodel.ProductTypeId);
-                var ProductInfo = AutoMapper.Mapper.Map<Admin.ProductViewModel, Model.Product>(viewmodel);
-                productRepository.Update(ProductInfo);
+                var productInfo = AutoMapper.Mapper.Map<Admin.ProductViewModel, Model.Product>(viewmodel);
+                productRepository.Update(productInfo);
                 unitOfWork.Commit();
                 model.Success = true;
                 model.Msg = "成功更新产品信息，页面即将跳转到用产品表页";

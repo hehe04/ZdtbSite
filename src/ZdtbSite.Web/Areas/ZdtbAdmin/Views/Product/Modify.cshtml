@@ -68,18 +68,56 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.StandardsApplication)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.StandardsApplication, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.StandardsApplication)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.MechanicalFeatures)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.MechanicalFeatures, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.MechanicalFeatures)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.ElectricalParameters)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.ElectricalParameters, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.ElectricalParameters)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.FittingsInstallation)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.FittingsInstallation, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.FittingsInstallation)
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <input type="file" id="fileElem" name="fileElem" onchange="handleFiles(this)" />
+                                                预设图片
                                                 @Html.HiddenFor(m => m.ImageUrl)
                                                 @Html.HiddenFor(m => m.ThumbnailUrl)
                                             </div>
                                             <div class="col-md-9">
+                                                (该图片会出现在列表页,最佳分辨率490*250)
                                                 <div id="fileList" style="height:250px;">
                                                     <img style=" height:250px;" id="ImageUrl" src="@Model.ImageUrl" />
                                                 </div>
+                                                <br />
+                                                <input type="file" id="fileElem" name="fileElem" onchange="handleFiles(this)" />
                                             </div>
                                         </div>
                                     </div>
