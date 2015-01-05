@@ -1,0 +1,92 @@
+﻿@using System.Web.Optimization
+@using ZdtbSite.Model
+@{
+    ViewBag.Title = "Document";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<ZdtbSite.Web.Models.ProductViewModel> productRecommendList = ViewBag.ProductRecommendList;
+}
+
+
+@section Header{
+    @Scripts.Render("~/Script/ArticleIndex")
+    @Styles.Render("~/Style/AboutIndex")
+    <script>
+        $(function () {
+            $('.clients_slider').bxSlider({
+                auto: false,
+                controls: false,
+                mode: 'fade',
+                pager: true
+            });
+            $('.recent_slider').bxSlider({
+                auto: false,
+                displaySlideQty: 1,
+                moveSlideQty: 1,
+                speed: 1000
+            });
+            $('#faq').dltoggle();
+            $("#open").click(function (event) {
+                $('#faq').dltoggle_show();
+                return false;
+            });
+            $("#close").click(function (event) {
+                $('#faq').dltoggle_hide();
+                return false;
+            });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect: true,
+                webworkerPath: false,
+                responsive: true,
+                invertHoverEffect: false
+            });
+        })
+    </script>
+}
+
+<div class="content_block">
+    <!-- top_title -->
+    <div class="top_title">
+        <div class="wraper">
+            <h2>Downloads<span>Keep up with the latest news, tips and features right here!</span></h2>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li>Downloads</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /top_title -->
+    <div class="wraper">
+        @*@Html.Partial("_Detail")*@
+        <!-- blog entries -->
+        <div class="wraper_typ">
+            <div class="blog_entries">
+                <h4 class="bord">File Downloads</h4>
+                <ul class="arrows_list">
+                    @foreach (Document document in Model)
+                    {
+                        <li><a href="@Url.Content(@document.Path)">@document.Title</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+        <!-- /blog entries -->
+        <!-- sidebar -->
+        <div class="sidebar">
+            <!-- most popular -->
+            @Html.Partial("_ProductRecommend", productRecommendList)
+            <!-- /most popular -->
+            <!-- latest tweets -->
+            @Html.Partial("_OnlineService")
+            <!-- /latest tweets -->
+            <!--SearchButton-->
+            @Html.Partial("_SearchButton")
+            <!--/SearchButton-->
+            <!-- our clients -->
+            @Html.Partial("_Feedback")
+            <!-- /our clients -->
+        </div>
+        <!-- /sidebar -->
+    </div>
+</div>
+
