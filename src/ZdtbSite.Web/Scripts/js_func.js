@@ -14,14 +14,14 @@ $(function() {
 	$('.header nav ul ul li a').append('<span>&nbsp;</span>');
 	$('.featured_list li a').append('<span class="zoom">&nbsp;</span>');
 	
-	$('#tabs div').hide();
+	$('#tabs > div').hide();
 	$('#tabs div:first').show();
 	$('#tabs ul li:first').addClass('active');
 	$('#tabs ul li a').click(function(){
 		$('#tabs ul li').removeClass('active');
 		$(this).parent().addClass('active');
 		var currentTab = $(this).attr('href');
-		$('#tabs div').hide();
+		$('#tabs > div').hide();
 		$(currentTab).show();
 		return false;
 	});
