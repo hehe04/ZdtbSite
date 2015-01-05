@@ -94,12 +94,12 @@
                     </div>
                 </div>
             }
-            @Html.Partial("_PartialPage", Model)
-            <!-- pager_nav--
+            <!-- pager_nav-->
             <div class="pager_nav">
 
-                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
-                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+                @Html.Partial("_PartialPage", Model)
+                @*<a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+                    <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>*@
             </div>
             <!-- /pager_nav -->
         </div>

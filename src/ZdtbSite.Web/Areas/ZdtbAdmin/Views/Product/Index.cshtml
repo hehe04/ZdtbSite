@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "产品模块 > 产品维护";
 }
+@using ZdtbSite;
 @section PageHeader{
     产品模块 > 产品维护
 }
@@ -60,7 +61,10 @@
                                                 @item.CreateTime
                                             </td>
                                             <td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                @item.Description
+                                                @{
+                                                    string des = item.Description;
+                                                }
+                                                @des.ReplaceHtml().strSub(0, 250, "...")
                                             </td>
                                         </tr>
                                     }
