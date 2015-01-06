@@ -13,12 +13,16 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
 {
     public class ProductTypeController : BaseController
     {
+        private readonly IRepository<Product> productRepository;
         private readonly IRepository<ProductType> productTypeRepository;
+        private readonly IRepository<VisitLog> VisitLogRepository;
         private IUnitOfWork unitOfWork;
         private string CurrentUrl { get { return Url.Action("Index", "ProductType"); } }
-        public ProductTypeController(IRepository<ProductType> productTypeRepository, IUnitOfWork unitOfWork)
+        public ProductTypeController(IRepository<ProductType> productTypeRepository, IRepository<Product> productRepository, IRepository<VisitLog> VisitLogRepository, IUnitOfWork unitOfWork)
         {
             this.productTypeRepository = productTypeRepository;
+            this.productRepository = productRepository;
+            this.VisitLogRepository = VisitLogRepository;
             this.unitOfWork = unitOfWork;
         }
 
@@ -154,6 +158,18 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel model = new Admin.ResponseModel();
             try
             {
+                var productList = productRepository.GetAll().Where(e => e.ProductTypeId == id).ToList();
+                foreach (var product in productList)
+                {
+                    var visitLogList = VisitLogRepository.GetAll().Where(e => e.ProductId == product.Id).ToList();
+                    foreach (var visitLog in visitLogList)
+                    {
+                        VisitLogRepository.Delete(visitLog);
+                    }
+                    unitOfWork.Commit();
+                    productRepository.Delete(product);
+                }
+                unitOfWork.Commit();
                 productTypeRepository.Delete(productTypeRepository.GetById(id));
                 unitOfWork.Commit();
                 model.Success = true;

@@ -31,8 +31,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Display(Name = "产品描述")]
         public string Description { get; set; }
 
-        [Display(Name = "产品类型")]
-      
+        [Required(ErrorMessage = "必须选择产品类型.")]
+        [Display(Name = "产品类型")]      
         public int ProductTypeId { get; set; }
 
         public virtual ProductType ProductType { get; set; }
