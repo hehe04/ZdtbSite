@@ -22,6 +22,9 @@ namespace ZdtbSite.Model
         [StringLength(1024)]
         public string ThumbnailUrl { get; set; }
 
+        /// <summary>
+        /// 描述:概述
+        /// </summary>
         [MaxLength]
         public string Description { get; set; }
 
@@ -31,6 +34,30 @@ namespace ZdtbSite.Model
         public int ProductTypeId { get; set; }
 
         public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 描述:标准和应用
+        /// </summary>
+        [MaxLength]
+        public string StandardsApplication { get; set; }
+
+        /// <summary>
+        /// 描述:机械特性
+        /// </summary>
+        [MaxLength]
+        public string MechanicalFeatures { get; set; }
+
+        /// <summary>
+        /// 描述:电气参数
+        /// </summary>
+        [MaxLength]
+        public string ElectricalParameters { get; set; }
+
+        /// <summary>
+        /// 描述:配件和安装
+        /// </summary>
+        [MaxLength]
+        public string FittingsInstallation { get; set; }
 
         public virtual ICollection<VisitLog> VisitLogs { get; set; }
 

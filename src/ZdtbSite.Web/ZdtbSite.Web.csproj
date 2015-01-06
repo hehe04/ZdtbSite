@@ -456,6 +456,7 @@
     <Content Include="Areas\ZdtbAdmin\Content\js\include\wysihtml5-0.3.0.min.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\ZeroClipboard.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\include\ZeroClipboard.min.js" />
+    <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor.code.js" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\examples\auto-height.html" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\examples\colorpicker.html" />
     <Content Include="Areas\ZdtbAdmin\Content\js\kindeditor\examples\custom-plugin.html" />
@@ -1626,6 +1627,15 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Shared\_PartialPage.cshtml" />
+    <Content Include="Views\Shared\_SearchButton.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\ClientVisitAttribute.cs" />
@@ -1671,6 +1681,7 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CareersController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -1746,6 +1757,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
     <Folder Include="Content\OutPutFile\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">

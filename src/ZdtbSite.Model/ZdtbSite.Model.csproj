@@ -44,6 +44,7 @@
     <Compile Include="Contract.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Feedback.cs" />
+    <Compile Include="Document.cs" />
     <Compile Include="Recruitment.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="VisitLog.cs" />

@@ -59,11 +59,11 @@
         <div class="contact_us">
             <h4>Where We Make Magic Happen</h4>
             <!--   <div class="bwWrapper"><img src="images/contact_us/contact_us.png" width="640" height="265" alt="" /></div>-->
-            <div class="map_wrap"><iframe width="640" height="265" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=555+Smith+Street+New+York,+NY+12345&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=49.223579,79.013672&amp;ie=UTF8&amp;hq=&amp;hnear=555+Smith+St,+Brooklyn,+Kings,+New+York+11231&amp;t=m&amp;z=14&amp;ll=40.672836,-73.998729&amp;output=embed"></iframe></div>
+            <div class="map_wrap"><iframe width="640" height="265" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14086.19699052507!2d120.892196!3d28.03824955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x344f9d6439b3f0c7%3A0x241ce244ad5087cf!2sLiushizhen%2C+Yueqing%2C+Wenzhou%2C+Zhejiang%2C+China%2C+325604!5e0!3m2!1sen!2shk!4v1420339948620"></iframe></div>
             <ul>
-                <li>Address:<br /><br />Phone:<br />Fax:<br />Toll Free:</li>
-                <li><strong>555 Smith Street<br />New York, NY 12345<br />555-123-4567<br />555-123-5678<br />555-123-6789</strong></li>
-                <li>Construct is located at the heart of downtown New York City.  Come on down and have a visit!  Or feel free to fill out the form below to get in touch with us. We’d love to hear from you, and will be in touch with you right away.  Thanks, we look forward to hearing from you!  Tempora un incidunt ut labore et dolore magnam aliquam quaeraptatem.</li>
+                <li>Address:<br /><br /><br />Phone:<br />Fax:<br />Email:<br />Postcode:</li>
+                <li><strong>Liushi Town,Yueqing City,Zhejiang Province,China<br />+86 577 61785882<br />+86 577 89736095<br /><a href="mailto:sales@tminan.com">sales@tminan.com</a><br/>325604</strong></li>
+                <li>We are located in “China Electric Capital”，Come on down and have a visit! Or feel free to fill out the form below to get in touch with us. We’d love to hear from you, and will be in touch with you right away. Thanks, we look forward to hearing from you!</li>
             </ul>
             <h4>Drop Us A Quick Line!</h4>
             @using (Html.BeginForm())
@@ -81,8 +81,9 @@
             <!-- most popular -->
             @Html.Partial("_ProductRecommend", ProductRecommendList);
             <!-- /most popular -->
-            <!-- latest tweets -->
-            <!-- /latest tweets -->
+            <!--SearchButton-->
+            @Html.Partial("_SearchButton")
+            <!--/SearchButton-->
             <!-- our clients -->
             <div class="our_clients">
                 <h4>Our Clients Just Love Us</h4>

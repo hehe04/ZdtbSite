@@ -68,7 +68,42 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.StandardsApplication)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.StandardsApplication, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.StandardsApplication)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.MechanicalFeatures)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.MechanicalFeatures, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.MechanicalFeatures)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.ElectricalParameters)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.ElectricalParameters, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.ElectricalParameters)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">@Html.LabelFor(m => m.FittingsInstallation)</div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.FittingsInstallation, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.FittingsInstallation)
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">
@@ -77,9 +112,9 @@
                                                 @Html.HiddenFor(m => m.ThumbnailUrl)
                                             </div>
                                             <div class="col-md-9">
-                                                (该图片会出现在列表页及详情页框架顶部)
+                                                (该图片会出现在列表页,最佳分辨率490*250)
                                                 <div id="fileList" style="height:250px;">
-                                                    <img style=" height:250px;" id="ImageUrl" src="@Model.showImageUrl" />
+                                                    <img style=" height:250px;" id="ImageUrl" src="@Model.ImageUrl" />
                                                 </div>
                                                 <br />
                                                 <input type="file" id="fileElem" name="fileElem" onchange="handleFiles(this)" />
@@ -158,20 +193,21 @@
     <link href="~/Areas/ZdtbAdmin/Content/js/kindeditor/themes/default/default.css" rel="stylesheet" />
     <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/kindeditor-min.js"></script>
     <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor/lang/zh_CN.js"></script>
-    <script>
-        var editor;
-        KindEditor.ready(function (K) {
-            editor = K.create('textarea', {
-                uploadJson: '@Url.Action("Upload", "FileManager")',
-                fileManagerJson: '@Url.Action("Index", "FileManager")',
-                height: 500,
-                allowFileManager: true
+    <script src="~/Areas/ZdtbAdmin/Content/js/kindeditor.code.js"></script>
+    @*<script>
+            var editor;
+            KindEditor.ready(function (K) {
+                editor = K.create('textarea', {
+                    uploadJson: '@Url.Action("Upload", "FileManager")',
+                    fileManagerJson: '@Url.Action("Index", "FileManager")',
+                    height: 500,
+                    allowFileManager: true
+                });
             });
-        });
-        $(function () {
-            $(".btn").click(function () {
-                editor.sync();
+            $(function () {
+                $(".btn").click(function () {
+                    editor.sync();
+                });
             });
-        });
-    </script>
+        </script>*@
 }

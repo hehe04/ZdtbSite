@@ -78,8 +78,10 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Admin.ArticleDataViewModel viewModel)
+        public ActionResult Add(Admin.ArticleDataViewModel viewModel, HttpPostedFileBase fileElem)
         {
+            string maxUrl = null, minUrl = null;
+            if (Request.Files.Count == 1) GetImageUrl(fileElem, ref maxUrl, ref minUrl);
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
             if (model.IsPublish)
@@ -90,6 +92,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             model.OriginArticlesType = OriginArticlesType.User;
             model.UpdateDateTime = DateTime.Now;
             model.ContentTypeId = 3;
+            model.ImgUrl = maxUrl;
+            model.ThumbnailUrl = minUrl;
             articleRepository.Add(model);
             unitofWork.Commit();
             responseModel.Success = true;
@@ -110,10 +114,16 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Modify(Admin.ArticleDataViewModel viewModel)
+        public ActionResult Modify(Admin.ArticleDataViewModel viewModel, HttpPostedFileBase fileElem)
         {
             Admin.ResponseModel responseModel = new Admin.ResponseModel();
-
+            if (Request.Files.Count == 1)
+            {
+                string maxUrl = null, miniUrl = null;
+                GetImageUrl(fileElem, ref maxUrl, ref miniUrl);
+                viewModel.Article.ImgUrl = maxUrl;
+                viewModel.Article.ThumbnailUrl = miniUrl;
+            }
             Article model = AutoMapper.Mapper.Map<Admin.ArticleViewModel, Article>(viewModel.Article);
             model.ContentTypeId = 3;
             model.OriginArticlesType = OriginArticlesType.User;

@@ -28,7 +28,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         public string showImageUrl { get; set; }
 
         [MaxLength]
-        [Display(Name = "产品描述")]
+        [Display(Name = "概述")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "必须选择产品类型.")]
@@ -39,6 +39,34 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
 
         [Display(Name = "产品添加时间")]
         public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 描述:标准和应用
+        /// </summary>
+        [MaxLength]
+        [Display(Name = "标准和应用")]
+        public string StandardsApplication { get; set; }
+
+        /// <summary>
+        /// 描述:机械特性
+        /// </summary>
+        [MaxLength]
+        [Display(Name = "机械特性")]
+        public string MechanicalFeatures { get; set; }
+
+        /// <summary>
+        /// 描述:电气参数
+        /// </summary>
+        [MaxLength]
+        [Display(Name = "电气参数")]
+        public string ElectricalParameters { get; set; }
+
+        /// <summary>
+        /// 描述:配件和安装
+        /// </summary>
+        [MaxLength]
+        [Display(Name = "配件和安装")]
+        public string FittingsInstallation { get; set; }
 
         public virtual ICollection<VisitLog> VisitLogs { get; set; }
 

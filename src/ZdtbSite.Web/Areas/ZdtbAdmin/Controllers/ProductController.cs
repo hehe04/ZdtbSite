@@ -43,43 +43,43 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             return View(model);
         }
 
-        public void GetImageUrl(HttpPostedFileBase hpFill, ref string MaxImgURL, ref string MiniImgURL)
-        {
-            if (hpFill.ContentType.IndexOf("image") > -1)
-            {
-                //得到上传的图片名 hpFill.FileName得到客户端上传文件的路劲
-                string fillName = System.IO.Path.GetFileName(hpFill.FileName);
-                //获取保存路径
-                string filePath = HttpContext.Server.MapPath("/Images/uploadImages/");
-                //判断路径是否存 创建路径
-                if (!Directory.Exists(filePath))
-                {
-                    Directory.CreateDirectory(filePath);
-                }
-                string guid = Guid.NewGuid().ToString();
-                //保存大图
-                MaxImgURL = filePath + guid + "_Max_" + fillName;
-                hpFill.SaveAs(MaxImgURL);
+        //public void GetImageUrl(HttpPostedFileBase hpFill, ref string MaxImgURL, ref string MiniImgURL)
+        //{
+        //    if (hpFill.ContentType.IndexOf("image") > -1)
+        //    {
+        //        //得到上传的图片名 hpFill.FileName得到客户端上传文件的路劲
+        //        string fillName = System.IO.Path.GetFileName(hpFill.FileName);
+        //        //获取保存路径
+        //        string filePath = HttpContext.Server.MapPath("/Images/uploadImages/");
+        //        //判断路径是否存 创建路径
+        //        if (!Directory.Exists(filePath))
+        //        {
+        //            Directory.CreateDirectory(filePath);
+        //        }
+        //        string guid = Guid.NewGuid().ToString();
+        //        //保存大图
+        //        MaxImgURL = filePath + guid + "_Max_" + fillName;
+        //        hpFill.SaveAs(MaxImgURL);
 
-                //从上传的流中拿出图片
-                using (Image img = Image.FromStream(hpFill.InputStream))
-                {
-                    //创建要修改后的图片的大小缩小原来的5倍
-                    using (Bitmap bit = new Bitmap(img.Width / 8, img.Height / 8))
-                    {
-                        using (Graphics g = Graphics.FromImage(bit))
-                        {
-                            //缩略图,第一个Rectangle是你要缩略过后的图片大小（要把原图画成多大）,第二个Rectangle是要从img对象中的那个坐标开始绘制，所绘制的宽度和长度是多少，最后是以像素的形式
-                            g.DrawImage(img, new Rectangle(0, 0, bit.Width, bit.Height), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
-                            //将绘制好的小图保存到指定的路径中
-                            MiniImgURL = filePath + guid + "_Mini_" + fillName;
-                            bit.Save(MiniImgURL);
-                        }
-                    }
-                }
-            }
+        //        //从上传的流中拿出图片
+        //        using (Image img = Image.FromStream(hpFill.InputStream))
+        //        {
+        //            //创建要修改后的图片的大小缩小原来的5倍
+        //            using (Bitmap bit = new Bitmap(img.Width / 8, img.Height / 8))
+        //            {
+        //                using (Graphics g = Graphics.FromImage(bit))
+        //                {
+        //                    //缩略图,第一个Rectangle是你要缩略过后的图片大小（要把原图画成多大）,第二个Rectangle是要从img对象中的那个坐标开始绘制，所绘制的宽度和长度是多少，最后是以像素的形式
+        //                    g.DrawImage(img, new Rectangle(0, 0, bit.Width, bit.Height), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
+        //                    //将绘制好的小图保存到指定的路径中
+        //                    MiniImgURL = filePath + guid + "_Mini_" + fillName;
+        //                    bit.Save(MiniImgURL);
+        //                }
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
 
         [HttpPost]
         public ActionResult Add(Admin.ProductViewModel viewmodel, HttpPostedFileBase fileElem)
@@ -114,6 +114,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Product ProductInfo = productRepository.GetById(id);
             Admin.ProductViewModel model = AutoMapper.Mapper.Map<Model.Product, Admin.ProductViewModel>(ProductInfo);
+<<<<<<< HEAD
             if (model.ImageUrl != null)
             {
                 //绝对路径转成相对路径
@@ -122,6 +123,16 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 imagesurl2 = imagesurl2.Replace(@"\", @"/");
                 model.showImageUrl = "/" + imagesurl2;
             }
+=======
+            //if (model.ImageUrl != null)
+            //{
+            //    //绝对路径转成相对路径
+            //    string tmpRootDir = Server.MapPath(Request.ApplicationPath.ToString());//获取程序根目录
+            //    string imagesurl2 = ProductInfo.ImageUrl.Replace(tmpRootDir, ""); //转换成相对路径
+            //    imagesurl2 = imagesurl2.Replace(@"\", @"/");
+            //    model.showImageUrl= "/" + imagesurl2;
+            //}
+>>>>>>> f2d92b07cd67bf93367fedf9a146d5c0d85375b1
 
             var list = productTypeRepository.GetAll().ToList();
             ViewBag.DropDownListResult = GetDownList(0, list);
@@ -143,8 +154,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 }
                 viewmodel.CreateTime = DateTime.Now;
                 //viewmodel.ProductType = productTypeRepository.GetById(viewmodel.ProductTypeId);
-                var ProductInfo = AutoMapper.Mapper.Map<Admin.ProductViewModel, Model.Product>(viewmodel);
-                productRepository.Update(ProductInfo);
+                var productInfo = AutoMapper.Mapper.Map<Admin.ProductViewModel, Model.Product>(viewmodel);
+                productRepository.Update(productInfo);
                 unitOfWork.Commit();
                 model.Success = true;
                 model.Msg = "成功更新产品信息，页面即将跳转到用产品表页";

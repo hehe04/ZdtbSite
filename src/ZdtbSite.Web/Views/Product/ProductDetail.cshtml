@@ -44,7 +44,7 @@
 <div class="content_block">
     <!-- top_title -->
     <div class="top_title">
-        <div class="wraper">
+        <div class="wraper_v2">
             <h2>Product<span>Keep up with the latest news, tips and features right here!</span></h2>
             <ul>
                 <li><a href="@Url.Action("Index", "Home")">Home</a></li>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <!-- /top_title -->
-    <div class="wraper">
+    <div class="wraper_v2">
         @Html.Partial("_Detail", Model)
         <!-- sidebar -->
         <div class="sidebar">
@@ -64,6 +64,9 @@
             <!-- latest tweets -->
             @Html.Partial("_OnlineService")
             <!-- /latest tweets -->
+            <!--SearchButton-->
+            @Html.Partial("_SearchButton")
+            <!--/SearchButton-->
         </div>
         <!-- /sidebar -->
     </div>

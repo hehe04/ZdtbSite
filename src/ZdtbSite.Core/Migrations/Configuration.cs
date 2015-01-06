@@ -13,8 +13,8 @@ namespace ZdtbSite.Core.Migrations
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;//删除model实体的时候更新表需要设置
 #else
-            AutomaticMigrationsEnabled = false;
-            AutomaticMigrationDataLossAllowed = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
 #endif
         }
 

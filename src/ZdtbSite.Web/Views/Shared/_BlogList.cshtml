@@ -1,5 +1,8 @@
-﻿<div class="content_block">
-    <!-- top_title -->
+﻿@model PagedList.IPagedList<ZdtbSite.Model.Article>
+
+@using ZdtbSite;
+
+<div class="content_block">
     <div class="top_title">
         <div class="wraper">
             <h2>News <span>Keep up with the latest news, tips and features right here!</span></h2>
@@ -9,12 +12,10 @@
             </ul>
         </div>
     </div>
-    <!-- /top_title -->
     <div class="wraper">
-        <!-- blog entries full -->
         <div class="blog_entries blog_entries_full">
 
-            @for (int i = 0; i < 2; i++)
+            @*@for (int i = 0; i < 2; i++)
             {
                 <div class="post post_medium">
                     <div class="img_wrap bwWrapper">
@@ -31,16 +32,35 @@
                         </div>
                     </div>
                 </div>
+            }*@
+
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="post post_medium">
+                        <div class="img_wrap bwWrapper">
+                            <div class="date">@item.UpdateDateTime.ToString("MM/dd/yyyy")</div>
+                            <a href="@Url.Action("Detail", "Article",new{ id= item.Id})"><img src="@item.ImgUrl" width="493" height="249" alt="" /></a>
+                        </div>
+                        <div class="desc">
+                            <h4><a href="@Url.Action("Detail", "Article", new { id = item.Id })">@item.Title</a></h4>
+                            <p>
+                                @item.Content.ReplaceHtml().strSub(0, 200, "")....
+                            </p>
+                            <div class="metadata">
+                                @*<strong class="dots">....</strong>
+                                    By <a href="#">Ken Wallingford</a>*@
+                                <a href="@Url.Action("Detail", "Article", new { id = item.Id })" class="read_more btn_col">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                }
             }
-
-            <!-- pager_nav -->
             <div class="pager_nav">
-                <a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
-                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>
+                @*<a href="#">1</a><span>2</span><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+                <a href="#" class="bx-prev">prev</a><a href="#" class="bx-next">next</a>*@
+                @Html.Partial("_PartialPage",Model)
             </div>
-            <!-- /pager_nav -->
         </div>
-        <!-- /blog entries full -->
-
     </div>
 </div>
