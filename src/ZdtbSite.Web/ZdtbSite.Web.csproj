@@ -1184,6 +1184,9 @@
     <Content Include="Areas\ZdtbAdmin\Views\Shared\FeedbackPage.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Error\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\Feedback\Reply.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Document\Index.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Document\Add.cshtml" />
+    <Content Include="Areas\ZdtbAdmin\Views\Document\Modify.cshtml" />
     <None Include="Properties\PublishProfiles\file.pubxml" />
     <None Include="Properties\PublishProfiles\relsease.pubxml" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
@@ -1654,6 +1657,7 @@
     <Compile Include="Areas\ZdtbAdmin\Controllers\CompanyNewsController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ContractController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Controllers\DocumentController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\ErrorController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\ZdtbAdmin\Controllers\FileManagerController.cs" />
@@ -1672,6 +1676,7 @@
     <Compile Include="Areas\ZdtbAdmin\Models\BasicInfoViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ContractViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\CustomerViewModel.cs" />
+    <Compile Include="Areas\ZdtbAdmin\Models\DocumentViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\FeedbackViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductTypeViewModel.cs" />
     <Compile Include="Areas\ZdtbAdmin\Models\ProductViewModel.cs" />

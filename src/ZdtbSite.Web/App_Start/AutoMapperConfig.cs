@@ -45,6 +45,10 @@ namespace ZdtbSite.Web
 
             AutoMapper.Mapper.CreateMap<Contract, Admin.ContractViewModel>();
             AutoMapper.Mapper.CreateMap<Admin.ContractViewModel, Contract>();
+
+
+            AutoMapper.Mapper.CreateMap<Document, Admin.DocumentViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.DocumentViewModel, Document>();
         }
     }
 }
