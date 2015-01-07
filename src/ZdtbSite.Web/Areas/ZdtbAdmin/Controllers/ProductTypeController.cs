@@ -114,6 +114,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 responseModel.Success = false;
                 responseModel.Msg = "添加产品类型失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(responseModel);
         }
@@ -145,6 +146,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "更新产品类型信息失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model);
         }
@@ -164,6 +166,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "删除产品类型失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model, JsonRequestBehavior.AllowGet);
         }

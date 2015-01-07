@@ -62,6 +62,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 responseModel.Success = false;
                 responseModel.Msg = "添加用户失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(responseModel);
         }
@@ -101,6 +102,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "修改用户失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model);
         }

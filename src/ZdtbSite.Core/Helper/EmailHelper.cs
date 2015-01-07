@@ -34,15 +34,9 @@ namespace ZdtbSite.Core.Helper
             }
             string id, pwd, Server;
             int Port = 25;
-            try
-            {
-                id = dic["mailUser"]; pwd = dic["mailPwd"]; Server = dic["mailServer"];
-                if (dic.ContainsKey("mailPort")) Port = Convert.ToInt32(dic["mailPort"]);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("邮件配置有误！" + ex.Message);
-            }
+            id = dic["mailUser"]; pwd = dic["mailPwd"]; Server = dic["mailServer"];
+            if (dic.ContainsKey("mailPort")) Port = Convert.ToInt32(dic["mailPort"]);
+
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(id, sendName);//发送人地址、发送人名称
             for (int i = 0; i < emailList.Count; i++)
@@ -84,15 +78,8 @@ namespace ZdtbSite.Core.Helper
             }
             string id, pwd, Server;
             int Port = 25;
-            try
-            {
-                id = dic["mailUser"]; pwd = dic["mailPwd"]; Server = dic["mailServer"];
-                if (dic.ContainsKey("mailPort")) Port = Convert.ToInt32(dic["mailPort"]);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("邮件配置有误！" + ex.Message);
-            }
+            id = dic["mailUser"]; pwd = dic["mailPwd"]; Server = dic["mailServer"];
+            if (dic.ContainsKey("mailPort")) Port = Convert.ToInt32(dic["mailPort"]);
             if (!dic.ContainsKey("receiveEmailList")) throw new Exception("接收人地址为空！");
             string[] receiveEmailArr = dic["receiveEmailList"].Split(';');
             MailMessage mail = new MailMessage();

@@ -15,9 +15,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         private readonly IRepository<Contract> ContractRepository;
         private IUnitOfWork unitOfWork;
         private string CurrentUrl { get { return Url.Action("Index", "Contract"); } }
-        public ContractController(IRepository<Contract> ContractRepository, IUnitOfWork unitOfWork)
+        public ContractController(IRepository<Contract> contractRepository, IUnitOfWork unitOfWork)
         {
-            this.ContractRepository = ContractRepository;
+            this.ContractRepository = contractRepository;
             this.unitOfWork = unitOfWork;
         }
         // GET: ZdtbAdmin/Contract
@@ -35,10 +35,10 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 string[] idArr = ids.Split(',');
                 for (int i = 0; i < idArr.Length; i++)
                 {
-                    var Contract = ContractRepository.GetById(int.Parse(idArr[i]));
-                    Contract.Status = ContractStatus.Signed;
-                    Contract.SignedTime = DateTime.Now;
-                    ContractRepository.Update(Contract);
+                    var contract = ContractRepository.GetById(int.Parse(idArr[i]));
+                    contract.Status = ContractStatus.Signed;
+                    contract.SignedTime = DateTime.Now;
+                    ContractRepository.Update(contract);
                 }
                 unitOfWork.Commit();
                 model.Success = true;
@@ -49,6 +49,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "合同签约失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model, JsonRequestBehavior.AllowGet);
         }

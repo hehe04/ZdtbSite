@@ -21,26 +21,19 @@ namespace ZdtbSite.Core.Helper
             string fileName = Guid.NewGuid().ToString();
             string outputPath = HttpContext.Current.Server.MapPath("/Content/OutPutFile/");
             string savepath = string.Format(outputPath + "\\" + fileName + ".pdf");//最终保存
-            try
+
+            if (!string.IsNullOrEmpty(url) || !string.IsNullOrEmpty(savepath))
             {
-                if (!string.IsNullOrEmpty(url) || !string.IsNullOrEmpty(savepath))
+                Process p = new Process();
+                string resource = HttpContext.Current.Server.MapPath("/Content/Resoure");
+                string dllstr = string.Format(resource + "\\wkhtmltopdf.exe");
+                if (System.IO.File.Exists(dllstr))
                 {
-                    Process p = new Process();
-                    string resource = HttpContext.Current.Server.MapPath("/Content/Resoure");
-                    string dllstr = string.Format(resource + "\\wkhtmltopdf.exe");
-                    if (System.IO.File.Exists(dllstr))
-                    {
-                        p = System.Diagnostics.Process.Start(dllstr, url + " " + outputPath + fileName + ".pdf");
-                        p.WaitForExit();
-                    }
+                    p = System.Diagnostics.Process.Start(dllstr, url + " " + outputPath + fileName + ".pdf");
+                    p.WaitForExit();
                 }
-                else savepath = null;
             }
-            catch (Exception ex)
-            {
-                savepath = null;
-                throw new Exception(ex.ToString());
-            }
+            else savepath = null;
             return savepath;
         }
     }

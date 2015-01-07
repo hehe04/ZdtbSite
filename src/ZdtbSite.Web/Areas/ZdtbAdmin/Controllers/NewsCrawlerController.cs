@@ -124,6 +124,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 responsemodel.Success = false;
                 responsemodel.Msg = ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
                 return Json(responsemodel, JsonRequestBehavior.AllowGet);
             }
             MatchCollection collection = regexurl.Matches(content);
@@ -153,9 +154,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                         list.Add(item.Groups[1].Value);
                         isCommit = true;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
                     }
                 }
             }

@@ -26,15 +26,9 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public ActionResult Index()
         {
             List<Admin.BasicInfoViewModel> BasicInfoList = new List<Admin.BasicInfoViewModel>();
-            try
-            {
-                //pageList
-                var list = BasicInfoRepository.GetAll().ToList();
-                BasicInfoList = AutoMapper.Mapper.Map<List<Model.BasicInfo>, List<Admin.BasicInfoViewModel>>(list);
-            }
-            catch (Exception)
-            {
-            }
+            //pageList
+            var list = BasicInfoRepository.GetAll().ToList();
+            BasicInfoList = AutoMapper.Mapper.Map<List<Model.BasicInfo>, List<Admin.BasicInfoViewModel>>(list);
             return View(BasicInfoList);
         }
 
@@ -55,6 +49,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "企业信息失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model);
         }
@@ -90,6 +85,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 responseModel.Success = false;
                 responseModel.Msg = "添加企业信息失败，请重试！" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(responseModel);
         }
@@ -110,6 +106,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "删除企业信息失败，请重试" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model, JsonRequestBehavior.AllowGet);
         }
@@ -134,6 +131,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 model.Success = false;
                 model.Msg = "邮件发送失败!" + ex.Message;
+                Elmah.ErrorSignal.FromContext(HttpContext.ApplicationInstance.Context).Raise(ex);
             }
             return Json(model, JsonRequestBehavior.AllowGet);
         }
