@@ -1628,9 +1628,12 @@
     <Content Include="Areas\ZdtbAdmin\Views\User\Index.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Assign.cshtml" />
     <Content Include="Areas\ZdtbAdmin\Views\User\Add.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_PartialPage.cshtml" />
     <Content Include="Views\Shared\_SearchButton.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1682,6 +1685,7 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CareersController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -1757,6 +1761,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ZdtbAdmin\Content\img\UploadImage\" />
     <Folder Include="Content\OutPutFile\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZdtbSite.Core\ZdtbSite.Core.csproj">

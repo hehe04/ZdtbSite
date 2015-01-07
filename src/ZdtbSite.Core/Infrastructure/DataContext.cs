@@ -35,6 +35,8 @@ namespace ZdtbSite.Core.Infrastructure
 
         public IDbSet<Contract> Contracts { get; set; }
 
+        public IDbSet<Document> Document { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //映射Feedback Customer 主外键关系
