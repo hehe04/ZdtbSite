@@ -18,13 +18,15 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
     {
         private readonly IRepository<Product> productRepository;
         private readonly IRepository<ProductType> productTypeRepository;
+        private readonly IRepository<VisitLog> visitLogRepository;
         private IUnitOfWork unitOfWork;
         private string CurrentUrl { get { return Url.Action("Index", "Product"); } }
 
-        public ProductController(IRepository<Product> productRepository, IRepository<ProductType> productTypeRepository, IUnitOfWork unitOfWork)
+        public ProductController(IRepository<Product> productRepository, IRepository<ProductType> productTypeRepository, IRepository<VisitLog> visitLogRepository, IUnitOfWork unitOfWork)
         {
             this.productRepository = productRepository;
             this.productTypeRepository = productTypeRepository;
+            this.visitLogRepository = visitLogRepository;
             this.unitOfWork = unitOfWork;
         }
         // GET: ZdtbAdmin/Product
@@ -114,7 +116,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Product ProductInfo = productRepository.GetById(id);
             Admin.ProductViewModel model = AutoMapper.Mapper.Map<Model.Product, Admin.ProductViewModel>(ProductInfo);
-<<<<<<< HEAD
             if (model.ImageUrl != null)
             {
                 //绝对路径转成相对路径
@@ -123,7 +124,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 imagesurl2 = imagesurl2.Replace(@"\", @"/");
                 model.showImageUrl = "/" + imagesurl2;
             }
-=======
             //if (model.ImageUrl != null)
             //{
             //    //绝对路径转成相对路径
@@ -132,8 +132,6 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             //    imagesurl2 = imagesurl2.Replace(@"\", @"/");
             //    model.showImageUrl= "/" + imagesurl2;
             //}
->>>>>>> f2d92b07cd67bf93367fedf9a146d5c0d85375b1
-
             var list = productTypeRepository.GetAll().ToList();
             ViewBag.DropDownListResult = GetDownList(0, list);
             return View(model);
@@ -174,6 +172,12 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel model = new Admin.ResponseModel();
             try
             {
+                var visitList = visitLogRepository.GetAll().Where(e => e.ProductId == id).ToList();
+                foreach (var visit in visitList)
+                {
+                    visitLogRepository.Delete(visit);
+                }
+                unitOfWork.Commit();
                 productRepository.Delete(productRepository.GetById(id));
                 unitOfWork.Commit();
                 model.Success = true;
