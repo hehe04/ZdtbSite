@@ -18,13 +18,15 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
     {
         private readonly IRepository<Product> productRepository;
         private readonly IRepository<ProductType> productTypeRepository;
+        private readonly IRepository<VisitLog> visitLogRepository;
         private IUnitOfWork unitOfWork;
         private string CurrentUrl { get { return Url.Action("Index", "Product"); } }
 
-        public ProductController(IRepository<Product> productRepository, IRepository<ProductType> productTypeRepository, IUnitOfWork unitOfWork)
+        public ProductController(IRepository<Product> productRepository, IRepository<ProductType> productTypeRepository, IRepository<VisitLog> visitLogRepository, IUnitOfWork unitOfWork)
         {
             this.productRepository = productRepository;
             this.productTypeRepository = productTypeRepository;
+            this.visitLogRepository = visitLogRepository;
             this.unitOfWork = unitOfWork;
         }
         // GET: ZdtbAdmin/Product
@@ -39,7 +41,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         {
             Admin.ProductViewModel model = new Admin.ProductViewModel();
             var list = productRepository.GetAll().ToList();
-            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).GetDownList(0, productTypeRepository.GetAll().ToList());
+            ViewBag.DropDownListResult = GetDownList(0, productTypeRepository.GetAll().ToList());
             return View(model);
         }
 
@@ -113,8 +115,16 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         [HttpGet]
         public ActionResult Modify(int id)
         {
-            Product ProductInfo = productRepository.GetById(id);            
+            Product ProductInfo = productRepository.GetById(id);
             Admin.ProductViewModel model = AutoMapper.Mapper.Map<Model.Product, Admin.ProductViewModel>(ProductInfo);
+            if (model.ImageUrl != null)
+            {
+                //绝对路径转成相对路径
+                string tmpRootDir = Server.MapPath(Request.ApplicationPath.ToString());//获取程序根目录
+                string imagesurl2 = ProductInfo.ImageUrl.Replace(tmpRootDir, ""); //转换成相对路径
+                imagesurl2 = imagesurl2.Replace(@"\", @"/");
+                model.showImageUrl = "/" + imagesurl2;
+            }
             //if (model.ImageUrl != null)
             //{
             //    //绝对路径转成相对路径
@@ -123,9 +133,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             //    imagesurl2 = imagesurl2.Replace(@"\", @"/");
             //    model.showImageUrl= "/" + imagesurl2;
             //}
-
             var list = productTypeRepository.GetAll().ToList();
-            ViewBag.DropDownListResult = new ProductTypeController(productTypeRepository, unitOfWork).GetDownList(0, list);
+            ViewBag.DropDownListResult = GetDownList(0, list);
             return View(model);
         }
 
@@ -165,6 +174,12 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             Admin.ResponseModel model = new Admin.ResponseModel();
             try
             {
+                var visitList = visitLogRepository.GetAll().Where(e => e.ProductId == id).ToList();
+                foreach (var visit in visitList)
+                {
+                    visitLogRepository.Delete(visit);
+                }
+                unitOfWork.Commit();
                 productRepository.Delete(productRepository.GetById(id));
                 unitOfWork.Commit();
                 model.Success = true;
@@ -179,5 +194,30 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             }
             return Json(model, JsonRequestBehavior.AllowGet);
         }
+
+        public Dictionary<string, string> GetDownList(int id, List<Model.ProductType> list)
+        {
+            Dictionary<string, string> results = new Dictionary<string, string>();
+            var serachList = list.Where(e => e.ParentId.Equals(id));
+            foreach (var item in serachList)
+            {
+                Model.ProductType model = item;
+                //string TypeName = "";
+                int lv = 0;
+                for (int i = 0; i < item.Level; i++)
+                {
+                    model = list.Where(e => e.Id == model.ParentId).FirstOrDefault();
+                    if (model != null) lv += 1;//nameList.Add(model.TypeName);
+                }
+                results.Add(item.Id.ToString(), "<label style=' margin-left:" + lv * 20 + "px;'>" + item.TypeName + "</label>");
+                var result = GetDownList(item.Id, list);
+                foreach (var item1 in result)
+                {
+                    results.Add(item1.Key, item1.Value);
+                }
+            }
+            return results;
+        }
+
     }
 }
