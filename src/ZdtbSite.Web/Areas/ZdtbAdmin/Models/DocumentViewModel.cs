@@ -13,7 +13,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Models
         [Required(ErrorMessage = "请输入文档标题")]
         [Display(Name = "文档标题")]
         public string Title { get; set; }
-        [Display(Name = "文档路劲")]
+        [Display(Name = "文档")]
         public string Path { get; set; }
         [Display(Name = "文档描述")]
         public string Description { get; set; }

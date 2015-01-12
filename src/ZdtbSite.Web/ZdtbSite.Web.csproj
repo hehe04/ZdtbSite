@@ -1637,6 +1637,7 @@
     <Content Include="Views\Shared\_PartialPage.cshtml" />
     <Content Include="Views\Shared\_SearchButton.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />
+    <Content Include="Views\Document\LayoutDocument.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

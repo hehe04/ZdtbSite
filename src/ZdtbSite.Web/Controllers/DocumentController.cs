@@ -19,11 +19,17 @@ namespace ZdtbSite.Web.Controllers
         }
 
         // GET: File
-        public ActionResult Index()
+        public ActionResult Index(DocumentView view)
         {
             var model = _documentRepository.GetAllAsNoTracking();
             ViewBag.ProductRecommendList = GetProductRecommendList(_productRepository);
-            return View(model);
+            return View(view.ToString(), model);
         }
+    }
+
+    public enum DocumentView
+    {
+        Index,
+        LayoutDocument
     }
 }

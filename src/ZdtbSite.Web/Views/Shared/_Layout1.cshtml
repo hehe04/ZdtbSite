@@ -91,13 +91,7 @@
             <!-- recent posts -->
             <div class="recent_posts">
                 <h3><span>Recent Posts</span></h3>
-                <ul>
-                    <li><a href="#">Lorem ipsum dolo amet consecect</a></li>
-                    <li><a href="#">Sed laoreet neque nonte mauris </a></li>
-                    <li><a href="#">Metus lacus, porta vestibulum</a></li>
-                    <li><a href="#">Morbi ac magna est ornare eliticits</a></li>
-                    <li><a href="#">Voluptas sadips nemis un etras</a></li>
-                </ul>
+                @{Html.RenderAction("Index", "Document", new { view = ZdtbSite.Web.Controllers.DocumentView.LayoutDocument });};
             </div>
             <!-- /recent posts -->
             <!-- subscribe block -->
@@ -124,6 +118,6 @@
     <div style="display:block">
         <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
     </div>
-    
+
 </body>
 </html>

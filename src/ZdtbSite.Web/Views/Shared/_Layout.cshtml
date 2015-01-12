@@ -74,7 +74,7 @@
                     </li>
                 </ul>
                 <!-- /top menu -->
-            </nav>            
+            </nav>
         </header>
     </div>
     @RenderBody()
@@ -120,13 +120,7 @@
             <!-- recent posts -->
             <div class="recent_posts">
                 <h3><span>Downloads</span></h3>
-                <ul>
-                    <li><a href="#">Lorem ipsum dolo amet consecect</a></li>
-                    <li><a href="#">Sed laoreet neque nonte mauris </a></li>
-                    <li><a href="#">Metus lacus, porta vestibulum</a></li>
-                    <li><a href="#">Morbi ac magna est ornare eliticits</a></li>
-                    <li><a href="#">Voluptas sadips nemis un etras</a></li>
-                </ul>
+                @Html.Action("Index", "Document", new { view = ZdtbSite.Web.Controllers.DocumentView.LayoutDocument })
             </div>
             <!-- /recent posts -->
             <!-- subscribe block -->
@@ -179,7 +173,7 @@
 
                 </script>
             </div>
-            <!-- /subscribe block -->            
+            <!-- /subscribe block -->
         </footer>
     </div>
     <!-- copyright -->
