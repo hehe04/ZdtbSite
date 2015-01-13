@@ -51,7 +51,7 @@
                                                 @Html.LabelFor(m => m.Path) <span>(单个文件最大限制为4M)</span>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="file" id="fileElem" name="fileElem"/>
+                                                <input type="file" id="fileElem" name="fileElem" />
                                             </div>
                                         </div>
 
@@ -64,7 +64,7 @@
                                                     <i class="icon-repeat icon-white"></i> 重置
                                                 </button>
 
-                                                <button type="submit" name="name" class="btn btn-primary">
+                                                <button type="submit" name="name" class="btn btn-primary" onclick="return fileSelected();">
                                                     <i class="icon-ok-sign icon-white"></i> 保存
                                                 </button>
                                             </div>
@@ -81,4 +81,17 @@
 </div>
 
 @section script{
+    <script>
+        function fileSelected() {
+            var file = document.getElementById("fileElem").files[0];
+            if (file) {
+                console.log(file.size);
+                if ((Math.round(file.size * 100 / (1024 * 1024)) / 100) > 4) {
+                    finAlert("上传文件过大，只能上传小于4MB的文件，请重新选择", false);
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
 }

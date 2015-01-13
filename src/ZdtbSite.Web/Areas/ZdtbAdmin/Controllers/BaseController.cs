@@ -27,6 +27,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             base.OnException(filterContext);
         }
 
+        
+
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
             string action = filterContext.RouteData.Values["Action"].ToString();
