@@ -56,7 +56,11 @@
     </div>
     <!-- /top_title -->
     <div class="wraper">
-        @Html.Partial("_Detail")
+<<<<<<< HEAD
+        @Html.Partial("_Detail", (IEnumerable<ProductViewModel>)ViewBag.ProductRecommendList)
+=======
+        @Html.Partial("_Detail", (ProductViewModel)ViewBag.ProductRecommendList)
+>>>>>>> e5eed9252ecaebda08b07335331bb882bc269969
         @Html.Partial("_DetailSidebar", contentTypes, ViewData)
     </div>
 </div>
