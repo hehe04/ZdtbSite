@@ -8,7 +8,7 @@
             foreach (var productViewModel in Model)
             {
                 <li>
-                    <div class="bwWrapper"><a href="@Url.Action("ProductDetail", "Product", new { Id = productViewModel.Id })"><img src="@Url.Content(productViewModel.ImageUrl)" width="60" height="55" alt="" /></a></div>
+                    <div class="bwWrapper"><a href="@Url.Action("ProductDetail", "Product", new { Id = productViewModel.Id })"><img src="@Url.Content(productViewModel.ThumbnailUrl)" width="60" height="55" alt="" /></a></div>
                     <div class="desc">
                         <p><strong><a href="@Url.Action("ProductDetail", "Product", new { Id = productViewModel.Id })">@productViewModel.Name</a></strong></p>
                         <p>...</p>

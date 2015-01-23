@@ -1127,6 +1127,7 @@
     <Content Include="Images\about_us\process-media-banner.jpg" />
     <Content Include="Images\about_us\Sales_Network.jpg" />
     <Content Include="Images\blog\blog_01.jpg" />
+    <Content Include="Images\Careers\full_width_image.png" />
     <Content Include="Images\Careers\ourteam.jpg" />
     <Content Include="Images\Cert\3C1-1.jpg" />
     <Content Include="Images\Cert\3C2-1.jpg" />

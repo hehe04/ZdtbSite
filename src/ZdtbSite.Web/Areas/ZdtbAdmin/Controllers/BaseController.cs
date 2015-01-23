@@ -27,7 +27,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             base.OnException(filterContext);
         }
 
-        
+
 
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
@@ -79,6 +79,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
             {
                 //得到上传的图片名 hpFill.FileName得到客户端上传文件的路劲
                 string fillName = System.IO.Path.GetFileName(hpFill.FileName);
+                var ext = Path.GetExtension(hpFill.FileName);
                 string path = "/Images/uploadImages/";
 
                 //获取保存路径
@@ -89,8 +90,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 }
                 string guid = Guid.NewGuid().ToString();
                 //保存大图
-                MaxImgURL = path + guid + "_Max_" + fillName;
-                string savePath = filePath + guid + "_Max_" + fillName;
+                MaxImgURL = path + guid + "_Max" + ext;
+                string savePath = filePath + guid + "_Max" + ext;
                 hpFill.SaveAs(savePath);
 
                 //从上传的流中拿出图片
@@ -104,8 +105,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                             //缩略图,第一个Rectangle是你要缩略过后的图片大小（要把原图画成多大）,第二个Rectangle是要从img对象中的那个坐标开始绘制，所绘制的宽度和长度是多少，最后是以像素的形式
                             g.DrawImage(img, new Rectangle(0, 0, bit.Width, bit.Height), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
                             //将绘制好的小图保存到指定的路径中
-                            MiniImgURL = path + guid + "_Mini_" + fillName;
-                            savePath = filePath + guid + "_Mini_" + fillName;
+                            MiniImgURL = path + guid + "_Min" + ext;
+                            savePath = filePath + guid + "_Min" + ext;
                             bit.Save(savePath);
                         }
                     }
@@ -117,6 +118,7 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
         public void UploadFile(HttpPostedFileBase hpFile, ref string outpath)
         {
             string fillName = System.IO.Path.GetFileName(hpFile.FileName);
+            var ext = Path.GetExtension(hpFile.FileName);
             string path = "/Images/uploadImages/";
 
             //获取保存路径
@@ -126,8 +128,8 @@ namespace ZdtbSite.Web.Areas.ZdtbAdmin.Controllers
                 Directory.CreateDirectory(filePath);
             }
             string guid = Guid.NewGuid().ToString();
-            string relativePath = path + guid + fillName;
-            string savePath = filePath + guid + fillName;
+            string relativePath = path + guid + ext;
+            string savePath = filePath + guid + ext;
             outpath = relativePath;
             hpFile.SaveAs(savePath);
         }
