@@ -1,9 +1,14 @@
 ﻿@using System.Web.Optimization;
+@using ZdtbSite.Web.Areas.ZdtbAdmin.Models
+@{
+    BasicInfoViewModel siteKeywords = ViewBag.SiteKeywords;
+}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="@siteKeywords.Value">
     <title>Minnan Technology Co.Ltd</title>
     <link rel="icon" type="image/png" href="~/images/favicon.ico" />
     <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png" />

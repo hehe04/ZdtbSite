@@ -7,19 +7,7 @@
 }
 <div class="fluid-container">
     <div style="padding-bottom:10px">
-        <a class="btn btn-primary" href="@Url.Action("Add")">
-            <i class="icon-ok-sign icon-white"></i> 添加
-        </a>
-        @*<a class="btn btn-primary" href="@Url.Action("sendEmailTest")">
-                <i class="icon-ok-sign icon-white"></i> 发送邮件
-            </a>
-
-            <a class="btn btn-danger addClick" id="btnToPDF" data-rel="@Url.Action("GetProductPDF")">
-                <i class="icon-remove icon-white"></i> ToPDF
-            </a>*@
     </div>
-
-
     <div class="fluid-container">
         <section id="widget-grid" class="">
             <div class="row">
@@ -44,18 +32,21 @@
                                                     @Html.HiddenFor(m => item.Description)
                                                     @item.Description
                                             </div>
-                                            <div class="col-md-7">
-                                                @Html.TextBoxFor(m => item.Value, new { @class = "form-control", autofocus = "" })
-                                                @Html.ValidationMessageFor(m => item.Value)
-                                            </div>
+                                                <div class="col-md-7">
+                                                    @if (item.Key.Equals("mailPwd", StringComparison.CurrentCultureIgnoreCase))
+                                                    {
+                                                        @Html.PasswordFor(m => item.Value, new { @class = "form-control", autofocus = "" })
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.TextBoxFor(m => item.Value, new { @class = "form-control", autofocus = "" })
+                                                    }
+                                                    @Html.ValidationMessageFor(m => item.Value)
+                                                </div>
                                             <div class="col-lg-3">
                                                 <button type="submit" name="name" class="btn btn-warning addClick">
                                                     <i class="icon-ok-sign icon-white"></i> 更新
                                                 </button>
-                                                <a class="btn btn-danger addClick" name="btnDelete" value="@item.Id">
-                                                    <i class=" icon-remove-sign icon-white"></i> 删除
-                                                </a>
-
                                             </div>
                                         </div>
                                     </div>
